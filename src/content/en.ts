@@ -90,16 +90,17 @@ const policyDate = '1 November 2026';
 export const en: Content = {
   status: 'final',
   meta: { title: name, description: `${name}, in Al-Jalawiyah, Dammam. Repair of air conditioners, fridges, automatic washing machines and dryers.` },
-  chrome: { skipLink: 'Skip to content' },
+  chrome: { skipLink: 'Skip to content', homeLabel: `${name}, home`, navLabel: 'Main menu', menu: 'Menu', language: 'العربية', nav: { services: 'Services', faults: 'Faults', reviews: 'Reviews', contact: 'Contact' }, word: site.brand.latin.toUpperCase() },
   actions: { whatsapp: 'WhatsApp us', call: 'Call us', directions: 'Directions', allServices: 'All services' },
   icons: { next: 'Next' },
   home: {
     seo: { title: `AC, fridge and washing machine repair in Dammam | ${name}`, description: 'A registered repair shop in Al-Jalawiyah, Dammam: air conditioners, fridges, automatic washing machines and dryers. Photograph the fault and send it on WhatsApp.' },
     hero: {
       question: 'AC gave up?',
-      answer: 'Photograph the fault and send it on WhatsApp.',
+      answer: 'Photograph the fault and send it on WhatsApp',
       support: 'Air conditioner, fridge, washing machine and dryer repair in Dammam.',
       homeVisitLine: '',
+      tile: { alt: 'Illustration of a split air conditioner' },
     },
     picker: { heading: 'What is the fault?', lead: 'Pick the appliance, then the fault, and send it to us on WhatsApp.', applianceLabel: 'Appliance', faultLabel: 'Fault', areaLabel: 'District', send: 'Send on WhatsApp', plain: 'Or browse the services' },
     repair: { heading: 'What we repair', lead: 'Four kinds of household appliance.' },

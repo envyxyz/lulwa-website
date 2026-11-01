@@ -27,7 +27,17 @@ export type Policy = Intro & { updated: string; sections: Section[] };
 export type Content = {
   status: 'final';
   meta: { title: string; description: string };
-  chrome: { skipLink: string };
+  chrome: {
+    skipLink: string;
+    homeLabel: string;
+    navLabel: string;
+    menu: string;
+    /** The other language's name, shown as the language link. */
+    language: string;
+    nav: { services: string; faults: string; reviews: string; contact: string };
+    /** The giant name across the hero and the end of the footer. */
+    word: string;
+  };
   actions: { whatsapp: string; call: string; directions: string; allServices: string };
   icons: { next: string };
   home: {
@@ -38,6 +48,7 @@ export type Content = {
       support: string;
       /** Empty until the client confirms home visits (docs/FOR-AMEER.md). Render nothing when empty. */
       homeVisitLine: string;
+      tile: { alt: string };
     };
     picker: { heading: string; lead: string; applianceLabel: string; faultLabel: string; areaLabel: string; send: string; plain: string };
     repair: { heading: string; lead: string };

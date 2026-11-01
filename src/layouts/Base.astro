@@ -1,5 +1,8 @@
 ---
 import '../styles/global.css';
+import TopBar from '../components/TopBar.astro';
+import Footer from '../components/Footer.astro';
+import BottomBar from '../components/BottomBar.astro';
 import { content, langFromUrl } from '../content';
 
 type Props = { title: string; description: string; noindex?: boolean };
@@ -19,8 +22,11 @@ const displayFont = lang === 'ar' ? '/fonts/beiruti-800-900.woff2' : '/fonts/sch
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin />
   </head>
-  <body>
+  <body class="pb-bottom-bar md:pb-0">
     <a href="#main" class="sr-only focus:not-sr-only">{content[lang].chrome.skipLink}</a>
+    <TopBar />
     <main id="main"><slot /></main>
+    <Footer />
+    <BottomBar />
   </body>
 </html>

@@ -33,6 +33,9 @@
   --text-body--line-height: 1.85;
   --text-small: 0.9375rem;
   --text-small--line-height: 1.6;
+  /* The name across the hero and footer, sized to its container. One word, one job. */
+  --text-giant: min(52cqi, 46svh);
+  --text-giant--line-height: 0.95;
 
   --font-weight-*: initial;
   --font-weight-regular: 400;
@@ -58,6 +61,11 @@
   --spacing-target: 2.75rem; /* 44 px minimum tap target */
   --spacing-icon: 1.25em;
   --spacing-pearl: 0.28em; /* the pearl scales with the type it ends */
+  --spacing-bar: 4.5rem; /* top bar */
+  --spacing-bottom-bar: 4.5rem; /* phone action bar */
+  --spacing-logo: 2.75rem;
+  --spacing-tile: 17rem; /* hero product tile */
+  --spacing-hero: 44rem; /* hero panel floor on desktop */
 
   --container-*: initial;
   --container-page: 80rem;
@@ -76,12 +84,14 @@
   --duration-rise: 500ms;
   --stagger: 70ms;
   --rise: 1.25rem;
+  --seam-rise: 16%; /* how far below rest the teal field starts */
   --focus-width: 3px;
 }
 
 :lang(en) {
   --font-display: 'Schibsted Grotesk', 'Schibsted Fallback', sans-serif;
-  --font-body: 'Schibsted Grotesk', 'Schibsted Fallback', sans-serif;
+  /* Plex only fetches where Arabic appears: the legal name and the language link. */
+  --font-body: 'Schibsted Grotesk', 'Schibsted Fallback', 'IBM Plex Sans Arabic', sans-serif;
   --text-statement: clamp(3.4rem, 10.2vw, 10.25rem);
   --text-statement--line-height: 1;
   --text-head: clamp(2rem, 4.2vw, 4rem);
@@ -94,4 +104,5 @@
   --font-weight-head: 700;
   --font-weight-statement: 800;
   --tracking-statement: -0.03em;
+  --text-giant: min(25cqi, 46svh);
 }

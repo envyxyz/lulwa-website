@@ -1,0 +1,21 @@
+---
+import Button from './Button.astro';
+import { content, langFromUrl } from '../content';
+
+const { actions } = content[langFromUrl(Astro.url)];
+---
+
+<div data-tone="ink" data-testid="bottom-bar" class="bar fixed inset-x-0 bottom-0 z-10 grid grid-cols-2 gap-2 bg-ink p-2 md:hidden">
+  <Button variant="whatsapp">{actions.whatsapp}</Button>
+  <Button variant="call" light>{actions.call}</Button>
+</div>
+
+<style>
+  .bar {
+    padding-block-end: max(0.5rem, env(safe-area-inset-bottom));
+  }
+  .bar :global(a) {
+    justify-content: center;
+    padding-inline: 0;
+  }
+</style>

@@ -3,19 +3,20 @@ import Icon from './Icon.astro';
 import { site } from '../site';
 
 // whatsapp and call know their own target, from site.ts only. quiet needs href.
-type Props = { variant: 'whatsapp' | 'call' | 'quiet'; href?: string };
-const { variant, href } = Astro.props;
+// light: the call button on a teal or ink field.
+type Props = { variant: 'whatsapp' | 'call' | 'quiet'; href?: string; light?: boolean };
+const { variant, href, light = false } = Astro.props;
 const targets = { whatsapp: site.phone.whatsapp, call: site.phone.tel, quiet: href };
 const icons = { whatsapp: 'whatsapp', call: 'phone', quiet: 'arrow-next' } as const;
 const solid = 'h-button md:h-button-md rounded-button px-card active:scale-98';
 const styles = {
   whatsapp: `${solid} bg-whatsapp text-ink active:bg-whatsapp-active`,
-  call: `${solid} bg-teal text-pearl active:bg-teal-active`,
+  call: `${solid} ${light ? 'bg-pearl text-ink active:bg-pearl-step' : 'bg-teal text-pearl active:bg-teal-active'}`,
   quiet: 'min-h-target underline underline-offset-4',
 };
 ---
 
-<a href={targets[variant]} data-action={variant} class:list={['inline-flex items-center gap-2 font-medium transition', styles[variant]]}>
+<a href={targets[variant]} data-action={variant} class:list={['inline-flex items-center justify-center gap-2 font-medium transition', styles[variant]]}>
   {variant !== 'quiet' && <Icon name={icons[variant]} />}
   <slot />
   {variant === 'quiet' && <Icon name={icons[variant]} />}

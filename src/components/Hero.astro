@@ -1,0 +1,50 @@
+---
+import Button from './Button.astro';
+import Icon from './Icon.astro';
+import Img from './Img.astro';
+import { site } from '../site';
+import { content, langFromUrl, localePath } from '../content';
+
+const lang = langFromUrl(Astro.url);
+const { actions, chrome, home, services } = content[lang];
+const { hero, shop } = home;
+const ac = services.items[0]!;
+---
+
+<section data-tone="teal" class="px-gutter">
+  <div class="@container relative flex flex-col overflow-clip rounded-panel text-pearl md:min-h-hero">
+    <div class="seam absolute inset-0 rounded-panel bg-teal"></div>
+    <p class="relative text-center font-display text-giant font-statement tracking-statement">{chrome.word}</p>
+    <div class="relative mt-auto flex flex-col gap-8 p-card md:flex-row md:items-end md:justify-between">
+      <div class="flex flex-col gap-4">
+        <!-- The visible support sentence is in the h1, so service and city are never hidden text. -->
+        <h1 class="font-display text-head font-head">
+          {hero.question}
+          <span data-support class="block font-body text-body font-medium">{hero.support}</span>
+        </h1>
+        <!-- homeVisitLine replaces the answer once the client confirms home visits. -->
+        <p class="text-lead font-medium">{hero.homeVisitLine || hero.answer}<span class="ms-1 inline-block size-pearl rounded-dot bg-copper" aria-hidden="true"></span></p>
+        <div class="flex flex-wrap gap-3 *:grow md:*:grow-0">
+          <Button variant="whatsapp">{actions.whatsapp}</Button>
+          <Button variant="call" light>{actions.call}</Button>
+        </div>
+        <p class="text-small"><bdi dir="ltr">{site.phone.display}</bdi><br />{shop.hours}</p>
+      </div>
+      <a href={localePath(lang, `/services/${ac.slug}`)} class="flex w-full shrink-0 items-center gap-4 rounded-card bg-white p-4 text-ink transition active:scale-98 md:w-tile md:flex-col md:items-stretch md:gap-2">
+        <span class="w-28 shrink-0 md:w-full"><Img name="split-ac-indoor" widths={[320, 640]} width={640} height={478} alt={hero.tile.alt} sizes="(min-width: 48rem) 17rem, 7rem" eager /></span>
+        <span class="flex grow items-center justify-between font-medium">{ac.name}<Icon name="arrow-next" /></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .seam {
+    animation: seam var(--duration-rise) var(--ease-out) both;
+  }
+  @keyframes seam {
+    from {
+      transform: translateY(var(--seam-rise));
+    }
+  }
+</style>

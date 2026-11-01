@@ -1,0 +1,42 @@
+---
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+import { content, langFromUrl, localePath, twinPath } from '../content';
+
+const lang = langFromUrl(Astro.url);
+const { chrome } = content[lang];
+const links = [
+  ['/services', chrome.nav.services],
+  ['/faults', chrome.nav.faults],
+  ['/reviews', chrome.nav.reviews],
+  ['/contact', chrome.nav.contact],
+] as const;
+const target = 'inline-flex min-h-target items-center transition active:opacity-60';
+---
+
+<header class="flex h-bar items-center gap-6 px-gutter">
+  <a href={localePath(lang, '/')} class="me-auto transition active:opacity-60"><Logo label={chrome.homeLabel} /></a>
+  <nav aria-label={chrome.navLabel} class="hidden items-center gap-8 lg:flex">
+    {links.map(([path, label]) => <a href={localePath(lang, path)} class:list={[target, 'font-medium']}>{label}</a>)}
+  </nav>
+  <a href={twinPath(Astro.url.pathname)} lang={lang === 'ar' ? 'en' : 'ar'} data-testid="language-link" class:list={[target, 'underline underline-offset-4']}>{chrome.language}</a>
+  <!-- ponytail: native popover gives open, Esc, light dismiss and focus return with 0 KB of JS. -->
+  <button type="button" popovertarget="menu" data-testid="menu-toggle" aria-label={chrome.menu} class="inline-flex size-target items-center justify-center transition active:scale-90 lg:hidden">
+    <Icon name="menu" />
+  </button>
+  <nav id="menu" popover aria-label={chrome.navLabel} data-testid="menu" class="menu rounded-card bg-pearl-step p-card shadow-menu">
+    {links.map(([path, label]) => <a href={localePath(lang, path)} class:list={[target, 'w-full text-lead font-medium']}>{label}</a>)}
+  </nav>
+</header>
+
+<style>
+  .menu {
+    position: fixed;
+    inset-block-start: var(--spacing-bar);
+    inset-block-end: auto;
+    inset-inline: var(--spacing-gutter);
+    margin: 0;
+    inline-size: auto;
+    color: var(--color-ink);
+  }
+</style>

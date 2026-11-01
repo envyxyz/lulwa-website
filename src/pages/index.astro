@@ -1,7 +1,7 @@
 ---
-// Bare stub so the build and the tests have a page. Phase 3 replaces it.
 import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
 import { ar } from '../content/ar';
 ---
 
-<Base title={ar.meta.title} description={ar.meta.description}><h1>{ar.meta.title}</h1></Base>
+<Base title={ar.home.seo.title} description={ar.home.seo.description}><Hero /></Base>

@@ -90,16 +90,17 @@ const policyDate = '1 نوفمبر 2026';
 export const ar: Content = {
   status: 'final',
   meta: { title: name, description: `${name} في حي الجلوية بالدمام. صيانة المكيفات والثلاجات والغسالات الأوتوماتيك والنشافات.` },
-  chrome: { skipLink: 'انتقل إلى المحتوى' },
+  chrome: { skipLink: 'انتقل إلى المحتوى', homeLabel: `${name}، الصفحة الرئيسية`, navLabel: 'القائمة الرئيسية', menu: 'القائمة', language: 'English', nav: { services: 'الخدمات', faults: 'الأعطال', reviews: 'التقييمات', contact: 'تواصل معنا' }, word: site.brand.arabicShort },
   actions: { whatsapp: 'تواصل واتساب', call: 'اتصل بنا', directions: 'الاتجاهات', allServices: 'كل الخدمات' },
   icons: { next: 'التالي' },
   home: {
     seo: { title: `تصليح مكيفات وثلاجات وغسالات في الدمام | ${name}`, description: 'ورشة صيانة مسجلة في حي الجلوية بالدمام: مكيفات، ثلاجات، غسالات أوتوماتيك ونشافات. صوّر العطل وأرسله واتساب.' },
     hero: {
       question: 'المكيف وقف؟',
-      answer: 'صوّر العطل وأرسله واتساب.',
+      answer: 'صوّر العطل وأرسله واتساب',
       support: 'صيانة مكيفات وثلاجات وغسالات ونشافات في الدمام.',
       homeVisitLine: '',
+      tile: { alt: 'رسم توضيحي لمكيف سبليت' },
     },
     picker: { heading: 'وش العطل؟', lead: 'اختر الجهاز ثم العطل وأرسله لنا واتساب.', applianceLabel: 'الجهاز', faultLabel: 'العطل', areaLabel: 'الحي', send: 'أرسل واتساب', plain: 'أو تصفح الخدمات' },
     repair: { heading: 'وش نصلح', lead: 'أربعة أنواع من الأجهزة المنزلية.' },
