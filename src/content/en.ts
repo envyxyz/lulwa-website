@@ -118,7 +118,7 @@ export const en: Content = {
       noteLabel: 'Tell us what is happening',
       notePlaceholder: 'For example: it switches off after a while',
       join: ', ',
-      likely: 'Likely part:',
+      likely: 'Likely parts:',
       message: { start: 'Hello. Appliance: {appliance}.', fault: ' Fault: {fault}.', note: ' Note: {note}' },
       appliances: [
         { slug: 'split-ac', name: 'Split AC', service: 'ac-repair', faults: [{ label: 'Not cooling', part: 'filter or gas' }, { label: 'Leaking water', part: 'drain line' }, { label: 'Will not start', part: 'control board' }, { label: 'Loud', part: 'fan' }] },

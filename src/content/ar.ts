@@ -118,7 +118,7 @@ export const ar: Content = {
       noteLabel: 'اكتب لنا وش يصير',
       notePlaceholder: 'مثلاً: يطفي بعد شوي',
       join: '، ',
-      likely: 'القطعة المتوقعة:',
+      likely: 'القطع المتوقعة:',
       message: { start: 'السلام عليكم، عندي {appliance}.', fault: ' العطل: {fault}.', note: ' ملاحظة: {note}' },
       appliances: [
         { slug: 'split-ac', name: 'مكيف سبليت', service: 'ac-repair', faults: [{ label: 'ما يبرّد', part: 'الفلتر أو الغاز' }, { label: 'يسرّب ماء', part: 'مجرى التصريف' }, { label: 'ما يشتغل', part: 'لوحة التحكم' }, { label: 'صوته عالي', part: 'المروحة' }] },

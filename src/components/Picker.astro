@@ -40,7 +40,7 @@ const arrow = 'absolute top-1/2 z-10 hidden size-target -translate-y-1/2 items-c
         <ul class="grid">
           {picker.appliances.map((a, k) => (
             <li class="item col-start-1 row-start-1 w-stage justify-self-center" style={`--d:${seat(k)}`} data-pos={seat(k) === 0 ? 'c' : Math.abs(seat(k)) === 1 ? 'n' : 'f'}>
-              <a href={service(a.service)} data-picker-appliance={a.slug} data-name={a.name} tabindex={Math.abs(seat(k)) === 2 ? -1 : undefined} class="relative block rounded-card">
+              <a href={service(a.service)} data-picker-appliance={a.slug} data-name={a.name} class="relative block rounded-card">
                 <span class="photo block">
                   <Img name={photo[a.slug]!} widths={[320, 640]} width={640} height={478} alt={a.name} sizes="(min-width: 48rem) 20rem, 13rem" />
                 </span>
@@ -101,7 +101,8 @@ const arrow = 'absolute top-1/2 z-10 hidden size-target -translate-y-1/2 items-c
     opacity: var(--picker-near-opacity);
     filter: grayscale(1);
   }
-  .item[data-pos='f'] {
+  /* Far seats hide only once JS runs, so without JS every appliance link stays reachable. */
+  [data-ready] .item[data-pos='f'] {
     opacity: 0;
     pointer-events: none;
   }
@@ -165,7 +166,7 @@ const arrow = 'absolute top-1/2 z-10 hidden size-target -translate-y-1/2 items-c
   let tracked = false;
   let warm = false;
 
-  const fill = (template: string, value: string) => template.replace(/\{\w+\}/, value);
+  const fill = (template: string, value: string) => template.replace(/\{\w+\}/, () => value);
   const pressed = (group: HTMLElement) => [...group.querySelectorAll<HTMLElement>('[aria-pressed="true"]')];
 
   const update = () => {
@@ -224,7 +225,7 @@ const arrow = 'absolute top-1/2 z-10 hidden size-target -translate-y-1/2 items-c
     const el = (event.target as Element).closest<HTMLElement>('a[role="button"], [data-picker-step]');
     if (!el) return;
     event.preventDefault();
-    if ('pickerAppliance' in el.dataset) go(items.indexOf(el));
+    if ('pickerAppliance' in el.dataset) { const i = items.indexOf(el); if (i !== cur) go(i); }
     else if (el.dataset.pickerStep) go(cur + Number(el.dataset.pickerStep));
     else {
       el.setAttribute('aria-pressed', String(el.getAttribute('aria-pressed') !== 'true'));
