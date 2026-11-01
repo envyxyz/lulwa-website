@@ -1,0 +1,68 @@
+{
+ "area_m": {
+  "url": "https://lulwa.com.sa/areas/appliance-repair-in-dammam",
+  "performance": 68,
+  "accessibility": 100,
+  "best-practices": 92,
+  "seo": 100,
+  "LCP": 2502.62,
+  "TBT": 1461.5,
+  "CLS": 0.001636102413525016,
+  "bytes": 210789
+ },
+ "contact_m": {
+  "url": "https://lulwa.com.sa/contact",
+  "performance": 83,
+  "accessibility": 100,
+  "best-practices": 100,
+  "seo": 100,
+  "LCP": 1759.798,
+  "TBT": 644.5,
+  "CLS": 0.021181777482130806,
+  "bytes": 633343
+ },
+ "home_d": {
+  "url": "https://lulwa.com.sa/",
+  "performance": 88,
+  "accessibility": 100,
+  "best-practices": 100,
+  "seo": 100,
+  "LCP": 1487.815,
+  "TBT": 129.5,
+  "CLS": 0.004912582190920207,
+  "bytes": 721308
+ },
+ "home_m": {
+  "url": "https://lulwa.com.sa/",
+  "performance": 72,
+  "accessibility": 100,
+  "best-practices": 100,
+  "seo": 100,
+  "LCP": 2710.154,
+  "TBT": 999,
+  "CLS": 0.0005160138012013122,
+  "bytes": 339192
+ },
+ "home_m2": {
+  "url": "https://lulwa.com.sa/",
+  "performance": 76,
+  "accessibility": 100,
+  "best-practices": 100,
+  "seo": 100,
+  "LCP": 2408.093,
+  "TBT": 826.9999999999998,
+  "CLS": 0.003501449333375435,
+  "bytes": 339067
+ },
+ "svc_m": {
+  "url": "https://lulwa.com.sa/services/ac-repair",
+  "performance": 74,
+  "accessibility": 100,
+  "best-practices": 100,
+  "seo": 100,
+  "LCP": 1956.7709999999997,
+  "TBT": 1289.4999999999998,
+  "CLS": 0.024600943326260956,
+  "bytes": 201097
+ }
+}

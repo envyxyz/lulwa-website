@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lulwa hero mock</title>
+<link href="https://fonts.googleapis.com/css2?family=Beiruti:wght@800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pearl:#EEF2EF; --ink:#0B1F2A; --teal:#0F6E7A; --teal-deep:#0B5862; --copper:#D9772B; --wa:#25D366;
+    --gutter:clamp(1rem,2.4vw,2rem);
+    --head:"Beiruti",sans-serif; --body:"IBM Plex Sans Arabic",sans-serif; --hw:900; --hs:1.68;
+    --seam:50svh;
+  }
+  * { box-sizing:border-box; margin:0 }
+  body { font-family:var(--body); background:var(--pearl); color:var(--ink); }
+  a { color:inherit; text-decoration:none }
+  ::selection { background:var(--teal); color:var(--pearl) }
+  :focus-visible { outline:3px solid var(--copper); outline-offset:3px }
+
+  .hero { position:relative; min-block-size:100svh; overflow:hidden; display:grid; grid-template-rows:auto 1fr auto;
+    background:linear-gradient(var(--pearl) 0 var(--seam), var(--teal) var(--seam) 100%); }
+
+  .bar { position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; padding:1.1rem var(--gutter); font-weight:500; font-size:1.0625rem }
+  .brand { display:flex; align-items:center; gap:.6rem; font-family:"Beiruti"; font-weight:900; font-size:1.875rem; line-height:1 }
+  .brand small { display:block; font-family:var(--body); font-weight:500; font-size:.8125rem; color:#3c4c55; margin-block-start:.3rem }
+  .links { display:flex; gap:clamp(1rem,2.4vw,2.25rem); align-items:center }
+  .links a:hover { color:var(--teal) }
+  .lang { color:#3c4c55 }
+
+  /* The headline straddles the seam: one line stands on each field, each in its own ink. */
+  h1 { position:absolute; inset-inline:var(--gutter); top:var(--seam); transform:translateY(-50%); margin:0; font-weight:inherit }
+  .line { display:block; font-family:var(--head); font-weight:var(--hw); font-size:calc(var(--hs)*clamp(4rem,11vw,11rem)); line-height:1.06; text-align:start; white-space:nowrap }
+  .line.up { color:var(--ink) }
+  .line.down { color:var(--pearl) }
+  .pearl { display:inline-block; inline-size:.17em; block-size:.17em; border-radius:50%; background:var(--copper); margin-inline-start:.06em; vertical-align:baseline }
+  .kw { position:absolute; inline-size:1px; block-size:1px; overflow:hidden; clip-path:inset(50%) }
+
+  .foot { position:relative; z-index:2; color:var(--pearl); display:flex; align-items:flex-end; justify-content:space-between; gap:2rem; padding:0 var(--gutter) clamp(1.5rem,3.4vh,2.5rem) }
+  .foot p { font-size:clamp(1.125rem,1.55vw,1.5rem); line-height:1.6; max-inline-size:38ch }
+  .acts { display:flex; gap:.75rem; flex:none }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:.6rem; min-block-size:3.5rem; padding:0 1.75rem; font-weight:700; font-size:1.125rem; border-radius:.75rem; transition:transform .25s cubic-bezier(.16,1,.3,1),background-color .25s }
+  .btn:active { transform:scale(.97) }
+  .wa { background:var(--wa); color:var(--ink) }
+  .call { background:var(--pearl); color:var(--ink) }
+  .call bdi { font-feature-settings:"tnum" }
+  .sticky { display:none }
+
+  html[dir=ltr] { --head:"Schibsted Grotesk",sans-serif; --body:"Schibsted Grotesk",sans-serif; --hw:800; --hs:1 }
+  html[dir=ltr] .line { font-size:clamp(3.4rem,10.2vw,10.25rem); line-height:1; letter-spacing:-.03em }
+
+  @media (max-width:47.99rem) {
+    :root { --seam:34svh }
+    .hero { min-block-size:80svh }
+    .links a:not(.lang) { display:none }
+    .brand small { display:none }
+    .line { font-size:18.4vw; line-height:1.1 }
+    html[dir=ltr] .line { font-size:11.6vw; line-height:1.06 }
+    .foot { position:absolute; inset-inline:0; top:calc(var(--seam) + 22vw); flex-direction:column; align-items:stretch; padding-block-end:0; gap:0 }
+    .foot p { font-size:1.125rem; max-inline-size:none }
+    .acts { display:none }
+    .sticky { position:fixed; inset-inline:0; inset-block-end:0; z-index:5; display:grid; grid-template-columns:1.5fr 1fr; background:var(--ink); padding:.5rem; gap:.5rem; padding-block-end:calc(.5rem + env(safe-area-inset-bottom)) }
+    .sticky .btn { min-block-size:3.25rem; padding:0 .75rem; font-size:1.0625rem }
+  }
+  @media (prefers-reduced-motion:reduce) { * { transition:none!important } }
+</style>
+</head>
+<body>
+<script>
+  const q=new URLSearchParams(location.search);
+  if(q.get('lang')==='en'){ document.documentElement.lang='en'; document.documentElement.dir='ltr'; }
+</script>
+<section class="hero">
+  <header class="bar">
+    <a class="brand" href="#" data-ar="لولوه" data-en="Lulwa">
+      <svg width="36" height="36" viewBox="0 0 256 256" fill="none" aria-hidden="true"><path d="M178 40V128C178 164 152 184 112 184C78 184 54 168 42 118" stroke="#0F6E7A" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/><circle cx="112" cy="138" r="28" fill="#D9772B"/></svg>
+      <span><span class="t" data-ar="لولوه" data-en="Lulwa">لولوه</span><small data-ar="للتكييف والتبريد" data-en="Air Conditioning &amp; Refrigeration">للتكييف والتبريد</small></span>
+    </a>
+    <nav class="links">
+      <a href="#" data-ar="الخدمات" data-en="Services">الخدمات</a>
+      <a href="#" data-ar="الأعطال" data-en="Faults">الأعطال</a>
+      <a href="#" data-ar="موقعنا" data-en="Visit">موقعنا</a>
+      <a class="lang" href="#" data-ar="English" data-en="العربية">English</a>
+    </nav>
+  </header>
+  <h1>
+    <span class="line up" data-ar="المكيف وقف؟" data-en="AC gave up?">المكيف وقف؟</span>
+    <span class="line down"><span data-ar="نجيك لحد بيتك" data-en="We come to you">نجيك لحد بيتك</span><span class="pearl" aria-hidden="true"></span></span>
+    <span class="kw" data-ar="تصليح مكيفات وثلاجات وغسالات في الدمام" data-en="AC, fridge and washer repair in Dammam">تصليح مكيفات وثلاجات وغسالات في الدمام</span>
+  </h1>
+  <div></div>
+  <div class="foot">
+    <p data-ar="تصليح المكيفات والثلاجات والغسالات والنشافات في الدمام والمنطقة الشرقية، كل يوم من 8 الصبح إلى 11 بالليل." data-en="AC, fridge, washer and dryer repair across Dammam and the Eastern Province, every day from 8 AM to 11 PM.">تصليح المكيفات والثلاجات والغسالات والنشافات في الدمام والمنطقة الشرقية، كل يوم من 8 الصبح إلى 11 بالليل.</p>
+    <div class="acts">
+      <a class="btn wa" href="#"><span data-ar="تواصل واتساب" data-en="WhatsApp us">تواصل واتساب</span></a>
+      <a class="btn call" href="tel:+966568022197"><bdi>056 802 2197</bdi></a>
+    </div>
+  </div>
+</section>
+<div class="sticky">
+  <a class="btn wa" href="#"><span data-ar="تواصل واتساب" data-en="WhatsApp us">تواصل واتساب</span></a>
+  <a class="btn call" href="tel:+966568022197" data-ar="اتصل بنا" data-en="Call">اتصل بنا</a>
+</div>
+<script>
+  if(document.documentElement.lang==='en') document.querySelectorAll('[data-en]').forEach(e=>{ if(!e.classList.contains('brand')) e.textContent=e.dataset.en; });
+</script>
+</body>
+</html>

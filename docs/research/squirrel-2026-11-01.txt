@@ -1,0 +1,357 @@
+
+ ▄█▀ ▄▀█ █ █ █ █▀▄ █▀▄ █▀▀ █   ▄█▀ ▄▀▀ ▄▀█ █▄ █
+ ▀▄  █ █ █ █ █ ██▀ ██▀ █▀  █   ▀▄  █   █▀█ █ ▀█
+ █▄▀ ▀▀█ ▀▄▀ █ █ █ █ █ █▄▄ █▄▄ █▄▀ ▀▄▄ █ █ █  █
+
+  [2mv0.0.90[22m  •  [36mhttps://squirrelscan.com[39m
+[2m────────────────────────────────────────────[22m
+Account   offline (--offline) — cloud features disabled
+Auditing  https://lulwa.com.sa/
+Coverage  quick · max 25 pages
+Config    defaults
+
+New crawl: https://lulwa.com.sa
+Found 75 URLs in sitemap
+✓ Audited 25 pages in 36.6s
+⚠ Reached max pages (25). Raise with --max-pages <N> or [crawler] max_pages (cap 5000); use -C full for full coverage.
+
+Audit stored in database. Use 'squirrel report' to view latest audit.
+Use 'squirrel report --list' to see all stored audits.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<audit version="0.0.90">
+<site url="https://lulwa.com.sa" crawled="25" date="2026-10-31T23:45:11.498Z"/>
+<score overall="51" grade="F">
+ <group name="SEO" score="51" errors="54" warnings="122"/>
+ <group name="Performance" score="51" errors="0" warnings="77"/>
+ <group name="Security" score="95" errors="0" warnings="9"/>
+ <group name="Agents" score="46" errors="0" warnings="24"/>
+ <cat name="Accessibility" score="50"/>
+ <cat name="Structured Data" score="43"/>
+ <cat name="URL Structure" score="86"/>
+ <cat name="Performance" score="51"/>
+ <cat name="Links" score="56"/>
+ <cat name="Agent Experience" score="46"/>
+ <cat name="Security" score="94"/>
+ <cat name="Core SEO" score="98"/>
+ <cat name="Images" score="92"/>
+ <cat name="Content" score="95"/>
+ <cat name="Analytics" score="100"/>
+ <cat name="Crawlability" score="100"/>
+ <cat name="E-E-A-T" score="100"/>
+ <cat name="Internationalization" score="100"/>
+ <cat name="Site Integrity" score="100"/>
+ <cat name="Legal Compliance" score="100"/>
+ <cat name="Local SEO" score="100"/>
+ <cat name="Mobile" score="100"/>
+ <cat name="Social Media" score="100"/>
+</score>
+<summary passed="2855" warnings="258" failed="54"/>
+<scan-scope origin="cli" crawled="25" max-pages="25" capped="true"/>
+<technologies first-scan="false" added="0" removed="0">
+ <tech name="Google Analytics 4" cat="analytics"/>
+ <tech name="LiteSpeed" cat="web-server"/>
+ <tech name="Google Tag Manager" cat="tag-manager"/>
+</technologies>
+<issues>
+ <rule id="a11y/aria-hidden-focus" severity="error" category="Accessibility" group="seo" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-hidden-focus">
+  1 focusable element(s) inside aria-hidden
+  Pages (2): /contact, /services/ac-repair
+  Items (2):
+   - button#albumLightboxClose
+   - input#website
+ </rule>
+ <rule id="a11y/frame-title" severity="error" category="Accessibility" group="seo" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/frame-title">
+  1 iframe(s) without title attribute
+  Pages (5/23): /about, /areas, /blog, /brands, /contact
+  Items (1):
+   - iframe (www.googletagmanager.com)
+ </rule>
+ <rule id="a11y/label-content-name-mismatch" severity="error" category="Accessibility" group="seo" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/label-content-name-mismatch">
+  N element(s) where visible text doesn&apos;t match accessible name
+  Pages (5/25): /, /about, /areas, /blog, /brands
+  Items (5/21):
+   - a: visible=&quot;احجز تصليح الثلاجة ف&quot; vs aria-label=&quot;book refrigerator re&quot;
+   - a: visible=&quot;احجز تصليح الغسالة ف&quot; vs aria-label=&quot;book washing machine&quot;
+   - a: visible=&quot;احجز تصليح الفرن وال&quot; vs aria-label=&quot;book oven &amp; stove re&quot;
+   - a: visible=&quot;احجز تصليح الفريزر ف&quot; vs aria-label=&quot;book freezer repair &quot;
+   - a: visible=&quot;احجز تصليح المجفف في&quot; vs aria-label=&quot;book dryer repair in&quot;
+ </rule>
+ <rule id="a11y/form-labels" severity="error" category="Accessibility" group="seo" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/form-labels">
+  3 form input(s) without labels
+  Pages (1): /services/dishwasher-repair
+  Items (3):
+   - message
+   - name
+   - phone
+ </rule>
+ <rule id="security/third-party-cookies" severity="info" category="Security" group="security" status="warn" docs="https://docs.squirrelscan.com/rules/security/third-party-cookies">
+  1 known tracking domain(s) detected
+  Pages (5/23): /about, /areas, /blog, /brands, /contact
+  Items (1):
+   - www.googletagmanager.com (iframe)
+ </rule>
+ <rule id="legal/subprocessor-disclosure" severity="info" category="Legal Compliance" group="security" status="warn" docs="https://docs.squirrelscan.com/rules/legal/subprocessor-disclosure">
+  No sub-processor / data-processing (DPA) disclosure found
+ </rule>
+ <rule id="ax/agents-md" severity="info" category="Agent Experience" group="ai" status="warn" docs="https://docs.squirrelscan.com/rules/ax/agents-md">
+  No AGENTS.md found — this site publishes llms.txt, so consider an AGENTS.md for coding agents too
+ </rule>
+ <rule id="ax/markdown-response" severity="info" category="Agent Experience" group="ai" status="warn" docs="https://docs.squirrelscan.com/rules/ax/markdown-response">
+  No Markdown response — consider honoring Accept: text/markdown or publishing a .md variant so agents get clean content
+ </rule>
+ <rule id="core/meta-description" severity="warning" category="Core SEO" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/core/meta-description">
+  Description too long; Description too short
+  Pages (5): /, /blog, /cookie-policy, /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide, /blog/washing-machine-maintenance-repair-services-in-dammam
+  Items (5):
+   - / (لولوه للتكييف والتبريد: تصليح المكيفات والثلاجات و (164 chars))
+   - /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide (Facing AC problems in Dammam? Get expert guidance  (178 chars))
+   - /blog/washing-machine-maintenance-repair-services-in-dammam (Professional washing machine repair in Dammam for  (188 chars))
+   - /blog (مدونة لولوه للتكييف والتبريد: نصائح وإرشادات صيانة (99 chars))
+   - /cookie-policy (ما ملفات تعريف الارتباط التي يستخدمها موقع لولوه ل (118 chars))
+ </rule>
+ <rule id="core/favicon" severity="warning" category="Core SEO" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/core/favicon">
+  No favicon found
+  Pages (3): /cookie-policy, /privacy-policy, /terms-of-service
+ </rule>
+ <rule id="security/csp" severity="warning" category="Security" group="security" status="warn" docs="https://docs.squirrelscan.com/rules/security/csp">
+  CSP allows &apos;unsafe-inline&apos;; CSP script-src allows wildcard (*)
+ </rule>
+ <rule id="security/form-captcha" severity="warning" category="Security" group="security" status="warn" docs="https://docs.squirrelscan.com/rules/security/form-captcha">
+  N public form(s) without CAPTCHA
+  Pages (5/7): /, /contact, /services/ac-repair, /services/dishwasher-repair, /services/dryer-repair
+  Items (4):
+   - #bookingForm
+   - #contact-form
+   - #quoteForm
+   - [action=&quot;#&quot;]
+ </rule>
+ <rule id="links/https-downgrade" severity="warning" category="Links" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/links/https-downgrade">
+  1 link(s) downgrade to HTTP
+  Pages (2): /services/freezer-repair, http://creativecommons.org/licenses/by-sa/3.0/
+  Items (1):
+   - http://creativecommons.org/licenses/by-sa/3.0/
+ </rule>
+ <rule id="links/internal-links" severity="warning" category="Links" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/links/internal-links">
+  Too many internal links (N, max N)
+  Pages (5/25): /, /about, /areas, /blog, /brands
+  Items (5/25):
+   - / (Too many internal links (302, max 100))
+   - /about (Too many internal links (229, max 100))
+   - /areas (Too many internal links (247, max 100))
+   - /areas/appliance-repair-in-abqaiq (Too many internal links (298, max 100))
+   - /areas/appliance-repair-in-al-ahsa (Too many internal links (297, max 100))
+ </rule>
+ <rule id="links/no-contextual-inbound" severity="warning" category="Links" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/links/no-contextual-inbound">
+  2 page(s) are linked only from sitewide chrome
+  Pages (2): /cookie-policy, /terms-of-service
+  Items (2):
+   - /cookie-policy
+   - /terms-of-service
+ </rule>
+ <rule id="content/keyword-stuffing" severity="warning" category="Content" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/content/keyword-stuffing">
+  N word(s) may be overused
+  Pages (2): /blog, /blog/washing-machine-maintenance-repair-services-in-dammam
+  Items (4):
+   - lulwa (&quot;lulwa&quot; (4.4%)) [count: 6, density: 4.444444444444445]
+   - machine (&quot;machine&quot; (5.2%)) [count: 7, density: 5.185185185185185]
+   - repair (&quot;repair&quot; (5.2%)) [count: 7, density: 5.185185185185185]
+   - washing (&quot;washing&quot; (5.9%)) [count: 8, density: 5.9259259259259265]
+ </rule>
+ <rule id="content/title-pattern-outlier" severity="warning" category="Content" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/content/title-pattern-outlier">
+  2 of 25 titled page(s) break the site&apos;s own title template (brand &quot;لولوه للتكييف والتبريد&quot; last 84%, separator &quot;|&quot; 100%)
+  Pages (2): /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide, /blog/washing-machine-maintenance-repair-services-in-dammam
+  Items (1):
+   - brand-missing: (2 of 25 page(s) never mention &quot;لولوه للتكييف والتبريد&quot;, which 84% of titles carry) [deviation: brand-missing, brand: لولوه للتكييف والتبريد, pageCount: 2] (from: /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide, /blog/washing-machine-maintenance-repair-services-in-dammam)
+ </rule>
+ <rule id="schema/local-business" severity="warning" category="Structured Data" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/schema/local-business">
+  Address incomplete
+  Pages (5/22): /, /about, /areas, /brands, /contact
+  Items (1):
+   - postalCode
+ </rule>
+ <rule id="schema/json-ld-valid" severity="warning" category="Structured Data" group="seo" status="fail" docs="https://docs.squirrelscan.com/rules/schema/json-ld-valid">
+  Invalid JSON-LD syntax
+  Pages (2): /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide, /blog/washing-machine-maintenance-repair-services-in-dammam
+  Items (2):
+   - Article:publisher.logo (Article missing publisher.logo) [message: Validation: Article.publisher.logo is required, severity: missing, path: [&quot;publisher&quot;,&quot;logo&quot;]]
+   - parse-0 (Validation: Article.publisher.logo is required)
+ </rule>
+ <rule id="schema/coverage-outlier" severity="warning" category="Structured Data" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/schema/coverage-outlier">
+  3 of 19 page(s) are missing structured data their same-type siblings have (faq BreadcrumbList+FAQPage+HVACBusiness+WebPage+WebSite)
+  Pages (3): /, /about, /contact
+  Items (2):
+   - faq:BreadcrumbList (18 of 19 faq pages have BreadcrumbList schema, these 1 do not) [pageType: faq, schemaType: BreadcrumbList, richResult: true, have: 18, total: 19, missing: 1] (from: /)
+   - faq:WebPage (17 of 19 faq pages have WebPage schema, these 2 do not) [pageType: faq, schemaType: WebPage, richResult: false, have: 17, total: 19, missing: 2] (from: /about, /contact)
+ </rule>
+ <rule id="images/image-file-size" severity="warning" category="Images" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/images/image-file-size">
+  3 image(s) exceed 200.0 KB
+  Pages (2): /blog, /blog/washing-machine-maintenance-repair-services-in-dammam
+  Items (3):
+   - /uploads/blog/blog-image-2303e21f508d.png [sizeBytes: 532578, size: 520.1 KB, status: 200, contentType: image/png] (from: /blog)
+   - /uploads/blog/professional-washing-machine-repair-technician-diagnosing-a-faulty-washing-machine-c4a7a616acee.png [sizeBytes: 628065, size: 613.3 KB, status: 200, contentType: image/png] (from: /blog)
+   - /uploads/blog/washing-machine-maintenance-repair-services-in-dammam-6cfeece8fd52.png [sizeBytes: 430743, size: 420.6 KB, status: 200, contentType: image/png] (from: /blog, /blog/washing-machine-maintenance-repair-services-in-dammam)
+ </rule>
+ <rule id="images/offscreen-lazy" severity="warning" category="Images" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/images/offscreen-lazy">
+  1 below-fold image(s) without lazy loading
+  Pages (1): /blog
+  Items (1):
+   - ac-repair-ebfc6d1b9e31.webp
+ </rule>
+ <rule id="images/responsive-size" severity="warning" category="Images" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/images/responsive-size">
+  1 small image(s) may be serving oversized files
+  Pages (1): /contact
+  Items (1):
+   - WhatsApp_Logo_green.svg.webp (48x48, no srcset)
+ </rule>
+ <rule id="images/dimensions" severity="warning" category="Images" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/images/dimensions">
+  N image(s) missing width/height (causes CLS)
+  Pages (5/7): /blog, /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide, /blog/washing-machine-maintenance-repair-services-in-dammam, /uploads/blog/ac-repair-ebfc6d1b9e31.webp, /uploads/blog/blog-image-2303e21f508d.png
+  Items (4):
+   - /uploads/blog/ac-repair-ebfc6d1b9e31.webp | &lt;img src=&quot;https://lulwa.com.sa/uploads/blog/ac-repair-ebfc6d1b9e31.webp&quot; alt=&quot;ac repair&quot;&gt;
+   - /uploads/blog/blog-image-2303e21f508d.png | &lt;img src=&quot;https://lulwa.com.sa/uploads/blog/blog-image-2303e21f508d.png&quot; alt=&quot;صيانة غسالات اتوماتيك في الدمام وإصلاح أعطال الغسالات&quot;&gt;
+   - /uploads/blog/professional-washing-machine-repair-technician-diagnosing-a-faulty-washing-machine-c4a7a616acee.png | &lt;img src=&quot;https://lulwa.com.sa/uploads/blog/professional-washing-machine-repair-technician-diagnosing-a-faulty-washing-machine-c4a7a616acee.png&quot; alt=&quot;Professional washing machine repair technician diagnosing a faulty washing machine&quot;&gt;
+   - /uploads/blog/washing-machine-maintenance-repair-services-in-dammam-6cfeece8fd52.png | &lt;img src=&quot;https://lulwa.com.sa/uploads/blog/washing-machine-maintenance-repair-services-in-dammam-6cfeece8fd52.png&quot; alt=&quot;Washing Machine Repair in Dammam&quot;&gt;
+ </rule>
+ <rule id="perf/lcp-hints" severity="warning" category="Performance" group="performance" status="warn" docs="https://docs.squirrelscan.com/rules/perf/lcp-hints">
+  1 likely-LCP image loaded without preload; 3 likely-LCP images loaded without preload
+  Pages (4): /blog, /contact, /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide, /blog/washing-machine-maintenance-repair-services-in-dammam
+  Items (4):
+   - /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide (1 likely-LCP image loaded without preload)
+   - /blog/washing-machine-maintenance-repair-services-in-dammam (1 likely-LCP image loaded without preload)
+   - /contact (1 likely-LCP image loaded without preload)
+   - /blog (3 likely-LCP images loaded without preload)
+ </rule>
+ <rule id="perf/cls-hints" severity="warning" category="Performance" group="performance" status="warn" docs="https://docs.squirrelscan.com/rules/perf/cls-hints">
+  1 iframe(s) without dimensions
+  Pages (5/12): /areas, /contact, https://www.google.com/maps?q=Abqaiq%20Saudi%20Arabia&amp;z=12&amp;output=embed, https://www.google.com/maps?q=Al%20Ahsa%20Saudi%20Arabia&amp;z=11&amp;output=embed, https://www.google.com/maps?q=Al%20Awamiyah%20Saudi%20Arabia&amp;z=11&amp;output=embed
+  Items (5/6):
+   - https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d446.5784256920847!2d50.0792229!3d26.4354979!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDI2JzA4LjAiTiA1MMKwMDQnNDYuMiJF!5e0!3m2!1sen!2ssa!4v1786966280611!5m2!1sen!2ssa
+   - https://www.google.com/maps?q=Abqaiq%20Saudi%20Arabia&amp;z=12&amp;output=embed
+   - https://www.google.com/maps?q=Al%20Ahsa%20Saudi%20Arabia&amp;z=11&amp;output=embed
+   - https://www.google.com/maps?q=Al%20Awamiyah%20Saudi%20Arabia&amp;z=11&amp;output=embed
+   - https://www.google.com/maps?q=Al%20Jish%20Saudi%20Arabia&amp;z=11&amp;output=embed
+ </rule>
+ <rule id="perf/dom-size" severity="warning" category="Performance" group="performance" status="warn" docs="https://docs.squirrelscan.com/rules/perf/dom-size">
+  Element with 67 children found
+  Pages (1): /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+  Items (1):
+   - /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide (Element with 67 children found)
+ </rule>
+ <rule id="perf/total-byte-weight" severity="warning" category="Performance" group="performance" status="warn" docs="https://docs.squirrelscan.com/rules/perf/total-byte-weight">
+  Total tracked resources: 4712KB (heavy page)
+ </rule>
+ <rule id="perf/lazy-above-fold" severity="warning" category="Performance" group="performance" status="warn" docs="https://docs.squirrelscan.com/rules/perf/lazy-above-fold">
+  N above-fold image(s) with lazy loading
+  Pages (5/12): /, /areas/appliance-repair-in-abqaiq, /areas/appliance-repair-in-al-ahsa, /areas/appliance-repair-in-al-awamiyah, /areas/appliance-repair-in-al-jish
+  Items (5/14):
+   - ../images/air%20conditioner%20maintenance%20near%20me.avif
+   - ../images/hvac%20service.avif
+   - /assets/img/site/areas/al-ahsa-city-photo-480w.webp
+   - /assets/img/site/areas/eastern-province-king-fahd-causeway-480w.webp
+   - /assets/img/site/brands/bosch-logo.webp
+ </rule>
+ <rule id="perf/unminified-js" severity="warning" category="Performance" group="performance" status="warn" docs="https://docs.squirrelscan.com/rules/perf/unminified-js">
+  N JavaScript file(s) appear unminified
+  Pages (5/25): /, /about, /areas, /blog, /brands
+  Items (4):
+   - FloatingButtons.js (5.1KB, ~0.6KB savings) [reason: high newlines (1.71%), formatted code, excessive whitespace]
+   - Footer.js (34.0KB, ~10.0KB savings) [reason: high newlines (1.89%), formatted code, excessive whitespace]
+   - Header.js (45.2KB, ~16.1KB savings) [reason: high newlines (2.70%), long function names, formatted code, excessive whitespace]
+   - inline script (14.7KB, ~6.3KB savings) [reason: high newlines (2.72%), 16 comments, long variable names, long function names, formatted code, excessive whitespace]
+ </rule>
+ <rule id="perf/unminified-css" severity="warning" category="Performance" group="performance" status="warn" docs="https://docs.squirrelscan.com/rules/perf/unminified-css">
+  1 CSS file(s) appear unminified
+  Pages (5/25): /, /about, /areas, /blog, /brands
+  Items (1):
+   - inline style (67.3KB, ~23.4KB savings) [reason: high newlines (3.9%), 26 comments, excessive whitespace (37.5%), formatted code blocks]
+ </rule>
+ <rule id="perf/lcp-fetchpriority" severity="warning" category="Performance" group="performance" status="warn" docs="https://docs.squirrelscan.com/rules/perf/lcp-fetchpriority">
+  Hero/LCP image loaded eagerly without fetchpriority=&apos;high&apos; or preload
+  Pages (3): /blog, /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide, /blog/washing-machine-maintenance-repair-services-in-dammam
+  Items (2):
+   - /uploads/blog/ac-repair-ebfc6d1b9e31.webp (ac-repair-ebfc6d1b9e31.webp) | &lt;img src=&quot;/uploads/blog/ac-repair-ebfc6d1b9e31.webp&quot;&gt;
+   - /uploads/blog/washing-machine-maintenance-repair-services-in-dammam-6cfeece8fd52.png (washing-machine-maintenance-repair-services-in-dammam-6cfeece8fd52.png) | &lt;img src=&quot;/uploads/blog/washing-machine-maintenance-repair-services-in-dammam-6cfeece8fd52.png&quot;&gt;
+ </rule>
+ <rule id="a11y/autocomplete-tokens" severity="warning" category="Accessibility" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/autocomplete-tokens">
+  N identified field(s) missing an autocomplete token
+  Pages (5/7): /, /areas, /services/ac-repair, /services/dishwasher-repair, /services/dryer-repair
+  Items (5):
+   - input#areaCheckerInput (city field has no autocomplete token (expected &quot;address-level2&quot;)) | &lt;input id=&quot;areaCheckerInput&quot; class=&quot;area-checker-input&quot; type=&quot;text&quot; placeholder=&quot;Try: Dammam or 32236&quot; data-en-placeholder=&quot;Try: Dammam or 32236&quot; data-ar-placeholder=&quot;مثال: الدمام أو 32236&quot; aria-labe… [reason: missing, purpose: city, expected: address-level2]
+   - input#phone (phone number field has no autocomplete token (expected &quot;tel&quot;)) | &lt;input id=&quot;phone&quot; name=&quot;phone&quot; type=&quot;tel&quot; required=&quot;&quot;&gt; [reason: missing, purpose: phone number, expected: tel]
+   - input#quoteEmail (email field has no autocomplete token (expected &quot;email&quot;)) | &lt;input id=&quot;quoteEmail&quot; type=&quot;email&quot; data-en-ph=&quot;your@email.com&quot; data-ar-ph=&quot;your@email.com&quot; placeholder=&quot;your@email.com&quot;&gt; [reason: missing, purpose: email, expected: email]
+   - input#quoteName (full name field has no autocomplete token (expected &quot;name&quot;)) | &lt;input id=&quot;quoteName&quot; type=&quot;text&quot; data-en-ph=&quot;Your full name&quot; data-ar-ph=&quot;اسمك الكامل&quot; placeholder=&quot;Your full name&quot;&gt; [reason: missing, purpose: full name, expected: name]
+   - input#quotePhone (phone number field has no autocomplete token (expected &quot;tel&quot;)) | &lt;input id=&quot;quotePhone&quot; type=&quot;tel&quot; data-en-ph=&quot;+966 5X XXX XXXX&quot; data-ar-ph=&quot;+966 5X XXX XXXX&quot; placeholder=&quot;+966 5X XXX XXXX&quot;&gt; [reason: missing, purpose: phone number, expected: tel]
+ </rule>
+ <rule id="a11y/color-contrast" severity="warning" category="Accessibility" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/color-contrast">
+  N potential color contrast issue(s)
+  Pages (5/25): /, /about, /areas, /blog, /brands
+  Items (5/23):
+   - Very light text color: 1 instance(s)
+   - Very light text color: 14 instance(s)
+   - Very light text color: 19 instance(s)
+   - Very light text color: 21 instance(s)
+   - Very light text color: 22 instance(s)
+ </rule>
+ <rule id="a11y/focus-visible" severity="warning" category="Accessibility" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/focus-visible">
+  outline:none found - ensure alternative focus styles exist
+  Pages (5/11): /areas, /areas/appliance-repair-in-abqaiq, /areas/appliance-repair-in-al-ahsa, /areas/appliance-repair-in-al-awamiyah, /areas/appliance-repair-in-al-jish
+ </rule>
+ <rule id="a11y/form-field-multiple-labels" severity="warning" category="Accessibility" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/form-field-multiple-labels">
+  1 input(s) with multiple labels
+  Pages (1): /brands
+  Items (1):
+   - brandSearchInput (2 labels)
+ </rule>
+ <rule id="a11y/heading-order" severity="warning" category="Accessibility" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/heading-order">
+  1 heading level skip(s) detected
+  Pages (1): /blog
+  Items (1):
+   - H3 after H1
+ </rule>
+ <rule id="a11y/identical-links-same-purpose" severity="warning" category="Accessibility" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/identical-links-same-purpose">
+  N link text(s) lead to different destinations
+  Pages (3): /blog, /services, /blog/washing-machine-maintenance-repair-services-in-dammam
+  Items (5/10):
+   - &quot;washing machine repair&quot; → 4 different URLs
+   - &quot;اقرأ المزيد&quot; → 4 different URLs
+   - &quot;تصليح الثلاجات في الدمام&quot; → 2 different URLs
+   - &quot;تصليح الغسالات في الدمام&quot; → 2 different URLs
+   - &quot;تصليح الفريزرات في الدمام&quot; → 2 different URLs
+ </rule>
+ <rule id="a11y/input-types" severity="warning" category="Accessibility" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/input-types">
+  N multi-field form(s) set no enterkeyhint
+  Pages (5/7): /, /contact, /services/ac-repair, /services/dishwasher-repair, /services/dryer-repair
+  Items (4):
+   - form#bookingForm (3-field form, no field sets enterkeyhint) | &lt;form id=&quot;bookingForm&quot;&gt; [reason: missing-enterkeyhint, fields: 3]
+   - form#contact-form (3-field form, no field sets enterkeyhint) | &lt;form id=&quot;contact-form&quot; action=&quot;/contact-submit.php&quot; method=&quot;post&quot; accept-charset=&quot;UTF-8&quot; novalidate=&quot;&quot;&gt; [reason: missing-enterkeyhint, fields: 3]
+   - form#quoteForm (5-field form, no field sets enterkeyhint) | &lt;form id=&quot;quoteForm&quot; class=&quot;quote-form-grid&quot;&gt; [reason: missing-enterkeyhint, fields: 5]
+   - form[action=&quot;#&quot;] (5-field form, no field sets enterkeyhint) | &lt;form class=&quot;contact-form&quot; action=&quot;#&quot; method=&quot;post&quot;&gt; [reason: missing-enterkeyhint, fields: 5]
+ </rule>
+ <rule id="url/slug-convention" severity="warning" category="URL Structure" group="seo" status="fail" docs="https://docs.squirrelscan.com/rules/url/slug-convention">
+  5 of 25 page(s) deviate from the site&apos;s own URL conventions (slug word separator kebab-case 100%, URL letter case all-lowercase 100%, trailing slash no trailing slash 100%, date in slug [faq] no date in the slug 100%, path depth [faq] 2 path segment(s) 72%)
+  Pages (5): /about, /areas, /brands, /contact, /services
+  Items (1):
+   - depth:faq:1 (5 of 18 faq page(s) use 1 path segment(s) but the path depth norm is 2 path segment(s)) [dimension: depth, pageType: faq, value: 1, norm: 2, pageCount: 5] (from: /about, /areas, /brands, /contact, /services)
+ </rule>
+ <rule id="ax/token-weight" severity="warning" category="Agent Experience" group="ai" status="warn" docs="https://docs.squirrelscan.com/rules/ax/token-weight">
+  Visible text is under 15% of the page HTML — agents pay token cost mostly for markup, scripts, and styles
+  Pages (5/23): /, /about, /areas, /blog, /brands
+  Items (5/23):
+   - / (~12% of HTML is visible text (~77,161 est. tokens))
+   - /about (~12% of HTML is visible text (~45,716 est. tokens))
+   - /areas (~10% of HTML is visible text (~41,964 est. tokens))
+   - /areas/appliance-repair-in-abqaiq (~11% of HTML is visible text (~52,746 est. tokens))
+   - /areas/appliance-repair-in-al-ahsa (~11% of HTML is visible text (~53,131 est. tokens))
+ </rule>
+ <rule id="ax/ai-crawlers" severity="warning" category="Agent Experience" group="ai" status="warn" docs="https://docs.squirrelscan.com/rules/ax/ai-crawlers">
+  robots.txt blocks archive crawlers — this removes the site from the Wayback Machine and/or the Common Crawl corpus, the archives AI training sets are built from. Blocking CCBot opts you out of every model trained on Common Crawl, not just one vendor.
+  Items (1):
+   - CCBot (CCBot (Common Crawl, open crawl corpus) — blocked)
+ </rule>
+</issues>
+</audit>
+
+[2m────────────────────────────────────────────────────────────[22m
+[2mFile issues: [22m[36mhttps://github.com/squirrelscan/squirrelscan/issues[39m  •  [2mSend feedback: [22m[36msquirrel feedback[39m
+

@@ -1,0 +1,76 @@
+old_path,action,target,english_twin,note
+/,keep,/,/en/,
+/about,keep,/about,/en/about,
+/areas,keep,/areas,/en/areas,
+/areas/appliance-repair-in-abqaiq,410-or-301,/areas,/en/areas/appliance-repair-in-abqaiq,"410 if not served; 301 to /areas only if served and named on the hub. Client decides, Search Console checked first"
+/areas/appliance-repair-in-al-ahsa,410-or-301,/areas,/en/areas/appliance-repair-in-al-ahsa,"410 if not served; 301 to /areas only if served and named on the hub. Client decides, Search Console checked first"
+/areas/appliance-repair-in-al-awamiyah,410-or-301,/areas,/en/areas/appliance-repair-in-al-awamiyah,"410 if not served; 301 to /areas only if served and named on the hub. Client decides, Search Console checked first"
+/areas/appliance-repair-in-al-jish,410-or-301,/areas,/en/areas/appliance-repair-in-al-jish,"410 if not served; 301 to /areas only if served and named on the hub. Client decides, Search Console checked first"
+/areas/appliance-repair-in-al-khobar,keep,/areas/appliance-repair-in-al-khobar,/en/areas/appliance-repair-in-al-khobar,"keep URL, rewrite with real local proof"
+/areas/appliance-repair-in-al-mallaha,410-or-301,/areas,/en/areas/appliance-repair-in-al-mallaha,"410 if not served; 301 to /areas only if served and named on the hub. Client decides, Search Console checked first"
+/areas/appliance-repair-in-al-mubarraz,410-or-301,/areas,/en/areas/appliance-repair-in-al-mubarraz,"410 if not served; 301 to /areas only if served and named on the hub. Client decides, Search Console checked first"
+/areas/appliance-repair-in-al-qudaih,410-or-301,/areas,/en/areas/appliance-repair-in-al-qudaih,"410 if not served; 301 to /areas only if served and named on the hub. Client decides, Search Console checked first"
+/areas/appliance-repair-in-al-rabwah,410-or-301,/areas,/en/areas/appliance-repair-in-al-rabwah,"410 if not served; 301 to /areas only if served and named on the hub. Client decides, Search Console checked first"
+/areas/appliance-repair-in-dammam,keep,/areas/appliance-repair-in-dammam,/en/areas/appliance-repair-in-dammam,"keep URL, rewrite with real local proof"
+/areas/appliance-repair-in-darin,410-or-301,/areas,/en/areas/appliance-repair-in-darin,"410 if not served; 301 to /areas only if served and named on the hub. Client decides, Search Console checked first"
+/areas/appliance-repair-in-dhahran,keep,/areas/appliance-repair-in-dhahran,/en/areas/appliance-repair-in-dhahran,"keep URL, rewrite with real local proof"
+/areas/appliance-repair-in-hofuf,410-or-301,/areas,/en/areas/appliance-repair-in-hofuf,"410 if not served; 301 to /areas only if served and named on the hub. Client decides, Search Console checked first"
+/areas/appliance-repair-in-jubail,410-or-301,/areas,/en/areas/appliance-repair-in-jubail,"410 if not served; 301 to /areas only if served and named on the hub. Client decides, Search Console checked first"
+/areas/appliance-repair-in-qatif,keep,/areas/appliance-repair-in-qatif,/en/areas/appliance-repair-in-qatif,"keep URL, rewrite with real local proof"
+/areas/appliance-repair-in-ras-tanura,410-or-301,/areas,/en/areas/appliance-repair-in-ras-tanura,"410 if not served; 301 to /areas only if served and named on the hub. Client decides, Search Console checked first"
+/areas/appliance-repair-in-safwa,410-or-301,/areas,/en/areas/appliance-repair-in-safwa,"410 if not served; 301 to /areas only if served and named on the hub. Client decides, Search Console checked first"
+/areas/appliance-repair-in-saihat,keep,/areas/appliance-repair-in-saihat,/en/areas/appliance-repair-in-saihat,"keep URL, rewrite with real local proof"
+/areas/appliance-repair-in-sanabes,410-or-301,/areas,/en/areas/appliance-repair-in-sanabes,"410 if not served; 301 to /areas only if served and named on the hub. Client decides, Search Console checked first"
+/areas/appliance-repair-in-tarout,410-or-301,/areas,/en/areas/appliance-repair-in-tarout,"410 if not served; 301 to /areas only if served and named on the hub. Client decides, Search Console checked first"
+/areas/appliance-repair-in-umm-as-sahik,410-or-301,/areas,/en/areas/appliance-repair-in-umm-as-sahik,"410 if not served; 301 to /areas only if served and named on the hub. Client decides, Search Console checked first"
+/blog,keep,/blog,/en/blog,
+/blog/ac-repair-in-dammam,keep,/blog/ac-repair-in-dammam,/en/blog/ac-repair-in-dammam,"keep URL, truth pass; add Arabic and English twins"
+/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide,keep,/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide,/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide,"keep URL, truth pass; add Arabic and English twins"
+/blog/washing-machine-maintenance-repair-services-in-dammam,keep,/blog/washing-machine-maintenance-repair-services-in-dammam,/en/blog/washing-machine-maintenance-repair-services-in-dammam,"keep URL, truth pass; add Arabic and English twins"
+/brands,keep,/brands,/en/brands,
+/brands/alessa-appliance-repair,301,/brands,/en/brands/alessa-appliance-repair,brand stays listed on the hub; no thin page
+/brands/amana-appliance-repair,301,/brands,/en/brands/amana-appliance-repair,brand stays listed on the hub; no thin page
+/brands/bosch-appliance-repair,301,/brands,/en/brands/bosch-appliance-repair,brand stays listed on the hub; no thin page
+/brands/carrier-appliance-repair,keep,/brands/carrier-appliance-repair,/en/brands/carrier-appliance-repair,"keep URL, rewrite around real error codes"
+/brands/chigo-appliance-repair,301,/brands,/en/brands/chigo-appliance-repair,brand stays listed on the hub; no thin page
+/brands/daewoo-appliance-repair,301,/brands,/en/brands/daewoo-appliance-repair,brand stays listed on the hub; no thin page
+/brands/daikin-appliance-repair,keep,/brands/daikin-appliance-repair,/en/brands/daikin-appliance-repair,"keep URL, rewrite around real error codes"
+/brands/electrolux-appliance-repair,301,/brands,/en/brands/electrolux-appliance-repair,brand stays listed on the hub; no thin page
+/brands/frigidaire-appliance-repair,301,/brands,/en/brands/frigidaire-appliance-repair,brand stays listed on the hub; no thin page
+/brands/fujitsu-appliance-repair,301,/brands,/en/brands/fujitsu-appliance-repair,brand stays listed on the hub; no thin page
+/brands/ge-appliance-repair,301,/brands,/en/brands/ge-appliance-repair,brand stays listed on the hub; no thin page
+/brands/gree-appliance-repair,keep,/brands/gree-appliance-repair,/en/brands/gree-appliance-repair,"keep URL, rewrite around real error codes"
+/brands/haier-appliance-repair,keep,/brands/haier-appliance-repair,/en/brands/haier-appliance-repair,"keep URL, rewrite around real error codes"
+/brands/hitachi-appliance-repair,301,/brands,/en/brands/hitachi-appliance-repair,brand stays listed on the hub; no thin page
+/brands/kenmore-appliance-repair,301,/brands,/en/brands/kenmore-appliance-repair,brand stays listed on the hub; no thin page
+/brands/lg-appliance-repair,keep,/brands/lg-appliance-repair,/en/brands/lg-appliance-repair,"keep URL, rewrite around real error codes"
+/brands/maytag-appliance-repair,301,/brands,/en/brands/maytag-appliance-repair,brand stays listed on the hub; no thin page
+/brands/midea-appliance-repair,keep,/brands/midea-appliance-repair,/en/brands/midea-appliance-repair,"keep URL, rewrite around real error codes"
+/brands/nikai-appliance-repair,301,/brands,/en/brands/nikai-appliance-repair,brand stays listed on the hub; no thin page
+/brands/o-general-appliance-repair,301,/brands,/en/brands/o-general-appliance-repair,brand stays listed on the hub; no thin page
+/brands/panasonic-appliance-repair,301,/brands,/en/brands/panasonic-appliance-repair,brand stays listed on the hub; no thin page
+/brands/samsung-appliance-repair,keep,/brands/samsung-appliance-repair,/en/brands/samsung-appliance-repair,"keep URL, rewrite around real error codes"
+/brands/sanyo-appliance-repair,301,/brands,/en/brands/sanyo-appliance-repair,brand stays listed on the hub; no thin page
+/brands/sharp-appliance-repair,301,/brands,/en/brands/sharp-appliance-repair,brand stays listed on the hub; no thin page
+/brands/siemens-appliance-repair,301,/brands,/en/brands/siemens-appliance-repair,brand stays listed on the hub; no thin page
+/brands/super-general-appliance-repair,keep,/brands/super-general-appliance-repair,/en/brands/super-general-appliance-repair,"keep URL, rewrite around real error codes"
+/brands/tcl-appliance-repair,301,/brands,/en/brands/tcl-appliance-repair,brand stays listed on the hub; no thin page
+/brands/toshiba-appliance-repair,301,/brands,/en/brands/toshiba-appliance-repair,brand stays listed on the hub; no thin page
+/brands/whirlpool-appliance-repair,keep,/brands/whirlpool-appliance-repair,/en/brands/whirlpool-appliance-repair,"keep URL, rewrite around real error codes"
+/brands/white-westinghouse-appliance-repair,301,/brands,/en/brands/white-westinghouse-appliance-repair,brand stays listed on the hub; no thin page
+/brands/york-appliance-repair,301,/brands,/en/brands/york-appliance-repair,brand stays listed on the hub; no thin page
+/brands/zamil-appliance-repair,keep,/brands/zamil-appliance-repair,/en/brands/zamil-appliance-repair,"keep URL, rewrite around real error codes"
+/contact,keep,/contact,/en/contact,
+/cookie-policy,keep,/cookie-policy,/en/cookie-policy,
+/privacy-policy,keep,/privacy-policy,/en/privacy-policy,
+/services,keep,/services,/en/services,
+/services/ac-repair,keep,/services/ac-repair,/en/services/ac-repair,
+/services/dishwasher-repair,confirm,/services,/en/services/dishwasher-repair,"keep if client confirms this repair, otherwise 301"
+/services/dryer-repair,keep,/services/dryer-repair,/en/services/dryer-repair,
+/services/freezer-repair,keep,/services/freezer-repair,/en/services/freezer-repair,
+/services/microwave-repair,confirm,/services,/en/services/microwave-repair,"keep if client confirms this repair, otherwise 301"
+/services/oven-stove-repair,confirm,/services,/en/services/oven-stove-repair,"keep if client confirms this repair, otherwise 301"
+/services/refrigerator-repair,keep,/services/refrigerator-repair,/en/services/refrigerator-repair,
+/services/washing-machine-repair,keep,/services/washing-machine-repair,/en/services/washing-machine-repair,
+/services/water-heater-repair,confirm,/services,/en/services/water-heater-repair,"keep if client confirms this repair, otherwise 301"
+/terms-of-service,keep,/terms-of-service,/en/terms-of-service,
