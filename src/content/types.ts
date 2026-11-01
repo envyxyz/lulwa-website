@@ -113,6 +113,9 @@ export type Content = {
       submit: string;
       sent: string;
       fallback: string;
+      choose: string;
+      whatsappFallback: string;
+      errors: { required: string; phone: string };
     };
     hoursLabel: string;
     addressLabel: string;

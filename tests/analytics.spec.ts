@@ -46,7 +46,7 @@ test('T16 lead_submit carries no personal data', async ({ page }) => {
     };
   });
   await form.locator('button[type="submit"]').click();
-  await page.waitForLoadState('load');
+  await page.waitForURL(/thanks/); // the redirect follows the Worker's answer, so it is not part of the click
   captured = (await page.evaluate(() => sessionStorage.getItem('t16'))) ?? captured;
   expect(captured).toContain('lead_submit');
   expect(captured).not.toContain('Sensitive');

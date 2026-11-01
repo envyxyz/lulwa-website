@@ -16,5 +16,6 @@ export const site = {
     // ponytail: area search, not a pin. Swap for the exact pin when the client sends it (docs/FOR-AMEER.md).
     embed: 'https://www.google.com/maps?q=Al-Jalawiyah%2C%20Dammam&output=embed',
   },
+  analytics: { gtm: 'GTM-TVK4BRTS' }, // existing container; ownership unconfirmed (docs/FOR-AMEER.md)
   hours: { open: '08:00', close: '23:00', timeZone: 'Asia/Riyadh', days: 'every-day' },
 } as const;

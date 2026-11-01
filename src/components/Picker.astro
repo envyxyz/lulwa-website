@@ -70,13 +70,14 @@ const option = 'inline-flex min-h-target items-center rounded-button px-3 transi
   const send = root.querySelector<HTMLAnchorElement>('[data-picker-whatsapp]')!;
   const pearl = root.querySelector<SVGElement>('[data-pearl]')!;
   const likely = root.querySelector<HTMLElement>('[data-likely]')!;
+  import { sourceTag, track } from '../scripts/track';
   const base = send.href;
   const picked: Record<string, string> = {};
 
   const select = (group: HTMLElement[], el: HTMLElement) => group.forEach((o) => o.setAttribute('aria-pressed', String(o === el)));
   const write = () => {
     const text = root.dataset.message!.replace(/\{(\w+)\}/g, (_, key) => picked[key] ?? '…');
-    send.href = `${base}?text=${encodeURIComponent(`${text} [home]`)}`;
+    send.href = `${base}?text=${encodeURIComponent(`${text} ${sourceTag()}`)}`;
   };
   const appliances = all('[data-picker-appliance]');
   const faults = all('[data-picker-fault]');
@@ -112,6 +113,7 @@ const option = 'inline-flex min-h-target items-center rounded-button px-3 transi
     } else {
       select(areas, el);
       picked.area = label;
+      track('picker_complete');
     }
     write();
   });

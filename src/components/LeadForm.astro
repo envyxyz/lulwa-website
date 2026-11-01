@@ -1,0 +1,116 @@
+---
+import { site } from '../site';
+import { content, langFromUrl, localePath } from '../content';
+
+const lang = langFromUrl(Astro.url);
+const c = content[lang];
+const { form } = c.contact;
+const field = 'min-h-target w-full rounded-button bg-pearl-step px-card py-2 text-body';
+const label = 'flex flex-col gap-1 font-medium';
+const error = 'text-small text-error';
+const fields = [
+  { name: 'name', type: 'text', label: form.name, autocomplete: 'name' },
+  { name: 'phone', type: 'tel', label: form.phone, autocomplete: 'tel' },
+] as const;
+---
+
+<form
+  id="lead-form"
+  novalidate
+  class="flex max-w-prose flex-col gap-4"
+  data-endpoint="/api/lead"
+  data-thanks={localePath(lang, '/thanks')}
+  data-whatsapp={site.phone.whatsapp}
+  data-errors={JSON.stringify(form.errors)}
+>
+  {fields.map((f) => (
+    <label class={label}>
+      {f.label}
+      <input class={field} name={f.name} type={f.type} autocomplete={f.autocomplete} required maxlength="80" inputmode={f.type === 'tel' ? 'tel' : undefined} dir={f.type === 'tel' ? 'ltr' : undefined} aria-describedby={`${f.name}-error`} />
+      <span id={`${f.name}-error`} class={error} data-error-for={f.name} hidden></span>
+    </label>
+  ))}
+  <label class={label}>
+    {form.appliance}
+    <select class={field} name="appliance" required aria-describedby="appliance-error">
+      <option value="">{form.choose}</option>
+      {c.home.picker.appliances.map((a) => <option value={a.name}>{a.name}</option>)}
+    </select>
+    <span id="appliance-error" class={error} data-error-for="appliance" hidden></span>
+  </label>
+  <label class={label}>
+    {form.area}
+    <input class={field} name="area" type="text" required maxlength="60" aria-describedby="area-error" />
+    <span id="area-error" class={error} data-error-for="area" hidden></span>
+  </label>
+  <label class={label}>
+    {form.message}
+    <textarea class={`${field} min-h-32`} name="message" rows="4" maxlength="1000"></textarea>
+  </label>
+  <!-- Honeypot: off screen and out of the tab order. People never see it. -->
+  <div class="sr-only" aria-hidden="true"><input name="website" type="text" tabindex="-1" autocomplete="off" /></div>
+  <p data-consent class="text-small text-ink-soft">{form.consent} <a class="underline underline-offset-4" href={localePath(lang, '/privacy-policy')}>{form.privacy}</a></p>
+  <button type="submit" class="h-button md:h-button-md rounded-button bg-teal px-card font-medium text-pearl transition active:scale-98 active:bg-teal-active self-start">{form.submit}</button>
+  <div role="status" class="flex flex-col items-start gap-2" data-status>
+    <p data-fallback-text hidden>{form.fallback}</p>
+    <a data-fallback-link data-action="whatsapp" hidden class="min-h-target underline underline-offset-4" href={site.phone.whatsapp}>{form.whatsappFallback}</a>
+  </div>
+</form>
+
+<script>
+  import { sourceTag, slug, campaign, track } from '../scripts/track';
+
+  const form = document.querySelector<HTMLFormElement>('#lead-form')!;
+  const errors = JSON.parse(form.dataset.errors!) as Record<string, string>;
+  const button = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+  const field = (name: string) => form.elements.namedItem(name) as HTMLInputElement;
+  const show = (name: string, message: string) => {
+    const el = form.querySelector<HTMLElement>(`[data-error-for="${name}"]`)!;
+    el.textContent = message;
+    el.hidden = !message;
+    field(name).setAttribute('aria-invalid', String(Boolean(message)));
+  };
+
+  const check = () => {
+    const bad: string[] = [];
+    for (const name of ['name', 'phone', 'appliance', 'area']) {
+      const el = field(name);
+      const value = el.value.trim();
+      let message = '';
+      if (!value) message = errors.required!;
+      else if (name === 'phone' && !/^\d{8,15}$/.test(value.replace(/[\s-]|^\+/g, ''))) message = errors.phone!;
+      show(name, message);
+      if (message) bad.push(name);
+    }
+    return bad;
+  };
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const bad = check();
+    if (bad.length) return field(bad[0]!).focus();
+    button.disabled = true;
+    const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
+    const lead = { name: data.name, phone: data.phone, appliance: data.appliance, area: data.area, message: data.message ?? '', website: data.website ?? '', page: slug(), utm: campaign() };
+    let whatsapp = '';
+    try {
+      const response = await fetch(form.dataset.endpoint!, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(lead) });
+      const out = (await response.json().catch(() => ({}))) as { ok?: boolean; whatsapp?: string };
+      if (response.ok && out.ok) {
+        track('lead_submit');
+        return void location.assign(form.dataset.thanks!);
+      }
+      whatsapp = out.whatsapp ?? '';
+    } catch {
+      // Offline or the Worker is down: fall through to WhatsApp.
+    }
+    // The Sheet failed: the message still reaches the shop on WhatsApp.
+    const text = `${lead.appliance}, ${lead.area}. ${lead.message} ${sourceTag()}`.replace(/\s+/g, ' ').trim();
+    const link = form.querySelector<HTMLAnchorElement>('[data-fallback-link]')!;
+    link.href = whatsapp || `${form.dataset.whatsapp}?text=${encodeURIComponent(text)}`;
+    link.hidden = false;
+    form.querySelector<HTMLElement>('[data-fallback-text]')!.hidden = false;
+    button.disabled = false;
+    location.assign(link.href);
+  });
+</script>
