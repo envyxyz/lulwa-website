@@ -27,6 +27,8 @@ Written before the code. Phase 1 commits every test below, red, with a `test:con
 | T21 | `tests/copy-parity.spec.ts` | Arabic and English content files differ in shape, or a page has fewer English sections than Arabic | 2 |
 | T22 | `scripts/check-photos.mjs` | A photo renders larger than its source width, or lacks a provenance entry | 4 |
 
+Reference update, 1 Nov 2026: rounded tone-step cards pass T19 and T20. Generated product images pass T22 when listed as `kind: generated`.
+
 ## Performance rule
 
 Lighthouse scores are noisy on this machine. Run with nothing else heavy running, three runs per URL, take the median. Report ranges. Before go-live, also run from a Cloudflare deployment and record `cdn-cgi/trace` `colo`.

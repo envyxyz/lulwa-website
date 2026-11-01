@@ -8,6 +8,6 @@ export default defineConfig({
   reporter: [['list'], ['json', { outputFile: 'test-results/contract.json' }]],
   updateSnapshots: 'none',
   expect: { toHaveScreenshot: { maxDiffPixelRatio: 0.01 } },
-  use: { baseURL: 'http://localhost:4321', channel: 'msedge' },
+  use: { baseURL: 'http://localhost:4321', channel: 'msedge', actionTimeout: 5_000 },
   webServer: { command: 'pnpm exec astro preview --port 4321', url: 'http://localhost:4321', reuseExistingServer: true },
 });

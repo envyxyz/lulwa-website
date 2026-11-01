@@ -2,7 +2,11 @@
 const { existsSync, readFileSync } = require('node:fs');
 
 const sitemap = 'dist/sitemap-0.xml';
-const paths = existsSync(sitemap) ? [...readFileSync(sitemap, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]).pathname) : [];
+const built = existsSync(sitemap) ? [...readFileSync(sitemap, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]).pathname) : [];
+// Also every page the finished site owes (same list as tests/lib.ts), so a missing page is red, not skipped.
+const required = readFileSync('docs/url-map.csv', 'utf8').split(/\r?\n/).filter((line) => line.split(',')[1] === 'keep').map((line) => line.split(',')[0]);
+const owed = [...required, '/faults', '/reviews', '/work'];
+const paths = [...new Set([...built, ...owed, ...owed.map((path) => (path === '/' ? '/en' : `/en${path}`))])];
 
 module.exports = {
   ci: {
