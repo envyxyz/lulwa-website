@@ -3,6 +3,7 @@ import Button from './Button.astro';
 import Heading from './Heading.astro';
 import Img from './Img.astro';
 import LeadForm from './LeadForm.astro';
+import Reviews from './Reviews.astro';
 import Section from './Section.astro';
 import Text from './Text.astro';
 import Base from '../layouts/Base.astro';
@@ -30,8 +31,6 @@ const doc: (Intro & { sections?: Block[]; updated?: string }) | undefined =
 const intro: Intro = doc ?? (c as unknown as Record<string, Intro>)[kind]!;
 const sections = doc?.sections ?? (kind === 'about' ? c.about.sections : []);
 
-// Reviews with emoji stay off until the call in docs/FOR-AMEER.md. Text is never edited.
-const reviews = c.reviews.items.filter((r) => !/\p{Extended_Pictographic}/u.test(r.text));
 const photos = home.work.items;
 const size = (name: string) => (name.startsWith('rooftop') ? 680 : 287);
 const rows = [
@@ -113,14 +112,7 @@ const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
     </Section>
   )}
 
-  {kind === 'reviews' && (
-    <Section>
-      <div class="flex flex-col gap-8">
-        <div class="flex flex-col items-start gap-2"><Text>{c.reviews.rating} · {c.reviews.asOf}</Text><Button variant="quiet" href={site.maps.listing}>{c.reviews.sourceLink}</Button><Text soft>{c.reviews.source}</Text></div>
-        <ul class="grid gap-4 md:grid-cols-2">{reviews.map((r) => <li class="flex flex-col gap-2 rounded-card bg-pearl-step p-card"><bdi lang="en" dir="ltr" class="text-start font-display text-lead font-head">{r.text}</bdi><span class="text-small text-ink-soft"><bdi lang="en">{r.name}</bdi> · {r.when}</span></li>)}</ul>
-      </div>
-    </Section>
-  )}
+  {kind === 'reviews' && <Section><Reviews /></Section>}
 
   {kind === 'work' && photos.length === 0 && <Section><Text>{c.work.empty}</Text></Section>}
 

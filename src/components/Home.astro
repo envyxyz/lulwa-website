@@ -5,6 +5,7 @@ import Heading from './Heading.astro';
 import Icon from './Icon.astro';
 import Img from './Img.astro';
 import Picker from './Picker.astro';
+import Reviews from './Reviews.astro';
 import Section from './Section.astro';
 import Text from './Text.astro';
 import { art } from './appliance-art';
@@ -25,11 +26,6 @@ const cardArt: Record<string, { image: string; drawing: string }> = {
 };
 const step = 'inline-flex size-target items-center justify-center rounded-button bg-pearl-step text-teal transition hover:bg-pearl-hover active:scale-98 disabled:opacity-40 disabled:hover:bg-pearl-step disabled:active:scale-100';
 const hasImage = (name: string) => name in provenance;
-
-// Emoji reviews wait for the call in docs/FOR-AMEER.md. Text is never edited, so they are left off the home page.
-const clean = reviews.items.filter((r) => !/\p{Extended_Pictographic}/u.test(r.text));
-const quote = clean.reduce((a, b) => (b.text.length > a.text.length ? b : a));
-const others = clean.filter((r) => r !== quote);
 
 // Portrait photos are 287 wide, landscape 680: the grid never pushes them past that (Img caps it).
 const size = (photo: string) => (provenance as Record<string, { sourceWidth: number }>)[photo]!.sourceWidth;
@@ -87,34 +83,30 @@ const wall = [
 
 <div class="pt-section">
   <Section tone="ink">
-    <div class="grid gap-4 md:grid-cols-3">
-      <div class="md:col-span-3"><Heading tone="pearl">{steps.heading}<Fragment slot="quiet">{steps.quiet}</Fragment></Heading></div>
-      {steps.items.map((step, i) => (
-        <div class:list={['flex flex-col gap-2 rounded-card bg-ink-step p-card', { 1: 'md:mt-8', 2: 'md:mt-16' }[i]]}>
-          <h3 class="font-display text-lead font-head">{step.title}</h3>
-          <p class="text-small"><bdi>{step.text}</bdi></p>
-        </div>
-      ))}
+    <div class="flex flex-col gap-8">
+      <Heading tone="pearl">{steps.heading}<Fragment slot="quiet">{steps.quiet}</Fragment></Heading>
+      <ol class="grid gap-4 md:grid-cols-3">
+        {steps.items.map((step, i) => (
+          <li class="flex flex-col items-start gap-4 rounded-card bg-ink-step p-card">
+            <span aria-hidden="true" class="inline-flex size-target items-center justify-center rounded-dot bg-teal font-display text-lead font-head text-pearl">{i + 1}</span>
+            <div class="flex flex-col gap-2">
+              <h3 class="font-display text-lead font-head">{step.title}</h3>
+              <p class="text-body"><Fragment set:html={step.text.replaceAll(site.phone.display, `<bdi dir="ltr">${site.phone.display}</bdi>`)} /></p>
+            </div>
+          </li>
+        ))}
+      </ol>
     </div>
   </Section>
 </div>
 
 <Section>
-  <div class="grid gap-8 md:grid-cols-12">
-    <div class="flex flex-col gap-4 md:col-span-12 lg:flex-row lg:items-end lg:justify-between">
+  <div class="flex flex-col gap-8">
+    <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
       <Heading>{home.reviews.heading}<Fragment slot="quiet">{home.reviews.quiet}</Fragment></Heading>
-      <div class="flex flex-col items-start">
-        <Text>{reviews.rating} · {reviews.asOf}</Text>
-        <Button variant="quiet" href={site.maps.listing}>{home.reviews.link}</Button>
-      </div>
+      <Text>{reviews.lead}</Text>
     </div>
-    <figure class="flex flex-col gap-4 md:col-span-9">
-      <blockquote lang="en" dir="ltr" class="text-start font-display text-panel font-head"><bdi>{quote.text}</bdi></blockquote>
-      <figcaption class="text-small"><bdi lang="en">{quote.name}</bdi> · {quote.when}</figcaption>
-    </figure>
-    <ul class="flex flex-col gap-4 md:col-span-3 md:justify-end">
-      {others.map((r) => <li><bdi lang="en">{r.text}</bdi><span class="block text-small text-ink-soft"><bdi lang="en">{r.name}</bdi> · {r.when}</span></li>)}
-    </ul>
+    <Reviews />
   </div>
 </Section>
 
@@ -168,9 +160,13 @@ const wall = [
 </Section>
 
 <Section>
-  <div class="grid gap-8 md:grid-cols-12">
-    <div class="md:col-span-12"><Heading>{faq.heading}<Fragment slot="quiet">{faq.quiet}</Fragment></Heading></div>
-    <div class="md:col-span-12"><Faq items={faq.items} /></div>
+  <div class="grid gap-8 lg:grid-cols-12">
+    <div class="flex flex-col items-start gap-4 lg:col-span-4">
+      <Heading>{faq.heading}<Fragment slot="quiet">{faq.quiet}</Fragment></Heading>
+      <Text>{faq.lead}</Text>
+      <Button variant="whatsapp">{faq.cta}</Button>
+    </div>
+    <div class="lg:col-span-8"><Faq items={faq.items} /></div>
   </div>
 </Section>
 

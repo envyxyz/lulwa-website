@@ -152,15 +152,15 @@ export const en: Content = {
       ],
     },
     shop: { heading: 'The shop', addressLabel: 'Address', address: 'Prince Abdulmohsen bin Jalawi Street, Al-Jalawiyah, Dammam', hoursLabel: 'Opening hours', hours: 'Every day, 8:00 AM to 11:00 PM', hoursRange: '8:00 AM to 11:00 PM', today: 'Today', days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], mapLoad: 'Show the map', mapLoading: 'Loading the map', legalLabel: 'Legal name', crLabel: 'Commercial registration' },
-    faq: {
-      heading: 'Questions',
-      quiet: 'Before you write',
-      items: [
-        { q: 'Which appliances do you repair?', a: 'Air conditioners (split and window), fridges including gas refilling, automatic washing machines and dryers.' },
-        { q: 'How do I reach you?', a: `WhatsApp or call ${phone}, every day from 8:00 AM to 11:00 PM.` },
-        { q: 'Where is the shop?', a: 'In Al-Jalawiyah, Dammam, on Prince Abdulmohsen bin Jalawi Street.' },
-      ],
-    },
+    faq: { heading: 'Questions', quiet: 'Before you write', lead: 'Still unsure? Ask us directly. A photo of the fault saves time for both of us.', cta: 'Ask us on WhatsApp', items: [
+      { q: 'Which appliances do you repair?', a: 'Split and window ACs, fridges including gas refilling, automatic washing machines and dryers.' },
+      { q: 'Where is your shop?', a: 'In Al-Jalawiyah, Dammam, on Prince Abdulmohsen bin Jalawi Street. Tap “Directions” to open it on the map.' },
+      { q: 'When are you open?', a: 'Every day, 8:00 AM to 11:00 PM.' },
+      { q: 'How do I tell you about the fault?', a: `Take a photo or a short video and send it on WhatsApp to ${phone} with your district, or call the same number.` },
+      { q: 'My fridge is not cooling. What should I do?', a: 'Keep the door shut to hold the cold, check it is plugged in and has space behind it for air. If it does not improve, send us a photo or video on WhatsApp.' },
+      { q: 'Do you repair my brand?', a: 'Send a photo of the label with the brand and model on WhatsApp, and we will reply.' },
+      { q: 'Is your shop registered?', a: `Yes, as ${site.legal.name}, commercial registration ${site.legal.cr}.` },
+    ] },
     close: { heading: 'Appliance stopped?', text: 'Send us a photo of the fault on WhatsApp.' },
   },
   services: {
@@ -262,14 +262,14 @@ export const en: Content = {
     seo: { title: `Customer reviews on Google | ${name}`, description: 'Reviews copied as they are from our Google Maps listing.' },
     h1: 'Customer reviews',
     lead: 'Copied as they are from Google Maps.',
-    rating: '5.0 from 8 reviews',
+    score: '5.0',
+    count: '8 reviews on Google Maps',
+    starsLabel: '5 out of 5 stars',
     asOf: 'As of 1 November 2026',
-    source: 'Source: Google Maps',
-    sourceLink: 'See the reviews',
     items: [
-      { name: 'Jafar Sapra', text: 'Fast work 💪', when: '6 months ago' }, // taste-skill-ignore: quoted review, not rendered
+      { name: 'Jafar Sapra', text: 'Fast work 💪', when: '6 months ago' }, // taste-skill-ignore: quoted review, shown as written (Ameer, 1 Nov 2026)
       { name: 'Shahbaz Ahmad', text: 'Good work', when: 'a year ago' },
-      { name: 'Sohail Jamil', text: 'Good experience for work 😌', when: 'a year ago' }, // taste-skill-ignore: quoted review, not rendered
+      { name: 'Sohail Jamil', text: 'Good experience for work 😌', when: 'a year ago' }, // taste-skill-ignore: quoted review, shown as written (Ameer, 1 Nov 2026)
       { name: 'Usama Ch', text: 'Good Experience', when: 'a year ago' },
       { name: 'Asad Amjad', text: 'Good work', when: '2 years ago' },
     ],
