@@ -56,6 +56,7 @@
   --spacing-button: 3.25rem; /* 52 px on phones, 56 px from md */
   --spacing-button-md: 3.5rem;
   --spacing-target: 2.75rem; /* 44 px minimum tap target */
+  --spacing-icon: 1.25em;
   --spacing-pearl: 0.28em; /* the pearl scales with the type it ends */
 
   --container-*: initial;

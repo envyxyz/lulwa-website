@@ -17,7 +17,7 @@ const isDirectional = directional.has(name);
 ---
 
 <span
-  class:list={['inline-block size-[1.25em] shrink-0 *:size-full', isDirectional && 'rtl:-scale-x-100']}
+  class:list={['inline-block size-icon shrink-0 *:size-full', isDirectional && 'rtl:-scale-x-100']}
   data-icon={name}
   data-directional={isDirectional || undefined}
   role={label ? 'img' : undefined}
