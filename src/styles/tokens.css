@@ -33,6 +33,8 @@
   --text-body--line-height: 1.85;
   --text-small: 0.9375rem;
   --text-small--line-height: 1.6;
+  --text-panel: clamp(1.5rem, 4vw, 2.25rem); /* a full sentence set large: the statement panel */
+  --text-panel--line-height: 1.4;
   /* The name across the hero and footer, sized to its container. One word, one job. */
   --text-giant: min(52cqi, 46svh);
   --text-giant--line-height: 0.95;
@@ -100,7 +102,6 @@
   --text-lead--line-height: 1.5;
   --text-body: 1.0625rem;
   --text-body--line-height: 1.6;
-  --text-small: 0.875rem;
   --font-weight-head: 700;
   --font-weight-statement: 800;
   --tracking-statement: -0.03em;

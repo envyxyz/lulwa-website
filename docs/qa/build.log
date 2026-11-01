@@ -1,0 +1,97 @@
+$ node scripts/redirects.mjs && astro build
+40 redirects, 20 gone
+18:33:42 [types] Generated 250ms
+18:33:42 [build] output: "static"
+18:33:42 [build] mode: "static"
+18:33:42 [build] directory: C:\Users\ameer\Desktop\lulwa\website\dist\
+18:33:42 [build] Collecting build info...
+18:33:42 [build] ✓ Completed in 484ms.
+18:33:42 [build] Building static entrypoints...
+18:33:44 [vite] ✓ built in 1.71s
+18:33:44 [vite] ✓ built in 256ms
+18:33:44 [build] Rearranging server assets...
+
+ generating static routes 
+18:33:44   ├─ /404.html (+38ms) 
+18:33:44   ├─ /about.html (+42ms) 
+18:33:44   ├─ /areas/appliance-repair-in-dammam.html (+23ms) 
+18:33:44   ├─ /areas.html (+20ms) 
+18:33:45   ├─ /blog/ac-repair-in-dammam.html (+11ms) 
+18:33:45   ├─ /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide.html (+7ms) 
+18:33:45   ├─ /blog/washing-machine-maintenance-repair-services-in-dammam.html (+17ms) 
+18:33:45   ├─ /blog.html (+14ms) 
+18:33:45   ├─ /brands.html (+17ms) 
+18:33:45   ├─ /contact.html (+26ms) 
+18:33:45   ├─ /cookie-policy.html (+21ms) 
+18:33:45   ├─ /en/404.html (+9ms) 
+18:33:45   ├─ /en/about.html (+9ms) 
+18:33:45   ├─ /en/areas/appliance-repair-in-dammam.html (+13ms) 
+18:33:45   ├─ /en/areas.html (+14ms) 
+18:33:45   ├─ /en/blog/ac-repair-in-dammam.html (+20ms) 
+18:33:45   ├─ /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide.html (+8ms) 
+18:33:45   ├─ /en/blog/washing-machine-maintenance-repair-services-in-dammam.html (+7ms) 
+18:33:45   ├─ /en/blog.html (+19ms) 
+18:33:45   ├─ /en/brands.html (+12ms) 
+18:33:45   ├─ /en/contact.html (+8ms) 
+18:33:45   ├─ /en/cookie-policy.html (+8ms) 
+18:33:45   ├─ /en/faults/ac-not-cooling.html (+7ms) 
+18:33:45   ├─ /en/faults/ac-leaking-water.html (+8ms) 
+18:33:45   ├─ /en/faults/ac-freezing-up.html (+6ms) 
+18:33:45   ├─ /en/faults/ac-loud.html (+5ms) 
+18:33:45   ├─ /en/faults/ac-not-turning-on.html (+4ms) 
+18:33:45   ├─ /en/faults/fridge-not-cooling.html (+5ms) 
+18:33:45   ├─ /en/faults/fridge-leaking-water.html (+5ms) 
+18:33:45   ├─ /en/faults/fridge-loud.html (+22ms) 
+18:33:45   ├─ /en/faults/washer-not-spinning.html (+13ms) 
+18:33:45   ├─ /en/faults/washer-not-draining.html (+3ms) 
+18:33:45   ├─ /en/faults/washer-error-code.html (+4ms) 
+18:33:45   ├─ /en/faults/washer-shaking.html (+4ms) 
+18:33:45   ├─ /en/faults/dryer-not-heating.html (+20ms) 
+18:33:45   ├─ /en/faults/dryer-not-drying-well.html (+9ms) 
+18:33:45   ├─ /en/faults/dryer-not-tumbling.html (+6ms) 
+18:33:45   ├─ /en/faults.html (+17ms) 
+18:33:45   ├─ /en/privacy-policy.html (+11ms) 
+18:33:45   ├─ /en/reviews.html (+9ms) 
+18:33:45   ├─ /en/services/ac-repair.html (+19ms) 
+18:33:45   ├─ /en/services/refrigerator-repair.html (+12ms) 
+18:33:45   ├─ /en/services/washing-machine-repair.html (+9ms) 
+18:33:45   ├─ /en/services/dryer-repair.html (+10ms) 
+18:33:45   ├─ /en/services.html (+38ms) 
+18:33:45   ├─ /en/terms-of-service.html (+25ms) 
+18:33:45   ├─ /en/thanks.html (+31ms) 
+18:33:45   ├─ /en/work.html (+38ms) 
+18:33:45   ├─ /en.html (+17ms) 
+18:33:45   ├─ /faults/ac-not-cooling.html (+4ms) 
+18:33:45   ├─ /faults/ac-leaking-water.html (+4ms) 
+18:33:45   ├─ /faults/ac-freezing-up.html (+4ms) 
+18:33:45   ├─ /faults/ac-loud.html (+4ms) 
+18:33:45   ├─ /faults/ac-not-turning-on.html (+9ms) 
+18:33:45   ├─ /faults/fridge-not-cooling.html (+10ms) 
+18:33:45   ├─ /faults/fridge-leaking-water.html (+4ms) 
+18:33:45   ├─ /faults/fridge-loud.html (+17ms) 
+18:33:45   ├─ /faults/washer-not-spinning.html (+6ms) 
+18:33:45   ├─ /faults/washer-not-draining.html (+6ms) 
+18:33:45   ├─ /faults/washer-error-code.html (+4ms) 
+18:33:45   ├─ /faults/washer-shaking.html (+4ms) 
+18:33:45   ├─ /faults/dryer-not-heating.html (+3ms) 
+18:33:45   ├─ /faults/dryer-not-drying-well.html (+4ms) 
+18:33:45   ├─ /faults/dryer-not-tumbling.html (+6ms) 
+18:33:45   ├─ /faults.html (+10ms) 
+18:33:45   ├─ /llms.txt (+8ms) 
+18:33:45   ├─ /privacy-policy.html (+8ms) 
+18:33:45   ├─ /reviews.html (+8ms) 
+18:33:45   ├─ /services/ac-repair.html (+5ms) 
+18:33:45   ├─ /services/refrigerator-repair.html (+3ms) 
+18:33:45   ├─ /services/washing-machine-repair.html (+8ms) 
+18:33:45   ├─ /services/dryer-repair.html (+29ms) 
+18:33:45   ├─ /services.html (+14ms) 
+18:33:45   ├─ /terms-of-service.html (+8ms) 
+18:33:45   ├─ /thanks.html (+6ms) 
+18:33:45   ├─ /work.html (+8ms) 
+18:33:45   ├─ /index.html (+8ms) 
+18:33:45 ✓ Completed in 1.31s.
+
+18:33:45 [build] ✓ Completed in 3.46s.
+18:33:45 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+18:33:45 [build] 76 page(s) built in 4.03s
+18:33:45 [build] Complete!

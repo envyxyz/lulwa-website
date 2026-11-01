@@ -1,0 +1,809 @@
+
+Running 606 tests using 2 workers
+
+[1/606] tests\a11y.spec.ts:8:5 › T8 / at 1440 has no serious axe issue
+[2/606] tests\a11y.spec.ts:8:5 › T8 /about at 1440 has no serious axe issue
+[3/606] tests\a11y.spec.ts:8:5 › T8 /areas at 1440 has no serious axe issue
+[4/606] tests\a11y.spec.ts:8:5 › T8 /areas/appliance-repair-in-dammam at 1440 has no serious axe issue
+[5/606] tests\a11y.spec.ts:8:5 › T8 /blog at 1440 has no serious axe issue
+[6/606] tests\a11y.spec.ts:8:5 › T8 /blog/ac-repair-in-dammam at 1440 has no serious axe issue
+[7/606] tests\a11y.spec.ts:8:5 › T8 /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide at 1440 has no serious axe issue
+[8/606] tests\a11y.spec.ts:8:5 › T8 /blog/washing-machine-maintenance-repair-services-in-dammam at 1440 has no serious axe issue
+[9/606] tests\a11y.spec.ts:8:5 › T8 /brands at 1440 has no serious axe issue
+[10/606] tests\a11y.spec.ts:8:5 › T8 /contact at 1440 has no serious axe issue
+[11/606] tests\a11y.spec.ts:8:5 › T8 /cookie-policy at 1440 has no serious axe issue
+[12/606] tests\a11y.spec.ts:8:5 › T8 /privacy-policy at 1440 has no serious axe issue
+[13/606] tests\a11y.spec.ts:8:5 › T8 /services at 1440 has no serious axe issue
+[14/606] tests\a11y.spec.ts:8:5 › T8 /services/ac-repair at 1440 has no serious axe issue
+[15/606] tests\a11y.spec.ts:8:5 › T8 /services/dryer-repair at 1440 has no serious axe issue
+[16/606] tests\a11y.spec.ts:8:5 › T8 /services/refrigerator-repair at 1440 has no serious axe issue
+[17/606] tests\a11y.spec.ts:8:5 › T8 /services/washing-machine-repair at 1440 has no serious axe issue
+[18/606] tests\a11y.spec.ts:8:5 › T8 /terms-of-service at 1440 has no serious axe issue
+[19/606] tests\a11y.spec.ts:8:5 › T8 /faults at 1440 has no serious axe issue
+[20/606] tests\a11y.spec.ts:8:5 › T8 /reviews at 1440 has no serious axe issue
+[21/606] tests\a11y.spec.ts:8:5 › T8 /work at 1440 has no serious axe issue
+[22/606] tests\a11y.spec.ts:8:5 › T8 /en at 1440 has no serious axe issue
+[23/606] tests\a11y.spec.ts:8:5 › T8 /en/about at 1440 has no serious axe issue
+[24/606] tests\a11y.spec.ts:8:5 › T8 /en/areas at 1440 has no serious axe issue
+[25/606] tests\a11y.spec.ts:8:5 › T8 /en/areas/appliance-repair-in-dammam at 1440 has no serious axe issue
+[26/606] tests\a11y.spec.ts:8:5 › T8 /en/blog at 1440 has no serious axe issue
+[27/606] tests\a11y.spec.ts:8:5 › T8 /en/blog/ac-repair-in-dammam at 1440 has no serious axe issue
+[28/606] tests\a11y.spec.ts:8:5 › T8 /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide at 1440 has no serious axe issue
+[29/606] tests\a11y.spec.ts:8:5 › T8 /en/blog/washing-machine-maintenance-repair-services-in-dammam at 1440 has no serious axe issue
+[30/606] tests\a11y.spec.ts:8:5 › T8 /en/brands at 1440 has no serious axe issue
+[31/606] tests\a11y.spec.ts:8:5 › T8 /en/contact at 1440 has no serious axe issue
+[32/606] tests\a11y.spec.ts:8:5 › T8 /en/cookie-policy at 1440 has no serious axe issue
+[33/606] tests\a11y.spec.ts:8:5 › T8 /en/privacy-policy at 1440 has no serious axe issue
+[34/606] tests\a11y.spec.ts:8:5 › T8 /en/services at 1440 has no serious axe issue
+[35/606] tests\a11y.spec.ts:8:5 › T8 /en/services/ac-repair at 1440 has no serious axe issue
+[36/606] tests\a11y.spec.ts:8:5 › T8 /en/services/dryer-repair at 1440 has no serious axe issue
+[37/606] tests\a11y.spec.ts:8:5 › T8 /en/services/refrigerator-repair at 1440 has no serious axe issue
+[38/606] tests\a11y.spec.ts:8:5 › T8 /en/services/washing-machine-repair at 1440 has no serious axe issue
+[39/606] tests\a11y.spec.ts:8:5 › T8 /en/terms-of-service at 1440 has no serious axe issue
+[40/606] tests\a11y.spec.ts:8:5 › T8 /en/faults at 1440 has no serious axe issue
+[41/606] tests\a11y.spec.ts:8:5 › T8 /en/reviews at 1440 has no serious axe issue
+[42/606] tests\a11y.spec.ts:8:5 › T8 /en/work at 1440 has no serious axe issue
+[43/606] tests\a11y.spec.ts:8:5 › T8 / at 390 has no serious axe issue
+[44/606] tests\a11y.spec.ts:8:5 › T8 /about at 390 has no serious axe issue
+[45/606] tests\a11y.spec.ts:8:5 › T8 /areas at 390 has no serious axe issue
+[46/606] tests\a11y.spec.ts:8:5 › T8 /areas/appliance-repair-in-dammam at 390 has no serious axe issue
+[47/606] tests\a11y.spec.ts:8:5 › T8 /blog at 390 has no serious axe issue
+[48/606] tests\a11y.spec.ts:8:5 › T8 /blog/ac-repair-in-dammam at 390 has no serious axe issue
+[49/606] tests\a11y.spec.ts:8:5 › T8 /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide at 390 has no serious axe issue
+[50/606] tests\a11y.spec.ts:8:5 › T8 /blog/washing-machine-maintenance-repair-services-in-dammam at 390 has no serious axe issue
+[51/606] tests\a11y.spec.ts:8:5 › T8 /brands at 390 has no serious axe issue
+[52/606] tests\a11y.spec.ts:8:5 › T8 /contact at 390 has no serious axe issue
+[53/606] tests\a11y.spec.ts:8:5 › T8 /cookie-policy at 390 has no serious axe issue
+[54/606] tests\a11y.spec.ts:8:5 › T8 /privacy-policy at 390 has no serious axe issue
+[55/606] tests\a11y.spec.ts:8:5 › T8 /services at 390 has no serious axe issue
+[56/606] tests\a11y.spec.ts:8:5 › T8 /services/ac-repair at 390 has no serious axe issue
+[57/606] tests\a11y.spec.ts:8:5 › T8 /services/dryer-repair at 390 has no serious axe issue
+[58/606] tests\a11y.spec.ts:8:5 › T8 /services/refrigerator-repair at 390 has no serious axe issue
+[59/606] tests\a11y.spec.ts:8:5 › T8 /services/washing-machine-repair at 390 has no serious axe issue
+[60/606] tests\a11y.spec.ts:8:5 › T8 /terms-of-service at 390 has no serious axe issue
+[61/606] tests\a11y.spec.ts:8:5 › T8 /faults at 390 has no serious axe issue
+[62/606] tests\a11y.spec.ts:8:5 › T8 /reviews at 390 has no serious axe issue
+[63/606] tests\a11y.spec.ts:8:5 › T8 /work at 390 has no serious axe issue
+[64/606] tests\a11y.spec.ts:8:5 › T8 /en at 390 has no serious axe issue
+[65/606] tests\a11y.spec.ts:8:5 › T8 /en/about at 390 has no serious axe issue
+[66/606] tests\a11y.spec.ts:8:5 › T8 /en/areas at 390 has no serious axe issue
+[67/606] tests\a11y.spec.ts:8:5 › T8 /en/areas/appliance-repair-in-dammam at 390 has no serious axe issue
+[68/606] tests\a11y.spec.ts:8:5 › T8 /en/blog at 390 has no serious axe issue
+[69/606] tests\a11y.spec.ts:8:5 › T8 /en/blog/ac-repair-in-dammam at 390 has no serious axe issue
+[70/606] tests\a11y.spec.ts:8:5 › T8 /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide at 390 has no serious axe issue
+[71/606] tests\a11y.spec.ts:8:5 › T8 /en/blog/washing-machine-maintenance-repair-services-in-dammam at 390 has no serious axe issue
+[72/606] tests\a11y.spec.ts:8:5 › T8 /en/brands at 390 has no serious axe issue
+[73/606] tests\a11y.spec.ts:8:5 › T8 /en/contact at 390 has no serious axe issue
+[74/606] tests\a11y.spec.ts:8:5 › T8 /en/cookie-policy at 390 has no serious axe issue
+[75/606] tests\a11y.spec.ts:8:5 › T8 /en/privacy-policy at 390 has no serious axe issue
+[76/606] tests\a11y.spec.ts:8:5 › T8 /en/services at 390 has no serious axe issue
+[77/606] tests\a11y.spec.ts:8:5 › T8 /en/services/ac-repair at 390 has no serious axe issue
+[78/606] tests\a11y.spec.ts:8:5 › T8 /en/services/dryer-repair at 390 has no serious axe issue
+[79/606] tests\a11y.spec.ts:8:5 › T8 /en/services/refrigerator-repair at 390 has no serious axe issue
+[80/606] tests\a11y.spec.ts:8:5 › T8 /en/services/washing-machine-repair at 390 has no serious axe issue
+[81/606] tests\a11y.spec.ts:8:5 › T8 /en/terms-of-service at 390 has no serious axe issue
+[82/606] tests\a11y.spec.ts:8:5 › T8 /en/faults at 390 has no serious axe issue
+[83/606] tests\a11y.spec.ts:8:5 › T8 /en/reviews at 390 has no serious axe issue
+[84/606] tests\a11y.spec.ts:8:5 › T8 /en/work at 390 has no serious axe issue
+[85/606] tests\analytics.spec.ts:18:1 › T16 call_click
+[86/606] tests\analytics.spec.ts:19:1 › T16 whatsapp_click
+[87/606] tests\analytics.spec.ts:20:1 › T16 directions_click
+[88/606] tests\analytics.spec.ts:22:1 › T16 picker_complete
+[89/606] tests\analytics.spec.ts:28:1 › T16 lead_submit carries no personal data
+[90/606] tests\budget.spec.ts:10:3 › T13 / is inside the budgets
+[91/606] tests\budget.spec.ts:10:3 › T13 /about is inside the budgets
+[92/606] tests\budget.spec.ts:10:3 › T13 /areas is inside the budgets
+[93/606] tests\budget.spec.ts:10:3 › T13 /areas/appliance-repair-in-dammam is inside the budgets
+[94/606] tests\budget.spec.ts:10:3 › T13 /blog is inside the budgets
+[95/606] tests\budget.spec.ts:10:3 › T13 /blog/ac-repair-in-dammam is inside the budgets
+[96/606] tests\budget.spec.ts:10:3 › T13 /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide is inside the budgets
+[97/606] tests\budget.spec.ts:10:3 › T13 /blog/washing-machine-maintenance-repair-services-in-dammam is inside the budgets
+[98/606] tests\budget.spec.ts:10:3 › T13 /brands is inside the budgets
+[99/606] tests\budget.spec.ts:10:3 › T13 /contact is inside the budgets
+[100/606] tests\budget.spec.ts:10:3 › T13 /cookie-policy is inside the budgets
+[101/606] tests\budget.spec.ts:10:3 › T13 /en is inside the budgets
+[102/606] tests\budget.spec.ts:10:3 › T13 /en/about is inside the budgets
+[103/606] tests\budget.spec.ts:10:3 › T13 /en/areas is inside the budgets
+[104/606] tests\budget.spec.ts:10:3 › T13 /en/areas/appliance-repair-in-dammam is inside the budgets
+[105/606] tests\budget.spec.ts:10:3 › T13 /en/blog is inside the budgets
+[106/606] tests\budget.spec.ts:10:3 › T13 /en/blog/ac-repair-in-dammam is inside the budgets
+[107/606] tests\budget.spec.ts:10:3 › T13 /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide is inside the budgets
+[108/606] tests\budget.spec.ts:10:3 › T13 /en/blog/washing-machine-maintenance-repair-services-in-dammam is inside the budgets
+[109/606] tests\budget.spec.ts:10:3 › T13 /en/brands is inside the budgets
+[110/606] tests\budget.spec.ts:10:3 › T13 /en/contact is inside the budgets
+[111/606] tests\budget.spec.ts:10:3 › T13 /en/cookie-policy is inside the budgets
+[112/606] tests\budget.spec.ts:10:3 › T13 /en/faults is inside the budgets
+[113/606] tests\budget.spec.ts:10:3 › T13 /en/privacy-policy is inside the budgets
+[114/606] tests\budget.spec.ts:10:3 › T13 /en/reviews is inside the budgets
+[115/606] tests\budget.spec.ts:10:3 › T13 /en/services is inside the budgets
+[116/606] tests\budget.spec.ts:10:3 › T13 /en/services/ac-repair is inside the budgets
+[117/606] tests\budget.spec.ts:10:3 › T13 /en/services/dryer-repair is inside the budgets
+[118/606] tests\budget.spec.ts:10:3 › T13 /en/services/refrigerator-repair is inside the budgets
+[119/606] tests\budget.spec.ts:10:3 › T13 /en/services/washing-machine-repair is inside the budgets
+[120/606] tests\budget.spec.ts:10:3 › T13 /en/terms-of-service is inside the budgets
+[121/606] tests\budget.spec.ts:10:3 › T13 /en/work is inside the budgets
+[122/606] tests\budget.spec.ts:10:3 › T13 /faults is inside the budgets
+[123/606] tests\budget.spec.ts:10:3 › T13 /privacy-policy is inside the budgets
+[124/606] tests\budget.spec.ts:10:3 › T13 /reviews is inside the budgets
+[125/606] tests\budget.spec.ts:10:3 › T13 /services is inside the budgets
+[126/606] tests\budget.spec.ts:10:3 › T13 /services/ac-repair is inside the budgets
+[127/606] tests\budget.spec.ts:10:3 › T13 /services/dryer-repair is inside the budgets
+[128/606] tests\budget.spec.ts:10:3 › T13 /services/refrigerator-repair is inside the budgets
+[129/606] tests\budget.spec.ts:10:3 › T13 /services/washing-machine-repair is inside the budgets
+[130/606] tests\budget.spec.ts:10:3 › T13 /terms-of-service is inside the budgets
+[131/606] tests\budget.spec.ts:10:3 › T13 /work is inside the budgets
+[132/606] tests\claims.spec.ts:22:1 › T6 content files are final, not stubs
+[133/606] tests\claims.spec.ts:32:1 › T6 built HTML holds no banned claim
+[134/606] tests\claims.spec.ts:27:1 › T6 content files hold no banned claim
+[135/606] tests\copy-parity.spec.ts:15:3 › T21 both languages have the home group
+[136/606] tests\copy-parity.spec.ts:15:3 › T21 both languages have the services group
+[137/606] tests\copy-parity.spec.ts:15:3 › T21 both languages have the faults group
+[138/606] tests\copy-parity.spec.ts:15:3 › T21 both languages have the areas group
+[139/606] tests\copy-parity.spec.ts:15:3 › T21 both languages have the brands group
+[140/606] tests\copy-parity.spec.ts:15:3 › T21 both languages have the about group
+[141/606] tests\copy-parity.spec.ts:15:3 › T21 both languages have the contact group
+[142/606] tests\copy-parity.spec.ts:15:3 › T21 both languages have the reviews group
+[143/606] tests\copy-parity.spec.ts:15:3 › T21 both languages have the work group
+[144/606] tests\copy-parity.spec.ts:15:3 › T21 both languages have the legal group
+[145/606] tests\copy-parity.spec.ts:15:3 › T21 both languages have the blog group
+[146/606] tests\copy-parity.spec.ts:21:1 › T21 Arabic and English have the same shape
+[147/606] tests\fault-picker.spec.ts:8:3 › without JS › T14 the picker is plain links to service and fault pages
+[148/606] tests\fault-picker.spec.ts:18:3 › T14 / WhatsApp message carries appliance, fault and area
+[149/606] tests\fault-picker.spec.ts:18:3 › T14 /en WhatsApp message carries appliance, fault and area
+[150/606] tests\headlines.spec.ts:6:3 › T11 / headings stay within two lines
+[151/606] tests\headlines.spec.ts:6:3 › T11 /about headings stay within two lines
+[152/606] tests\headlines.spec.ts:6:3 › T11 /areas headings stay within two lines
+[153/606] tests\headlines.spec.ts:6:3 › T11 /areas/appliance-repair-in-dammam headings stay within two lines
+[154/606] tests\headlines.spec.ts:6:3 › T11 /blog headings stay within two lines
+[155/606] tests\headlines.spec.ts:6:3 › T11 /blog/ac-repair-in-dammam headings stay within two lines
+[156/606] tests\headlines.spec.ts:6:3 › T11 /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide headings stay within two lines
+[157/606] tests\headlines.spec.ts:6:3 › T11 /blog/washing-machine-maintenance-repair-services-in-dammam headings stay within two lines
+[158/606] tests\headlines.spec.ts:6:3 › T11 /brands headings stay within two lines
+[159/606] tests\headlines.spec.ts:6:3 › T11 /contact headings stay within two lines
+[160/606] tests\headlines.spec.ts:6:3 › T11 /cookie-policy headings stay within two lines
+[161/606] tests\headlines.spec.ts:6:3 › T11 /privacy-policy headings stay within two lines
+[162/606] tests\headlines.spec.ts:6:3 › T11 /services headings stay within two lines
+[163/606] tests\headlines.spec.ts:6:3 › T11 /services/ac-repair headings stay within two lines
+[164/606] tests\headlines.spec.ts:6:3 › T11 /services/dryer-repair headings stay within two lines
+[165/606] tests\headlines.spec.ts:6:3 › T11 /services/refrigerator-repair headings stay within two lines
+[166/606] tests\headlines.spec.ts:6:3 › T11 /services/washing-machine-repair headings stay within two lines
+[167/606] tests\headlines.spec.ts:6:3 › T11 /terms-of-service headings stay within two lines
+[168/606] tests\headlines.spec.ts:6:3 › T11 /faults headings stay within two lines
+[169/606] tests\headlines.spec.ts:6:3 › T11 /reviews headings stay within two lines
+[170/606] tests\headlines.spec.ts:6:3 › T11 /work headings stay within two lines
+[171/606] tests\headlines.spec.ts:6:3 › T11 /en headings stay within two lines
+[172/606] tests\headlines.spec.ts:6:3 › T11 /en/about headings stay within two lines
+[173/606] tests\headlines.spec.ts:6:3 › T11 /en/areas headings stay within two lines
+[174/606] tests\headlines.spec.ts:6:3 › T11 /en/areas/appliance-repair-in-dammam headings stay within two lines
+[175/606] tests\headlines.spec.ts:6:3 › T11 /en/blog headings stay within two lines
+[176/606] tests\headlines.spec.ts:6:3 › T11 /en/blog/ac-repair-in-dammam headings stay within two lines
+[177/606] tests\headlines.spec.ts:6:3 › T11 /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide headings stay within two lines
+[178/606] tests\headlines.spec.ts:6:3 › T11 /en/blog/washing-machine-maintenance-repair-services-in-dammam headings stay within two lines
+[179/606] tests\headlines.spec.ts:6:3 › T11 /en/brands headings stay within two lines
+[180/606] tests\headlines.spec.ts:6:3 › T11 /en/contact headings stay within two lines
+[181/606] tests\headlines.spec.ts:6:3 › T11 /en/cookie-policy headings stay within two lines
+[182/606] tests\headlines.spec.ts:6:3 › T11 /en/privacy-policy headings stay within two lines
+[183/606] tests\headlines.spec.ts:6:3 › T11 /en/services headings stay within two lines
+[184/606] tests\headlines.spec.ts:6:3 › T11 /en/services/ac-repair headings stay within two lines
+[185/606] tests\headlines.spec.ts:6:3 › T11 /en/services/dryer-repair headings stay within two lines
+[186/606] tests\headlines.spec.ts:6:3 › T11 /en/services/refrigerator-repair headings stay within two lines
+[187/606] tests\headlines.spec.ts:6:3 › T11 /en/services/washing-machine-repair headings stay within two lines
+[188/606] tests\headlines.spec.ts:6:3 › T11 /en/terms-of-service headings stay within two lines
+[189/606] tests\headlines.spec.ts:6:3 › T11 /en/faults headings stay within two lines
+[190/606] tests\headlines.spec.ts:6:3 › T11 /en/reviews headings stay within two lines
+[191/606] tests\headlines.spec.ts:6:3 › T11 /en/work headings stay within two lines
+[192/606] tests\hreflang.spec.ts:7:3 › T4 / hreflang is reciprocal
+[193/606] tests\hreflang.spec.ts:7:3 › T4 /about hreflang is reciprocal
+[194/606] tests\hreflang.spec.ts:7:3 › T4 /areas hreflang is reciprocal
+[195/606] tests\hreflang.spec.ts:7:3 › T4 /areas/appliance-repair-in-dammam hreflang is reciprocal
+[196/606] tests\hreflang.spec.ts:7:3 › T4 /blog/ac-repair-in-dammam hreflang is reciprocal
+[197/606] tests\hreflang.spec.ts:7:3 › T4 /blog hreflang is reciprocal
+[198/606] tests\hreflang.spec.ts:7:3 › T4 /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide hreflang is reciprocal
+[199/606] tests\hreflang.spec.ts:7:3 › T4 /blog/washing-machine-maintenance-repair-services-in-dammam hreflang is reciprocal
+[200/606] tests\hreflang.spec.ts:7:3 › T4 /brands hreflang is reciprocal
+[201/606] tests\hreflang.spec.ts:7:3 › T4 /contact hreflang is reciprocal
+[202/606] tests\hreflang.spec.ts:7:3 › T4 /cookie-policy hreflang is reciprocal
+[203/606] tests\hreflang.spec.ts:7:3 › T4 /privacy-policy hreflang is reciprocal
+[204/606] tests\hreflang.spec.ts:7:3 › T4 /services hreflang is reciprocal
+[205/606] tests\hreflang.spec.ts:7:3 › T4 /services/ac-repair hreflang is reciprocal
+[206/606] tests\hreflang.spec.ts:7:3 › T4 /services/dryer-repair hreflang is reciprocal
+[207/606] tests\hreflang.spec.ts:7:3 › T4 /services/refrigerator-repair hreflang is reciprocal
+[208/606] tests\hreflang.spec.ts:7:3 › T4 /services/washing-machine-repair hreflang is reciprocal
+[209/606] tests\hreflang.spec.ts:7:3 › T4 /terms-of-service hreflang is reciprocal
+[210/606] tests\hreflang.spec.ts:7:3 › T4 /faults hreflang is reciprocal
+[211/606] tests\hreflang.spec.ts:7:3 › T4 /reviews hreflang is reciprocal
+[212/606] tests\hreflang.spec.ts:7:3 › T4 /work hreflang is reciprocal
+[213/606] tests\hreflang.spec.ts:7:3 › T4 /en hreflang is reciprocal
+[214/606] tests\hreflang.spec.ts:7:3 › T4 /en/about hreflang is reciprocal
+[215/606] tests\hreflang.spec.ts:7:3 › T4 /en/areas hreflang is reciprocal
+[216/606] tests\hreflang.spec.ts:7:3 › T4 /en/areas/appliance-repair-in-dammam hreflang is reciprocal
+[217/606] tests\hreflang.spec.ts:7:3 › T4 /en/blog hreflang is reciprocal
+[218/606] tests\hreflang.spec.ts:7:3 › T4 /en/blog/ac-repair-in-dammam hreflang is reciprocal
+[219/606] tests\hreflang.spec.ts:7:3 › T4 /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide hreflang is reciprocal
+[220/606] tests\hreflang.spec.ts:7:3 › T4 /en/blog/washing-machine-maintenance-repair-services-in-dammam hreflang is reciprocal
+[221/606] tests\hreflang.spec.ts:7:3 › T4 /en/brands hreflang is reciprocal
+[222/606] tests\hreflang.spec.ts:7:3 › T4 /en/contact hreflang is reciprocal
+[223/606] tests\hreflang.spec.ts:7:3 › T4 /en/cookie-policy hreflang is reciprocal
+[224/606] tests\hreflang.spec.ts:7:3 › T4 /en/privacy-policy hreflang is reciprocal
+[225/606] tests\hreflang.spec.ts:7:3 › T4 /en/services hreflang is reciprocal
+[226/606] tests\hreflang.spec.ts:7:3 › T4 /en/services/ac-repair hreflang is reciprocal
+[227/606] tests\hreflang.spec.ts:7:3 › T4 /en/services/dryer-repair hreflang is reciprocal
+[228/606] tests\hreflang.spec.ts:7:3 › T4 /en/services/refrigerator-repair hreflang is reciprocal
+[229/606] tests\hreflang.spec.ts:7:3 › T4 /en/services/washing-machine-repair hreflang is reciprocal
+[230/606] tests\hreflang.spec.ts:7:3 › T4 /en/terms-of-service hreflang is reciprocal
+[231/606] tests\hreflang.spec.ts:7:3 › T4 /en/faults hreflang is reciprocal
+[232/606] tests\hreflang.spec.ts:7:3 › T4 /en/reviews hreflang is reciprocal
+[233/606] tests\hreflang.spec.ts:7:3 › T4 /en/work hreflang is reciprocal
+[234/606] tests\keyboard.spec.ts:15:1 › T9 language link works by keyboard
+[235/606] tests\keyboard.spec.ts:22:1 › T9 phone menu opens and closes by keyboard
+[236/606] tests\keyboard.spec.ts:33:1 › T9 fault picker completes by keyboard
+[237/606] tests\keyboard.spec.ts:43:1 › T9 lead form completes by keyboard
+[238/606] tests\lead.spec.ts:16:1 › T15 Worker rejects invalid input
+[239/606] tests\lead.spec.ts:23:1 › T15 Worker accepts a good lead with a reference, and leaks no secret
+[240/606] tests\lead.spec.ts:33:1 › T15 honeypot is dropped without reaching the Sheet
+[241/606] tests\lead.spec.ts:43:1 › T15 Sheet down gives a WhatsApp fallback and no secret
+tests\lead.spec.ts:43:1 › T15 Sheet down gives a WhatsApp fallback and no secret
+lead webhook failed SyntaxError: Unexpected token 'd', "down" is not valid JSON {"reference":"L-918BEFF9","name":"Test","phone":"0500000000","appliance":"ac","area":"dammam","message":"not cooling","page":"","utm":""}
+
+[242/606] tests\lead.spec.ts:51:3 › T15 /contact form has consent, privacy link, nothing pre-ticked
+[243/606] tests\lead.spec.ts:51:3 › T15 /en/contact form has consent, privacy link, nothing pre-ticked
+[244/606] tests\nap.spec.ts:7:3 › T7 / shows the one phone, legal name and CR
+[245/606] tests\nap.spec.ts:7:3 › T7 /about shows the one phone, legal name and CR
+[246/606] tests\nap.spec.ts:7:3 › T7 /areas shows the one phone, legal name and CR
+[247/606] tests\nap.spec.ts:7:3 › T7 /areas/appliance-repair-in-dammam shows the one phone, legal name and CR
+[248/606] tests\nap.spec.ts:7:3 › T7 /blog shows the one phone, legal name and CR
+[249/606] tests\nap.spec.ts:7:3 › T7 /blog/ac-repair-in-dammam shows the one phone, legal name and CR
+[250/606] tests\nap.spec.ts:7:3 › T7 /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide shows the one phone, legal name and CR
+[251/606] tests\nap.spec.ts:7:3 › T7 /blog/washing-machine-maintenance-repair-services-in-dammam shows the one phone, legal name and CR
+[252/606] tests\nap.spec.ts:7:3 › T7 /brands shows the one phone, legal name and CR
+[253/606] tests\nap.spec.ts:7:3 › T7 /contact shows the one phone, legal name and CR
+[254/606] tests\nap.spec.ts:7:3 › T7 /cookie-policy shows the one phone, legal name and CR
+[255/606] tests\nap.spec.ts:7:3 › T7 /en shows the one phone, legal name and CR
+[256/606] tests\nap.spec.ts:7:3 › T7 /en/about shows the one phone, legal name and CR
+[257/606] tests\nap.spec.ts:7:3 › T7 /en/areas shows the one phone, legal name and CR
+[258/606] tests\nap.spec.ts:7:3 › T7 /en/areas/appliance-repair-in-dammam shows the one phone, legal name and CR
+[259/606] tests\nap.spec.ts:7:3 › T7 /en/blog shows the one phone, legal name and CR
+[260/606] tests\nap.spec.ts:7:3 › T7 /en/blog/ac-repair-in-dammam shows the one phone, legal name and CR
+[261/606] tests\nap.spec.ts:7:3 › T7 /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide shows the one phone, legal name and CR
+[262/606] tests\nap.spec.ts:7:3 › T7 /en/blog/washing-machine-maintenance-repair-services-in-dammam shows the one phone, legal name and CR
+[263/606] tests\nap.spec.ts:7:3 › T7 /en/brands shows the one phone, legal name and CR
+[264/606] tests\nap.spec.ts:7:3 › T7 /en/contact shows the one phone, legal name and CR
+[265/606] tests\nap.spec.ts:7:3 › T7 /en/cookie-policy shows the one phone, legal name and CR
+[266/606] tests\nap.spec.ts:7:3 › T7 /en/faults shows the one phone, legal name and CR
+[267/606] tests\nap.spec.ts:7:3 › T7 /en/privacy-policy shows the one phone, legal name and CR
+[268/606] tests\nap.spec.ts:7:3 › T7 /en/reviews shows the one phone, legal name and CR
+[269/606] tests\nap.spec.ts:7:3 › T7 /en/services shows the one phone, legal name and CR
+[270/606] tests\nap.spec.ts:7:3 › T7 /en/services/ac-repair shows the one phone, legal name and CR
+[271/606] tests\nap.spec.ts:7:3 › T7 /en/services/dryer-repair shows the one phone, legal name and CR
+[272/606] tests\nap.spec.ts:7:3 › T7 /en/services/refrigerator-repair shows the one phone, legal name and CR
+[273/606] tests\nap.spec.ts:7:3 › T7 /en/services/washing-machine-repair shows the one phone, legal name and CR
+[274/606] tests\nap.spec.ts:7:3 › T7 /en/terms-of-service shows the one phone, legal name and CR
+[275/606] tests\nap.spec.ts:7:3 › T7 /en/work shows the one phone, legal name and CR
+[276/606] tests\nap.spec.ts:7:3 › T7 /faults shows the one phone, legal name and CR
+[277/606] tests\nap.spec.ts:7:3 › T7 /privacy-policy shows the one phone, legal name and CR
+[278/606] tests\nap.spec.ts:7:3 › T7 /reviews shows the one phone, legal name and CR
+[279/606] tests\nap.spec.ts:7:3 › T7 /services shows the one phone, legal name and CR
+[280/606] tests\nap.spec.ts:7:3 › T7 /services/ac-repair shows the one phone, legal name and CR
+[281/606] tests\nap.spec.ts:7:3 › T7 /services/dryer-repair shows the one phone, legal name and CR
+[282/606] tests\nap.spec.ts:7:3 › T7 /services/refrigerator-repair shows the one phone, legal name and CR
+[283/606] tests\nap.spec.ts:7:3 › T7 /services/washing-machine-repair shows the one phone, legal name and CR
+[284/606] tests\nap.spec.ts:7:3 › T7 /terms-of-service shows the one phone, legal name and CR
+[285/606] tests\nap.spec.ts:7:3 › T7 /work shows the one phone, legal name and CR
+[286/606] tests\overflow.spec.ts:6:3 › T10 / never scrolls sideways
+[287/606] tests\overflow.spec.ts:6:3 › T10 /about never scrolls sideways
+[288/606] tests\overflow.spec.ts:6:3 › T10 /areas never scrolls sideways
+[289/606] tests\overflow.spec.ts:6:3 › T10 /areas/appliance-repair-in-dammam never scrolls sideways
+[290/606] tests\overflow.spec.ts:6:3 › T10 /blog never scrolls sideways
+[291/606] tests\overflow.spec.ts:6:3 › T10 /blog/ac-repair-in-dammam never scrolls sideways
+[292/606] tests\overflow.spec.ts:6:3 › T10 /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide never scrolls sideways
+[293/606] tests\overflow.spec.ts:6:3 › T10 /blog/washing-machine-maintenance-repair-services-in-dammam never scrolls sideways
+[294/606] tests\overflow.spec.ts:6:3 › T10 /brands never scrolls sideways
+[295/606] tests\overflow.spec.ts:6:3 › T10 /contact never scrolls sideways
+[296/606] tests\overflow.spec.ts:6:3 › T10 /cookie-policy never scrolls sideways
+[297/606] tests\overflow.spec.ts:6:3 › T10 /privacy-policy never scrolls sideways
+[298/606] tests\overflow.spec.ts:6:3 › T10 /services never scrolls sideways
+[299/606] tests\overflow.spec.ts:6:3 › T10 /services/ac-repair never scrolls sideways
+[300/606] tests\overflow.spec.ts:6:3 › T10 /services/dryer-repair never scrolls sideways
+[301/606] tests\overflow.spec.ts:6:3 › T10 /services/refrigerator-repair never scrolls sideways
+[302/606] tests\overflow.spec.ts:6:3 › T10 /services/washing-machine-repair never scrolls sideways
+[303/606] tests\overflow.spec.ts:6:3 › T10 /terms-of-service never scrolls sideways
+[304/606] tests\overflow.spec.ts:6:3 › T10 /faults never scrolls sideways
+[305/606] tests\overflow.spec.ts:6:3 › T10 /reviews never scrolls sideways
+[306/606] tests\overflow.spec.ts:6:3 › T10 /work never scrolls sideways
+[307/606] tests\overflow.spec.ts:6:3 › T10 /en never scrolls sideways
+[308/606] tests\overflow.spec.ts:6:3 › T10 /en/about never scrolls sideways
+[309/606] tests\overflow.spec.ts:6:3 › T10 /en/areas never scrolls sideways
+[310/606] tests\overflow.spec.ts:6:3 › T10 /en/areas/appliance-repair-in-dammam never scrolls sideways
+[311/606] tests\overflow.spec.ts:6:3 › T10 /en/blog never scrolls sideways
+[312/606] tests\overflow.spec.ts:6:3 › T10 /en/blog/ac-repair-in-dammam never scrolls sideways
+[313/606] tests\overflow.spec.ts:6:3 › T10 /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide never scrolls sideways
+[314/606] tests\overflow.spec.ts:6:3 › T10 /en/blog/washing-machine-maintenance-repair-services-in-dammam never scrolls sideways
+[315/606] tests\overflow.spec.ts:6:3 › T10 /en/brands never scrolls sideways
+[316/606] tests\overflow.spec.ts:6:3 › T10 /en/contact never scrolls sideways
+[317/606] tests\overflow.spec.ts:6:3 › T10 /en/cookie-policy never scrolls sideways
+[318/606] tests\overflow.spec.ts:6:3 › T10 /en/privacy-policy never scrolls sideways
+[319/606] tests\overflow.spec.ts:6:3 › T10 /en/services never scrolls sideways
+[320/606] tests\overflow.spec.ts:6:3 › T10 /en/services/ac-repair never scrolls sideways
+[321/606] tests\overflow.spec.ts:6:3 › T10 /en/services/dryer-repair never scrolls sideways
+[322/606] tests\overflow.spec.ts:6:3 › T10 /en/services/refrigerator-repair never scrolls sideways
+[323/606] tests\overflow.spec.ts:6:3 › T10 /en/services/washing-machine-repair never scrolls sideways
+[324/606] tests\overflow.spec.ts:6:3 › T10 /en/terms-of-service never scrolls sideways
+[325/606] tests\overflow.spec.ts:6:3 › T10 /en/faults never scrolls sideways
+[326/606] tests\overflow.spec.ts:6:3 › T10 /en/reviews never scrolls sideways
+[327/606] tests\overflow.spec.ts:6:3 › T10 /en/work never scrolls sideways
+[328/606] tests\redirects.spec.ts:6:3 › T2 / keep
+[329/606] tests\redirects.spec.ts:6:3 › T2 /about keep
+[330/606] tests\redirects.spec.ts:6:3 › T2 /areas keep
+[331/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-abqaiq 410
+[332/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-al-ahsa 410
+[333/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-al-awamiyah 410
+[334/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-al-jish 410
+[335/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-al-khobar 410
+[336/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-al-mallaha 410
+[337/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-al-mubarraz 410
+[338/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-al-qudaih 410
+[339/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-al-rabwah 410
+[340/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-dammam keep
+[341/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-darin 410
+[342/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-dhahran 410
+[343/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-hofuf 410
+[344/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-jubail 410
+[345/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-qatif 410
+[346/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-ras-tanura 410
+[347/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-safwa 410
+[348/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-saihat 410
+[349/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-sanabes 410
+[350/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-tarout 410
+[351/606] tests\redirects.spec.ts:6:3 › T2 /areas/appliance-repair-in-umm-as-sahik 410
+[352/606] tests\redirects.spec.ts:6:3 › T2 /blog keep
+[353/606] tests\redirects.spec.ts:6:3 › T2 /blog/ac-repair-in-dammam keep
+[354/606] tests\redirects.spec.ts:6:3 › T2 /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide keep
+[355/606] tests\redirects.spec.ts:6:3 › T2 /blog/washing-machine-maintenance-repair-services-in-dammam keep
+[356/606] tests\redirects.spec.ts:6:3 › T2 /brands keep
+[357/606] tests\redirects.spec.ts:6:3 › T2 /brands/alessa-appliance-repair 301
+[358/606] tests\redirects.spec.ts:6:3 › T2 /brands/amana-appliance-repair 301
+[359/606] tests\redirects.spec.ts:6:3 › T2 /brands/bosch-appliance-repair 301
+[360/606] tests\redirects.spec.ts:6:3 › T2 /brands/carrier-appliance-repair 301
+[361/606] tests\redirects.spec.ts:6:3 › T2 /brands/chigo-appliance-repair 301
+[362/606] tests\redirects.spec.ts:6:3 › T2 /brands/daewoo-appliance-repair 301
+[363/606] tests\redirects.spec.ts:6:3 › T2 /brands/daikin-appliance-repair 301
+[364/606] tests\redirects.spec.ts:6:3 › T2 /brands/electrolux-appliance-repair 301
+[365/606] tests\redirects.spec.ts:6:3 › T2 /brands/frigidaire-appliance-repair 301
+[366/606] tests\redirects.spec.ts:6:3 › T2 /brands/fujitsu-appliance-repair 301
+[367/606] tests\redirects.spec.ts:6:3 › T2 /brands/ge-appliance-repair 301
+[368/606] tests\redirects.spec.ts:6:3 › T2 /brands/gree-appliance-repair 301
+[369/606] tests\redirects.spec.ts:6:3 › T2 /brands/haier-appliance-repair 301
+[370/606] tests\redirects.spec.ts:6:3 › T2 /brands/hitachi-appliance-repair 301
+[371/606] tests\redirects.spec.ts:6:3 › T2 /brands/kenmore-appliance-repair 301
+[372/606] tests\redirects.spec.ts:6:3 › T2 /brands/lg-appliance-repair 301
+[373/606] tests\redirects.spec.ts:6:3 › T2 /brands/maytag-appliance-repair 301
+[374/606] tests\redirects.spec.ts:6:3 › T2 /brands/midea-appliance-repair 301
+[375/606] tests\redirects.spec.ts:6:3 › T2 /brands/nikai-appliance-repair 301
+[376/606] tests\redirects.spec.ts:6:3 › T2 /brands/o-general-appliance-repair 301
+[377/606] tests\redirects.spec.ts:6:3 › T2 /brands/panasonic-appliance-repair 301
+[378/606] tests\redirects.spec.ts:6:3 › T2 /brands/samsung-appliance-repair 301
+[379/606] tests\redirects.spec.ts:6:3 › T2 /brands/sanyo-appliance-repair 301
+[380/606] tests\redirects.spec.ts:6:3 › T2 /brands/sharp-appliance-repair 301
+[381/606] tests\redirects.spec.ts:6:3 › T2 /brands/siemens-appliance-repair 301
+[382/606] tests\redirects.spec.ts:6:3 › T2 /brands/super-general-appliance-repair 301
+[383/606] tests\redirects.spec.ts:6:3 › T2 /brands/tcl-appliance-repair 301
+[384/606] tests\redirects.spec.ts:6:3 › T2 /brands/toshiba-appliance-repair 301
+[385/606] tests\redirects.spec.ts:6:3 › T2 /brands/whirlpool-appliance-repair 301
+[386/606] tests\redirects.spec.ts:6:3 › T2 /brands/white-westinghouse-appliance-repair 301
+[387/606] tests\redirects.spec.ts:6:3 › T2 /brands/york-appliance-repair 301
+[388/606] tests\redirects.spec.ts:6:3 › T2 /brands/zamil-appliance-repair 301
+[389/606] tests\redirects.spec.ts:6:3 › T2 /contact keep
+[390/606] tests\redirects.spec.ts:6:3 › T2 /cookie-policy keep
+[391/606] tests\redirects.spec.ts:6:3 › T2 /privacy-policy keep
+[392/606] tests\redirects.spec.ts:6:3 › T2 /services keep
+[393/606] tests\redirects.spec.ts:6:3 › T2 /services/ac-repair keep
+[394/606] tests\redirects.spec.ts:6:3 › T2 /services/dishwasher-repair confirm
+[395/606] tests\redirects.spec.ts:6:3 › T2 /services/dryer-repair keep
+[396/606] tests\redirects.spec.ts:6:3 › T2 /services/freezer-repair confirm
+[397/606] tests\redirects.spec.ts:6:3 › T2 /services/microwave-repair confirm
+[398/606] tests\redirects.spec.ts:6:3 › T2 /services/oven-stove-repair confirm
+[399/606] tests\redirects.spec.ts:6:3 › T2 /services/refrigerator-repair keep
+[400/606] tests\redirects.spec.ts:6:3 › T2 /services/washing-machine-repair keep
+[401/606] tests\redirects.spec.ts:6:3 › T2 /services/water-heater-repair confirm
+[402/606] tests\redirects.spec.ts:6:3 › T2 /terms-of-service keep
+[403/606] tests\routes.spec.ts:6:3 › T1 / is 200
+[404/606] tests\routes.spec.ts:6:3 › T1 /about is 200
+[405/606] tests\routes.spec.ts:6:3 › T1 /areas is 200
+[406/606] tests\routes.spec.ts:6:3 › T1 /areas/appliance-repair-in-dammam is 200
+[407/606] tests\routes.spec.ts:6:3 › T1 /blog is 200
+[408/606] tests\routes.spec.ts:6:3 › T1 /blog/ac-repair-in-dammam is 200
+[409/606] tests\routes.spec.ts:6:3 › T1 /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide is 200
+[410/606] tests\routes.spec.ts:6:3 › T1 /blog/washing-machine-maintenance-repair-services-in-dammam is 200
+[411/606] tests\routes.spec.ts:6:3 › T1 /brands is 200
+[412/606] tests\routes.spec.ts:6:3 › T1 /contact is 200
+[413/606] tests\routes.spec.ts:6:3 › T1 /cookie-policy is 200
+[414/606] tests\routes.spec.ts:6:3 › T1 /privacy-policy is 200
+[415/606] tests\routes.spec.ts:6:3 › T1 /services is 200
+[416/606] tests\routes.spec.ts:6:3 › T1 /services/ac-repair is 200
+[417/606] tests\routes.spec.ts:6:3 › T1 /services/dryer-repair is 200
+[418/606] tests\routes.spec.ts:6:3 › T1 /services/refrigerator-repair is 200
+[419/606] tests\routes.spec.ts:6:3 › T1 /services/washing-machine-repair is 200
+[420/606] tests\routes.spec.ts:6:3 › T1 /faults is 200
+[421/606] tests\routes.spec.ts:6:3 › T1 /terms-of-service is 200
+[422/606] tests\routes.spec.ts:6:3 › T1 /reviews is 200
+[423/606] tests\routes.spec.ts:6:3 › T1 /work is 200
+[424/606] tests\routes.spec.ts:6:3 › T1 /en is 200
+[425/606] tests\routes.spec.ts:6:3 › T1 /en/about is 200
+[426/606] tests\routes.spec.ts:6:3 › T1 /en/areas is 200
+[427/606] tests\routes.spec.ts:6:3 › T1 /en/areas/appliance-repair-in-dammam is 200
+[428/606] tests\routes.spec.ts:6:3 › T1 /en/blog is 200
+[429/606] tests\routes.spec.ts:6:3 › T1 /en/blog/ac-repair-in-dammam is 200
+[430/606] tests\routes.spec.ts:6:3 › T1 /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide is 200
+[431/606] tests\routes.spec.ts:6:3 › T1 /en/blog/washing-machine-maintenance-repair-services-in-dammam is 200
+[432/606] tests\routes.spec.ts:6:3 › T1 /en/brands is 200
+[433/606] tests\routes.spec.ts:6:3 › T1 /en/contact is 200
+[434/606] tests\routes.spec.ts:6:3 › T1 /en/cookie-policy is 200
+[435/606] tests\routes.spec.ts:6:3 › T1 /en/privacy-policy is 200
+[436/606] tests\routes.spec.ts:6:3 › T1 /en/services is 200
+[437/606] tests\routes.spec.ts:6:3 › T1 /en/services/ac-repair is 200
+[438/606] tests\routes.spec.ts:6:3 › T1 /en/services/dryer-repair is 200
+[439/606] tests\routes.spec.ts:6:3 › T1 /en/services/refrigerator-repair is 200
+[440/606] tests\routes.spec.ts:6:3 › T1 /en/services/washing-machine-repair is 200
+[441/606] tests\routes.spec.ts:6:3 › T1 /en/terms-of-service is 200
+[442/606] tests\routes.spec.ts:6:3 › T1 /en/faults is 200
+[443/606] tests\routes.spec.ts:6:3 › T1 /en/reviews is 200
+[444/606] tests\routes.spec.ts:6:3 › T1 /en/work is 200
+[445/606] tests\routes.spec.ts:12:3 › T1 / has its English twin in the sitemap
+[446/606] tests\routes.spec.ts:12:3 › T1 /about has its English twin in the sitemap
+[447/606] tests\routes.spec.ts:12:3 › T1 /areas/appliance-repair-in-dammam has its English twin in the sitemap
+[448/606] tests\routes.spec.ts:12:3 › T1 /areas has its English twin in the sitemap
+[449/606] tests\routes.spec.ts:12:3 › T1 /blog has its English twin in the sitemap
+[450/606] tests\routes.spec.ts:12:3 › T1 /blog/ac-repair-in-dammam has its English twin in the sitemap
+[451/606] tests\routes.spec.ts:12:3 › T1 /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide has its English twin in the sitemap
+[452/606] tests\routes.spec.ts:12:3 › T1 /blog/washing-machine-maintenance-repair-services-in-dammam has its English twin in the sitemap
+[453/606] tests\routes.spec.ts:12:3 › T1 /brands has its English twin in the sitemap
+[454/606] tests\routes.spec.ts:12:3 › T1 /contact has its English twin in the sitemap
+[455/606] tests\routes.spec.ts:12:3 › T1 /cookie-policy has its English twin in the sitemap
+[456/606] tests\routes.spec.ts:12:3 › T1 /privacy-policy has its English twin in the sitemap
+[457/606] tests\routes.spec.ts:12:3 › T1 /services has its English twin in the sitemap
+[458/606] tests\routes.spec.ts:12:3 › T1 /services/ac-repair has its English twin in the sitemap
+[459/606] tests\routes.spec.ts:12:3 › T1 /services/dryer-repair has its English twin in the sitemap
+[460/606] tests\routes.spec.ts:12:3 › T1 /services/refrigerator-repair has its English twin in the sitemap
+[461/606] tests\routes.spec.ts:12:3 › T1 /services/washing-machine-repair has its English twin in the sitemap
+[462/606] tests\routes.spec.ts:12:3 › T1 /terms-of-service has its English twin in the sitemap
+[463/606] tests\routes.spec.ts:12:3 › T1 /faults has its English twin in the sitemap
+[464/606] tests\routes.spec.ts:12:3 › T1 /reviews has its English twin in the sitemap
+[465/606] tests\routes.spec.ts:12:3 › T1 /work has its English twin in the sitemap
+[466/606] tests\routes.spec.ts:19:1 › T1 sitemap has no dev or noindex pages
+[467/606] tests\rtl.spec.ts:8:3 › T12 / direction, phone order, icons and fonts
+[468/606] tests\rtl.spec.ts:8:3 › T12 /about direction, phone order, icons and fonts
+[469/606] tests\rtl.spec.ts:8:3 › T12 /areas direction, phone order, icons and fonts
+[470/606] tests\rtl.spec.ts:8:3 › T12 /areas/appliance-repair-in-dammam direction, phone order, icons and fonts
+[471/606] tests\rtl.spec.ts:8:3 › T12 /blog direction, phone order, icons and fonts
+[472/606] tests\rtl.spec.ts:8:3 › T12 /blog/ac-repair-in-dammam direction, phone order, icons and fonts
+[473/606] tests\rtl.spec.ts:8:3 › T12 /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide direction, phone order, icons and fonts
+[474/606] tests\rtl.spec.ts:8:3 › T12 /blog/washing-machine-maintenance-repair-services-in-dammam direction, phone order, icons and fonts
+[475/606] tests\rtl.spec.ts:8:3 › T12 /brands direction, phone order, icons and fonts
+[476/606] tests\rtl.spec.ts:8:3 › T12 /contact direction, phone order, icons and fonts
+[477/606] tests\rtl.spec.ts:8:3 › T12 /cookie-policy direction, phone order, icons and fonts
+[478/606] tests\rtl.spec.ts:8:3 › T12 /en direction, phone order, icons and fonts
+[479/606] tests\rtl.spec.ts:8:3 › T12 /en/about direction, phone order, icons and fonts
+[480/606] tests\rtl.spec.ts:8:3 › T12 /en/areas direction, phone order, icons and fonts
+[481/606] tests\rtl.spec.ts:8:3 › T12 /en/areas/appliance-repair-in-dammam direction, phone order, icons and fonts
+[482/606] tests\rtl.spec.ts:8:3 › T12 /en/blog direction, phone order, icons and fonts
+[483/606] tests\rtl.spec.ts:8:3 › T12 /en/blog/ac-repair-in-dammam direction, phone order, icons and fonts
+[484/606] tests\rtl.spec.ts:8:3 › T12 /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide direction, phone order, icons and fonts
+[485/606] tests\rtl.spec.ts:8:3 › T12 /en/blog/washing-machine-maintenance-repair-services-in-dammam direction, phone order, icons and fonts
+[486/606] tests\rtl.spec.ts:8:3 › T12 /en/brands direction, phone order, icons and fonts
+[487/606] tests\rtl.spec.ts:8:3 › T12 /en/contact direction, phone order, icons and fonts
+[488/606] tests\rtl.spec.ts:8:3 › T12 /en/cookie-policy direction, phone order, icons and fonts
+[489/606] tests\rtl.spec.ts:8:3 › T12 /en/faults direction, phone order, icons and fonts
+[490/606] tests\rtl.spec.ts:8:3 › T12 /en/privacy-policy direction, phone order, icons and fonts
+[491/606] tests\rtl.spec.ts:8:3 › T12 /en/reviews direction, phone order, icons and fonts
+[492/606] tests\rtl.spec.ts:8:3 › T12 /en/services direction, phone order, icons and fonts
+[493/606] tests\rtl.spec.ts:8:3 › T12 /en/services/ac-repair direction, phone order, icons and fonts
+[494/606] tests\rtl.spec.ts:8:3 › T12 /en/services/dryer-repair direction, phone order, icons and fonts
+[495/606] tests\rtl.spec.ts:8:3 › T12 /en/services/refrigerator-repair direction, phone order, icons and fonts
+[496/606] tests\rtl.spec.ts:8:3 › T12 /en/services/washing-machine-repair direction, phone order, icons and fonts
+[497/606] tests\rtl.spec.ts:8:3 › T12 /en/terms-of-service direction, phone order, icons and fonts
+[498/606] tests\rtl.spec.ts:8:3 › T12 /en/work direction, phone order, icons and fonts
+[499/606] tests\rtl.spec.ts:8:3 › T12 /faults direction, phone order, icons and fonts
+[500/606] tests\rtl.spec.ts:8:3 › T12 /privacy-policy direction, phone order, icons and fonts
+[501/606] tests\rtl.spec.ts:8:3 › T12 /reviews direction, phone order, icons and fonts
+[502/606] tests\rtl.spec.ts:8:3 › T12 /services direction, phone order, icons and fonts
+[503/606] tests\rtl.spec.ts:8:3 › T12 /services/ac-repair direction, phone order, icons and fonts
+[504/606] tests\rtl.spec.ts:8:3 › T12 /services/dryer-repair direction, phone order, icons and fonts
+[505/606] tests\rtl.spec.ts:8:3 › T12 /services/refrigerator-repair direction, phone order, icons and fonts
+[506/606] tests\rtl.spec.ts:8:3 › T12 /services/washing-machine-repair direction, phone order, icons and fonts
+[507/606] tests\rtl.spec.ts:8:3 › T12 /terms-of-service direction, phone order, icons and fonts
+[508/606] tests\rtl.spec.ts:8:3 › T12 /work direction, phone order, icons and fonts
+[509/606] tests\schema.spec.ts:9:3 › T5 / JSON-LD parses, no AggregateRating
+[510/606] tests\schema.spec.ts:9:3 › T5 /about JSON-LD parses, no AggregateRating
+[511/606] tests\schema.spec.ts:9:3 › T5 /areas JSON-LD parses, no AggregateRating
+[512/606] tests\schema.spec.ts:9:3 › T5 /areas/appliance-repair-in-dammam JSON-LD parses, no AggregateRating
+[513/606] tests\schema.spec.ts:9:3 › T5 /blog JSON-LD parses, no AggregateRating
+[514/606] tests\schema.spec.ts:9:3 › T5 /blog/ac-repair-in-dammam JSON-LD parses, no AggregateRating
+[515/606] tests\schema.spec.ts:9:3 › T5 /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide JSON-LD parses, no AggregateRating
+[516/606] tests\schema.spec.ts:9:3 › T5 /blog/washing-machine-maintenance-repair-services-in-dammam JSON-LD parses, no AggregateRating
+[517/606] tests\schema.spec.ts:9:3 › T5 /brands JSON-LD parses, no AggregateRating
+[518/606] tests\schema.spec.ts:9:3 › T5 /contact JSON-LD parses, no AggregateRating
+[519/606] tests\schema.spec.ts:9:3 › T5 /cookie-policy JSON-LD parses, no AggregateRating
+[520/606] tests\schema.spec.ts:9:3 › T5 /privacy-policy JSON-LD parses, no AggregateRating
+[521/606] tests\schema.spec.ts:9:3 › T5 /services JSON-LD parses, no AggregateRating
+[522/606] tests\schema.spec.ts:9:3 › T5 /services/ac-repair JSON-LD parses, no AggregateRating
+[523/606] tests\schema.spec.ts:9:3 › T5 /services/dryer-repair JSON-LD parses, no AggregateRating
+[524/606] tests\schema.spec.ts:9:3 › T5 /services/refrigerator-repair JSON-LD parses, no AggregateRating
+[525/606] tests\schema.spec.ts:9:3 › T5 /services/washing-machine-repair JSON-LD parses, no AggregateRating
+[526/606] tests\schema.spec.ts:9:3 › T5 /terms-of-service JSON-LD parses, no AggregateRating
+[527/606] tests\schema.spec.ts:9:3 › T5 /faults JSON-LD parses, no AggregateRating
+[528/606] tests\schema.spec.ts:9:3 › T5 /reviews JSON-LD parses, no AggregateRating
+[529/606] tests\schema.spec.ts:9:3 › T5 /work JSON-LD parses, no AggregateRating
+[530/606] tests\schema.spec.ts:9:3 › T5 /en JSON-LD parses, no AggregateRating
+[531/606] tests\schema.spec.ts:9:3 › T5 /en/about JSON-LD parses, no AggregateRating
+[532/606] tests\schema.spec.ts:9:3 › T5 /en/areas JSON-LD parses, no AggregateRating
+[533/606] tests\schema.spec.ts:9:3 › T5 /en/areas/appliance-repair-in-dammam JSON-LD parses, no AggregateRating
+[534/606] tests\schema.spec.ts:9:3 › T5 /en/blog JSON-LD parses, no AggregateRating
+[535/606] tests\schema.spec.ts:9:3 › T5 /en/blog/ac-repair-in-dammam JSON-LD parses, no AggregateRating
+[536/606] tests\schema.spec.ts:9:3 › T5 /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide JSON-LD parses, no AggregateRating
+[537/606] tests\schema.spec.ts:9:3 › T5 /en/blog/washing-machine-maintenance-repair-services-in-dammam JSON-LD parses, no AggregateRating
+[538/606] tests\schema.spec.ts:9:3 › T5 /en/brands JSON-LD parses, no AggregateRating
+[539/606] tests\schema.spec.ts:9:3 › T5 /en/contact JSON-LD parses, no AggregateRating
+[540/606] tests\schema.spec.ts:9:3 › T5 /en/cookie-policy JSON-LD parses, no AggregateRating
+[541/606] tests\schema.spec.ts:9:3 › T5 /en/privacy-policy JSON-LD parses, no AggregateRating
+[542/606] tests\schema.spec.ts:9:3 › T5 /en/services JSON-LD parses, no AggregateRating
+[543/606] tests\schema.spec.ts:9:3 › T5 /en/services/ac-repair JSON-LD parses, no AggregateRating
+[544/606] tests\schema.spec.ts:9:3 › T5 /en/services/dryer-repair JSON-LD parses, no AggregateRating
+[545/606] tests\schema.spec.ts:9:3 › T5 /en/services/refrigerator-repair JSON-LD parses, no AggregateRating
+[546/606] tests\schema.spec.ts:9:3 › T5 /en/services/washing-machine-repair JSON-LD parses, no AggregateRating
+[547/606] tests\schema.spec.ts:9:3 › T5 /en/terms-of-service JSON-LD parses, no AggregateRating
+[548/606] tests\schema.spec.ts:9:3 › T5 /en/faults JSON-LD parses, no AggregateRating
+[549/606] tests\schema.spec.ts:9:3 › T5 /en/reviews JSON-LD parses, no AggregateRating
+[550/606] tests\schema.spec.ts:9:3 › T5 /en/work JSON-LD parses, no AggregateRating
+[551/606] tests\schema.spec.ts:17:1 › T5 HVACBusiness is complete
+[552/606] tests\seo.spec.ts:17:3 › T3 / has title, description, canonical, one h1
+[553/606] tests\seo.spec.ts:17:3 › T3 /about has title, description, canonical, one h1
+[554/606] tests\seo.spec.ts:17:3 › T3 /areas has title, description, canonical, one h1
+[555/606] tests\seo.spec.ts:17:3 › T3 /areas/appliance-repair-in-dammam has title, description, canonical, one h1
+[556/606] tests\seo.spec.ts:17:3 › T3 /blog has title, description, canonical, one h1
+[557/606] tests\seo.spec.ts:17:3 › T3 /blog/ac-repair-in-dammam has title, description, canonical, one h1
+[558/606] tests\seo.spec.ts:17:3 › T3 /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide has title, description, canonical, one h1
+[559/606] tests\seo.spec.ts:17:3 › T3 /blog/washing-machine-maintenance-repair-services-in-dammam has title, description, canonical, one h1
+[560/606] tests\seo.spec.ts:17:3 › T3 /brands has title, description, canonical, one h1
+[561/606] tests\seo.spec.ts:17:3 › T3 /contact has title, description, canonical, one h1
+[562/606] tests\seo.spec.ts:17:3 › T3 /cookie-policy has title, description, canonical, one h1
+[563/606] tests\seo.spec.ts:17:3 › T3 /privacy-policy has title, description, canonical, one h1
+[564/606] tests\seo.spec.ts:17:3 › T3 /services has title, description, canonical, one h1
+[565/606] tests\seo.spec.ts:17:3 › T3 /services/ac-repair has title, description, canonical, one h1
+[566/606] tests\seo.spec.ts:17:3 › T3 /services/dryer-repair has title, description, canonical, one h1
+[567/606] tests\seo.spec.ts:17:3 › T3 /services/refrigerator-repair has title, description, canonical, one h1
+[568/606] tests\seo.spec.ts:17:3 › T3 /services/washing-machine-repair has title, description, canonical, one h1
+[569/606] tests\seo.spec.ts:17:3 › T3 /terms-of-service has title, description, canonical, one h1
+[570/606] tests\seo.spec.ts:17:3 › T3 /faults has title, description, canonical, one h1
+[571/606] tests\seo.spec.ts:17:3 › T3 /reviews has title, description, canonical, one h1
+[572/606] tests\seo.spec.ts:17:3 › T3 /work has title, description, canonical, one h1
+[573/606] tests\seo.spec.ts:17:3 › T3 /en has title, description, canonical, one h1
+[574/606] tests\seo.spec.ts:17:3 › T3 /en/about has title, description, canonical, one h1
+[575/606] tests\seo.spec.ts:17:3 › T3 /en/areas has title, description, canonical, one h1
+[576/606] tests\seo.spec.ts:17:3 › T3 /en/areas/appliance-repair-in-dammam has title, description, canonical, one h1
+[577/606] tests\seo.spec.ts:17:3 › T3 /en/blog has title, description, canonical, one h1
+[578/606] tests\seo.spec.ts:17:3 › T3 /en/blog/ac-repair-in-dammam has title, description, canonical, one h1
+[579/606] tests\seo.spec.ts:17:3 › T3 /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide has title, description, canonical, one h1
+[580/606] tests\seo.spec.ts:17:3 › T3 /en/blog/washing-machine-maintenance-repair-services-in-dammam has title, description, canonical, one h1
+[581/606] tests\seo.spec.ts:17:3 › T3 /en/brands has title, description, canonical, one h1
+[582/606] tests\seo.spec.ts:17:3 › T3 /en/contact has title, description, canonical, one h1
+[583/606] tests\seo.spec.ts:17:3 › T3 /en/cookie-policy has title, description, canonical, one h1
+[584/606] tests\seo.spec.ts:17:3 › T3 /en/privacy-policy has title, description, canonical, one h1
+[585/606] tests\seo.spec.ts:17:3 › T3 /en/services has title, description, canonical, one h1
+[586/606] tests\seo.spec.ts:17:3 › T3 /en/services/ac-repair has title, description, canonical, one h1
+[587/606] tests\seo.spec.ts:17:3 › T3 /en/services/dryer-repair has title, description, canonical, one h1
+[588/606] tests\seo.spec.ts:17:3 › T3 /en/services/refrigerator-repair has title, description, canonical, one h1
+[589/606] tests\seo.spec.ts:17:3 › T3 /en/services/washing-machine-repair has title, description, canonical, one h1
+[590/606] tests\seo.spec.ts:17:3 › T3 /en/terms-of-service has title, description, canonical, one h1
+[591/606] tests\seo.spec.ts:17:3 › T3 /en/faults has title, description, canonical, one h1
+[592/606] tests\seo.spec.ts:17:3 › T3 /en/reviews has title, description, canonical, one h1
+[593/606] tests\seo.spec.ts:17:3 › T3 /en/work has title, description, canonical, one h1
+[594/606] tests\seo.spec.ts:27:1 › T3 titles and descriptions are unique
+[595/606] tests\visual.spec.ts:9:5 › T17 / at 1440
+[596/606] tests\visual.spec.ts:9:5 › T17 /en at 1440
+  1) tests\visual.spec.ts:9:5 › T17 / at 1440 ──────────────────────────────────────────────────────
+
+    Error: A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\--1440-win32.png.
+
+      11 |       await visit(page, path);
+      12 |       await page.evaluate(() => document.fonts.ready);
+    > 13 |       await expect(page).toHaveScreenshot(`${path.replaceAll('/', '_') || 'home'}-${width}.png`, { fullPage: true });
+         |                          ^
+      14 |     });
+      15 |   }
+      16 | }
+        at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts:13:26
+
+    Error Context: test-results\visual-T17-at-1440\error-context.md
+
+
+[597/606] tests\visual.spec.ts:9:5 › T17 /services/ac-repair at 1440
+  2) tests\visual.spec.ts:9:5 › T17 /en at 1440 ────────────────────────────────────────────────────
+
+    Test timeout of 60000ms exceeded while setting up "page".
+
+    Error Context: test-results\visual-T17-en-at-1440\error-context.md
+
+
+[598/606] tests\visual.spec.ts:9:5 › T17 /en/services/ac-repair at 1440
+  3) tests\visual.spec.ts:9:5 › T17 /services/ac-repair at 1440 ────────────────────────────────────
+
+    Error: A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-services-ac-repair-1440-win32.png.
+
+      11 |       await visit(page, path);
+      12 |       await page.evaluate(() => document.fonts.ready);
+    > 13 |       await expect(page).toHaveScreenshot(`${path.replaceAll('/', '_') || 'home'}-${width}.png`, { fullPage: true });
+         |                          ^
+      14 |     });
+      15 |   }
+      16 | }
+        at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts:13:26
+
+    Error Context: test-results\visual-T17-services-ac-repair-at-1440\error-context.md
+
+
+[599/606] tests\visual.spec.ts:9:5 › T17 /faults/ac-not-cooling at 1440
+  4) tests\visual.spec.ts:9:5 › T17 /en/services/ac-repair at 1440 ─────────────────────────────────
+
+    Error: A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-en-services-ac-repair-1440-win32.png.
+
+      11 |       await visit(page, path);
+      12 |       await page.evaluate(() => document.fonts.ready);
+    > 13 |       await expect(page).toHaveScreenshot(`${path.replaceAll('/', '_') || 'home'}-${width}.png`, { fullPage: true });
+         |                          ^
+      14 |     });
+      15 |   }
+      16 | }
+        at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts:13:26
+
+    Error Context: test-results\visual-T17-en-services-ac-repair-at-1440\error-context.md
+
+
+[600/606] tests\visual.spec.ts:9:5 › T17 /en/faults/ac-not-cooling at 1440
+  5) tests\visual.spec.ts:9:5 › T17 /faults/ac-not-cooling at 1440 ─────────────────────────────────
+
+    Error: A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-faults-ac-not-cooling-1440-win32.png.
+
+      11 |       await visit(page, path);
+      12 |       await page.evaluate(() => document.fonts.ready);
+    > 13 |       await expect(page).toHaveScreenshot(`${path.replaceAll('/', '_') || 'home'}-${width}.png`, { fullPage: true });
+         |                          ^
+      14 |     });
+      15 |   }
+      16 | }
+        at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts:13:26
+
+    Error Context: test-results\visual-T17-faults-ac-not-cooling-at-1440\error-context.md
+
+
+  6) tests\visual.spec.ts:9:5 › T17 /en/faults/ac-not-cooling at 1440 ──────────────────────────────
+
+    Error: A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-en-faults-ac-not-cooling-1440-win32.png.
+
+      11 |       await visit(page, path);
+      12 |       await page.evaluate(() => document.fonts.ready);
+    > 13 |       await expect(page).toHaveScreenshot(`${path.replaceAll('/', '_') || 'home'}-${width}.png`, { fullPage: true });
+         |                          ^
+      14 |     });
+      15 |   }
+      16 | }
+        at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts:13:26
+
+    Error Context: test-results\visual-T17-en-faults-ac-not-cooling-at-1440\error-context.md
+
+
+[601/606] tests\visual.spec.ts:9:5 › T17 / at 390
+[602/606] tests\visual.spec.ts:9:5 › T17 /en at 390
+  7) tests\visual.spec.ts:9:5 › T17 / at 390 ───────────────────────────────────────────────────────
+
+    Error: A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\--390-win32.png.
+
+      11 |       await visit(page, path);
+      12 |       await page.evaluate(() => document.fonts.ready);
+    > 13 |       await expect(page).toHaveScreenshot(`${path.replaceAll('/', '_') || 'home'}-${width}.png`, { fullPage: true });
+         |                          ^
+      14 |     });
+      15 |   }
+      16 | }
+        at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts:13:26
+
+    Error Context: test-results\visual-T17-at-390\error-context.md
+
+
+  8) tests\visual.spec.ts:9:5 › T17 /en at 390 ─────────────────────────────────────────────────────
+
+    Error: A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-en-390-win32.png.
+
+      11 |       await visit(page, path);
+      12 |       await page.evaluate(() => document.fonts.ready);
+    > 13 |       await expect(page).toHaveScreenshot(`${path.replaceAll('/', '_') || 'home'}-${width}.png`, { fullPage: true });
+         |                          ^
+      14 |     });
+      15 |   }
+      16 | }
+        at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts:13:26
+
+    Error Context: test-results\visual-T17-en-at-390\error-context.md
+
+
+[603/606] tests\visual.spec.ts:9:5 › T17 /services/ac-repair at 390
+[604/606] tests\visual.spec.ts:9:5 › T17 /en/services/ac-repair at 390
+  9) tests\visual.spec.ts:9:5 › T17 /services/ac-repair at 390 ─────────────────────────────────────
+
+    Error: A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-services-ac-repair-390-win32.png.
+
+      11 |       await visit(page, path);
+      12 |       await page.evaluate(() => document.fonts.ready);
+    > 13 |       await expect(page).toHaveScreenshot(`${path.replaceAll('/', '_') || 'home'}-${width}.png`, { fullPage: true });
+         |                          ^
+      14 |     });
+      15 |   }
+      16 | }
+        at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts:13:26
+
+    Error Context: test-results\visual-T17-services-ac-repair-at-390\error-context.md
+
+
+[605/606] tests\visual.spec.ts:9:5 › T17 /faults/ac-not-cooling at 390
+  10) tests\visual.spec.ts:9:5 › T17 /en/services/ac-repair at 390 ─────────────────────────────────
+
+    Error: A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-en-services-ac-repair-390-win32.png.
+
+      11 |       await visit(page, path);
+      12 |       await page.evaluate(() => document.fonts.ready);
+    > 13 |       await expect(page).toHaveScreenshot(`${path.replaceAll('/', '_') || 'home'}-${width}.png`, { fullPage: true });
+         |                          ^
+      14 |     });
+      15 |   }
+      16 | }
+        at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts:13:26
+
+    Error Context: test-results\visual-T17-en-services-ac-repair-at-390\error-context.md
+
+
+[606/606] tests\visual.spec.ts:9:5 › T17 /en/faults/ac-not-cooling at 390
+  11) tests\visual.spec.ts:9:5 › T17 /faults/ac-not-cooling at 390 ─────────────────────────────────
+
+    Error: A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-faults-ac-not-cooling-390-win32.png.
+
+      11 |       await visit(page, path);
+      12 |       await page.evaluate(() => document.fonts.ready);
+    > 13 |       await expect(page).toHaveScreenshot(`${path.replaceAll('/', '_') || 'home'}-${width}.png`, { fullPage: true });
+         |                          ^
+      14 |     });
+      15 |   }
+      16 | }
+        at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts:13:26
+
+    Error Context: test-results\visual-T17-faults-ac-not-cooling-at-390\error-context.md
+
+
+  12) tests\visual.spec.ts:9:5 › T17 /en/faults/ac-not-cooling at 390 ──────────────────────────────
+
+    Error: A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-en-faults-ac-not-cooling-390-win32.png.
+
+      11 |       await visit(page, path);
+      12 |       await page.evaluate(() => document.fonts.ready);
+    > 13 |       await expect(page).toHaveScreenshot(`${path.replaceAll('/', '_') || 'home'}-${width}.png`, { fullPage: true });
+         |                          ^
+      14 |     });
+      15 |   }
+      16 | }
+        at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts:13:26
+
+    Error Context: test-results\visual-T17-en-faults-ac-not-cooling-at-390\error-context.md
+
+
+  12 failed
+    tests\visual.spec.ts:9:5 › T17 / at 1440 ───────────────────────────────────────────────────────
+    tests\visual.spec.ts:9:5 › T17 /en at 1440 ─────────────────────────────────────────────────────
+    tests\visual.spec.ts:9:5 › T17 /services/ac-repair at 1440 ─────────────────────────────────────
+    tests\visual.spec.ts:9:5 › T17 /en/services/ac-repair at 1440 ──────────────────────────────────
+    tests\visual.spec.ts:9:5 › T17 /faults/ac-not-cooling at 1440 ──────────────────────────────────
+    tests\visual.spec.ts:9:5 › T17 /en/faults/ac-not-cooling at 1440 ───────────────────────────────
+    tests\visual.spec.ts:9:5 › T17 / at 390 ────────────────────────────────────────────────────────
+    tests\visual.spec.ts:9:5 › T17 /en at 390 ──────────────────────────────────────────────────────
+    tests\visual.spec.ts:9:5 › T17 /services/ac-repair at 390 ──────────────────────────────────────
+    tests\visual.spec.ts:9:5 › T17 /en/services/ac-repair at 390 ───────────────────────────────────
+    tests\visual.spec.ts:9:5 › T17 /faults/ac-not-cooling at 390 ───────────────────────────────────
+    tests\visual.spec.ts:9:5 › T17 /en/faults/ac-not-cooling at 390 ────────────────────────────────
+  594 passed (31.2m)

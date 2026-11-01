@@ -26,10 +26,12 @@ const files = existsSync('dist') ? walk('dist') : [];
 
 // Exports are named <name>-<width>.<ext> by the Phase 4 pipeline.
 const exportName = /\/images\/(.+)-(\d+)\.(avif|webp|jpe?g|png)$/;
+// Logo artwork from scripts/brand-assets.mjs, not photos. Named one by one so a stray photo in public/ still fails.
+const brandAsset = /^dist\/(logo\.png|og\.jpg|apple-touch-icon\.png|favicon-32\.png|icon-192\.png|icon-512\.png)$/;
 for (const file of files) {
   const match = file.match(exportName);
   if (!match) {
-    if (/\.(avif|webp|jpe?g|png|gif)$/i.test(file) && !file.includes('/og/')) fail.push(`${file}: not from the image pipeline`);
+    if (/\.(avif|webp|jpe?g|png|gif)$/i.test(file) && !brandAsset.test(file)) fail.push(`${file}: not from the image pipeline`);
     continue;
   }
   const [, name, width] = match;

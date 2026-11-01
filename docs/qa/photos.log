@@ -1,0 +1,2 @@
+$ node scripts/check-photos.mjs
+T22: 8 images, all with provenance, none past source width

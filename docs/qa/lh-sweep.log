@@ -1,0 +1,85 @@
+Started a web server with "pnpm exec astro preview --port 4322"...
+WARNING: Timed out waiting for the server to start listening.
+         Ensure the server prints a pattern that matches /localhost/i when it is ready.
+Running Lighthouse 1 time(s) on http://localhost:4322/
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/about
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/areas
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/areas/appliance-repair-in-dammam
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/blog
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/blog/ac-repair-in-dammam
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/blog/washing-machine-maintenance-repair-services-in-dammam
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/brands
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/contact
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/cookie-policy
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/about
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/areas
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/areas/appliance-repair-in-dammam
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/blog
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/blog/ac-repair-in-dammam
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/blog/washing-machine-maintenance-repair-services-in-dammam
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/brands
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/contact
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/cookie-policy
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/faults
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/privacy-policy
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/reviews
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/services
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/services/ac-repair
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/services/dryer-repair
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/services/refrigerator-repair
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/services/washing-machine-repair
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/terms-of-service
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/en/work
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/faults
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/privacy-policy
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/reviews
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/services
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/services/ac-repair
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/services/dryer-repair
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/services/refrigerator-repair
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/services/washing-machine-repair
+Run #1...done.
+Running Lighthouse 1 time(s) on http://localhost:4322/terms-of-service
+Run #1...

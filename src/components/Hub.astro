@@ -18,7 +18,7 @@ const card = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
 <Base title={page.seo.title} description={page.seo.description}>
   <Section>
     <div class="flex flex-col gap-8">
-      <div class="flex flex-col gap-4"><Heading level={1} size="statement">{page.h1}</Heading><Text size="lead">{page.lead}</Text><Button variant="quiet" href={localePath(lang, kind === 'services' ? '/faults' : '/services')}>{kind === 'services' ? c.chrome.nav.faults : actions.allServices}</Button></div>
+      <div class="flex flex-col gap-4"><Heading level={1} size="statement">{page.h1}</Heading><Text size="lead">{page.lead}</Text></div>
       {kind === 'services' ? (
         <>
           <ul class="grid gap-4 md:grid-cols-2">{c.services.items.map((s) => <li><a href={localePath(lang, `/services/${s.slug}`)} class={card}>{s.name}<span class="text-small font-regular text-ink-soft">{s.summary}</span></a></li>)}</ul>
@@ -32,6 +32,7 @@ const card = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
           </div>
         ))
       )}
+      <div><Button variant="quiet" href={localePath(lang, kind === 'services' ? '/faults' : '/services')}>{kind === 'services' ? c.chrome.nav.faults : actions.allServices}</Button></div>
     </div>
   </Section>
 </Base>

@@ -264,9 +264,9 @@ export const en: Content = {
     source: 'Source: Google Maps',
     sourceLink: 'See the reviews',
     items: [
-      { name: 'Jafar Sapra', text: 'Fast work 💪', when: '6 months ago' },
+      { name: 'Jafar Sapra', text: 'Fast work 💪', when: '6 months ago' }, // taste-skill-ignore: quoted review, not rendered
       { name: 'Shahbaz Ahmad', text: 'Good work', when: 'a year ago' },
-      { name: 'Sohail Jamil', text: 'Good experience for work 😌', when: 'a year ago' },
+      { name: 'Sohail Jamil', text: 'Good experience for work 😌', when: 'a year ago' }, // taste-skill-ignore: quoted review, not rendered
       { name: 'Usama Ch', text: 'Good Experience', when: 'a year ago' },
       { name: 'Asad Amjad', text: 'Good work', when: '2 years ago' },
     ],

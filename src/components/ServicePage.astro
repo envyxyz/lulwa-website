@@ -1,6 +1,7 @@
 ---
 import Button from './Button.astro';
 import Heading from './Heading.astro';
+import Img from './Img.astro';
 import Section from './Section.astro';
 import Text from './Text.astro';
 import { art } from './appliance-art';
@@ -10,11 +11,14 @@ import { faqPage, service } from '../seo';
 
 type Props = { slug: string };
 const lang = langFromUrl(Astro.url);
-const { services, faults, actions } = content[lang];
+const { services, faults, actions, home } = content[lang];
 const s = services.items.find((i) => i.slug === Astro.props.slug)!;
 const related = faults.items.filter((f) => f.service === s.slug);
 const drawing = art[related[0]?.art ?? 'split-ac']!;
 const list = 'flex flex-col gap-2 ps-card list-disc marker:text-teal';
+// Real job photos exist for AC work only. The other services show none rather than a borrowed one.
+const jobPhotos = s.slug === 'ac-repair' ? ['compressor-install', 'compressor-pair', 'condensing-unit-wiring', 'compressor-closeup-2'] : [];
+const photos = jobPhotos.map((name) => home.work.items.find((w) => w.photo === name)!);
 ---
 
 <Base title={s.seo.title} description={s.seo.description} ld={[service(s.name, s.seo.description), faqPage(s.faq)]}>
@@ -36,6 +40,21 @@ const list = 'flex flex-col gap-2 ps-card list-disc marker:text-teal';
       <div class="flex flex-col gap-4 rounded-card bg-teal-step p-card"><h2 class="font-display text-head font-head">{s.send.h}</h2><ul class={list}>{s.send.items.map((i) => <li>{i}</li>)}</ul></div>
     </div>
   </Section>
+  {photos.length > 0 && (
+    <Section>
+      <div class="flex flex-col gap-4">
+        <Heading>{home.work.heading}</Heading>
+        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {photos.map((p) => (
+            <figure class="flex flex-col gap-2">
+              <Img name={p.photo} widths={[287]} width={287} height={510} alt={p.caption} sizes="(min-width: 64rem) 20rem, 50vw" rounded job />
+              <figcaption class="text-small">{p.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </Section>
+  )}
   {related.length > 0 && (
     <Section>
       <div class="flex flex-col gap-4">

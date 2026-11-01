@@ -1,0 +1,20 @@
+$ node scripts/prove-lint.mjs
+fires  lulwa/no-raw-hex on Hex.astro
+fires  lulwa/no-raw-hex on HexClass.astro
+fires  lulwa/no-raw-hex on hex.ts
+fires  lulwa/no-arbitrary-tailwind on Arbitrary.astro
+fires  lulwa/no-arbitrary-tailwind on ArbitraryProp.astro
+fires  lulwa/no-physical-tailwind on Physical.astro
+fires  lulwa/no-literal-copy on CopyAr.astro
+fires  lulwa/no-literal-copy on CopyEn.astro
+fires  lulwa/no-literal-copy on CopyAria.astro
+fires  color-no-hex on hex.css
+fires  color-no-hex on HexStyle.astro
+fires  property-disallowed-list on margin.css
+fires  declaration-property-value-disallowed-list on align.css
+fires  declaration-property-value-disallowed-list on shadow.css
+fires  declaration-property-value-disallowed-list on radius.css
+fires  function-disallowed-list on gradient.css
+allowed Card.astro 
+allowed card.css 
+T19: every rule fires

@@ -1,0 +1,1627 @@
+$ node scripts/taste.mjs
+TASTESKILL · LINT   72 file(s)
+
+FAIL
+  [emoji] Emoji used as UI.  (4×)
+      src/content/ar.ts:267  💪
+      src/content/ar.ts:269  😌
+      src/content/en.ts:267  💪
+      src/content/en.ts:269  😌
+
+RESULT: 4 FAIL, 0 WARN — fix the FAILs before rendering.
+Interface fragments marked data-ui keep their own borders and shadows. Any other line that must keep a flagged pattern for a real reason can carry the comment taste-skill-ignore.
+(node:32060) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+TASTESKILL · INSPECT   http://localhost:4323/
+
+MEASURED (first viewport listed)
+  hero headline   "لولوه"  1 words · 1 line(s) · 414px (28.7vw) · Beiruti 900 · tracking 0em · leading 0.95
+  @768px          1 line(s) · 375.4px
+  @390px          1 line(s) · 186.2px
+  typefaces       IBM Plex Sans Arabic 76%, Beiruti 23%
+  sizes in use    15 / 18 / 24 / 72 / 147 / 414 px   body 18px / 1.85
+  colour          page #eef2ef · sections #0f6e7a #e0e8e4 #0b1f2a #eef2ef · button #25d366
+  page            9.3 screens · 406 words · 8 images · hero media none
+  headings        21 · longest 2 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [eyebrow] @1440px (+768, 390)  4 eyebrow/kicker label(s) above headings: "الجهاز" above "مكيف سبليت"; "الجهاز" above "مكيف شباك"; "أربعة أنواع من الأجهزة المنزلية." above "اتصل الآن"; "مكيف على السطح: تبديل كمبروسر" above "كل صورة هنا من شغل حقيقي."
+      → Delete them. If the label carried real information, fold it into the headline or the supporting sentence.
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [headline-lines] @390px  1 headline(s) wrap past two lines at 390px: "ورشة مسجلة في حي الجلوية بالدمام، ورقم واحد تتوا" → 5 lines (17 words, 36px, a paragraph set above 24px)
+      → Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less.
+  [edge-text] @390px  2 text block(s) sit within 12px of the screen edge: "المكيفات" (7px from the left); "مكيفات سبليت ومكيفات شباك." (0px from the left)
+      → Keep text inside the page margin (16–20px). Only display type deliberately bled past the edge may touch it.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "نرد عليك" (screen 4, 100% hidden); "من شغلنا من مواقع الشغل" (screen 5, 100% hidden); "كل صورة هنا من شغل حقيقي." (screen 6, 75% hidden); "الورشة" (screen 7, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [side-scroll] @1440px (+768, 390)  1 row(s) scroll sideways with content past their edge.
+      → Jurors and most visitors read a row cut at the edge as clipped, not as scrollable. Wrap it onto more lines, or end it inside the grid.
+  [ragged-edges] @1440px (+768)  Left-aligned text starts at 12 different lines (1101px, 32px, 1014px, 64px, 375px, 794px, 943px); the three most used hold only 35% of it.
+      → Pick two or three anchor lines from the grid and start every heading and paragraph on one of them.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/ar/desktop-fold.jpg
+                  .taste-skill/inspect/ar/desktop-page-01.jpg
+                  .taste-skill/inspect/ar/desktop-page-02.jpg
+                  .taste-skill/inspect/ar/desktop-page-03.jpg
+  tablet 768px    .taste-skill/inspect/ar/tablet-fold.jpg
+                  .taste-skill/inspect/ar/tablet-page-01.jpg
+                  .taste-skill/inspect/ar/tablet-page-02.jpg
+  mobile 390px    .taste-skill/inspect/ar/mobile-fold.jpg
+                  .taste-skill/inspect/ar/mobile-page-01.jpg
+                  .taste-skill/inspect/ar/mobile-page-02.jpg
+
+report: .taste-skill/inspect/ar/report.json
+RESULT: 5 FAIL, 3 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/about
+
+MEASURED (first viewport listed)
+  hero headline   "من نحن"  2 words · 1 line(s) · 266.4px (18.5vw) · Beiruti 900 · tracking 0em · leading 1.06
+  @768px          1 line(s) · 142.1px
+  @390px          1 line(s) · 72.2px
+  typefaces       IBM Plex Sans Arabic 93%, Beiruti 7%
+  sizes in use    15 / 18 / 24 / 72 / 266 / 414 px   body 18px / 1.85
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a
+  page            2.8 screens · 135 words · 0 images · hero media none
+  headings        6 · longest 1 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [off-centre] @1440px (+768)  The page sits off-centre: its content comes to 115px from the left edge but only to 32px from the right, at 1440px.
+      → Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure).
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "لولوه" (screen 4, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [lopsided] @1440px  A section keeps its content on one side and leaves 844px of the width empty: "وش نصلح".
+      → Fill the other side with what the section has (its picture, a second column, the figure), or defend the void in one sentence.
+  [hero-void] @1440px  40% of the first screen is one empty block (660×780px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/about/desktop-fold.jpg
+                  .taste-skill/inspect/about/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/about/tablet-fold.jpg
+                  .taste-skill/inspect/about/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/about/mobile-fold.jpg
+                  .taste-skill/inspect/about/mobile-page-01.jpg
+
+report: .taste-skill/inspect/about/report.json
+RESULT: 4 FAIL, 4 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/areas
+
+MEASURED (first viewport listed)
+  hero headline   "الدمام"  1 words · 1 line(s) · 266.4px (18.5vw) · Beiruti 900 · tracking 0em · leading 1.06
+  @768px          1 line(s) · 142.1px
+  @390px          1 line(s) · 72.2px
+  typefaces       IBM Plex Sans Arabic 82%, Beiruti 18%
+  sizes in use    15 / 18 / 24 / 72 / 266 / 414 px
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            1.9 screens · 82 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [off-centre] @1440px (+768)  The page sits off-centre: its content comes to 115px from the left edge but only to 32px from the right, at 1440px.
+      → Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure).
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "لولوه" (screen 2, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [name-only-title] @1440px (+390)  The h1 is a bare name ("الدمام") and nothing else on the first screen says what this is.
+      → Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points.
+  [hero-void] @1440px  47% of the first screen is one empty block (780×780px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/areas/desktop-fold.jpg
+                  .taste-skill/inspect/areas/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/areas/tablet-fold.jpg
+                  .taste-skill/inspect/areas/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/areas/mobile-fold.jpg
+                  .taste-skill/inspect/areas/mobile-page-01.jpg
+
+report: .taste-skill/inspect/areas/report.json
+RESULT: 4 FAIL, 4 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/areas/appliance-repair-in-dammam
+
+MEASURED (first viewport listed)
+  hero headline   "تصليح الأجهزة المنزلية في الدمام"  5 words · 1 line(s) · 72px (5vw) · Beiruti 800 · tracking 0em · leading 1.2
+  @768px          1 line(s) · 38.4px
+  @390px          2 line(s) · 36px
+  typefaces       IBM Plex Sans Arabic 90%, Beiruti 10%
+  sizes in use    15 / 18 / 24 / 72 / 414 px
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a · button #25d366
+  page            1.9 screens · 105 words · 0 images · hero media none
+  headings        4 · longest 1 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [off-centre] @1440px  The page sits off-centre: its content comes to 115px from the left edge but only to 32px from the right, at 1440px.
+      → Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure).
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "لولوه" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @768px  The margins differ: 56px on the left, 23px on the right, at 768px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/areas/appliance-repair-in-dammam/desktop-fold.jpg
+                  .taste-skill/inspect/areas/appliance-repair-in-dammam/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/areas/appliance-repair-in-dammam/tablet-fold.jpg
+                  .taste-skill/inspect/areas/appliance-repair-in-dammam/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/areas/appliance-repair-in-dammam/mobile-fold.jpg
+                  .taste-skill/inspect/areas/appliance-repair-in-dammam/mobile-page-01.jpg
+
+report: .taste-skill/inspect/areas/appliance-repair-in-dammam/report.json
+RESULT: 4 FAIL, 2 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/blog
+
+MEASURED (first viewport listed)
+  hero headline   "المدونة"  1 words · 1 line(s) · 266.4px (18.5vw) · Beiruti 900 · tracking 0em · leading 1.06
+  @768px          1 line(s) · 142.1px
+  @390px          1 line(s) · 72.2px
+  typefaces       IBM Plex Sans Arabic 69%, Beiruti 31%
+  sizes in use    15 / 18 / 24 / 72 / 266 / 414 px
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            2 screens · 92 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [off-centre] @1440px (+768)  The page sits off-centre: its content comes to 115px from the left edge but only to 32px from the right, at 1440px.
+      → Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure).
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "لولوه" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [name-only-title] @1440px (+768, 390)  The h1 is a bare name ("المدونة") and nothing else on the first screen says what this is.
+      → Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points.
+  [hero-void] @1440px  34% of the first screen is one empty block (660×660px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/blog/desktop-fold.jpg
+                  .taste-skill/inspect/blog/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/blog/tablet-fold.jpg
+                  .taste-skill/inspect/blog/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/blog/mobile-fold.jpg
+                  .taste-skill/inspect/blog/mobile-page-01.jpg
+
+report: .taste-skill/inspect/blog/report.json
+RESULT: 4 FAIL, 4 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/blog/ac-repair-in-dammam
+
+MEASURED (first viewport listed)
+  hero headline   "متى تحتاج فني لمكيفك؟"  4 words · 1 line(s) · 72px (5vw) · Beiruti 800 · tracking 0em · leading 1.2
+  @768px          1 line(s) · 38.4px
+  @390px          1 line(s) · 36px
+  typefaces       IBM Plex Sans Arabic 90%, Beiruti 10%
+  sizes in use    15 / 18 / 24 / 72 / 414 px   body 18px / 1.85
+  colour          page #eef2ef · sections #eef2ef #0b1f2a · button #25d366
+  page            2.2 screens · 117 words · 0 images · hero media none
+  headings        6 · longest 1 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [off-centre] @1440px (+768)  The page sits off-centre: its content comes to 115px from the left edge but only to 32px from the right, at 1440px.
+      → Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure).
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "لولوه" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  47% of the first screen is one empty block (780×780px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/blog/ac-repair-in-dammam/desktop-fold.jpg
+                  .taste-skill/inspect/blog/ac-repair-in-dammam/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/blog/ac-repair-in-dammam/tablet-fold.jpg
+                  .taste-skill/inspect/blog/ac-repair-in-dammam/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/blog/ac-repair-in-dammam/mobile-fold.jpg
+                  .taste-skill/inspect/blog/ac-repair-in-dammam/mobile-page-01.jpg
+
+report: .taste-skill/inspect/blog/ac-repair-in-dammam/report.json
+RESULT: 4 FAIL, 3 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+
+MEASURED (first viewport listed)
+  hero headline   "العناية بالمكيف قبل الصيف"  4 words · 1 line(s) · 72px (5vw) · Beiruti 800 · tracking 0em · leading 1.2
+  @768px          1 line(s) · 38.4px
+  @390px          1 line(s) · 36px
+  typefaces       IBM Plex Sans Arabic 89%, Beiruti 11%
+  sizes in use    15 / 18 / 24 / 72 / 414 px   body 18px / 1.85
+  colour          page #eef2ef · sections #eef2ef #0b1f2a · button #25d366
+  page            2.1 screens · 100 words · 0 images · hero media none
+  headings        5 · longest 1 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [off-centre] @1440px (+768)  The page sits off-centre: its content comes to 115px from the left edge but only to 32px from the right, at 1440px.
+      → Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure).
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "لولوه" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  42% of the first screen is one empty block (900×600px at 0,300).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/desktop-fold.jpg
+                  .taste-skill/inspect/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/tablet-fold.jpg
+                  .taste-skill/inspect/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/mobile-fold.jpg
+                  .taste-skill/inspect/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/mobile-page-01.jpg
+
+report: .taste-skill/inspect/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/report.json
+RESULT: 4 FAIL, 3 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/blog/washing-machine-maintenance-repair-services-in-dammam
+
+MEASURED (first viewport listed)
+  hero headline   "الغسالة الأوتوماتيك لا تعصر"  4 words · 1 line(s) · 72px (5vw) · Beiruti 800 · tracking 0em · leading 1.2
+  @768px          1 line(s) · 38.4px
+  @390px          1 line(s) · 36px
+  typefaces       IBM Plex Sans Arabic 87%, Beiruti 13%
+  sizes in use    15 / 18 / 24 / 72 / 414 px
+  colour          page #eef2ef · sections #eef2ef #0b1f2a · button #25d366
+  page            2.2 screens · 107 words · 0 images · hero media none
+  headings        6 · longest 1 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [off-centre] @1440px (+768)  The page sits off-centre: its content comes to 115px from the left edge but only to 32px from the right, at 1440px.
+      → Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure).
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "لولوه" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  44% of the first screen is one empty block (960×600px at 0,300).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/blog/washing-machine-maintenance-repair-services-in-dammam/desktop-fold.jpg
+                  .taste-skill/inspect/blog/washing-machine-maintenance-repair-services-in-dammam/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/blog/washing-machine-maintenance-repair-services-in-dammam/tablet-fold.jpg
+                  .taste-skill/inspect/blog/washing-machine-maintenance-repair-services-in-dammam/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/blog/washing-machine-maintenance-repair-services-in-dammam/mobile-fold.jpg
+                  .taste-skill/inspect/blog/washing-machine-maintenance-repair-services-in-dammam/mobile-page-01.jpg
+
+report: .taste-skill/inspect/blog/washing-machine-maintenance-repair-services-in-dammam/report.json
+RESULT: 4 FAIL, 3 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/brands
+
+MEASURED (first viewport listed)
+  hero headline   "ماركات الأجهزة"  2 words · 2 line(s) · 266.4px (18.5vw) · Beiruti 900 · tracking 0em · leading 1.06
+  @768px          2 line(s) · 142.1px
+  @390px          2 line(s) · 72.2px
+  typefaces       IBM Plex Sans Arabic 95%, Beiruti 5%
+  sizes in use    15 / 18 / 24 / 72 / 266 / 414 px   body 18px / 1.85
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a · button #25d366
+  page            2.2 screens · 101 words · 0 images · hero media none
+  headings        3 · longest 2 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [off-centre] @1440px (+768)  The page sits off-centre: its content comes to 115px from the left edge but only to 32px from the right, at 1440px.
+      → Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure).
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "لولوه" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [grey-body] @1440px (+768, 390)  The running text is a soft grey on its ground (5.3:1).
+      → Set body copy in the full ink (7:1 or more). Keep the muted ink for secondary notes; pages read thin and unfinished when everything is grey.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  40% of the first screen is one empty block (660×780px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/brands/desktop-fold.jpg
+                  .taste-skill/inspect/brands/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/brands/tablet-fold.jpg
+                  .taste-skill/inspect/brands/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/brands/mobile-fold.jpg
+                  .taste-skill/inspect/brands/mobile-page-01.jpg
+
+report: .taste-skill/inspect/brands/report.json
+RESULT: 4 FAIL, 3 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/contact
+
+MEASURED (first viewport listed)
+  hero headline   "اتصل بنا"  2 words · 1 line(s) · 266.4px (18.5vw) · Beiruti 900 · tracking 0em · leading 1.06
+  @768px          1 line(s) · 142.1px
+  @390px          1 line(s) · 72.2px
+  typefaces       IBM Plex Sans Arabic 96%, Beiruti 4%
+  sizes in use    15 / 18 / 24 / 72 / 266 / 414 px
+  colour          page #eef2ef · sections #eef2ef #0b1f2a · button #0f6e7a
+  page            2.6 screens · 121 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [off-centre] @1440px  The page sits off-centre: its content comes to 115px from the left edge but only to 32px from the right, at 1440px.
+      → Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure).
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "لولوه" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  31% of the first screen is one empty block (600×660px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+  [off-centre] @768px  The margins differ: 56px on the left, 23px on the right, at 768px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/contact/desktop-fold.jpg
+                  .taste-skill/inspect/contact/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/contact/tablet-fold.jpg
+                  .taste-skill/inspect/contact/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/contact/mobile-fold.jpg
+                  .taste-skill/inspect/contact/mobile-page-01.jpg
+
+report: .taste-skill/inspect/contact/report.json
+RESULT: 4 FAIL, 3 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/cookie-policy
+
+MEASURED (first viewport listed)
+  hero headline   "سياسة ملفات الارتباط"  3 words · 1 line(s) · 72px (5vw) · Beiruti 800 · tracking 0em · leading 1.2
+  @768px          1 line(s) · 38.4px
+  @390px          1 line(s) · 36px
+  typefaces       IBM Plex Sans Arabic 91%, Beiruti 9%
+  sizes in use    15 / 18 / 24 / 72 / 414 px   body 18px / 1.85
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            1.9 screens · 98 words · 0 images · hero media none
+  headings        5 · longest 1 line(s) · median 1 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [off-centre] @1440px (+768)  The page sits off-centre: its content comes to 115px from the left edge but only to 32px from the right, at 1440px.
+      → Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure).
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "لولوه" (screen 2, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  51% of the first screen is one empty block (840×780px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/cookie-policy/desktop-fold.jpg
+                  .taste-skill/inspect/cookie-policy/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/cookie-policy/tablet-fold.jpg
+                  .taste-skill/inspect/cookie-policy/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/cookie-policy/mobile-fold.jpg
+                  .taste-skill/inspect/cookie-policy/mobile-page-01.jpg
+
+report: .taste-skill/inspect/cookie-policy/report.json
+RESULT: 4 FAIL, 3 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en
+
+MEASURED (first viewport listed)
+  hero headline   "LULWA"  1 words · 1 line(s) · 344px (23.9vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 0.95
+  @768px          1 line(s) · 180.5px
+  @390px          1 line(s) · 89.5px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 147 / 344 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #0f6e7a #e0e8e4 #0b1f2a #eef2ef · button #25d366
+  page            8.7 screens · 463 words · 8 images · hero media none
+  headings        21 · longest 3 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [headline-lines] @1440px  1 headline(s) wrap past two lines at 1440px: "A registered shop in Al-Jalawiyah, Dammam, with " → 3 lines (19 words, 60.5px, a paragraph set above 36px)
+      → Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 36px or less.
+  [eyebrow] @1440px (+768, 390)  4 eyebrow/kicker label(s) above headings: "Appliance" above "Split AC"; "Appliance" above "Window AC"; "Four kinds of household appliance." above "Call now"; "Rooftop AC: compressor change" above "Every photo here is from a real job."
+      → Delete them. If the label carried real information, fold it into the headline or the supporting sentence.
+  [still-page] @1440px  Only 4 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [headline-lines] @768px  1 headline(s) wrap past two lines at 768px: "A registered shop in Al-Jalawiyah, Dammam, with " → 3 lines (19 words, 32.3px, a paragraph set above 32px)
+      → Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 32px or less.
+  [edge-text] @768px (+390)  1 text block(s) sit within 16px of the screen edge: "Fridge repair and gas refillin" (0px from the right)
+      → Keep text inside the page margin (16–32px or more). Only display type deliberately bled past the edge may touch it.
+  [headline-lines] @390px  1 headline(s) wrap past two lines at 390px: "A registered shop in Al-Jalawiyah, Dammam, with " → 6 lines (19 words, 32px, a paragraph set above 24px)
+      → Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "What is wrong? Pick and send" (screen 1, 50% hidden); "Pick and send" (screen 1, 100% hidden); "A registered shop in Al-Jalawiyah, Dammam, with " (screen 3, 43% hidden); "Customer reviews From Google Maps" (screen 4, 100% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [grey-body] @1440px (+768, 390)  The running text is a soft grey on its ground (5.3:1).
+      → Set body copy in the full ink (7:1 or more). Keep the muted ink for secondary notes; pages read thin and unfinished when everything is grey.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [side-scroll] @1440px (+768, 390)  1 row(s) scroll sideways with content past their edge.
+      → Jurors and most visitors read a row cut at the edge as clipped, not as scrollable. Wrap it onto more lines, or end it inside the grid.
+  [empty-middle] @768px  1 section(s) have content at both edges and 408px of nothing between: "What we repair"
+      → Bring the two parts together on the grid, or put the picture or figure of the section in the middle. An empty middle third reads as a hole, the same as an empty half.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/desktop-fold.jpg
+                  .taste-skill/inspect/en/desktop-page-01.jpg
+                  .taste-skill/inspect/en/desktop-page-02.jpg
+                  .taste-skill/inspect/en/desktop-page-03.jpg
+  tablet 768px    .taste-skill/inspect/en/tablet-fold.jpg
+                  .taste-skill/inspect/en/tablet-page-01.jpg
+                  .taste-skill/inspect/en/tablet-page-02.jpg
+  mobile 390px    .taste-skill/inspect/en/mobile-fold.jpg
+                  .taste-skill/inspect/en/mobile-page-01.jpg
+                  .taste-skill/inspect/en/mobile-page-02.jpg
+
+report: .taste-skill/inspect/en/report.json
+RESULT: 7 FAIL, 4 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/about
+
+MEASURED (first viewport listed)
+  hero headline   "About us"  2 words · 1 line(s) · 146.9px (10.2vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 1
+  @768px          1 line(s) · 78.3px
+  @390px          1 line(s) · 54.4px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 147 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a
+  page            2.5 screens · 136 words · 0 images · hero media none
+  headings        6 · longest 1 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "Our details" (screen 1, 100% hidden); "LULWA" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px (+768, 390)  The margins differ: 32px on the left, 94px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+  [lopsided] @1440px  A section keeps its content on one side and leaves 816px of the width empty: "What we repair".
+      → Fill the other side with what the section has (its picture, a second column, the figure), or defend the void in one sentence.
+  [hero-void] @1440px  47% of the first screen is one empty block (780×780px at 660,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/about/desktop-fold.jpg
+                  .taste-skill/inspect/en/about/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/about/tablet-fold.jpg
+                  .taste-skill/inspect/en/about/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/about/mobile-fold.jpg
+                  .taste-skill/inspect/en/about/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/about/report.json
+RESULT: 3 FAIL, 5 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/areas
+
+MEASURED (first viewport listed)
+  hero headline   "Dammam"  1 words · 1 line(s) · 146.9px (10.2vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 1
+  @768px          1 line(s) · 78.3px
+  @390px          1 line(s) · 54.4px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 147 / 360 px   body 14px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            1.7 screens · 88 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [body-size] @1440px (+768, 390)  Body text is 14px (the size most of the running text is set in).
+      → Body copy 16–20px. Map small sizes from blueprints onto your body step.
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "LULWA" (screen 2, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px (+768, 390)  The margins differ: 32px on the left, 94px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+  [hero-void] @1440px  43% of the first screen is one empty block (720×780px at 720,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/areas/desktop-fold.jpg
+                  .taste-skill/inspect/en/areas/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/areas/tablet-fold.jpg
+                  .taste-skill/inspect/en/areas/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/areas/mobile-fold.jpg
+                  .taste-skill/inspect/en/areas/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/areas/report.json
+RESULT: 4 FAIL, 4 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/areas/appliance-repair-in-dammam
+
+MEASURED (first viewport listed)
+  hero headline   "Appliance repair in Dammam"  4 words · 1 line(s) · 60.5px (4.2vw) · Schibsted Grotesk 700 · tracking 0em · leading 1.08
+  @768px          1 line(s) · 32.3px
+  @390px          2 line(s) · 32px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 360 px   body 22px / 1.5
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a · button #25d366
+  page            1.8 screens · 107 words · 0 images · hero media none
+  headings        4 · longest 1 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [focal-point] @1440px (+768)  The first screen has no dominant element: the largest type is 60.5px (4.2vw) and no single picture holds a third of the viewport.
+      → Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw.
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "LULWA" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px (+390)  The margins differ: 32px on the left, 94px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/areas/appliance-repair-in-dammam/desktop-fold.jpg
+                  .taste-skill/inspect/en/areas/appliance-repair-in-dammam/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/areas/appliance-repair-in-dammam/tablet-fold.jpg
+                  .taste-skill/inspect/en/areas/appliance-repair-in-dammam/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/areas/appliance-repair-in-dammam/mobile-fold.jpg
+                  .taste-skill/inspect/en/areas/appliance-repair-in-dammam/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/areas/appliance-repair-in-dammam/report.json
+RESULT: 4 FAIL, 2 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/blog
+
+MEASURED (first viewport listed)
+  hero headline   "Blog"  1 words · 1 line(s) · 146.9px (10.2vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 1
+  @768px          1 line(s) · 78.3px
+  @390px          1 line(s) · 54.4px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 147 / 360 px
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            1.8 screens · 99 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "LULWA" (screen 2, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px (+768, 390)  The margins differ: 32px on the left, 94px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+  [hero-void] @1440px  36% of the first screen is one empty block (960×480px at 480,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/blog/desktop-fold.jpg
+                  .taste-skill/inspect/en/blog/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/blog/tablet-fold.jpg
+                  .taste-skill/inspect/en/blog/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/blog/mobile-fold.jpg
+                  .taste-skill/inspect/en/blog/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/blog/report.json
+RESULT: 3 FAIL, 4 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/blog/ac-repair-in-dammam
+
+MEASURED (first viewport listed)
+  hero headline   "AC trouble? Check first"  4 words · 1 line(s) · 60.5px (4.2vw) · Schibsted Grotesk 700 · tracking 0em · leading 1.08
+  @768px          1 line(s) · 32.3px
+  @390px          2 line(s) · 32px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0b1f2a · button #25d366
+  page            2.1 screens · 132 words · 0 images · hero media none
+  headings        6 · longest 1 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [focal-point] @1440px (+768)  The first screen has no dominant element: the largest type is 60.5px (4.2vw) and no single picture holds a third of the viewport.
+      → Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw.
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "LULWA" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px (+768)  The margins differ: 32px on the left, 94px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+  [hero-void] @1440px  43% of the first screen is one empty block (720×780px at 720,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/blog/ac-repair-in-dammam/desktop-fold.jpg
+                  .taste-skill/inspect/en/blog/ac-repair-in-dammam/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/blog/ac-repair-in-dammam/tablet-fold.jpg
+                  .taste-skill/inspect/en/blog/ac-repair-in-dammam/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/blog/ac-repair-in-dammam/mobile-fold.jpg
+                  .taste-skill/inspect/en/blog/ac-repair-in-dammam/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/blog/ac-repair-in-dammam/report.json
+RESULT: 4 FAIL, 4 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+
+MEASURED (first viewport listed)
+  hero headline   "Get your AC ready for summer"  6 words · 1 line(s) · 60.5px (4.2vw) · Schibsted Grotesk 700 · tracking 0em · leading 1.08
+  @768px          1 line(s) · 32.3px
+  @390px          2 line(s) · 32px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0b1f2a · button #25d366
+  page            1.9 screens · 117 words · 0 images · hero media none
+  headings        5 · longest 1 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [focal-point] @1440px (+768)  The first screen has no dominant element: the largest type is 60.5px (4.2vw) and no single picture holds a third of the viewport.
+      → Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw.
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "LULWA" (screen 2, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px (+768)  The margins differ: 32px on the left, 94px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+  [hero-void] @1440px  37% of the first screen is one empty block (720×660px at 720,240).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/desktop-fold.jpg
+                  .taste-skill/inspect/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/tablet-fold.jpg
+                  .taste-skill/inspect/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/mobile-fold.jpg
+                  .taste-skill/inspect/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/report.json
+RESULT: 4 FAIL, 4 WARN — not done.
+file:///C:/Users/ameer/.agents/skills/design-taste-frontend/scripts/lib/cdp.mjs:133
+      const timer = setTimeout(() => { this.pending.delete(id); reject(new Error('CDP timeout: ' + method)); }, timeoutMs);
+                                                                       ^
+
+Error: CDP timeout: Page.enable
+    at Timeout._onTimeout (file:///C:/Users/ameer/.agents/skills/design-taste-frontend/scripts/lib/cdp.mjs:133:72)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)
+
+Node.js v26.2.0
+TASTESKILL · INSPECT   http://localhost:4323/en/brands
+
+MEASURED (first viewport listed)
+  hero headline   "Appliance brands"  2 words · 1 line(s) · 146.9px (10.2vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 1
+  @768px          1 line(s) · 78.3px
+  @390px          2 line(s) · 54.4px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 147 / 360 px   body 22px / 1.5
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a · button #25d366
+  page            1.7 screens · 108 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "LULWA" (screen 2, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px (+768)  The margins differ: 32px on the left, 94px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/brands/desktop-fold.jpg
+                  .taste-skill/inspect/en/brands/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/brands/tablet-fold.jpg
+                  .taste-skill/inspect/en/brands/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/brands/mobile-fold.jpg
+                  .taste-skill/inspect/en/brands/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/brands/report.json
+RESULT: 3 FAIL, 2 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/contact
+
+MEASURED (first viewport listed)
+  hero headline   "Contact us"  2 words · 1 line(s) · 146.9px (10.2vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 1
+  @768px          1 line(s) · 78.3px
+  @390px          1 line(s) · 54.4px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 147 / 360 px   body 14px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0b1f2a · button #0f6e7a
+  page            2.3 screens · 127 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [body-size] @1440px (+768, 390)  Body text is 14px (the size most of the running text is set in).
+      → Body copy 16–20px. Map small sizes from blueprints onto your body step.
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "LULWA" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [measure] @1440px  Longest paragraph runs about 96 characters per line.
+      → Cap paragraphs at 45–75 characters (max-width: 60ch).
+  [off-centre] @1440px  The margins differ: 32px on the left, 94px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/contact/desktop-fold.jpg
+                  .taste-skill/inspect/en/contact/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/contact/tablet-fold.jpg
+                  .taste-skill/inspect/en/contact/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/contact/mobile-fold.jpg
+                  .taste-skill/inspect/en/contact/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/contact/report.json
+RESULT: 4 FAIL, 3 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/cookie-policy
+
+MEASURED (first viewport listed)
+  hero headline   "Cookie policy"  2 words · 1 line(s) · 60.5px (4.2vw) · Schibsted Grotesk 700 · tracking 0em · leading 1.08
+  @768px          1 line(s) · 32.3px
+  @390px          1 line(s) · 32px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            1.7 screens · 110 words · 0 images · hero media none
+  headings        5 · longest 1 line(s) · median 1 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [focal-point] @1440px (+768)  The first screen has no dominant element: the largest type is 60.5px (4.2vw) and no single picture holds a third of the viewport.
+      → Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw.
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "LULWA" (screen 2, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px (+768)  The margins differ: 32px on the left, 94px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+  [hero-void] @1440px  47% of the first screen is one empty block (780×780px at 660,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/cookie-policy/desktop-fold.jpg
+                  .taste-skill/inspect/en/cookie-policy/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/cookie-policy/tablet-fold.jpg
+                  .taste-skill/inspect/en/cookie-policy/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/cookie-policy/mobile-fold.jpg
+                  .taste-skill/inspect/en/cookie-policy/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/cookie-policy/report.json
+RESULT: 4 FAIL, 4 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/faults
+
+MEASURED (first viewport listed)
+  hero headline   "Appliance faults"  2 words · 1 line(s) · 146.9px (10.2vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 1
+  @768px          1 line(s) · 78.3px
+  @390px          2 line(s) · 54.4px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 147 / 360 px   body 22px / 1.5
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            2.5 screens · 140 words · 0 images · hero media none
+  headings        7 · longest 1 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [eyebrow] @1440px  1 eyebrow/kicker label(s) above headings: "All services" above "Air conditioners"
+      → Delete them. If the label carried real information, fold it into the headline or the supporting sentence.
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "LULWA" (screen 4, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px (+768, 390)  The margins differ: 32px on the left, 94px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/faults/desktop-fold.jpg
+                  .taste-skill/inspect/en/faults/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/faults/tablet-fold.jpg
+                  .taste-skill/inspect/en/faults/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/faults/mobile-fold.jpg
+                  .taste-skill/inspect/en/faults/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/faults/report.json
+RESULT: 4 FAIL, 3 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/privacy-policy
+
+MEASURED (first viewport listed)
+  hero headline   "What we collect"  3 words · 1 line(s) · 60.5px (4.2vw) · Schibsted Grotesk 700 · tracking 0em · leading 1.08
+  @768px          1 line(s) · 32.3px
+  @390px          1 line(s) · 32px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            2.2 screens · 168 words · 0 images · hero media none
+  headings        8 · longest 1 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [focal-point] @1440px (+768)  The first screen has no dominant element: the largest type is 60.5px (4.2vw) and no single picture holds a third of the viewport.
+      → Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw.
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "Why" (screen 1, 100% hidden); "LULWA" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px (+768)  The margins differ: 32px on the left, 94px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+  [hero-void] @1440px  47% of the first screen is one empty block (780×780px at 660,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/privacy-policy/desktop-fold.jpg
+                  .taste-skill/inspect/en/privacy-policy/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/privacy-policy/tablet-fold.jpg
+                  .taste-skill/inspect/en/privacy-policy/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/privacy-policy/mobile-fold.jpg
+                  .taste-skill/inspect/en/privacy-policy/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/privacy-policy/report.json
+RESULT: 4 FAIL, 4 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/reviews
+
+MEASURED (first viewport listed)
+  hero headline   "Customer reviews"  2 words · 1 line(s) · 146.9px (10.2vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 1
+  @768px          1 line(s) · 78.3px
+  @390px          2 line(s) · 54.4px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 147 / 360 px
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            1.9 screens · 105 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "LULWA" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px (+768, 390)  The margins differ: 32px on the left, 94px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+  [hero-void] @1440px  28% of the first screen is one empty block (1020×360px at 420,360).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/reviews/desktop-fold.jpg
+                  .taste-skill/inspect/en/reviews/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/reviews/tablet-fold.jpg
+                  .taste-skill/inspect/en/reviews/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/reviews/mobile-fold.jpg
+                  .taste-skill/inspect/en/reviews/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/reviews/report.json
+RESULT: 3 FAIL, 4 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/services
+
+MEASURED (first viewport listed)
+  hero headline   "Repair services"  2 words · 1 line(s) · 146.9px (10.2vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 1
+  @768px          1 line(s) · 78.3px
+  @390px          2 line(s) · 54.4px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 147 / 360 px   body 22px / 1.5
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            1.7 screens · 97 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "LULWA" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px (+768)  The margins differ: 32px on the left, 94px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/services/desktop-fold.jpg
+                  .taste-skill/inspect/en/services/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/services/tablet-fold.jpg
+                  .taste-skill/inspect/en/services/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/services/mobile-fold.jpg
+                  .taste-skill/inspect/en/services/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/services/report.json
+RESULT: 3 FAIL, 3 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/services/ac-repair
+
+MEASURED (first viewport listed)
+  hero headline   "AC repair in Dammam"  4 words · 1 line(s) · 60.5px (4.2vw) · Schibsted Grotesk 700 · tracking 0em · leading 1.08
+  @768px          1 line(s) · 32.3px
+  @390px          1 line(s) · 32px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a · button #e0e8e4
+  page            2.8 screens · 202 words · 0 images · hero media 19% svg
+  headings        7 · longest 2 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [focal-point] @1440px  The first screen has no dominant element: the largest type is 60.5px (4.2vw) and no single picture holds a third of the viewport.
+      → Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw.
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "LULWA" (screen 4, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/services/ac-repair/desktop-fold.jpg
+                  .taste-skill/inspect/en/services/ac-repair/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/services/ac-repair/tablet-fold.jpg
+                  .taste-skill/inspect/en/services/ac-repair/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/services/ac-repair/mobile-fold.jpg
+                  .taste-skill/inspect/en/services/ac-repair/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/services/ac-repair/report.json
+RESULT: 4 FAIL, 1 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/services/dryer-repair
+
+MEASURED (first viewport listed)
+  hero headline   "Dryer repair in Dammam"  4 words · 1 line(s) · 60.5px (4.2vw) · Schibsted Grotesk 700 · tracking 0em · leading 1.08
+  @768px          1 line(s) · 32.3px
+  @390px          2 line(s) · 32px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a · button #e0e8e4
+  page            2.8 screens · 172 words · 0 images · hero media 19% svg
+  headings        7 · longest 2 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [focal-point] @1440px  The first screen has no dominant element: the largest type is 60.5px (4.2vw) and no single picture holds a third of the viewport.
+      → Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw.
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "LULWA" (screen 4, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [lopsided] @1440px  A section keeps its content on one side and leaves 761px of the width empty: "Common faults".
+      → Fill the other side with what the section has (its picture, a second column, the figure), or defend the void in one sentence.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/services/dryer-repair/desktop-fold.jpg
+                  .taste-skill/inspect/en/services/dryer-repair/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/services/dryer-repair/tablet-fold.jpg
+                  .taste-skill/inspect/en/services/dryer-repair/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/services/dryer-repair/mobile-fold.jpg
+                  .taste-skill/inspect/en/services/dryer-repair/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/services/dryer-repair/report.json
+RESULT: 4 FAIL, 2 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/services/refrigerator-repair
+
+MEASURED (first viewport listed)
+  hero headline   "Fridge repair in Dammam"  4 words · 1 line(s) · 60.5px (4.2vw) · Schibsted Grotesk 700 · tracking 0em · leading 1.08
+  @768px          1 line(s) · 32.3px
+  @390px          2 line(s) · 32px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a · button #e0e8e4
+  page            2.8 screens · 179 words · 0 images · hero media 19% svg
+  headings        7 · longest 2 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [focal-point] @1440px  The first screen has no dominant element: the largest type is 60.5px (4.2vw) and no single picture holds a third of the viewport.
+      → Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw.
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "LULWA" (screen 4, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/services/refrigerator-repair/desktop-fold.jpg
+                  .taste-skill/inspect/en/services/refrigerator-repair/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/services/refrigerator-repair/tablet-fold.jpg
+                  .taste-skill/inspect/en/services/refrigerator-repair/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/services/refrigerator-repair/mobile-fold.jpg
+                  .taste-skill/inspect/en/services/refrigerator-repair/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/services/refrigerator-repair/report.json
+RESULT: 4 FAIL, 1 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/services/washing-machine-repair
+
+MEASURED (first viewport listed)
+  hero headline   "Automatic washer repair in Dammam"  5 words · 2 line(s) · 60.5px (4.2vw) · Schibsted Grotesk 700 · tracking 0em · leading 1.08
+  @768px          1 line(s) · 32.3px
+  @390px          2 line(s) · 32px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a · button #e0e8e4
+  page            2.8 screens · 198 words · 0 images · hero media 19% svg
+  headings        7 · longest 2 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [focal-point] @1440px  The first screen has no dominant element: the largest type is 60.5px (4.2vw) and no single picture holds a third of the viewport.
+      → Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw.
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "LULWA" (screen 4, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/services/washing-machine-repair/desktop-fold.jpg
+                  .taste-skill/inspect/en/services/washing-machine-repair/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/services/washing-machine-repair/tablet-fold.jpg
+                  .taste-skill/inspect/en/services/washing-machine-repair/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/services/washing-machine-repair/mobile-fold.jpg
+                  .taste-skill/inspect/en/services/washing-machine-repair/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/services/washing-machine-repair/report.json
+RESULT: 4 FAIL, 1 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/terms-of-service
+
+MEASURED (first viewport listed)
+  hero headline   "Terms of use"  3 words · 1 line(s) · 60.5px (4.2vw) · Schibsted Grotesk 700 · tracking 0em · leading 1.08
+  @768px          1 line(s) · 32.3px
+  @390px          1 line(s) · 32px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            1.9 screens · 131 words · 0 images · hero media none
+  headings        6 · longest 1 line(s) · median 1 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [focal-point] @1440px (+768)  The first screen has no dominant element: the largest type is 60.5px (4.2vw) and no single picture holds a third of the viewport.
+      → Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw.
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "Law" (screen 1, 100% hidden); "LULWA" (screen 2, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px (+768)  The margins differ: 32px on the left, 94px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+  [hero-void] @1440px  47% of the first screen is one empty block (780×780px at 660,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/terms-of-service/desktop-fold.jpg
+                  .taste-skill/inspect/en/terms-of-service/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/terms-of-service/tablet-fold.jpg
+                  .taste-skill/inspect/en/terms-of-service/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/terms-of-service/mobile-fold.jpg
+                  .taste-skill/inspect/en/terms-of-service/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/terms-of-service/report.json
+RESULT: 4 FAIL, 4 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/en/work
+
+MEASURED (first viewport listed)
+  hero headline   "Our work"  2 words · 1 line(s) · 146.9px (10.2vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 1
+  @768px          1 line(s) · 78.3px
+  @390px          1 line(s) · 54.4px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    14 / 17 / 22 / 61 / 147 / 360 px
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a
+  page            2.7 screens · 93 words · 6 images · hero media 9% img
+  headings        3 · longest 1 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "LULWA" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/work/desktop-fold.jpg
+                  .taste-skill/inspect/en/work/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/work/tablet-fold.jpg
+                  .taste-skill/inspect/en/work/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/work/mobile-fold.jpg
+                  .taste-skill/inspect/en/work/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/work/report.json
+RESULT: 2 FAIL, 2 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/faults
+
+MEASURED (first viewport listed)
+  hero headline   "أعطال الأجهزة"  2 words · 1 line(s) · 266.4px (18.5vw) · Beiruti 900 · tracking 0em · leading 1.06
+  @768px          1 line(s) · 142.1px
+  @390px          2 line(s) · 72.2px
+  typefaces       IBM Plex Sans Arabic 56%, Beiruti 44%
+  sizes in use    15 / 18 / 24 / 72 / 266 / 414 px   body 24px / 1.7
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            2.9 screens · 130 words · 0 images · hero media none
+  headings        7 · longest 1 line(s) · median 1 words
+
+FAIL — fix every one of these
+  [eyebrow] @1440px (+768)  1 eyebrow/kicker label(s) above headings: "كل الخدمات" above "المكيفات"
+      → Delete them. If the label carried real information, fold it into the headline or the supporting sentence.
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "المكيف يتجمّد" (screen 1, 100% hidden); "لولوه" (screen 4, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px  The margins differ: 79px on the left, 32px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/faults/desktop-fold.jpg
+                  .taste-skill/inspect/faults/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/faults/tablet-fold.jpg
+                  .taste-skill/inspect/faults/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/faults/mobile-fold.jpg
+                  .taste-skill/inspect/faults/mobile-page-01.jpg
+
+report: .taste-skill/inspect/faults/report.json
+RESULT: 4 FAIL, 3 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/privacy-policy
+
+MEASURED (first viewport listed)
+  hero headline   "سياسة الخصوصية"  2 words · 1 line(s) · 72px (5vw) · Beiruti 800 · tracking 0em · leading 1.2
+  @768px          1 line(s) · 38.4px
+  @390px          1 line(s) · 36px
+  typefaces       IBM Plex Sans Arabic 92%, Beiruti 8%
+  sizes in use    15 / 18 / 24 / 72 / 414 px   body 18px / 1.85
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            2.4 screens · 142 words · 0 images · hero media none
+  headings        8 · longest 1 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [off-centre] @1440px (+768)  The page sits off-centre: its content comes to 115px from the left edge but only to 32px from the right, at 1440px.
+      → Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure).
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "ليش نجمعها" (screen 1, 100% hidden); "لولوه" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  47% of the first screen is one empty block (780×780px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/privacy-policy/desktop-fold.jpg
+                  .taste-skill/inspect/privacy-policy/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/privacy-policy/tablet-fold.jpg
+                  .taste-skill/inspect/privacy-policy/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/privacy-policy/mobile-fold.jpg
+                  .taste-skill/inspect/privacy-policy/mobile-page-01.jpg
+
+report: .taste-skill/inspect/privacy-policy/report.json
+RESULT: 4 FAIL, 3 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/reviews
+
+MEASURED (first viewport listed)
+  hero headline   "تقييمات العملاء"  2 words · 2 line(s) · 266.4px (18.5vw) · Beiruti 900 · tracking 0em · leading 1.06
+  @768px          2 line(s) · 142.1px
+  @390px          2 line(s) · 72.2px
+  typefaces       IBM Plex Sans Arabic 88%, Schibsted Grotesk 6%, Beiruti 6%
+  sizes in use    15 / 18 / 22 / 24 / 72 / 266 / 414 px
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            2.4 screens · 102 words · 0 images · hero media none
+  headings        3 · longest 2 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "لولوه" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [font-count] @1440px (+768, 390)  3 typefaces in use (IBM Plex Sans Arabic, Schibsted Grotesk, Beiruti).
+      → Two at most.
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px (+768)  The margins differ: 68px on the left, 32px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+  [hero-void] @1440px  40% of the first screen is one empty block (660×780px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/reviews/desktop-fold.jpg
+                  .taste-skill/inspect/reviews/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/reviews/tablet-fold.jpg
+                  .taste-skill/inspect/reviews/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/reviews/mobile-fold.jpg
+                  .taste-skill/inspect/reviews/mobile-page-01.jpg
+
+report: .taste-skill/inspect/reviews/report.json
+RESULT: 3 FAIL, 5 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/services
+
+MEASURED (first viewport listed)
+  hero headline   "خدمات الصيانة"  2 words · 2 line(s) · 266.4px (18.5vw) · Beiruti 900 · tracking 0em · leading 1.06
+  @768px          2 line(s) · 142.1px
+  @390px          2 line(s) · 72.2px
+  typefaces       IBM Plex Sans Arabic 73%, Beiruti 27%
+  sizes in use    15 / 18 / 24 / 72 / 266 / 414 px
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            2.2 screens · 90 words · 0 images · hero media none
+  headings        3 · longest 2 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [off-centre] @1440px (+768)  The page sits off-centre: its content comes to 115px from the left edge but only to 32px from the right, at 1440px.
+      → Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure).
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "الغسالات الغسالات الأوتوماتيك." (screen 1, 100% hidden); "لولوه" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  40% of the first screen is one empty block (660×780px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/services/desktop-fold.jpg
+                  .taste-skill/inspect/services/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/services/tablet-fold.jpg
+                  .taste-skill/inspect/services/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/services/mobile-fold.jpg
+                  .taste-skill/inspect/services/mobile-page-01.jpg
+
+report: .taste-skill/inspect/services/report.json
+RESULT: 4 FAIL, 3 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/services/ac-repair
+
+MEASURED (first viewport listed)
+  hero headline   "تصليح مكيفات في الدمام"  4 words · 1 line(s) · 72px (5vw) · Beiruti 800 · tracking 0em · leading 1.2
+  @768px          1 line(s) · 38.4px
+  @390px          1 line(s) · 36px
+  typefaces       IBM Plex Sans Arabic 85%, Beiruti 15%
+  sizes in use    15 / 18 / 24 / 72 / 414 px   body 18px / 1.85
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a · button #e0e8e4
+  page            2.9 screens · 166 words · 0 images · hero media 19% svg
+  headings        7 · longest 1 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [eyebrow] @390px  1 eyebrow/kicker label(s) above headings: "مكيف شباك" above "أرسل لنا على واتساب"
+      → Delete them. If the label carried real information, fold it into the headline or the supporting sentence.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "لولوه" (screen 4, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/services/ac-repair/desktop-fold.jpg
+                  .taste-skill/inspect/services/ac-repair/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/services/ac-repair/tablet-fold.jpg
+                  .taste-skill/inspect/services/ac-repair/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/services/ac-repair/mobile-fold.jpg
+                  .taste-skill/inspect/services/ac-repair/mobile-page-01.jpg
+
+report: .taste-skill/inspect/services/ac-repair/report.json
+RESULT: 4 FAIL, 1 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/services/dryer-repair
+
+MEASURED (first viewport listed)
+  hero headline   "صيانة نشافات في الدمام"  4 words · 1 line(s) · 72px (5vw) · Beiruti 800 · tracking 0em · leading 1.2
+  @768px          1 line(s) · 38.4px
+  @390px          1 line(s) · 36px
+  typefaces       IBM Plex Sans Arabic 85%, Beiruti 15%
+  sizes in use    15 / 18 / 24 / 72 / 414 px   body 18px / 1.85
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a · button #e0e8e4
+  page            2.9 screens · 141 words · 0 images · hero media 19% svg
+  headings        7 · longest 1 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "لولوه" (screen 4, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [lopsided] @1440px  A section keeps its content on one side and leaves 811px of the width empty: "أعطال شائعة".
+      → Fill the other side with what the section has (its picture, a second column, the figure), or defend the void in one sentence.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/services/dryer-repair/desktop-fold.jpg
+                  .taste-skill/inspect/services/dryer-repair/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/services/dryer-repair/tablet-fold.jpg
+                  .taste-skill/inspect/services/dryer-repair/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/services/dryer-repair/mobile-fold.jpg
+                  .taste-skill/inspect/services/dryer-repair/mobile-page-01.jpg
+
+report: .taste-skill/inspect/services/dryer-repair/report.json
+RESULT: 3 FAIL, 2 WARN — not done.
+file:///C:/Users/ameer/.agents/skills/design-taste-frontend/scripts/lib/cdp.mjs:133
+      const timer = setTimeout(() => { this.pending.delete(id); reject(new Error('CDP timeout: ' + method)); }, timeoutMs);
+                                                                       ^
+
+Error: CDP timeout: Page.enable
+    at Timeout._onTimeout (file:///C:/Users/ameer/.agents/skills/design-taste-frontend/scripts/lib/cdp.mjs:133:72)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)
+
+Node.js v26.2.0
+TASTESKILL · INSPECT   http://localhost:4323/services/washing-machine-repair
+
+MEASURED (first viewport listed)
+  hero headline   "صيانة غسالات أوتوماتيك في الدمام"  5 words · 2 line(s) · 72px (5vw) · Beiruti 800 · tracking 0em · leading 1.2
+  @768px          1 line(s) · 38.4px
+  @390px          2 line(s) · 36px
+  typefaces       IBM Plex Sans Arabic 84%, Beiruti 16%
+  sizes in use    15 / 18 / 24 / 72 / 414 px   body 18px / 1.85
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a · button #e0e8e4
+  page            2.9 screens · 163 words · 0 images · hero media 19% svg
+  headings        7 · longest 2 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "لولوه" (screen 4, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/services/washing-machine-repair/desktop-fold.jpg
+                  .taste-skill/inspect/services/washing-machine-repair/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/services/washing-machine-repair/tablet-fold.jpg
+                  .taste-skill/inspect/services/washing-machine-repair/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/services/washing-machine-repair/mobile-fold.jpg
+                  .taste-skill/inspect/services/washing-machine-repair/mobile-page-01.jpg
+
+report: .taste-skill/inspect/services/washing-machine-repair/report.json
+RESULT: 3 FAIL, 1 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/terms-of-service
+
+MEASURED (first viewport listed)
+  hero headline   "شروط الاستخدام"  2 words · 1 line(s) · 72px (5vw) · Beiruti 800 · tracking 0em · leading 1.2
+  @768px          1 line(s) · 38.4px
+  @390px          1 line(s) · 36px
+  typefaces       IBM Plex Sans Arabic 92%, Beiruti 8%
+  sizes in use    15 / 18 / 24 / 72 / 414 px   body 18px / 1.85
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            2.1 screens · 109 words · 0 images · hero media none
+  headings        6 · longest 1 line(s) · median 1 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [off-centre] @1440px (+768)  The page sits off-centre: its content comes to 115px from the left edge but only to 32px from the right, at 1440px.
+      → Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure).
+  [still-page] @1440px  Only 0 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "النظام" (screen 1, 100% hidden); "لولوه" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  47% of the first screen is one empty block (780×780px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/terms-of-service/desktop-fold.jpg
+                  .taste-skill/inspect/terms-of-service/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/terms-of-service/tablet-fold.jpg
+                  .taste-skill/inspect/terms-of-service/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/terms-of-service/mobile-fold.jpg
+                  .taste-skill/inspect/terms-of-service/mobile-page-01.jpg
+
+report: .taste-skill/inspect/terms-of-service/report.json
+RESULT: 4 FAIL, 3 WARN — not done.
+TASTESKILL · INSPECT   http://localhost:4323/work
+
+MEASURED (first viewport listed)
+  hero headline   "من شغلنا"  2 words · 1 line(s) · 266.4px (18.5vw) · Beiruti 900 · tracking 0em · leading 1.06
+  @768px          1 line(s) · 142.1px
+  @390px          1 line(s) · 72.2px
+  typefaces       IBM Plex Sans Arabic 95%, Beiruti 5%
+  sizes in use    15 / 18 / 24 / 72 / 266 / 414 px
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a
+  page            2.9 screens · 92 words · 6 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [still-page] @1440px  Only 1 element(s) moved while the page loaded and scrolled.
+      → Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback.
+  [covered-text] @390px  Large text lies under another element at some scroll position: "لولوه" (screen 3, 50% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [name-only-title] @1440px (+768, 390)  The h1 is a bare name ("من شغلنا") and nothing else on the first screen says what this is.
+      → Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/work/desktop-fold.jpg
+                  .taste-skill/inspect/work/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/work/tablet-fold.jpg
+                  .taste-skill/inspect/work/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/work/mobile-fold.jpg
+                  .taste-skill/inspect/work/mobile-page-01.jpg
+
+report: .taste-skill/inspect/work/report.json
+RESULT: 2 FAIL, 3 WARN — not done.
+[ELIFECYCLE] Command failed with exit code 1.
