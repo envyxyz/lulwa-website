@@ -1,0 +1,8 @@
+# Everyone is welcome, including AI search and training crawlers (docs/PRD.md section 8).
+User-agent: *
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /api/
+
+Sitemap: https://lulwa.com.sa/sitemap-index.xml

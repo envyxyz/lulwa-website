@@ -76,3 +76,14 @@ Questions, verifications and access needed, gathered while Ameer sleeps. Nothing
 - **Privacy policy check:** it should name Google Sheets, Gmail and Cloudflare as places a lead passes through. Not edited this phase.
 - **No form without JavaScript:** the form needs JS to send. Without it the WhatsApp and call buttons still work.
 - **Rate limiting** is only the honeypot plus Cloudflare's defaults. Add a rule if spam shows.
+
+## Phase 8 (2026-11-01)
+- **Search Console access does not exist,** so no pruned URL was checked for traffic. Before go-live, open Search Console for the old site and check these: the 17 area URLs now `410` and the 32 brand URLs now `301` to `/brands` (`docs/url-map.csv`). Any with real traffic and a real service behind it should get a page back instead.
+- **Schema `geo` is a placeholder:** the Dammam city centre (26.4207, 50.0888), not the shop. Send the exact pin (client question 9) and set it in `src/seo.ts`.
+- **`sameAs` is empty** on purpose: no social profile is confirmed.
+- **Second domain:** `public/_redirects` sends `automaticwashingmachine.com` to the washing machine page and `www.lulwa.com.sa` to the apex. They only work once those hostnames are on the same Cloudflare account. Confirm you own the second domain and what it should point to.
+- **Do by hand:** `docs/GBP.md` (listing changes, nothing changed) and `docs/CITATIONS.md` (directories, nothing submitted). The GBP category fix and cleaning the stuffed name are the biggest ranking levers.
+- **Technician review is the SEO bottleneck:** the 15 fault pages stay `noindex` until `docs/TECH-REVIEW.md` is done. Aim for February.
+- **CSP** allows `'unsafe-inline'` scripts, because the home page has one small inline script. Tighten with hashes if wanted. After go-live, load every page once with GTM and check the console for blocked requests (GA4 and Clarity endpoints may need adding; Clarity is not in the CSP because the site does not load it).
+- **OG image** is one brand card (logo on pearl, no text) for every page and both languages, not one per page.
+- **Google SERP was not re-read** this phase (only autocomplete, `docs/KEYWORD-MAP.md`); the 1 Nov competitor table stands. No CAPTCHA met.
