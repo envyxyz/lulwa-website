@@ -9,7 +9,10 @@ const ORIGINAL = '../growth/Photos/Originals/2026-10-19_';
 // Left out on purpose: shopfront (old sign), technician-package-unit (AJCO on the coverall),
 // delivery-truck and street-night (plates, other shops), lg-outdoor-units (reads as an LG agency).
 const real = ['compressor-closeup_02', 'compressor-install_01', 'compressor-pair_01', 'condensing-unit-wiring_01', 'rooftop-compressor-swap_01', 'rooftop-unit-repair_01'];
-const generated = ['split-ac-indoor', 'window-ac', 'fridge', 'washer', 'dryer'].filter((name) => existsSync(`design/generated/${name}.png`));
+const products = ['split-ac-indoor', 'window-ac', 'fridge', 'washer', 'dryer'];
+const generated = products.filter((name) => existsSync(`design/generated/${name}.png`));
+// Cutaways exist only once agy has produced them; the picker uses them for the slugs listed in appliance-internals.json.
+const cutaways = products.filter((name) => existsSync(`design/generated/internals/${name}.png`));
 
 const exportAll = async (input, name, widths) => {
   for (const width of widths) {
@@ -36,6 +39,13 @@ for (const name of generated) {
   const { width: sourceWidth } = await sharp(source).metadata();
   await exportAll(source, name, [320, 640]);
   provenance[name] = { kind: 'generated', source, sourceWidth, note: `AI-generated unbranded product illustration, agy, 1 Nov 2026${source === cutout ? ', background removed' : ''}. Never a job photo.` };
+}
+
+for (const name of cutaways) {
+  const source = `design/generated/internals/${name}.png`;
+  const { width: sourceWidth } = await sharp(source).metadata();
+  await exportAll(source, `internals-${name}`, [320, 640]);
+  provenance[`internals-${name}`] = { kind: 'generated', source, sourceWidth, note: "AI-generated cutaway illustration, agy, 2 Nov 2026. Shows typical internal parts, not this customer's unit." };
 }
 
 writeFileSync('src/images/provenance.json', `${JSON.stringify(provenance, null, 2)}\n`);

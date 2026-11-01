@@ -59,14 +59,19 @@ for (const [path, script] of [['/', /\p{Script=Arabic}/u], ['/en', /^[^\p{Script
       await faults.nth(i).click();
       await expect(faults.nth(i)).toHaveAttribute('aria-pressed', 'true');
     }
-    await expect(page.locator('circle[data-on]'), 'one pearl per fault').toHaveCount(2);
+    const layer = page.locator('li[data-pos="c"] [data-internals]');
+    await expect(layer, 'the cutaway layer fades in').toHaveCSS('opacity', '1');
+    await expect(page.locator('li[data-pos="c"] .photo'), 'the outer body dims').not.toHaveCSS('opacity', '1');
+    await expect(page.locator('[data-highlight][data-on]'), 'one highlight per fault').toHaveCount(2);
     const text = await message(page);
     for (const pick of [appliance, ...picks]) expect(text).toContain(pick);
     expect(text).toMatch(script);
     await faults.nth(0).click();
     expect(await message(page), 'a deselected fault leaves the message').not.toContain(picks[0]!);
     await faults.nth(1).click();
-    await expect(page.locator('circle[data-on]'), 'no faults, no pearls').toHaveCount(0);
+    await expect(page.locator('[data-highlight][data-on]'), 'no faults, no highlights').toHaveCount(0);
+    await expect(layer, 'the cutaway layer hides again').toHaveCSS('opacity', '0');
+    await expect(page.locator('li[data-pos="c"] .photo'), 'the outer body returns').toHaveCSS('opacity', '1');
   });
 
   test(`T14 ${path} Not sure opens a note that lands in the message`, async ({ page }) => {

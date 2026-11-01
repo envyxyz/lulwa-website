@@ -15,6 +15,7 @@
   --color-ink-step: #15303e;
   --color-ink-soft: #3c4c55; /* secondary text on pearl */
   --color-copper: #d9772b; /* the pearl: a dot, never a fill */
+  --color-highlight: #f5b50a; /* the suspect part in the picker cutaway: a warm yellow glow, same in both themes */
   --color-whatsapp: #0b7a46; /* WhatsApp buttons only, with white text: 5.4:1. Brand #25d366 fails AA under white. Same in both themes */
   --color-whatsapp-active: #096b3b; /* 6.6:1 */
   --color-error: #b4442e;

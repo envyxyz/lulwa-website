@@ -5,6 +5,7 @@ import Icon from './Icon.astro';
 import Img from './Img.astro';
 import Text from './Text.astro';
 import { art } from './appliance-art';
+import internalsJson from './appliance-internals.json';
 import { content, langFromUrl, localePath } from '../content';
 
 const lang = langFromUrl(Astro.url);
@@ -12,6 +13,9 @@ const { home } = content[lang];
 const { picker } = home;
 const service = (slug: string) => localePath(lang, `/services/${slug}`);
 // Generated product images, by appliance slug.
+// Cutaway image and fault spots (x, y, radius in % of the image) per appliance, in fault order. An appliance missing here
+// falls back to dimming the photo and marking the old line-drawing spots over it.
+const internals = internalsJson as Record<string, { image: string; spots: number[][] }>;
 const photo: Record<string, string> = { 'split-ac': 'split-ac-indoor', 'window-ac': 'window-ac', fridge: 'fridge', washer: 'washer', dryer: 'dryer' };
 // Seat of each appliance relative to the selected one: -2 to 2, wrapping. Server-rendered so the carousel is right before JS.
 const seat = (k: number) => ((k + 7) % picker.appliances.length) - 2;
@@ -39,15 +43,23 @@ const arrow = 'absolute top-1/2 z-10 hidden size-target -translate-y-1/2 items-c
         <button type="button" data-picker-step="1" aria-label={picker.next} class:list={[arrow, 'next']}><Icon name="arrow-next" /></button>
         <ul class="grid">
           {picker.appliances.map((a, k) => (
-            <li class="item col-start-1 row-start-1 w-stage justify-self-center" style={`--d:${seat(k)}`} data-pos={seat(k) === 0 ? 'c' : Math.abs(seat(k)) === 1 ? 'n' : 'f'}>
+            <li class="item col-start-1 row-start-1 w-stage justify-self-center" data-fallback={internals[a.slug] ? undefined : ""} style={`--d:${seat(k)}`} data-pos={seat(k) === 0 ? 'c' : Math.abs(seat(k)) === 1 ? 'n' : 'f'}>
               <a href={service(a.service)} data-picker-appliance={a.slug} data-name={a.name} class="relative block rounded-card">
                 <span class="photo block">
                   <Img name={photo[a.slug]!} widths={[320, 640]} width={640} height={478} alt={a.name} sizes="(min-width: 48rem) 20rem, 13rem" />
                 </span>
-                <svg viewBox="0 0 200 150" aria-hidden="true" class="art absolute inset-0 size-full fill-none stroke-teal stroke-2 p-4">
-                  <g set:html={art[a.slug]!.svg} />
-                  {art[a.slug]!.spots.map(([x, y], i) => <circle data-i={i} cx={x} cy={y} r="7" class="pearl fill-copper stroke-none" />)}
-                </svg>
+                <span data-internals dir="ltr" class="internals pointer-events-none absolute inset-0" aria-hidden="true">
+                  {internals[a.slug] && (
+                    <picture>
+                      <source type="image/avif" srcset={`/images/${internals[a.slug]!.image}-320.avif 320w, /images/${internals[a.slug]!.image}-640.avif 640w`} sizes="(min-width: 48rem) 20rem, 13rem" />
+                      <source type="image/webp" srcset={`/images/${internals[a.slug]!.image}-320.webp 320w, /images/${internals[a.slug]!.image}-640.webp 640w`} sizes="(min-width: 48rem) 20rem, 13rem" />
+                      <img src={`/images/${internals[a.slug]!.image}-640.webp`} width="640" height="478" alt="" loading="lazy" decoding="async" data-internals-img class="size-full object-contain" />
+                    </picture>
+                  )}
+                  {(internals[a.slug]?.spots ?? art[a.slug]!.spots.map(([x, y]) => [x / 2, y / 1.5, 6])).map(([x, y, r], i) => (
+                    <span data-highlight data-i={i} class="hl" style={`--x:${x};--y:${y};--r:${r}`}><span class="glow" /><span class="ring" /></span>
+                  ))}
+                </span>
               </a>
             </li>
           ))}
@@ -111,29 +123,75 @@ const arrow = 'absolute top-1/2 z-10 hidden size-target -translate-y-1/2 items-c
     background: none;
     animation: none;
   }
+  /* Fault picked: the shell fades back, the cutaway settles in and the suspect parts glow. */
   .photo,
-  .art {
-    transition: opacity var(--duration-fade) var(--ease-out);
+  .internals {
+    transition: opacity var(--duration-fade) var(--ease-out), scale var(--duration-rise) var(--ease-out);
   }
-  .art {
+  .internals {
     opacity: 0;
+    scale: 1.02;
+  }
+  /* Cutaway images are not fetched until the first interaction. */
+  .internals picture {
+    display: none;
+    block-size: 100%;
+  }
+  [data-warm] .internals picture {
+    display: block;
   }
   [data-draw] .photo {
-    opacity: 0;
+    opacity: 0.18;
   }
-  [data-draw] .art {
-    opacity: 1;
+  [data-draw][data-fallback] .photo {
+    opacity: 0.4;
   }
-  .pearl {
-    opacity: 0;
-    scale: 0.4;
-    transform-box: fill-box;
-    transform-origin: center;
-    transition: opacity var(--duration-open) var(--ease-out), scale var(--duration-rise) var(--ease-out);
-  }
-  .pearl[data-on] {
+  [data-draw] .internals {
     opacity: 1;
     scale: 1;
+  }
+  .hl {
+    position: absolute;
+    inset-inline-start: calc(var(--x) * 1%);
+    inset-block-start: calc(var(--y) * 1%);
+    inline-size: calc(var(--r) * 2%);
+    aspect-ratio: 1;
+    translate: -50% -50%;
+    opacity: 0;
+    transition: opacity var(--duration-open) var(--ease-out);
+  }
+  .hl[data-on] {
+    opacity: 1;
+  }
+  .glow,
+  .ring {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-dot);
+  }
+  .glow {
+    background: var(--color-highlight);
+    opacity: 0.6;
+    filter: blur(0.4rem);
+  }
+  .ring {
+    border: 2px solid var(--color-highlight);
+    animation: ring calc(var(--duration-rise) * 4) linear infinite;
+  }
+  @keyframes ring {
+    from {
+      scale: 0.8;
+      opacity: 1;
+    }
+    to {
+      scale: 1.6;
+      opacity: 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .internals {
+      scale: 1;
+    }
   }
   [data-faults]:not([hidden]) {
     animation: rise var(--duration-open) var(--ease-out);
@@ -165,6 +223,7 @@ const arrow = 'absolute top-1/2 z-10 hidden size-target -translate-y-1/2 items-c
   let cur = 0;
   let tracked = false;
   let warm = false;
+  let warmCutaways = false;
 
   const fill = (template: string, value: string) => template.replace(/\{\w+\}/, () => value);
   const pressed = (group: HTMLElement) => [...group.querySelectorAll<HTMLElement>('[aria-pressed="true"]')];
@@ -176,7 +235,7 @@ const arrow = 'absolute top-1/2 z-10 hidden size-target -translate-y-1/2 items-c
     const text = note.value.trim();
     noteBox.hidden = !unsure;
     items[cur]!.closest('li')!.toggleAttribute('data-draw', real.length > 0);
-    items[cur]!.querySelectorAll<SVGElement>('circle').forEach((c) => c.toggleAttribute('data-on', real.some((p) => p.dataset.i === c.dataset.i)));
+    items[cur]!.querySelectorAll<HTMLElement>('[data-highlight]').forEach((h) => h.toggleAttribute('data-on', real.some((p) => p.dataset.i === h.dataset.i)));
     likely.textContent = real.length ? `${likely.dataset.prefix} ${real.map((p) => p.dataset.part).join(join)}` : likely.dataset.empty!;
     const picked = on.map((p) => p.innerText.trim()).join(join);
     let message = fill(start!, items[cur]!.dataset.name!);
@@ -192,7 +251,7 @@ const arrow = 'absolute top-1/2 z-10 hidden size-target -translate-y-1/2 items-c
   const go = (to: number) => {
     if (!warm) {
       warm = true;
-      all<HTMLImageElement>('img').forEach((img) => (img.loading = 'eager'));
+      all<HTMLImageElement>('img:not([data-internals-img])').forEach((img) => (img.loading = 'eager'));
     }
     const focused = items.includes(document.activeElement as HTMLElement);
     cur = (to + items.length) % items.length;
@@ -205,7 +264,7 @@ const arrow = 'absolute top-1/2 z-10 hidden size-target -translate-y-1/2 items-c
       li.setAttribute('aria-hidden', String(Math.abs(d) === 2));
       el.tabIndex = Math.abs(d) === 2 ? -1 : 0;
       el.setAttribute('aria-pressed', String(d === 0));
-      el.querySelectorAll('circle').forEach((c) => c.removeAttribute('data-on'));
+      el.querySelectorAll('[data-highlight]').forEach((h) => h.removeAttribute('data-on'));
     });
     groups.forEach((g, k) => {
       g.hidden = k !== cur;
@@ -216,6 +275,16 @@ const arrow = 'absolute top-1/2 z-10 hidden size-target -translate-y-1/2 items-c
     if (focused) items[cur]!.focus();
     update();
   };
+
+  // The cutaway images start loading on the first hover, touch or focus in the picker.
+  const warmUp = () => {
+    if (warmCutaways) return;
+    warmCutaways = true;
+    root.dataset.warm = '';
+    all<HTMLImageElement>('img[data-internals-img]').forEach((img) => (img.loading = 'eager'));
+  };
+  root.addEventListener('pointerover', warmUp, { once: true });
+  root.addEventListener('focusin', warmUp, { once: true });
 
   for (const el of all('[data-picker-appliance], [data-picker-fault], [data-picker-unsure]')) el.setAttribute('role', 'button');
   root.dataset.ready = '';
