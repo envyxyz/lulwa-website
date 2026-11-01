@@ -1,8 +1,8 @@
 ---
 // Files come from the Phase 4 image pipeline: /images/<name>-<width>.avif and .webp.
 // `width` is the largest export, so a photo never renders past its source. Below the fold by default.
-type Props = { name: string; widths: number[]; width: number; height: number; alt: string; sizes?: string; eager?: boolean; rounded?: boolean };
-const { name, widths, width, height, alt, sizes = '100vw', eager = false, rounded = false } = Astro.props;
+type Props = { name: string; widths: number[]; width: number; height: number; alt: string; sizes?: string; eager?: boolean; rounded?: boolean; job?: boolean };
+const { name, widths, width, height, alt, sizes = '100vw', eager = false, rounded = false, job = false } = Astro.props;
 const srcset = (ext: string) => widths.map((w) => `/images/${name}-${w}.${ext} ${w}w`).join(', ');
 ---
 
@@ -16,6 +16,7 @@ const srcset = (ext: string) => widths.map((w) => `/images/${name}-${w}.${ext} $
     alt={alt}
     loading={eager ? 'eager' : 'lazy'}
     decoding="async"
+    data-job={job || undefined}
     style={`max-inline-size:${width}px`}
     class:list={['h-auto w-full', rounded && 'rounded-card']}
   />

@@ -1,0 +1,208 @@
+---
+import Button from './Button.astro';
+import Heading from './Heading.astro';
+import Icon from './Icon.astro';
+import Img from './Img.astro';
+import Picker from './Picker.astro';
+import Section from './Section.astro';
+import Text from './Text.astro';
+import { art } from './appliance-art';
+import provenance from '../images/provenance.json';
+import { site } from '../site';
+import { content, langFromUrl, localePath } from '../content';
+
+const lang = langFromUrl(Astro.url);
+const { actions, home, reviews, services } = content[lang];
+const { repair, statement, steps, work, shop, faq, close } = home;
+
+// Generated image when it exists, line drawing until then. scripts/images.mjs adds it to provenance.
+const cardArt: Record<string, { image: string; drawing: string }> = {
+  'ac-repair': { image: 'window-ac', drawing: 'window-ac' },
+  'refrigerator-repair': { image: 'fridge', drawing: 'fridge' },
+  'washing-machine-repair': { image: 'washer', drawing: 'washer' },
+  'dryer-repair': { image: 'dryer', drawing: 'dryer' },
+};
+const hasImage = (name: string) => name in provenance;
+
+// Emoji reviews wait for the call in docs/FOR-AMEER.md. Text is never edited, so they are left off the home page.
+const clean = reviews.items.filter((r) => !/\p{Extended_Pictographic}/u.test(r.text));
+const quote = clean.reduce((a, b) => (b.text.length > a.text.length ? b : a));
+const others = clean.filter((r) => r !== quote);
+
+// Portrait photos are 287 wide, landscape 680: the grid never pushes them past that (Img caps it).
+const size = (photo: string) => (provenance as Record<string, { sourceWidth: number }>)[photo]!.sourceWidth;
+const photo = (name: string) => work.items.find((w) => w.photo === name)!;
+const wall = [
+  { name: 'compressor-install', span: 'lg:col-span-3 lg:row-span-2' },
+  { name: 'rooftop-compressor-swap', span: 'col-span-2 lg:col-span-6' },
+  { name: 'compressor-closeup-2', span: 'lg:col-span-3 lg:row-span-2' },
+  { name: 'statement', span: 'col-span-2 lg:col-span-6' },
+  { name: 'compressor-pair', span: 'lg:col-span-3' },
+  { name: 'rooftop-unit-repair', span: 'col-span-2 lg:col-span-6 lg:row-start-3' },
+  { name: 'condensing-unit-wiring', span: 'lg:col-span-3' },
+];
+---
+
+<Picker />
+
+<section class="pt-section">
+  <div class="mx-auto flex max-w-page flex-col gap-4 px-gutter md:flex-row md:items-end md:justify-between">
+    <Text soft>{repair.lead}</Text>
+    <Heading>{repair.heading}<Fragment slot="quiet">{repair.quiet}</Fragment></Heading>
+  </div>
+  <div class="mx-auto mt-8 flex max-w-page snap-x gap-4 overflow-x-auto px-gutter pb-2">
+    <div class="flex w-tile shrink-0 snap-start flex-col justify-between gap-8 rounded-card bg-teal p-4 text-pearl" data-tone="teal">
+      <p class="font-display text-head font-head">{repair.callLabel}</p>
+      <Button variant="call" light><bdi dir="ltr" class="whitespace-nowrap">{site.phone.display}</bdi></Button>
+    </div>
+    {services.items.map((s) => {
+      const a = cardArt[s.slug]!;
+      return (
+        <a href={localePath(lang, `/services/${s.slug}`)} class="flex w-tile shrink-0 snap-start flex-col gap-2 rounded-card bg-pearl-step p-4 transition active:scale-98">
+          <span class="font-display text-lead font-head">{s.name}</span>
+          <span class="grow text-small text-ink-soft">{s.summary}</span>
+          <span class="mt-2 block rounded-card bg-white p-2">
+            {hasImage(a.image)
+              ? <Img name={a.image} widths={[320, 640]} width={640} height={478} alt="" sizes="16rem" />
+              : <svg viewBox="0 0 200 150" aria-hidden="true" class="h-auto w-full fill-none stroke-teal stroke-2" set:html={art[a.drawing]!.svg} />}
+          </span>
+          <span class="flex justify-end text-teal"><Icon name="arrow-next" /></span>
+        </a>
+      );
+    })}
+  </div>
+</section>
+
+<div class="px-gutter pt-section">
+  <p class="mx-auto max-w-page rounded-panel bg-pearl-step p-card py-section text-center font-display text-head font-head">
+    {statement.start} <span class="text-teal">{statement.quiet}</span>
+  </p>
+</div>
+
+<div class="pt-section">
+  <Section tone="ink">
+    <div class="grid gap-4 md:grid-cols-4">
+      <Heading tone="pearl">{steps.heading}<Fragment slot="quiet">{steps.quiet}</Fragment></Heading>
+      {steps.items.map((step, i) => (
+        <div class:list={['flex flex-col gap-2 rounded-card bg-ink-step p-card', { 1: 'md:mt-8', 2: 'md:mt-16' }[i]]}>
+          <h3 class="font-display text-lead font-head">{step.title}</h3>
+          <p class="text-small"><bdi>{step.text}</bdi></p>
+        </div>
+      ))}
+    </div>
+  </Section>
+</div>
+
+<Section>
+  <div class="grid gap-8 md:grid-cols-12">
+    <div class="flex flex-col gap-4 md:col-span-12 md:flex-row md:items-end md:justify-between">
+      <Heading>{home.reviews.heading}<Fragment slot="quiet">{home.reviews.quiet}</Fragment></Heading>
+      <div class="flex flex-col items-start">
+        <Text soft>{reviews.rating}, {reviews.asOf}</Text>
+        <Button variant="quiet" href={site.maps.listing}>{home.reviews.link}</Button>
+      </div>
+    </div>
+    <figure class="flex flex-col gap-4 md:col-span-9">
+      <blockquote lang="en" dir="ltr" class="text-start font-display text-statement font-statement tracking-statement"><bdi>{quote.text}</bdi></blockquote>
+      <figcaption class="text-small"><bdi>{quote.name}</bdi>، {quote.when}</figcaption>
+    </figure>
+    <ul class="flex flex-col gap-4 md:col-span-3 md:justify-end">
+      {others.map((r) => <li><bdi lang="en">{r.text}</bdi><span class="block text-small text-ink-soft"><bdi>{r.name}</bdi>، {r.when}</span></li>)}
+    </ul>
+  </div>
+</Section>
+
+<Section tone="teal">
+  <div class="flex flex-col gap-8">
+    <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <Heading tone="pearl">{work.heading}<Fragment slot="quiet">{work.quiet}</Fragment></Heading>
+      <Text>{work.lead}</Text>
+    </div>
+    <div class="grid grid-cols-2 gap-4 lg:grid-cols-12">
+      {wall.map(({ name, span }) =>
+        name === 'statement' ? (
+          <p class:list={['flex items-center rounded-card bg-teal-step p-card font-display text-head font-head', span]}>{work.statement}</p>
+        ) : (
+          <figure class:list={['flex flex-col gap-2', span]}>
+            <Img name={name} widths={size(name) > 400 ? [340, size(name)] : [size(name)]} width={size(name)} height={size(name) > 400 ? 382 : 510} alt={photo(name).caption} sizes="(min-width: 64rem) 40vw, 50vw" rounded job />
+            <figcaption class="text-small">{photo(name).caption}</figcaption>
+          </figure>
+        ),
+      )}
+    </div>
+  </div>
+</Section>
+
+<Section>
+  <div class="grid gap-8 rounded-panel bg-pearl-step p-card md:grid-cols-2">
+    <div class="flex flex-col gap-4">
+      <Heading>{shop.heading}</Heading>
+      <dl class="flex flex-col gap-4">
+        <div><dt class="text-small text-ink-soft">{shop.addressLabel}</dt><dd class="font-display text-lead font-head">{shop.address}</dd></div>
+        <div><dt class="text-small text-ink-soft">{shop.legalLabel}</dt><dd>{site.legal.name}</dd></div>
+        <div><dt class="text-small text-ink-soft">{shop.crLabel}</dt><dd><bdi>{site.legal.cr}</bdi></dd></div>
+      </dl>
+      <Button variant="quiet" href={site.maps.listing}>{actions.directions}</Button>
+    </div>
+    <table class="self-start">
+      <caption class="text-start text-small text-ink-soft">{shop.hoursLabel}</caption>
+      <tbody>
+        {shop.days.map((day, i) => (
+          <tr data-day={i}>
+            <th scope="row" class="py-1 pe-4 text-start font-regular">{day} <span data-today hidden class="font-medium text-teal">· {shop.today}</span></th>
+            <td class="py-1 text-small"><bdi>{shop.hoursRange}</bdi></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <a href={site.maps.listing} data-map={site.maps.embed} class="flex min-h-section items-center justify-center gap-2 rounded-card bg-white font-medium text-teal md:col-span-2">
+      <Icon name="map-pin" />{shop.mapLoad}
+    </a>
+  </div>
+</Section>
+
+<Section>
+  <div class="grid gap-8 md:grid-cols-12">
+    <div class="md:col-span-4"><Heading>{faq.heading}<Fragment slot="quiet">{faq.quiet}</Fragment></Heading></div>
+    <dl class="flex flex-col gap-8 md:col-span-8">
+      {faq.items.map((item) => (
+        <div class="grid gap-2 md:grid-cols-2 md:gap-8">
+          <dt class="font-display text-lead font-head">{item.q}</dt>
+          <dd class="text-ink-soft"><bdi>{item.a}</bdi></dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</Section>
+
+<div class="px-gutter pb-section">
+  <div data-tone="teal" class="mx-auto flex max-w-page flex-col gap-4 rounded-panel bg-teal p-card text-pearl md:flex-row md:items-center md:justify-between">
+    <div>
+      <h2 class="font-display text-head font-head">{close.heading}</h2>
+      <p>{close.text}</p>
+    </div>
+    <div class="flex flex-wrap gap-3 *:grow md:*:grow-0">
+      <Button variant="whatsapp">{actions.whatsapp}</Button>
+      <Button variant="call" light>{actions.call}</Button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Today in the shop's time zone, and the map only on request: no Google request until the tap.
+  const today = new Date(Date.now() + 3 * 3600_000).getUTCDay();
+  const row = document.querySelector<HTMLElement>(`[data-day="${today}"]`);
+  row?.setAttribute('aria-current', 'date');
+  row?.querySelector<HTMLElement>('[data-today]')?.removeAttribute('hidden');
+
+  const map = document.querySelector<HTMLAnchorElement>('[data-map]')!;
+  map.addEventListener('click', (event) => {
+    event.preventDefault();
+    const frame = document.createElement('iframe');
+    frame.src = map.dataset.map!;
+    frame.title = map.innerText;
+    frame.loading = 'lazy';
+    frame.className = 'aspect-video w-full rounded-card md:col-span-2';
+    map.replaceWith(frame);
+  });
+</script>

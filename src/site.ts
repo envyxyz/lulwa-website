@@ -11,5 +11,10 @@ export const site = {
     tel: `tel:${phoneE164}`,
     whatsapp: `https://wa.me/${phoneE164.slice(1)}`,
   },
+  maps: {
+    listing: 'https://maps.app.goo.gl/6iLsTdG3y7FAq7jP9',
+    // ponytail: area search, not a pin. Swap for the exact pin when the client sends it (docs/FOR-AMEER.md).
+    embed: 'https://www.google.com/maps?q=Al-Jalawiyah%2C%20Dammam&output=embed',
+  },
   hours: { open: '08:00', close: '23:00', timeZone: 'Asia/Riyadh', days: 'every-day' },
 } as const;

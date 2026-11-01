@@ -1,7 +1,55 @@
 {
+  "compressor-closeup-2": {
+    "kind": "real",
+    "source": "growth/Photos/Edited/2026-10-19_compressor-closeup_02.jpg",
+    "sourceWidth": 287,
+    "note": "WhatsApp job photo from the client, 19 Oct 2026. Retouched, not regenerated."
+  },
+  "compressor-install": {
+    "kind": "real",
+    "source": "growth/Photos/Edited/2026-10-19_compressor-install_01.jpg",
+    "sourceWidth": 287,
+    "note": "WhatsApp job photo from the client, 19 Oct 2026. Retouched, not regenerated."
+  },
+  "compressor-pair": {
+    "kind": "real",
+    "source": "growth/Photos/Edited/2026-10-19_compressor-pair_01.jpg",
+    "sourceWidth": 287,
+    "note": "WhatsApp job photo from the client, 19 Oct 2026. Retouched, not regenerated."
+  },
+  "condensing-unit-wiring": {
+    "kind": "real",
+    "source": "growth/Photos/Edited/2026-10-19_condensing-unit-wiring_01.jpg",
+    "sourceWidth": 287,
+    "note": "WhatsApp job photo from the client, 19 Oct 2026. Retouched, not regenerated."
+  },
+  "rooftop-compressor-swap": {
+    "kind": "real",
+    "source": "growth/Photos/Edited/2026-10-19_rooftop-compressor-swap_01.jpg",
+    "sourceWidth": 680,
+    "note": "WhatsApp job photo from the client, 19 Oct 2026. Retouched, not regenerated."
+  },
+  "rooftop-unit-repair": {
+    "kind": "real",
+    "source": "growth/Photos/Edited/2026-10-19_rooftop-unit-repair_01.jpg",
+    "sourceWidth": 680,
+    "note": "WhatsApp job photo from the client, 19 Oct 2026. Retouched, not regenerated."
+  },
   "split-ac-indoor": {
     "kind": "generated",
     "source": "design/generated/split-ac-indoor.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026. Never a job photo."
+  },
+  "window-ac": {
+    "kind": "generated",
+    "source": "design/generated/window-ac.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026. Never a job photo."
+  },
+  "outdoor-unit": {
+    "kind": "generated",
+    "source": "design/generated/outdoor-unit.png",
     "sourceWidth": 1200,
     "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026. Never a job photo."
   }

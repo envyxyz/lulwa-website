@@ -18,6 +18,12 @@ try {
       const page = await browser.newPage({ viewport: { width, height: width > 500 ? 900 : 844 } });
       await page.goto(`http://localhost:${port}${path}`, { waitUntil: 'networkidle' });
       await page.evaluate(() => document.fonts.ready);
+      // Walk the page so lazy images load before the full-page shot.
+      for (let y = 0; y < (await page.evaluate(() => document.body.scrollHeight)); y += 500) {
+        await page.evaluate((top) => scrollTo(0, top), y);
+        await page.waitForTimeout(80);
+      }
+      await page.evaluate(() => scrollTo(0, 0));
       await page.waitForTimeout(700);
       await page.screenshot({ path: `${out}/home-${lang}-${width}.png`, fullPage: true });
       await page.close();

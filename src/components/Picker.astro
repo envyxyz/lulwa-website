@@ -1,0 +1,116 @@
+---
+import Button from './Button.astro';
+import Heading from './Heading.astro';
+import Text from './Text.astro';
+import { art } from './appliance-art';
+import { content, langFromUrl, localePath } from '../content';
+
+const lang = langFromUrl(Astro.url);
+const { home } = content[lang];
+const { picker } = home;
+const service = (slug: string) => localePath(lang, `/services/${slug}`);
+const option = 'inline-flex min-h-target items-center rounded-button px-3 transition active:scale-98 aria-pressed:bg-pearl aria-pressed:text-teal';
+---
+
+<section class="px-gutter pt-section">
+  <div class="mx-auto flex max-w-page flex-col gap-8">
+    <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <Heading>{picker.heading}<Fragment slot="quiet">{picker.quiet}</Fragment></Heading>
+      <Text soft>{picker.lead}</Text>
+    </div>
+    <div data-testid="fault-picker" data-message={picker.message} class="grid gap-4 lg:grid-cols-12">
+      <div data-tone="teal" class="flex flex-col gap-6 rounded-panel bg-teal p-card text-pearl lg:col-span-7">
+        <div>
+          <p class="text-small">{picker.applianceLabel}</p>
+          <ul class="flex flex-wrap gap-1 font-display text-head font-head">
+            {picker.appliances.map((a) => <li><a href={service(a.service)} data-picker-appliance={a.slug} class={option}>{a.name}</a></li>)}
+          </ul>
+        </div>
+        {picker.appliances.map((a) => (
+          <div data-faults={a.slug} hidden>
+            <p class="text-small">{picker.faultLabel}</p>
+            <ul class="flex flex-wrap gap-2 text-lead font-medium">
+              {a.faults.map((f, i) => {
+                const [x, y] = art[a.slug]!.spots[i]!;
+                return <li><a href={service(a.service)} data-picker-fault data-part={f.part} data-x={x} data-y={y} class:list={[option, 'bg-teal-step']}>{f.label}</a></li>;
+              })}
+            </ul>
+          </div>
+        ))}
+        <div data-areas hidden>
+          <p class="text-small">{picker.areaLabel}</p>
+          <ul class="flex flex-wrap gap-2 text-lead font-medium">
+            {picker.areas.map((area) => <li><a href={localePath(lang, '/contact')} data-picker-area class:list={[option, 'bg-teal-step']}>{area}</a></li>)}
+          </ul>
+        </div>
+      </div>
+      <div class="flex flex-col gap-4 rounded-panel bg-white p-card lg:col-span-5">
+        <svg viewBox="0 0 200 150" aria-hidden="true" class="h-auto w-full fill-none stroke-teal stroke-2">
+          {Object.entries(art).map(([slug, a], i) => <g data-art={slug} class={i ? 'hidden' : ''} set:html={a.svg} />)}
+          <circle data-pearl r="7" class="pearl hidden fill-copper stroke-none" />
+        </svg>
+        <p data-likely data-prefix={picker.likely} aria-live="polite" class="min-h-target text-small"></p>
+        <Button variant="whatsapp" data-picker-whatsapp>{picker.send}</Button>
+        <Button variant="quiet" href={localePath(lang, '/services')}>{picker.plain}</Button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pearl {
+    transition: transform var(--duration-rise) var(--ease-out);
+  }
+</style>
+
+<script>
+  // Appliance, fault, area. Every option is a plain link until this runs, so the picker works without JS.
+  const root = document.querySelector<HTMLElement>('[data-testid="fault-picker"]')!;
+  const all = <T extends Element = HTMLElement>(selector: string) => [...root.querySelectorAll<T>(selector)];
+  const send = root.querySelector<HTMLAnchorElement>('[data-picker-whatsapp]')!;
+  const pearl = root.querySelector<SVGElement>('[data-pearl]')!;
+  const likely = root.querySelector<HTMLElement>('[data-likely]')!;
+  const base = send.href;
+  const picked: Record<string, string> = {};
+
+  const select = (group: HTMLElement[], el: HTMLElement) => group.forEach((o) => o.setAttribute('aria-pressed', String(o === el)));
+  const write = () => {
+    const text = root.dataset.message!.replace(/\{(\w+)\}/g, (_, key) => picked[key] ?? '…');
+    send.href = `${base}?text=${encodeURIComponent(`${text} [home]`)}`;
+  };
+  const appliances = all('[data-picker-appliance]');
+  const faults = all('[data-picker-fault]');
+  const areas = all('[data-picker-area]');
+  const areaStep = root.querySelector<HTMLElement>('[data-areas]')!;
+
+  for (const el of [...appliances, ...faults, ...areas]) el.setAttribute('role', 'button');
+  for (const el of [...appliances, ...faults, ...areas]) el.setAttribute('aria-pressed', 'false');
+
+  root.addEventListener('click', (event) => {
+    const el = (event.target as Element).closest<HTMLElement>('a[role="button"]');
+    if (!el) return;
+    event.preventDefault();
+    const label = el.innerText.trim();
+    if ('pickerAppliance' in el.dataset) {
+      select(appliances, el);
+      picked.appliance = label;
+      delete picked.fault;
+      all('[data-faults]').forEach((g) => (g.hidden = g.dataset.faults !== el.dataset.pickerAppliance));
+      all<SVGElement>('[data-art]').forEach((g) => g.classList.toggle('hidden', g.dataset.art !== el.dataset.pickerAppliance));
+      select(faults, el);
+      pearl.classList.add('hidden');
+      likely.textContent = '';
+    } else if ('pickerFault' in el.dataset) {
+      select(faults, el);
+      picked.fault = label;
+      areaStep.hidden = false;
+      pearl.style.transform = `translate(${el.dataset.x}px, ${el.dataset.y}px)`;
+      pearl.classList.remove('hidden');
+      likely.textContent = `${likely.dataset.prefix} ${el.dataset.part}`;
+    } else {
+      select(areas, el);
+      picked.area = label;
+    }
+    write();
+  });
+</script>

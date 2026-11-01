@@ -14,8 +14,8 @@ const htmlFiles = (dir = 'dist'): string[] =>
     return entry.name.endsWith('.html') ? [path] : [];
   });
 
-// Scripts and styles out, JSON-LD stays: it is published too.
-const visible = (html: string) => html.replace(/<style[\s\S]*?<\/style>/g, '').replace(/<script(?![^>]*ld\+json)[\s\S]*?<\/script>/g, '');
+// Scripts, styles and icon geometry out (14.993 in a path is not a claim), JSON-LD stays: it is published too.
+const visible = (html: string) => html.replace(/<svg[\s\S]*?<\/svg>/g, '').replace(/<style[\s\S]*?<\/style>/g, '').replace(/<script(?![^>]*ld\+json)[\s\S]*?<\/script>/g, '');
 
 const hits = (text: string) => BANNED.filter((claim) => claim.test(text) && !ALLOWED.some((ok) => ok.source === claim.source)).map(String);
 

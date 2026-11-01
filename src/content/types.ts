@@ -52,13 +52,29 @@ export type Content = {
       homeVisitLine: string;
       tile: { alt: string };
     };
-    picker: { heading: string; lead: string; applianceLabel: string; faultLabel: string; areaLabel: string; send: string; plain: string };
-    repair: { heading: string; lead: string };
-    steps: { heading: string; items: { title: string; text: string }[] };
-    reviews: { heading: string; link: string };
-    work: { heading: string; lead: string };
-    shop: { heading: string; addressLabel: string; address: string; hoursLabel: string; hours: string; mapLoad: string; legalLabel: string; crLabel: string };
-    faq: { heading: string; items: Faq[] };
+    picker: {
+      heading: string;
+      quiet: string;
+      lead: string;
+      applianceLabel: string;
+      faultLabel: string;
+      areaLabel: string;
+      send: string;
+      plain: string;
+      /** Prefix of the part the pearl lands on. The mapping stays "likely" until a technician confirms it (docs/FOR-AMEER.md). */
+      likely: string;
+      /** {appliance}, {fault}, {area} are replaced by the labels the visitor tapped. */
+      message: string;
+      appliances: { slug: string; name: string; service: string; faults: { label: string; part: string }[] }[];
+      areas: string[];
+    };
+    repair: { heading: string; quiet: string; lead: string; callLabel: string };
+    statement: { start: string; quiet: string };
+    steps: { heading: string; quiet: string; items: { title: string; text: string }[] };
+    reviews: { heading: string; quiet: string; link: string };
+    work: { heading: string; quiet: string; lead: string; statement: string; items: { photo: string; caption: string }[] };
+    shop: { heading: string; addressLabel: string; address: string; hoursLabel: string; hours: string; hoursRange: string; today: string; days: string[]; mapLoad: string; legalLabel: string; crLabel: string };
+    faq: { heading: string; quiet: string; items: Faq[] };
     close: { heading: string; text: string };
   };
   services: Intro & { items: Service[]; notListed: string };
