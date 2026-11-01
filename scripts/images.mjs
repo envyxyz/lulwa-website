@@ -30,10 +30,12 @@ for (const file of real) {
 }
 
 for (const name of generated) {
-  const source = `design/generated/${name}.png`;
+  // Background removed by scripts/cutout.py when the cutout exists; AVIF and WebP keep the alpha.
+  const cutout = `design/generated/cutout/${name}.png`;
+  const source = existsSync(cutout) ? cutout : `design/generated/${name}.png`;
   const { width: sourceWidth } = await sharp(source).metadata();
   await exportAll(source, name, [320, 640]);
-  provenance[name] = { kind: 'generated', source, sourceWidth, note: 'AI-generated unbranded product illustration, agy, 1 Nov 2026. Never a job photo.' };
+  provenance[name] = { kind: 'generated', source, sourceWidth, note: `AI-generated unbranded product illustration, agy, 1 Nov 2026${source === cutout ? ', background removed' : ''}. Never a job photo.` };
 }
 
 writeFileSync('src/images/provenance.json', `${JSON.stringify(provenance, null, 2)}\n`);

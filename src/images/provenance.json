@@ -37,32 +37,32 @@
   },
   "split-ac-indoor": {
     "kind": "generated",
-    "source": "design/generated/split-ac-indoor.png",
+    "source": "design/generated/cutout/split-ac-indoor.png",
     "sourceWidth": 1200,
-    "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026. Never a job photo."
+    "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026, background removed. Never a job photo."
   },
   "window-ac": {
     "kind": "generated",
-    "source": "design/generated/window-ac.png",
+    "source": "design/generated/cutout/window-ac.png",
     "sourceWidth": 1200,
-    "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026. Never a job photo."
+    "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026, background removed. Never a job photo."
   },
   "fridge": {
     "kind": "generated",
-    "source": "design/generated/fridge.png",
+    "source": "design/generated/cutout/fridge.png",
     "sourceWidth": 1200,
-    "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026. Never a job photo."
+    "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026, background removed. Never a job photo."
   },
   "washer": {
     "kind": "generated",
-    "source": "design/generated/washer.png",
+    "source": "design/generated/cutout/washer.png",
     "sourceWidth": 1200,
-    "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026. Never a job photo."
+    "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026, background removed. Never a job photo."
   },
   "dryer": {
     "kind": "generated",
-    "source": "design/generated/dryer.png",
+    "source": "design/generated/cutout/dryer.png",
     "sourceWidth": 1200,
-    "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026. Never a job photo."
+    "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026, background removed. Never a job photo."
   }
 }

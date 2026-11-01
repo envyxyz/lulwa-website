@@ -48,7 +48,7 @@ const wall = [
 <Picker />
 
 <section class="pt-section">
-  <div class="mx-auto flex max-w-page flex-col gap-4 px-gutter lg:flex-row lg:items-end lg:justify-between">
+  <div class="mx-auto flex max-w-page flex-col items-start gap-4 px-gutter">
     <Heading>{repair.heading}<Fragment slot="quiet">{repair.quiet}</Fragment></Heading>
     <Text>{repair.lead}</Text>
   </div>
@@ -67,7 +67,7 @@ const wall = [
         <a href={localePath(lang, `/services/${s.slug}`)} class="flex w-tile shrink-0 snap-start flex-col gap-2 rounded-card bg-pearl-step p-4 transition hover:bg-pearl-hover active:scale-98 xl:w-auto xl:min-w-0 xl:flex-1">
           <span class="font-display text-lead font-head">{s.name}</span>
           <span class="grow text-small text-ink-soft">{s.summary}</span>
-          <span class="mt-2 block rounded-card bg-white p-2">
+          <span class="mt-2 block p-2">
             {hasImage(a.image)
               ? <Img name={a.image} widths={[320, 640]} width={640} height={478} alt="" sizes="16rem" />
               : <svg viewBox="0 0 200 150" aria-hidden="true" class="h-auto w-full fill-none stroke-teal stroke-2" set:html={art[a.drawing]!.svg} />}
@@ -101,7 +101,7 @@ const wall = [
 
 <Section>
   <div class="grid gap-8 md:grid-cols-12">
-    <div class="flex flex-col gap-4 md:col-span-12 lg:flex-row lg:items-end lg:justify-between">
+    <div class="flex flex-col items-start gap-4 md:col-span-12">
       <Heading>{home.reviews.heading}<Fragment slot="quiet">{home.reviews.quiet}</Fragment></Heading>
       <div class="flex flex-col items-start">
         <Text>{reviews.rating} · {reviews.asOf}</Text>
@@ -120,7 +120,7 @@ const wall = [
 
 <Section tone="teal">
   <div class="flex flex-col gap-8">
-    <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+    <div class="flex flex-col items-start gap-4">
       <Heading tone="pearl">{work.heading}<Fragment slot="quiet">{work.quiet}</Fragment></Heading>
       <Text>{work.lead}</Text>
     </div>
