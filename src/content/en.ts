@@ -112,6 +112,8 @@ export const en: Content = {
       areaLabel: 'District',
       send: 'Send on WhatsApp',
       plain: 'Or browse the services',
+      empty: 'Pick an appliance to start.',
+      ready: 'Your message is ready.',
       likely: 'Likely part:',
       message: 'Hello. Appliance: {appliance}. Fault: {fault}. District: {area}.',
       appliances: [
@@ -123,7 +125,7 @@ export const en: Content = {
       ],
       areas: ['Al-Jalawiyah', 'Another Dammam district'],
     },
-    repair: { heading: 'What we repair', quiet: 'Four appliances', lead: 'Four kinds of household appliance.', callLabel: 'Call now' },
+    repair: { heading: 'What we repair', quiet: 'Four appliances', lead: 'Four kinds of household appliance.', callLabel: 'Call now', prev: 'Previous', next: 'Next' },
     statement: { start: 'A registered shop in Al-Jalawiyah, Dammam, with one number to reach.', quiet: 'We only write here what we can show.' },
     steps: {
       heading: 'How it starts',
@@ -149,7 +151,7 @@ export const en: Content = {
         { photo: 'condensing-unit-wiring', caption: 'Outdoor unit: checking the wiring' },
       ],
     },
-    shop: { heading: 'The shop', addressLabel: 'Address', address: 'Prince Abdulmohsen bin Jalawi Street, Al-Jalawiyah, Dammam', hoursLabel: 'Opening hours', hours: 'Every day, 8:00 AM to 11:00 PM', hoursRange: '8:00 AM to 11:00 PM', today: 'Today', days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], mapLoad: 'Show the map', legalLabel: 'Legal name', crLabel: 'Commercial registration' },
+    shop: { heading: 'The shop', addressLabel: 'Address', address: 'Prince Abdulmohsen bin Jalawi Street, Al-Jalawiyah, Dammam', hoursLabel: 'Opening hours', hours: 'Every day, 8:00 AM to 11:00 PM', hoursRange: '8:00 AM to 11:00 PM', today: 'Today', days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], mapLoad: 'Show the map', mapLoading: 'Loading the map', legalLabel: 'Legal name', crLabel: 'Commercial registration' },
     faq: {
       heading: 'Questions',
       quiet: 'Before you write',
@@ -246,6 +248,7 @@ export const en: Content = {
       consent: 'By sending this request you agree that your details are used only to answer it.',
       privacy: 'Privacy policy',
       submit: 'Send request',
+      sending: 'Sending',
       sent: 'We have your request.',
       fallback: 'Could not send. Please message us on WhatsApp.',
       choose: 'Choose',

@@ -73,6 +73,9 @@ export type Content = {
       areaLabel: string;
       send: string;
       plain: string;
+      /** Shown before anything is picked, then when all three steps are done. */
+      empty: string;
+      ready: string;
       /** Prefix of the part the pearl lands on. The mapping stays "likely" until a technician confirms it (docs/FOR-AMEER.md). */
       likely: string;
       /** {appliance}, {fault}, {area} are replaced by the labels the visitor tapped. */
@@ -80,12 +83,12 @@ export type Content = {
       appliances: { slug: string; name: string; service: string; faults: { label: string; part: string }[] }[];
       areas: string[];
     };
-    repair: { heading: string; quiet: string; lead: string; callLabel: string };
+    repair: { heading: string; quiet: string; lead: string; callLabel: string; prev: string; next: string };
     statement: { start: string; quiet: string };
     steps: { heading: string; quiet: string; items: { title: string; text: string }[] };
     reviews: { heading: string; quiet: string; link: string };
     work: { heading: string; quiet: string; lead: string; statement: string; items: { photo: string; caption: string }[] };
-    shop: { heading: string; addressLabel: string; address: string; hoursLabel: string; hours: string; hoursRange: string; today: string; days: string[]; mapLoad: string; legalLabel: string; crLabel: string };
+    shop: { heading: string; addressLabel: string; address: string; hoursLabel: string; hours: string; hoursRange: string; today: string; days: string[]; mapLoad: string; mapLoading: string; legalLabel: string; crLabel: string };
     faq: { heading: string; quiet: string; items: Faq[] };
     close: { heading: string; text: string };
   };
@@ -111,6 +114,7 @@ export type Content = {
       consent: string;
       privacy: string;
       submit: string;
+      sending: string;
       sent: string;
       fallback: string;
       choose: string;

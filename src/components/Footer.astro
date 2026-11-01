@@ -4,7 +4,7 @@ import { content, langFromUrl, localePath } from '../content';
 
 const lang = langFromUrl(Astro.url);
 const c = content[lang];
-const { chrome, home } = c;
+const { home } = c;
 const links = [
   ['/about', c.about.h1],
   ['/areas', c.areas.h1],
@@ -24,7 +24,7 @@ const rows = [
 ];
 ---
 
-<footer data-tone="ink" class="@container overflow-clip bg-ink pt-section text-pearl">
+<footer data-tone="ink" class="bg-ink py-section text-pearl">
   <div class="px-gutter">
     <a href={site.phone.tel} data-action="call" class="font-display text-head font-head transition active:opacity-60"><bdi dir="ltr">{site.phone.display}</bdi></a>
     <dl class="mt-8 grid gap-6 md:grid-cols-2 lg:flex lg:justify-between">
@@ -32,11 +32,5 @@ const rows = [
     </dl>
     <ul class="mt-8 flex flex-wrap gap-x-6">{links.map(([path, label]) => <li><a href={localePath(lang, path)} class="inline-flex min-h-target items-center text-small underline underline-offset-4">{label}</a></li>)}</ul>
   </div>
-  <p aria-hidden="true" class="crop mt-8 text-center font-display text-giant font-statement tracking-statement text-teal-quiet">{chrome.word}</p>
 </footer>
 
-<style>
-  .crop {
-    block-size: 0.62em;
-  }
-</style>

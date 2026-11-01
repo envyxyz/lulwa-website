@@ -44,7 +44,8 @@
 
 @layer base {
   html {
-    color-scheme: light;
+    color-scheme: light dark;
+    interpolate-size: allow-keywords;
     background: var(--color-pearl);
     color: var(--color-ink);
     font-family: var(--font-body);
@@ -86,5 +87,83 @@
       transition: none !important;
       scroll-behavior: auto !important;
     }
+  }
+}
+
+/* Motion primitives. They ask nothing of a component: arrows, sections, details and page changes pick them up.
+   Everything is visible if an animation never runs. The reduced-motion rule above turns all of it off. */
+[data-directional] {
+  transition: translate var(--default-transition-duration) var(--ease-out);
+}
+@media (hover: hover) {
+  a:hover [data-directional],
+  button:hover [data-directional] {
+    translate: var(--nudge) 0;
+  }
+  [dir='rtl'] a:hover [data-directional],
+  [dir='rtl'] button:hover [data-directional] {
+    translate: calc(var(--nudge) * -1) 0;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  main > * {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0 entry var(--reveal-range);
+  }
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      translate: 0 var(--rise);
+    }
+  }
+}
+
+details::details-content {
+  block-size: 0;
+  opacity: 0;
+  overflow: clip;
+  transition:
+    block-size var(--duration-open) var(--ease-out),
+    opacity var(--duration-open) var(--ease-out),
+    content-visibility var(--duration-open) allow-discrete;
+}
+details[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+::view-transition-group(root) {
+  animation-duration: var(--duration-fade);
+  animation-timing-function: var(--ease-out);
+}
+
+/* Skeleton: a tone step behind anything still loading. chrome.ts adds .loading only to images not yet arrived. */
+.skeleton {
+  display: block;
+  background: var(--color-pearl-step);
+  animation: pulse calc(var(--duration-rise) * 3) ease-in-out infinite alternate;
+}
+@keyframes pulse {
+  to {
+    background: var(--color-pearl-hover);
+  }
+}
+img {
+  transition: opacity var(--duration-fade) var(--ease-out);
+}
+img.loading {
+  opacity: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  img[data-job] {
+    filter: brightness(0.9);
   }
 }

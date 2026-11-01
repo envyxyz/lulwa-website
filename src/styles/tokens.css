@@ -4,10 +4,12 @@
   --color-*: initial;
   --color-pearl: #eef2ef;
   --color-pearl-step: #e0e8e4; /* tone-step card on pearl */
+  --color-pearl-hover: #d3ded9; /* a pearl-step card under the pointer: lift through tone, not shadow */
   --color-white: #fff; /* behind product images only */
   --color-teal: #0f6e7a;
   --color-teal-active: #0b5862;
   --color-teal-step: #0c5f6a; /* tone-step card on teal */
+  --color-teal-hover: #09505a; /* a teal-step option under the pointer */
   --color-teal-quiet: #3f838d; /* second line of two-tone headings, large type only: 3.84:1 on pearl */
   --color-ink: #0b1f2a;
   --color-ink-step: #15303e;
@@ -23,21 +25,19 @@
 
   /* Five sizes, no more. Arabic here, English in :lang(en) below. */
   --text-*: initial;
-  --text-statement: clamp(4rem, 18.5vw, 18.5rem);
-  --text-statement--line-height: 1.06;
-  --text-head: clamp(2.25rem, 5vw, 4.5rem);
-  --text-head--line-height: 1.2;
-  --text-lead: 1.5rem;
-  --text-lead--line-height: 1.7;
+  /* Ameer's feedback, Phase 8.5: no huge type. Statement is the h1 of a page, head a section. */
+  --text-statement: clamp(2.5rem, 4.4vw, 3.75rem);
+  --text-statement--line-height: 1.15;
+  --text-head: clamp(1.875rem, 3vw, 2.75rem);
+  --text-head--line-height: 1.25;
+  --text-lead: 1.3125rem;
+  --text-lead--line-height: 1.6;
   --text-body: 1.125rem;
   --text-body--line-height: 1.85;
   --text-small: 0.9375rem;
   --text-small--line-height: 1.6;
-  --text-panel: clamp(1.5rem, 4vw, 2.25rem); /* a full sentence set large: the statement panel */
-  --text-panel--line-height: 1.4;
-  /* The name across the hero and footer, sized to its container. One word, one job. */
-  --text-giant: min(52cqi, 46svh);
-  --text-giant--line-height: 0.95;
+  --text-panel: clamp(1.375rem, 2.6vw, 1.875rem); /* a full sentence set large: the statement panel */
+  --text-panel--line-height: 1.45;
 
   --font-weight-*: initial;
   --font-weight-regular: 400;
@@ -55,7 +55,7 @@
   --radius-panel: 2.25rem; /* hero and statement panels */
   --radius-dot: 9999px; /* the copper pearl */
 
-  --spacing-section: clamp(3.5rem, 8vw, 6rem);
+  --spacing-section: clamp(3rem, 6vw, 4.5rem);
   --spacing-gutter: clamp(1rem, 3vw, 2rem);
   --spacing-card: clamp(1.5rem, 3vw, 2.25rem);
   --spacing-button: 3.25rem; /* 52 px on phones, 56 px from md */
@@ -67,7 +67,7 @@
   --spacing-bottom-bar: 4.5rem; /* phone action bar */
   --spacing-logo: 2.75rem;
   --spacing-tile: 17rem; /* hero product tile */
-  --spacing-hero: 44rem; /* hero panel floor on desktop */
+  --spacing-hero: 30rem; /* hero panel floor on desktop */
 
   --container-*: initial;
   --container-page: 90rem; /* content lines up with the hero's margins at 1440 */
@@ -79,11 +79,15 @@
   --ease-*: initial;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --animate-*: initial;
-  --default-transition-duration: 120ms; /* press feedback */
+  --default-transition-duration: 160ms; /* hover, press and focus feedback */
 }
 
 :root {
   --duration-rise: 500ms;
+  --duration-open: 260ms; /* menu, FAQ, anything that opens */
+  --duration-fade: 320ms; /* images arriving, page changes */
+  --nudge: 0.25rem; /* arrows on hover */
+  --reveal-range: 8rem; /* how far a section enters before it is fully shown */
   --stagger: 70ms;
   --rise: 1.25rem;
   --focus-width: 3px;
@@ -94,16 +98,52 @@
   --font-display: 'Schibsted Grotesk', 'Schibsted Fallback', sans-serif;
   /* Plex only fetches where Arabic appears: the legal name and the language link. */
   --font-body: 'Schibsted Grotesk', 'Schibsted Fallback', 'IBM Plex Sans Arabic', sans-serif;
-  --text-statement: clamp(3.4rem, 10.2vw, 10.25rem);
-  --text-statement--line-height: 1;
-  --text-head: clamp(2rem, 4.2vw, 4rem);
-  --text-head--line-height: 1.08;
-  --text-lead: 1.375rem;
+  --text-statement: clamp(2.25rem, 3.9vw, 3.5rem);
+  --text-statement--line-height: 1.08;
+  --text-head: clamp(1.625rem, 2.6vw, 2.375rem);
+  --text-head--line-height: 1.15;
+  --text-lead: 1.25rem;
   --text-lead--line-height: 1.5;
   --text-body: 1.0625rem;
   --text-body--line-height: 1.6;
   --font-weight-head: 700;
   --font-weight-statement: 800;
   --tracking-statement: -0.03em;
-  --text-giant: min(25cqi, 46svh);
+}
+
+/* Dark follows the device. Pearl stays the ground and ink the text, so every pearl and ink utility flips by itself.
+   Teal lifts until it passes AA, and carries ground-coloured text as a button. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-pearl: #0b1f2a;
+    --color-pearl-step: #15303e;
+    --color-pearl-hover: #1d3e4e;
+    --color-teal: #5ec4cf;
+    --color-teal-active: #48aab5;
+    --color-teal-quiet: #86bcc4;
+    --color-ink: #eef2ef;
+    --color-ink-soft: #a9bcc4;
+    --color-error: #ff9f8a;
+  }
+
+  /* Teal and ink fields, white tiles and WhatsApp buttons keep their light values: their own colours do not change. */
+  [data-tone='teal'],
+  [data-tone='ink'],
+  .bg-white,
+  .bg-whatsapp {
+    --color-pearl: #eef2ef;
+    --color-pearl-step: #e0e8e4;
+    --color-pearl-hover: #d3ded9;
+    --color-teal: #0f6e7a;
+    --color-teal-active: #0b5862;
+    --color-teal-quiet: #3f838d;
+    --color-ink: #0b1f2a;
+    --color-ink-soft: #3c4c55;
+    --color-error: #b4442e;
+  }
+
+  /* The ground is already Ink, so an ink band steps darker to stay a band. */
+  [data-tone='ink'] {
+    --color-ink: #06141c;
+  }
 }
