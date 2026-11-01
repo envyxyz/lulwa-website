@@ -46,7 +46,7 @@ const wall = [
 <Picker />
 
 <section class="pt-section">
-  <div class="mx-auto flex max-w-page flex-col gap-4 px-gutter md:flex-row md:items-end md:justify-between">
+  <div class="mx-auto flex max-w-page flex-col gap-4 px-gutter lg:flex-row lg:items-end lg:justify-between">
     <Text>{repair.lead}</Text>
     <Heading>{repair.heading}<Fragment slot="quiet">{repair.quiet}</Fragment></Heading>
   </div>
@@ -81,8 +81,8 @@ const wall = [
 
 <div class="pt-section">
   <Section tone="ink">
-    <div class="grid gap-4 md:grid-cols-4">
-      <Heading tone="pearl">{steps.heading}<Fragment slot="quiet">{steps.quiet}</Fragment></Heading>
+    <div class="grid gap-4 md:grid-cols-3">
+      <div class="md:col-span-3"><Heading tone="pearl">{steps.heading}<Fragment slot="quiet">{steps.quiet}</Fragment></Heading></div>
       {steps.items.map((step, i) => (
         <div class:list={['flex flex-col gap-2 rounded-card bg-ink-step p-card', { 1: 'md:mt-8', 2: 'md:mt-16' }[i]]}>
           <h3 class="font-display text-lead font-head">{step.title}</h3>
@@ -95,7 +95,7 @@ const wall = [
 
 <Section>
   <div class="grid gap-8 md:grid-cols-12">
-    <div class="flex flex-col gap-4 md:col-span-12 md:flex-row md:items-end md:justify-between">
+    <div class="flex flex-col gap-4 md:col-span-12 lg:flex-row lg:items-end lg:justify-between">
       <Heading>{home.reviews.heading}<Fragment slot="quiet">{home.reviews.quiet}</Fragment></Heading>
       <div class="flex flex-col items-start">
         <Text>{reviews.rating} · {reviews.asOf}</Text>
@@ -114,7 +114,7 @@ const wall = [
 
 <Section tone="teal">
   <div class="flex flex-col gap-8">
-    <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
       <Heading tone="pearl">{work.heading}<Fragment slot="quiet">{work.quiet}</Fragment></Heading>
       <Text>{work.lead}</Text>
     </div>
@@ -135,7 +135,7 @@ const wall = [
 
 <Section>
   <div class="grid gap-8 rounded-panel bg-pearl-step p-card md:grid-cols-2">
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col items-start gap-4">
       <Heading>{shop.heading}</Heading>
       <dl class="flex flex-col gap-4">
         <div><dt class="text-small text-ink-soft">{shop.addressLabel}</dt><dd class="font-display text-lead font-head">{shop.address}</dd></div>
@@ -163,8 +163,8 @@ const wall = [
 
 <Section>
   <div class="grid gap-8 md:grid-cols-12">
-    <div class="md:col-span-4"><Heading>{faq.heading}<Fragment slot="quiet">{faq.quiet}</Fragment></Heading></div>
-    <dl class="flex flex-col gap-8 md:col-span-8">
+    <div class="md:col-span-12"><Heading>{faq.heading}<Fragment slot="quiet">{faq.quiet}</Fragment></Heading></div>
+    <dl class="flex flex-col gap-8 md:col-span-12">
       {faq.items.map((item) => (
         <div class="grid gap-2 md:grid-cols-2 md:gap-8">
           <dt class="font-display text-lead font-head">{item.q}</dt>

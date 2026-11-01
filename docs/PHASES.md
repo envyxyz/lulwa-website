@@ -8,6 +8,23 @@ Each phase appends a dated entry: what shipped, what is left, decisions made.
 
 ## Log
 
+### 2026-11-01 · Phase 4: Homepage and fault picker
+- Shipped: fault picker, all home bands in Arabic and English, `scripts/images.mjs` with sharp, `scripts/gen-products.py`. Screens in `docs/shots/phase-4/`, looked at and fixed.
+- Green: T14, T22, and on `/` and `/en`: T6, T21, T7, T12, T13, T10, T11, T8, T9. T19, lint, typecheck. Full `test:contract` not run; other routes do not exist yet.
+- Lighthouse, phone, one run per page, local preview, not a clean machine: `/` 99/100/96/100, LCP 1.6 s, TBT 0, CLS 0.002, 131 KB. `/en` 100/100/96/100, LCP 1.3 s, TBT 0, CLS 0, 61 KB. Best practices stays at 96 for the Phase 8 favicon 404.
+- Followed the Reference update over the band list: heading beside text, bento picker, sideways service row with a tinted call card, tinted statement panel, simple process row. Rounded cards are structure.
+- Decided: the pearl moves on line drawings in the picker, not product images, because a drawing gives exact spots and costs no network. Without JS every option is a plain link.
+- Decided: quota ran out after window AC and outdoor unit. Fridge, washer and dryer cards use the same drawings, as the Reference update allows. `Home.astro` switches to an image as soon as `scripts/images.mjs` lists it. Outdoor unit raw is kept but not exported, nothing uses it. Compressor image dropped.
+- Decided: photos come from `Edited`, shrunk to the WhatsApp original's width (287 or 680 px). Six of 12 used; the reasons for the others are in `scripts/images.mjs`.
+- Decided: picker areas are Al-Jalawiyah and "another Dammam district", since nothing wider is confirmed. Source tag is `[home]`; Phase 7 generalises it.
+- Decided: hours table has seven identical rows with today marked, because the prompt asks for it. A small script marks today and loads the map on tap. JS stays inside T13's 6 KB.
+- Decided: `--container-page` is now 90rem so content shares the hero's margins at 1440. `--word-display` added because Beiruti's space is too thin at display size. Heading's quiet line is inline after a `<br>`, so T11 counts lines correctly.
+- Test change: T6 ignores `<svg>`, since a lucide path holding `14.993` matched `/4\.9/`. Claims in text are still checked.
+- Worked alone, no builders: one file set. agy: 2 images, 4 hit the 429 and cost nothing, 1 Arabic review (rejected `أرسلها` and `بدون تعديل`, the second is false for retouched photos). Fault lists and drawings written by the lead, so the planned agy jobs for those were skipped. agy design critique skipped; judged screenshots directly.
+- T20 still red, owed by Phase 9. Not fixed on purpose: `side-scroll` and `eyebrow` (the Reference update's row, and the picker's step labels), `still-page` and `no-footage` (one authored moment, no stock video), `covered-text` (phone bar passing over text while scrolling). Also open: `headline-lines` on the statement paragraph (it is a `<p>`, as the inspector advises, and still flagged) and `ragged-edges`.
+- T11 once passed while a screenshot showed "How it starts / Three steps" on 4 lines at 1440. Layout fixed; the test may measure before fonts load, worth a look in Phase 9.
+- Left: fault-to-part technician check, three product images, exact map pin. All in `docs/FOR-AMEER.md`. Not tried on a real phone. `/ponytail:ponytail-review` by eye only. Links to service pages 404 until Phase 5.
+
 ### 2026-11-01 · Phase 3: Chrome and hero
 - Shipped: top bar, phone menu, language link to the exact twin, footer, Ink bottom bar on phones, hero in Arabic and English, one generated tile image. Screens in `docs/shots/phase-3/`, looked at and fixed.
 - Green: T7, T12, T13 on `/` and `/en`. Also T6, T21, T19, T22, typecheck, and for these two pages T8, T10, T11 and the T9 language and menu cases. The full `test:contract` was not run; other routes do not exist yet.

@@ -10,7 +10,7 @@ const sizes = {
 const quiet = { teal: 'text-teal-quiet', pearl: 'text-pearl' };
 ---
 
-<Tag class:list={['font-display', sizes[size]]}>
+<Tag class:list={['shrink-0 font-display', sizes[size]]}>
   <slot />
   {Astro.slots.has('quiet') && <><br /><span class={quiet[tone]}><slot name="quiet" /></span></>}
 </Tag>

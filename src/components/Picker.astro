@@ -14,7 +14,7 @@ const option = 'inline-flex min-h-target items-center rounded-button px-3 transi
 
 <section class="px-gutter pt-section">
   <div class="mx-auto flex max-w-page flex-col gap-8">
-    <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
       <Heading>{picker.heading}<Fragment slot="quiet">{picker.quiet}</Fragment></Heading>
       <Text>{picker.lead}</Text>
     </div>
@@ -83,8 +83,10 @@ const option = 'inline-flex min-h-target items-center rounded-button px-3 transi
   const areas = all('[data-picker-area]');
   const areaStep = root.querySelector<HTMLElement>('[data-areas]')!;
 
-  for (const el of [...appliances, ...faults, ...areas]) el.setAttribute('role', 'button');
-  for (const el of [...appliances, ...faults, ...areas]) el.setAttribute('aria-pressed', 'false');
+  for (const el of [...appliances, ...faults, ...areas]) {
+    el.setAttribute('role', 'button');
+    el.setAttribute('aria-pressed', 'false');
+  }
 
   root.addEventListener('click', (event) => {
     const el = (event.target as Element).closest<HTMLElement>('a[role="button"]');

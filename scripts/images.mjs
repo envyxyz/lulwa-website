@@ -9,7 +9,7 @@ const ORIGINAL = '../growth/Photos/Originals/2026-10-19_';
 // Left out on purpose: shopfront (old sign), technician-package-unit (AJCO on the coverall),
 // delivery-truck and street-night (plates, other shops), lg-outdoor-units (reads as an LG agency).
 const real = ['compressor-closeup_02', 'compressor-install_01', 'compressor-pair_01', 'condensing-unit-wiring_01', 'rooftop-compressor-swap_01', 'rooftop-unit-repair_01'];
-const generated = ['split-ac-indoor', 'window-ac', 'outdoor-unit', 'fridge', 'washer', 'dryer'].filter((name) => existsSync(`design/generated/${name}.png`));
+const generated = ['split-ac-indoor', 'window-ac', 'fridge', 'washer', 'dryer'].filter((name) => existsSync(`design/generated/${name}.png`));
 
 const exportAll = async (input, name, widths) => {
   for (const width of widths) {
