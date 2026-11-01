@@ -35,7 +35,7 @@ const twin = { href: twinPath(Astro.url.pathname), lang: lang === 'ar' ? 'en' : 
       <a href={site.phone.tel} data-action="call" class:list={[target, 'hidden rounded-button px-3 font-medium hover:bg-pearl-hover active:bg-pearl-hover lg:inline-flex']}><bdi dir="ltr">{site.phone.display}</bdi></a>
       <a href={twin.href} lang={twin.lang} data-testid="language-link" class:list={[target, 'inline-flex rounded-button px-3 font-medium hover:bg-pearl-hover active:bg-pearl-hover']}>{chrome.language}</a>
       <a href={site.phone.whatsapp} data-action="whatsapp" aria-label={actions.whatsapp} class:list={[target, 'hidden h-target justify-center gap-2 rounded-button bg-whatsapp px-3 font-medium text-white hover:bg-whatsapp-active active:bg-whatsapp-active md:inline-flex xl:px-4']}>
-        <Icon name="whatsapp" /><span class="hidden xl:inline">{actions.whatsapp}</span>
+        <Icon name="whatsapp" /><span class="hidden xl:inline">{actions.whatsappShort}</span>
       </a>
       <!-- ponytail: native popover gives open, Esc, light dismiss and focus return with 0 KB of JS. -->
       <button type="button" popovertarget="menu" data-testid="menu-toggle" aria-label={chrome.menu} class:list={[target, 'inline-flex size-target justify-center rounded-button hover:bg-pearl-hover active:scale-90 lg:hidden']}>

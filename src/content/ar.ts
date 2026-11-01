@@ -92,7 +92,7 @@ export const ar: Content = {
   meta: { title: name, description: `${name} في حي الجلوية بالدمام. صيانة المكيفات والثلاجات والغسالات الأوتوماتيك والنشافات.` },
   chrome: { skipLink: 'انتقل إلى المحتوى', homeLabel: `${name}، الصفحة الرئيسية`, navLabel: 'القائمة الرئيسية', menu: 'القائمة', language: 'English', nav: { services: 'الخدمات', faults: 'الأعطال', reviews: 'التقييمات', work: 'أعمالنا', contact: 'تواصل معنا' }, word: site.brand.arabicShort },
   footer: { line: 'صيانة مكيفات وثلاجات وغسالات ونشافات في حي الجلوية بالدمام.', services: 'الخدمات', company: 'الشركة', hours: 'ساعات العمل والمنطقة' },
-  actions: { whatsapp: 'تواصل واتساب', call: 'اتصل بنا', directions: 'الاتجاهات', allServices: 'كل الخدمات' },
+  actions: { whatsapp: 'تواصل واتساب', whatsappShort: 'واتساب', call: 'اتصل بنا', directions: 'الاتجاهات', allServices: 'كل الخدمات' },
   icons: { next: 'التالي' },
   home: {
     seo: { title: `صيانة وتصليح مكيفات بالدمام | ${name}`, description: 'ورشة صيانة مسجلة في حي الجلوية بالدمام: مكيفات، ثلاجات، غسالات أوتوماتيك ونشافات. صوّر العطل وأرسله واتساب.' },
@@ -100,9 +100,9 @@ export const ar: Content = {
       question: 'المكيف وقف؟',
       service: 'نصلحه في الدمام',
       answer: 'صوّر العطل وأرسله واتساب',
-      support: 'صيانة مكيفات وثلاجات وغسالات ونشافات في الدمام.',
+      support: 'مكيفات سبليت وشباك، ثلاجات، غسالات ونشافات.',
       homeVisitLine: '',
-      tile: { alt: 'رسم توضيحي لمكيف سبليت' },
+      facts: { registered: 'ورشة صيانة مسجلة', rating: '5.0 على خرائط قوقل، من 8 تقييمات' },
     },
     picker: {
       heading: 'وش العطل؟',
@@ -132,12 +132,11 @@ export const ar: Content = {
     repair: { heading: 'وش نصلح', quiet: 'أربعة أجهزة', lead: 'أربعة أنواع من الأجهزة المنزلية.', callLabel: 'اتصل الآن', prev: 'السابق', next: 'التالي' },
     statement: { start: 'ورشة مسجلة في حي الجلوية بالدمام، ورقم واحد تتواصل معه.', quiet: 'وما نكتب هنا إلا اللي نقدر نثبته.' },
     steps: {
-      heading: 'كيف نبدأ',
-      quiet: 'ثلاث خطوات',
+      heading: 'صلّح جهازك بثلاث خطوات سهلة',
       items: [
-        { title: 'صوّر العطل', text: 'صورة أو فيديو قصير للجهاز.' },
-        { title: 'أرسله واتساب', text: `على الرقم ${phone}، مع اسم الحي.` },
-        { title: 'نرد عليك', text: 'ونتفق معك على الخطوة التالية.' },
+        { before: '', link: 'اختر', after: ' عطل جهازك' },
+        { before: 'أرسل لنا الصور على ', link: 'واتساب', after: ' ونكمل عنك' },
+        { before: 'تم. جهازك رجع يشتغل.', link: '', after: '' },
       ],
     },
     reviews: { heading: 'كلام عملائنا', quiet: 'من خرائط قوقل', link: 'كل التقييمات على خرائط قوقل' },

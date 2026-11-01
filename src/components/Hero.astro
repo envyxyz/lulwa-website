@@ -1,34 +1,61 @@
 ---
 import Button from './Button.astro';
 import Icon from './Icon.astro';
-import Img from './Img.astro';
 import { site } from '../site';
 import { content, langFromUrl, localePath } from '../content';
 
 const lang = langFromUrl(Astro.url);
-const { actions, home, services } = content[lang];
+const { actions, home } = content[lang];
 const { hero, shop } = home;
-const ac = services.items[0]!;
+
+// The facts, all from the Google listing and the shop's own details.
+const facts = [
+  ['map-pin', shop.address],
+  ['clock', shop.hours],
+  ['badge-check', hero.facts.registered],
+  ['star', hero.facts.rating],
+] as const;
+
+// "We fix all of these": a fixed 5:4 box, each cutout placed by percentage so nothing moves while images load.
+// Offsets are in percent of the box; the fridge sits at the back, the washer and dryer on the floor in front.
+// Only the largest image is fetched with priority. The cutouts are decorative.
+const cluster = [
+  { name: 'fridge', x: 0, y: 1.5, w: 100, z: 1, priority: true },
+  { name: 'window-ac', x: -2, y: 5, w: 52, z: 2 },
+  { name: 'split-ac-indoor', x: 42, y: 0, w: 58, z: 2 },
+  { name: 'washer', x: 0, y: 42, w: 62, z: 3 },
+  { name: 'dryer', x: 40, y: 44, w: 60, z: 3 },
+];
+const sizes = (w: number) => `(min-width: 80rem) ${((30 * w) / 100).toFixed(1)}rem, (min-width: 48rem) ${((40 * w) / 100).toFixed(1)}rem, ${Math.round((80 * w) / 100)}vw`;
+const set = (name: string, ext: string) => [320, 640].map((n) => `/images/${name}-${n}.${ext} ${n}w`).join(', ');
 ---
 
 <section data-tone="teal" class="px-gutter">
-  <div class="@container relative flex flex-col overflow-clip rounded-panel bg-teal text-pearl">
-    <div class="flex flex-col gap-8 p-card md:flex-row md:items-center md:justify-between md:py-section">
+  <div class="@container relative flex min-h-hero flex-col justify-center overflow-clip rounded-panel bg-teal text-pearl">
+    <div class="grid items-center gap-8 p-card xl:grid-cols-2 md:py-section">
       <div class="flex max-w-text flex-col gap-4">
         <h1 class="font-display text-statement font-statement tracking-statement">{hero.question}<br />{hero.service}</h1>
         <p>{hero.support}</p>
         <!-- homeVisitLine replaces the answer once the client confirms home visits. -->
         <p class="text-lead font-medium">{hero.homeVisitLine || hero.answer}<span class="ms-1 inline-block size-pearl rounded-dot bg-copper" aria-hidden="true"></span></p>
-        <div class="flex flex-wrap gap-3 *:grow md:*:grow-0">
-          <Button variant="whatsapp">{actions.whatsapp}</Button>
+        <div class="flex gap-3 *:first:grow md:*:first:grow-0">
           <Button variant="call" light>{actions.call}</Button>
+          <a href={site.phone.whatsapp} data-action="whatsapp" aria-label={actions.whatsapp} class="inline-flex size-button shrink-0 items-center justify-center rounded-button bg-whatsapp text-white transition hover:bg-whatsapp-active active:scale-98 active:bg-whatsapp-active md:size-button-md"><Icon name="whatsapp" /></a>
         </div>
-        <p class="text-small"><bdi dir="ltr">{site.phone.display}</bdi><br />{shop.hours}</p>
+        <ul class="grid gap-x-6 gap-y-2 text-small sm:grid-cols-2">
+          {facts.map(([icon, text]) => <li class="flex items-start gap-2"><Icon name={icon} /><span>{text}</span></li>)}
+        </ul>
+        <div class="flex"><Button variant="quiet" href={localePath(lang, '/services')}>{actions.allServices}</Button></div>
       </div>
-      <a href={localePath(lang, `/services/${ac.slug}`)} class="flex w-full shrink-0 items-center gap-4 rounded-card bg-white p-4 text-ink transition hover:scale-102 active:scale-98 md:w-tile md:flex-col md:items-stretch md:gap-2">
-        <span class="w-28 shrink-0 md:w-full"><Img name="split-ac-indoor" widths={[320, 640]} width={640} height={478} alt={hero.tile.alt} sizes="(min-width: 48rem) 17rem, 7rem" eager /></span>
-        <span class="flex grow items-center justify-between font-medium">{ac.name}<Icon name="arrow-next" /></span>
-      </a>
+      <div aria-hidden="true" class="relative w-full max-w-text justify-self-center" style="aspect-ratio:5/4">
+        {cluster.map(({ name, x, y, w, z, priority }) => (
+          <picture class="absolute" style={`inset-inline-start:${x}%;inset-block-start:${y}%;inline-size:${w}%;z-index:${z}`}>
+            <source type="image/avif" srcset={set(name, 'avif')} sizes={sizes(w)} />
+            <source type="image/webp" srcset={set(name, 'webp')} sizes={sizes(w)} />
+            <img src={`/images/${name}-640.webp`} width="640" height="478" alt="" loading="eager" fetchpriority={priority ? 'high' : undefined} decoding="async" class="block h-auto w-full" />
+          </picture>
+        ))}
+      </div>
     </div>
   </div>
 </section>

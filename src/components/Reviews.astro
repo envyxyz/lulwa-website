@@ -13,12 +13,14 @@ const { reviews, home } = c;
 ---
 
 <div class="grid gap-4 lg:grid-cols-12">
-  <div class="flex flex-col items-start gap-4 rounded-card bg-pearl-step p-card lg:col-span-3 lg:self-start">
-    <p class="font-display text-head font-head"><bdi>{reviews.score}</bdi></p>
-    <Stars label={reviews.starsLabel} class="size-6" />
-    <div class="flex flex-col">
-      <Text>{reviews.count}</Text>
-      <Text size="small" soft>{reviews.asOf}</Text>
+  <div class="flex flex-col items-start justify-between gap-8 rounded-card bg-pearl-step p-card lg:col-span-3">
+    <div class="flex flex-col items-start gap-4">
+      <p class="font-display text-head font-head"><bdi>{reviews.score}</bdi></p>
+      <Stars label={reviews.starsLabel} class="size-6" />
+      <div class="flex flex-col">
+        <Text>{reviews.count}</Text>
+        <Text size="small" soft>{reviews.asOf}</Text>
+      </div>
     </div>
     <Button variant="quiet" href={site.maps.listing}>{home.reviews.link}</Button>
   </div>
