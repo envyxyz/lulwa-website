@@ -48,7 +48,7 @@ const fields = [
     <textarea class={`${field} min-h-32`} name="message" rows="4" maxlength="1000"></textarea>
   </label>
   <!-- Honeypot: off screen and out of the tab order. People never see it. -->
-  <div class="sr-only" aria-hidden="true"><input name="website" type="text" tabindex="-1" autocomplete="off" /></div>
+  <input name="website" type="text" hidden tabindex="-1" autocomplete="off" />
   <p data-consent class="text-small text-ink-soft">{form.consent} <a class="underline underline-offset-4" href={localePath(lang, '/privacy-policy')}>{form.privacy}</a></p>
   <button type="submit" class="h-button md:h-button-md rounded-button bg-teal px-card font-medium text-pearl transition active:scale-98 active:bg-teal-active self-start">{form.submit}</button>
   <div role="status" class="flex flex-col items-start gap-2" data-status>

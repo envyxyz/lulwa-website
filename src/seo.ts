@@ -42,12 +42,12 @@ export const faqPage = (items: Faq[]) => ({
   mainEntity: items.map((i) => ({ '@type': 'Question', name: i.q, acceptedAnswer: { '@type': 'Answer', text: i.a } })),
 });
 
-export const service = (name: string, description: string) => ({
+export const service = (name: string, description: string, lang: Lang) => ({
   '@type': 'Service',
   name,
   description,
   provider: { '@id': id('shop') },
-  areaServed: { '@type': 'City', name: 'Dammam' },
+  areaServed: { '@type': 'City', name: lang === 'ar' ? 'الدمام' : 'Dammam' },
 });
 
 export const article = (headline: string, description: string, updated: string, lang: Lang) => ({
@@ -55,9 +55,10 @@ export const article = (headline: string, description: string, updated: string, 
   headline,
   description,
   inLanguage: lang === 'ar' ? 'ar-SA' : 'en-SA',
-  ...(/^\d{4}-\d\d-\d\d/.test(updated) ? { dateModified: updated } : {}),
+  // The posts were rewritten for this site, so this text was first published on the date it was last changed.
+  ...(/^\d{4}-\d\d-\d\d/.test(updated) ? { datePublished: updated, dateModified: updated } : {}),
   image: `${site.url}/og.jpg`,
-  author: { '@id': id('shop') },
+  author: { '@type': 'Organization', '@id': id('shop'), name: site.brand.arabic },
   publisher: { '@type': 'Organization', name: site.brand.arabic, logo: { '@type': 'ImageObject', url: `${site.url}/logo.png` } },
 });
 

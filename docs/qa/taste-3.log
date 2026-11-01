@@ -1,0 +1,341 @@
+$ node scripts/taste.mjs
+TASTESKILL · LINT   72 file(s)
+
+No banned patterns in source. Now run inspect.mjs on the rendered page.
+
+RESULT: 0 FAIL, 0 WARN
+Interface fragments marked data-ui keep their own borders and shadows. Any other line that must keep a flagged pattern for a real reason can carry the comment taste-skill-ignore.
+TASTESKILL · INSPECT   http://localhost:4322/
+
+MEASURED (first viewport listed)
+  hero headline   "لولوه"  1 words · 1 line(s) · 414px (28.7vw) · Beiruti 900 · tracking 0em · leading 0.95
+  @768px          1 line(s) · 375.4px
+  @390px          1 line(s) · 186.2px
+  typefaces       IBM Plex Sans Arabic 76%, Beiruti 23%
+  sizes in use    15 / 18 / 24 / 36 / 72 / 147 / 414 px   body 18px / 1.85
+  colour          page #eef2ef · sections #0f6e7a #0b1f2a #eef2ef #e0e8e4 · button #25d366
+  page            9.1 screens · 406 words · 8 images · hero media none
+  headings        21 · longest 2 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [side-scroll] @1440px (+768, 390)  1 row(s) scroll sideways with content past their edge.
+      → Jurors and most visitors read a row cut at the edge as clipped, not as scrollable. Wrap it onto more lines, or end it inside the grid.
+  [ragged-edges] @1440px (+768)  Left-aligned text starts at 12 different lines (1101px, 32px, 1014px, 64px, 375px, 794px, 943px); the three most used hold only 35% of it.
+      → Pick two or three anchor lines from the grid and start every heading and paragraph on one of them.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/ar/desktop-fold.jpg
+                  .taste-skill/inspect/ar/desktop-page-01.jpg
+                  .taste-skill/inspect/ar/desktop-page-02.jpg
+                  .taste-skill/inspect/ar/desktop-page-03.jpg
+  tablet 768px    .taste-skill/inspect/ar/tablet-fold.jpg
+                  .taste-skill/inspect/ar/tablet-page-01.jpg
+                  .taste-skill/inspect/ar/tablet-page-02.jpg
+  mobile 390px    .taste-skill/inspect/ar/mobile-fold.jpg
+                  .taste-skill/inspect/ar/mobile-page-01.jpg
+                  .taste-skill/inspect/ar/mobile-page-02.jpg
+
+report: .taste-skill/inspect/ar/report.json
+RESULT: 0 FAIL, 3 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/about
+
+MEASURED (first viewport listed)
+  hero headline   "من نحن"  2 words · 1 line(s) · 266.4px (18.5vw) · Beiruti 900 · tracking 0em · leading 1.06
+  @768px          1 line(s) · 142.1px
+  @390px          1 line(s) · 72.2px
+  typefaces       IBM Plex Sans Arabic 93%, Beiruti 7%
+  sizes in use    15 / 18 / 24 / 72 / 266 / 414 px   body 18px / 1.85
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a
+  page            2.8 screens · 135 words · 0 images · hero media none
+  headings        6 · longest 1 line(s) · median 2 words
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [lopsided] @1440px  A section keeps its content on one side and leaves 844px of the width empty: "وش نصلح".
+      → Fill the other side with what the section has (its picture, a second column, the figure), or defend the void in one sentence.
+  [hero-void] @1440px  40% of the first screen is one empty block (660×780px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/about/desktop-fold.jpg
+                  .taste-skill/inspect/about/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/about/tablet-fold.jpg
+                  .taste-skill/inspect/about/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/about/mobile-fold.jpg
+                  .taste-skill/inspect/about/mobile-page-01.jpg
+
+report: .taste-skill/inspect/about/report.json
+RESULT: 0 FAIL, 4 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/areas
+
+MEASURED (first viewport listed)
+  hero headline   "الدمام"  1 words · 1 line(s) · 266.4px (18.5vw) · Beiruti 900 · tracking 0em · leading 1.06
+  @768px          1 line(s) · 142.1px
+  @390px          1 line(s) · 72.2px
+  typefaces       IBM Plex Sans Arabic 82%, Beiruti 18%
+  sizes in use    15 / 18 / 24 / 72 / 266 / 414 px
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            1.9 screens · 82 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [name-only-title] @1440px (+390)  The h1 is a bare name ("الدمام") and nothing else on the first screen says what this is.
+      → Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points.
+  [hero-void] @1440px  47% of the first screen is one empty block (780×780px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/areas/desktop-fold.jpg
+                  .taste-skill/inspect/areas/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/areas/tablet-fold.jpg
+                  .taste-skill/inspect/areas/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/areas/mobile-fold.jpg
+                  .taste-skill/inspect/areas/mobile-page-01.jpg
+
+report: .taste-skill/inspect/areas/report.json
+RESULT: 0 FAIL, 4 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/areas/appliance-repair-in-dammam
+
+MEASURED (first viewport listed)
+  hero headline   "تصليح الأجهزة المنزلية في الدمام"  5 words · 1 line(s) · 72px (5vw) · Beiruti 800 · tracking 0em · leading 1.2
+  @768px          1 line(s) · 38.4px
+  @390px          2 line(s) · 36px
+  typefaces       IBM Plex Sans Arabic 90%, Beiruti 10%
+  sizes in use    15 / 18 / 24 / 72 / 414 px
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a · button #25d366
+  page            1.9 screens · 105 words · 0 images · hero media none
+  headings        4 · longest 1 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/areas/appliance-repair-in-dammam/desktop-fold.jpg
+                  .taste-skill/inspect/areas/appliance-repair-in-dammam/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/areas/appliance-repair-in-dammam/tablet-fold.jpg
+                  .taste-skill/inspect/areas/appliance-repair-in-dammam/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/areas/appliance-repair-in-dammam/mobile-fold.jpg
+                  .taste-skill/inspect/areas/appliance-repair-in-dammam/mobile-page-01.jpg
+
+report: .taste-skill/inspect/areas/appliance-repair-in-dammam/report.json
+RESULT: 0 FAIL, 1 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/blog
+
+MEASURED (first viewport listed)
+  hero headline   "المدونة"  1 words · 1 line(s) · 266.4px (18.5vw) · Beiruti 900 · tracking 0em · leading 1.06
+  @768px          1 line(s) · 142.1px
+  @390px          1 line(s) · 72.2px
+  typefaces       IBM Plex Sans Arabic 69%, Beiruti 31%
+  sizes in use    15 / 18 / 24 / 72 / 266 / 414 px
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            2 screens · 92 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [name-only-title] @1440px (+768, 390)  The h1 is a bare name ("المدونة") and nothing else on the first screen says what this is.
+      → Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points.
+  [hero-void] @1440px  34% of the first screen is one empty block (660×660px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/blog/desktop-fold.jpg
+                  .taste-skill/inspect/blog/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/blog/tablet-fold.jpg
+                  .taste-skill/inspect/blog/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/blog/mobile-fold.jpg
+                  .taste-skill/inspect/blog/mobile-page-01.jpg
+
+report: .taste-skill/inspect/blog/report.json
+RESULT: 0 FAIL, 4 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/blog/ac-repair-in-dammam
+
+MEASURED (first viewport listed)
+  hero headline   "متى تحتاج فني لمكيفك؟"  4 words · 1 line(s) · 72px (5vw) · Beiruti 800 · tracking 0em · leading 1.2
+  @768px          1 line(s) · 38.4px
+  @390px          1 line(s) · 36px
+  typefaces       IBM Plex Sans Arabic 90%, Beiruti 10%
+  sizes in use    15 / 18 / 24 / 72 / 414 px   body 18px / 1.85
+  colour          page #eef2ef · sections #eef2ef #0b1f2a · button #25d366
+  page            2.2 screens · 117 words · 0 images · hero media none
+  headings        6 · longest 1 line(s) · median 2 words
+
+WARN — fix, or be able to defend
+  [first-action] @1440px  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  47% of the first screen is one empty block (780×780px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/blog/ac-repair-in-dammam/desktop-fold.jpg
+                  .taste-skill/inspect/blog/ac-repair-in-dammam/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/blog/ac-repair-in-dammam/tablet-fold.jpg
+                  .taste-skill/inspect/blog/ac-repair-in-dammam/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/blog/ac-repair-in-dammam/mobile-fold.jpg
+                  .taste-skill/inspect/blog/ac-repair-in-dammam/mobile-page-01.jpg
+
+report: .taste-skill/inspect/blog/ac-repair-in-dammam/report.json
+RESULT: 0 FAIL, 3 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+
+MEASURED (first viewport listed)
+  hero headline   "العناية بالمكيف قبل الصيف"  4 words · 1 line(s) · 72px (5vw) · Beiruti 800 · tracking 0em · leading 1.2
+  @768px          1 line(s) · 38.4px
+  @390px          1 line(s) · 36px
+  typefaces       IBM Plex Sans Arabic 89%, Beiruti 11%
+  sizes in use    15 / 18 / 24 / 72 / 414 px   body 18px / 1.85
+  colour          page #eef2ef · sections #eef2ef #0b1f2a · button #25d366
+  page            2 screens · 100 words · 0 images · hero media none
+  headings        5 · longest 1 line(s) · median 2 words
+
+WARN — fix, or be able to defend
+  [first-action] @1440px  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  42% of the first screen is one empty block (900×600px at 0,300).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/desktop-fold.jpg
+                  .taste-skill/inspect/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/tablet-fold.jpg
+                  .taste-skill/inspect/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/mobile-fold.jpg
+                  .taste-skill/inspect/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/mobile-page-01.jpg
+
+report: .taste-skill/inspect/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/report.json
+RESULT: 0 FAIL, 3 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/blog/washing-machine-maintenance-repair-services-in-dammam
+
+MEASURED (first viewport listed)
+  hero headline   "الغسالة الأوتوماتيك لا تعصر"  4 words · 1 line(s) · 72px (5vw) · Beiruti 800 · tracking 0em · leading 1.2
+  @768px          1 line(s) · 38.4px
+  @390px          1 line(s) · 36px
+  typefaces       IBM Plex Sans Arabic 87%, Beiruti 13%
+  sizes in use    15 / 18 / 24 / 72 / 414 px
+  colour          page #eef2ef · sections #eef2ef #0b1f2a · button #25d366
+  page            2.2 screens · 107 words · 0 images · hero media none
+  headings        6 · longest 1 line(s) · median 2 words
+
+WARN — fix, or be able to defend
+  [first-action] @1440px  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  44% of the first screen is one empty block (960×600px at 0,300).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/blog/washing-machine-maintenance-repair-services-in-dammam/desktop-fold.jpg
+                  .taste-skill/inspect/blog/washing-machine-maintenance-repair-services-in-dammam/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/blog/washing-machine-maintenance-repair-services-in-dammam/tablet-fold.jpg
+                  .taste-skill/inspect/blog/washing-machine-maintenance-repair-services-in-dammam/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/blog/washing-machine-maintenance-repair-services-in-dammam/mobile-fold.jpg
+                  .taste-skill/inspect/blog/washing-machine-maintenance-repair-services-in-dammam/mobile-page-01.jpg
+
+report: .taste-skill/inspect/blog/washing-machine-maintenance-repair-services-in-dammam/report.json
+RESULT: 0 FAIL, 3 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/brands
+
+MEASURED (first viewport listed)
+  hero headline   "ماركات الأجهزة"  2 words · 2 line(s) · 266.4px (18.5vw) · Beiruti 900 · tracking 0em · leading 1.06
+  @768px          2 line(s) · 142.1px
+  @390px          2 line(s) · 72.2px
+  typefaces       IBM Plex Sans Arabic 95%, Beiruti 5%
+  sizes in use    15 / 18 / 24 / 72 / 266 / 414 px   body 18px / 1.85
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a · button #25d366
+  page            2.2 screens · 101 words · 0 images · hero media none
+  headings        3 · longest 2 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [grey-body] @1440px (+768, 390)  The running text is a soft grey on its ground (5.3:1).
+      → Set body copy in the full ink (7:1 or more). Keep the muted ink for secondary notes; pages read thin and unfinished when everything is grey.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  40% of the first screen is one empty block (660×780px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/brands/desktop-fold.jpg
+                  .taste-skill/inspect/brands/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/brands/tablet-fold.jpg
+                  .taste-skill/inspect/brands/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/brands/mobile-fold.jpg
+                  .taste-skill/inspect/brands/mobile-page-01.jpg
+
+report: .taste-skill/inspect/brands/report.json
+RESULT: 0 FAIL, 3 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/contact
+
+MEASURED (first viewport listed)
+  hero headline   "اتصل بنا"  2 words · 1 line(s) · 266.4px (18.5vw) · Beiruti 900 · tracking 0em · leading 1.06
+  @768px          1 line(s) · 142.1px
+  @390px          1 line(s) · 72.2px
+  typefaces       IBM Plex Sans Arabic 96%, Beiruti 4%
+  sizes in use    15 / 18 / 24 / 72 / 266 / 414 px
+  colour          page #eef2ef · sections #eef2ef #0b1f2a · button #0f6e7a
+  page            2.6 screens · 121 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  31% of the first screen is one empty block (600×660px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/contact/desktop-fold.jpg
+                  .taste-skill/inspect/contact/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/contact/tablet-fold.jpg
+                  .taste-skill/inspect/contact/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/contact/mobile-fold.jpg
+                  .taste-skill/inspect/contact/mobile-page-01.jpg
+
+report: .taste-skill/inspect/contact/report.json
+RESULT: 0 FAIL, 2 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/cookie-policy
+
+MEASURED (first viewport listed)
+  hero headline   "سياسة ملفات الارتباط"  3 words · 1 line(s) · 72px (5vw) · Beiruti 800 · tracking 0em · leading 1.2
+  @768px          1 line(s) · 38.4px
+  @390px          1 line(s) · 36px
+  typefaces       IBM Plex Sans Arabic 91%, Beiruti 9%
+  sizes in use    15 / 18 / 24 / 72 / 414 px   body 18px / 1.85
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            1.8 screens · 98 words · 0 images · hero media none
+  headings        5 · longest 1 line(s) · median 1 words
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  51% of the first screen is one empty block (840×780px at 0,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/cookie-policy/desktop-fold.jpg
+                  .taste-skill/inspect/cookie-policy/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/cookie-policy/tablet-fold.jpg
+                  .taste-skill/inspect/cookie-policy/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/cookie-policy/mobile-fold.jpg
+                  .taste-skill/inspect/cookie-policy/mobile-page-01.jpg
+
+report: .taste-skill/inspect/cookie-policy/report.json
+RESULT: 0 FAIL, 3 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<audit version="0.0.90">
+<site url="http://localhost:4322" crawled="72" date="2026-11-01T13:54:23.763Z"/>
+<score overall="62" grade="D">
+ <group name="SEO" score="71" errors="87" warnings="189"/>
+ <group name="Performance" score="62" errors="18" warnings="112"/>
+ <group name="Security" score="39" errors="72" warnings="4"/>
+ <group name="Agents" score="50" errors="0" warnings="72"/>
+ <cat name="Accessibility" score="74"/>
+ <cat name="Security" score="31"/>
+ <cat name="Performance" score="62"/>
+ <cat name="Structured Data" score="30"/>
+ <cat name="Crawlability" score="41"/>
+ <cat name="Core SEO" score="57"/>
+ <cat name="Agent Experience" score="50"/>
+ <cat name="Content" score="53"/>
+ <cat name="Local SEO" score="71"/>
+ <cat name="E-E-A-T" score="90"/>
+ <cat name="Links" score="95"/>
+ <cat name="Internationalization" score="100"/>
+ <cat name="Images" score="100"/>
+ <cat name="Site Integrity" score="100"/>
+ <cat name="Legal Compliance" score="100"/>
+ <cat name="Mobile" score="100"/>
+ <cat name="Social Media" score="100"/>
+ <cat name="URL Structure" score="100"/>
+</score>
+<summary passed="7383" warnings="524" failed="177"/>
+<scan-scope origin="cli" crawled="72" max-pages="500" capped="false"/>
+<technologies first-scan="false" added="0" removed="0">
+ <tech name="Google Tag Manager" cat="tag-manager"/>
+</technologies>
+<issues>
+ <rule id="crawl/schema-noindex-conflict" severity="error" category="Crawlability" group="seo" status="fail" docs="https://docs.squirrelscan.com/rules/crawl/schema-noindex-conflict">
+  30 page(s) have rich schema but are blocked from indexing
+ </rule>
+ <rule id="crawl/sitemap-domain" severity="error" category="Crawlability" group="seo" status="fail" docs="https://docs.squirrelscan.com/rules/crawl/sitemap-domain">
+  75 URL(s) point to different domain(s)
+  Pages (5/75): https://lulwa.com.sa/, https://lulwa.com.sa/about, https://lulwa.com.sa/areas, https://lulwa.com.sa/blog, https://lulwa.com.sa/brands
+  Items (5/75):
+   - https://lulwa.com.sa/ [host: lulwa.com.sa]
+   - https://lulwa.com.sa/about [host: lulwa.com.sa]
+   - https://lulwa.com.sa/areas [host: lulwa.com.sa]
+   - https://lulwa.com.sa/areas/appliance-repair-in-abqaiq [host: lulwa.com.sa]
+   - https://lulwa.com.sa/areas/appliance-repair-in-al-ahsa [host: lulwa.com.sa]
+ </rule>
+ <rule id="security/https" severity="error" category="Security" group="security" status="fail" docs="https://docs.squirrelscan.com/rules/security/https">
+  Page not served over HTTPS
+  Pages (5/72): /, /about, /areas, /blog, /brands
+ </rule>
+ <rule id="a11y/aria-command-name" severity="error" category="Accessibility" group="seo" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-command-name">
+  1 command element(s) without accessible names
+  Pages (5/72): /, /about, /areas, /blog, /brands
+  Items (2):
+   - a[href=&quot;/&quot;]
+   - a[href=&quot;/en&quot;]
+ </rule>
+ <rule id="a11y/aria-hidden-focus" severity="error" category="Accessibility" group="seo" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-hidden-focus">
+  1 focusable element(s) inside aria-hidden
+  Pages (2): /contact, /en/contact
+  Items (1):
+   - input#website
+ </rule>
+ <rule id="a11y/aria-input-field-name" severity="error" category="Accessibility" group="seo" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-input-field-name">
+  1 input field(s) without accessible names
+  Pages (2): /contact, /en/contact
+  Items (1):
+   - input[name=&quot;website&quot;]
+ </rule>
+ <rule id="a11y/form-labels" severity="error" category="Accessibility" group="seo" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/form-labels">
+  1 form input(s) without labels
+  Pages (2): /contact, /en/contact
+  Items (1):
+   - website
+ </rule>
+ <rule id="perf/http2" severity="info" category="Performance" group="performance" status="warn" docs="https://docs.squirrelscan.com/rules/perf/http2">
+  HTTP/2 requires HTTPS
+  Pages (5/72): /, /about, /areas, /blog, /brands
+  Items (5/72):
+   - / (HTTP/2 requires HTTPS)
+   - /about (HTTP/2 requires HTTPS)
+   - /areas (HTTP/2 requires HTTPS)
+   - /areas/appliance-repair-in-dammam (HTTP/2 requires HTTPS)
+   - /blog (HTTP/2 requires HTTPS)
+ </rule>
+ <rule id="i18n/hreflang" severity="info" category="Internationalization" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/i18n/hreflang">
+  No self-referencing hreflang found
+  Pages (5/72): /, /about, /areas, /blog, /brands
+ </rule>
+ <rule id="legal/subprocessor-disclosure" severity="info" category="Legal Compliance" group="security" status="warn" docs="https://docs.squirrelscan.com/rules/legal/subprocessor-disclosure">
+  No sub-processor / data-processing (DPA) disclosure found
+ </rule>
+ <rule id="ax/agents-md" severity="info" category="Agent Experience" group="ai" status="warn" docs="https://docs.squirrelscan.com/rules/ax/agents-md">
+  No AGENTS.md found — this site publishes llms.txt, so consider an AGENTS.md for coding agents too
+ </rule>
+ <rule id="ax/markdown-response" severity="info" category="Agent Experience" group="ai" status="warn" docs="https://docs.squirrelscan.com/rules/ax/markdown-response">
+  No Markdown response — consider honoring Accept: text/markdown or publishing a .md variant so agents get clean content
+ </rule>
+ <rule id="crawl/sitemap-coverage" severity="warning" category="Crawlability" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/crawl/sitemap-coverage">
+  72 indexable page(s) not in sitemap (100%); 75 sitemap URL(s) were not crawled
+  Pages (5/147): /, https://lulwa.com.sa/, /about, /areas, /blog
+  Items (5/147):
+   - /
+   - /about
+   - /areas
+   - /areas/appliance-repair-in-dammam
+   - /blog
+ </rule>
+ <rule id="crawl/indexability-conflicts" severity="warning" category="Crawlability" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/crawl/indexability-conflicts">
+  30 page(s) allowed in robots.txt but have noindex
+ </rule>
+ <rule id="core/meta-title" severity="warning" category="Core SEO" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/core/meta-title">
+  Title too short
+  Pages (5/12): /en/about, /en/areas, /en/blog, /en/brands, /en/contact
+  Items (5/12):
+   - /en/about (About us | Lulwa (16 chars))
+   - /en/areas (Where we work | Lulwa (21 chars))
+   - /en/blog (Blog | Lulwa (12 chars))
+   - /en/brands (Appliance brands | Lulwa (24 chars))
+   - /en/contact (Contact us | Lulwa (18 chars))
+ </rule>
+ <rule id="core/meta-description" severity="warning" category="Core SEO" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/core/meta-description">
+  Description too long; Description too short
+  Pages (5/50): /, /about, /areas, /blog, /brands
+  Items (5/50):
+   - /en (A registered repair shop in Al-Jalawiyah, Dammam:  (161 chars))
+   - /en/faults/ac-freezing-up (Ice on the unit is often a dirty filter blocking t (169 chars))
+   - /en/faults/ac-not-turning-on (Check the remote batteries and that the room has p (175 chars))
+   - /en/faults/washer-not-draining (Check the drain hose is not kinked or blocked and  (168 chars))
+   - /en/faults/washer-shaking (Usually the load is unbalanced or the machine is n (187 chars))
+ </rule>
+ <rule id="core/robots-meta" severity="warning" category="Core SEO" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/core/robots-meta">
+  Page is set to noindex
+  Pages (5/30): /faults/ac-freezing-up, /faults/ac-leaking-water, /faults/ac-loud, /faults/ac-not-cooling, /faults/ac-not-turning-on
+ </rule>
+ <rule id="security/csp" severity="warning" category="Security" group="security" status="warn" docs="https://docs.squirrelscan.com/rules/security/csp">
+  No Content-Security-Policy header
+ </rule>
+ <rule id="security/x-frame-options" severity="warning" category="Security" group="security" status="warn" docs="https://docs.squirrelscan.com/rules/security/x-frame-options">
+  No clickjacking protection
+ </rule>
+ <rule id="security/form-captcha" severity="warning" category="Security" group="security" status="warn" docs="https://docs.squirrelscan.com/rules/security/form-captcha">
+  1 public form(s) without CAPTCHA
+  Pages (2): /contact, /en/contact
+  Items (1):
+   - #lead-form
+ </rule>
+ <rule id="links/no-contextual-inbound" severity="warning" category="Links" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/links/no-contextual-inbound">
+  15 page(s) are linked only from sitewide chrome
+  Pages (5/15): /about, /areas, /brands, /cookie-policy, /en
+  Items (5/15):
+   - /about
+   - /areas
+   - /brands
+   - /cookie-policy
+   - /en
+ </rule>
+ <rule id="content/keyword-stuffing" severity="warning" category="Content" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/content/keyword-stuffing">
+  1 word(s) may be overused
+  Pages (1): /en/faults/washer-not-draining
+  Items (1):
+   - drain (&quot;drain&quot; (4.9%)) [count: 6, density: 4.878048780487805]
+ </rule>
+ <rule id="content/word-count" severity="warning" category="Content" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/content/word-count">
+  Thin content: N words (min N)
+  Pages (5/70): /about, /areas, /blog, /brands, /contact
+  Items (5/70):
+   - /about (Thin content: 98 words (min 300))
+   - /areas (Thin content: 59 words (min 300))
+   - /areas/appliance-repair-in-dammam (Thin content: 75 words (min 300))
+   - /blog (Thin content: 66 words (min 300))
+   - /blog/ac-repair-in-dammam (Thin content: 89 words (min 300))
+ </rule>
+ <rule id="schema/local-business" severity="warning" category="Structured Data" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/schema/local-business">
+  Address incomplete
+  Pages (2): /, /en
+  Items (1):
+   - postalCode
+ </rule>
+ <rule id="schema/article" severity="warning" category="Structured Data" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/schema/article">
+  Article schema missing required properties
+  Pages (5/6): /blog/ac-repair-in-dammam, /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide, /blog/washing-machine-maintenance-repair-services-in-dammam, /en/blog/ac-repair-in-dammam, /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+  Items (1):
+   - datePublished
+ </rule>
+ <rule id="schema/json-ld-valid" severity="warning" category="Structured Data" group="seo" status="fail" docs="https://docs.squirrelscan.com/rules/schema/json-ld-valid">
+  Invalid JSON-LD syntax
+  Pages (5/6): /blog/ac-repair-in-dammam, /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide, /blog/washing-machine-maintenance-repair-services-in-dammam, /en/blog/ac-repair-in-dammam, /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+  Items (4):
+   - Article:author.name (Article missing author.name) [message: Validation: Article.author.name is required, severity: missing, path: [&quot;author&quot;,&quot;name&quot;]]
+   - Article:datePublished (Article missing datePublished) [message: Validation: Article.datePublished is required, severity: missing, path: [&quot;datePublished&quot;]]
+   - parse-0 (Validation: Article.datePublished is required)
+   - parse-1 (Validation: Article.author.name is required)
+ </rule>
+ <rule id="schema/coverage-outlier" severity="warning" category="Structured Data" group="seo" status="fail" docs="https://docs.squirrelscan.com/rules/schema/coverage-outlier">
+  2 of 10 page(s) are missing structured data their same-type siblings have (faq BreadcrumbList+FAQPage+Service)
+  Pages (2): /, /en
+  Items (2):
+   - faq:BreadcrumbList (8 of 10 faq pages have BreadcrumbList schema, these 2 do not) [pageType: faq, schemaType: BreadcrumbList, richResult: true, have: 8, total: 10, missing: 2] (from: /, /en)
+   - faq:Service (8 of 10 faq pages have Service schema, these 2 do not) [pageType: faq, schemaType: Service, richResult: false, have: 8, total: 10, missing: 2] (from: /, /en)
+ </rule>
+ <rule id="perf/lcp-hints" severity="warning" category="Performance" group="performance" status="warn" docs="https://docs.squirrelscan.com/rules/perf/lcp-hints">
+  1 likely-LCP image loaded without preload
+  Pages (2): /, /en
+  Items (2):
+   - / (1 likely-LCP image loaded without preload)
+   - /en (1 likely-LCP image loaded without preload)
+ </rule>
+ <rule id="perf/ttfb" severity="warning" category="Performance" group="performance" status="fail" docs="https://docs.squirrelscan.com/rules/perf/ttfb">
+  Very slow server response (Nms); Slow server response (Nms)
+  Pages (5/47): /about, /areas, /blog, /brands, /cookie-policy
+  Items (5/47):
+   - /areas (Very slow server response (1655ms))
+   - /blog (Very slow server response (1346ms))
+   - /brands (Very slow server response (1689ms))
+   - /cookie-policy (Very slow server response (1731ms))
+   - /en (Very slow server response (1512ms))
+ </rule>
+ <rule id="perf/bad-caching" severity="warning" category="Performance" group="performance" status="fail" docs="https://docs.squirrelscan.com/rules/perf/bad-caching">
+  72/72 pages lack a caching freshness lifetime
+  Pages (5): /, /about, /areas, /blog, /areas/appliance-repair-in-dammam
+ </rule>
+ <rule id="perf/critical-request-chains" severity="warning" category="Performance" group="performance" status="warn" docs="https://docs.squirrelscan.com/rules/perf/critical-request-chains">
+  1 critical request chain(s) found
+  Pages (5/72): /, /about, /areas, /blog, /brands
+  Items (1):
+   - CSS: /_astro/Base.G0h-joJs.css
+ </rule>
+ <rule id="perf/lazy-above-fold" severity="warning" category="Performance" group="performance" status="warn" docs="https://docs.squirrelscan.com/rules/perf/lazy-above-fold">
+  N above-fold image(s) with lazy loading
+  Pages (5/6): /, /en, /work, /en/work, /services/ac-repair
+  Items (5/6):
+   - /images/compressor-closeup-2-287.webp
+   - /images/compressor-install-287.webp
+   - /images/compressor-pair-287.webp
+   - /images/condensing-unit-wiring-287.webp
+   - /images/rooftop-compressor-swap-680.webp
+ </rule>
+ <rule id="perf/lcp-fetchpriority" severity="warning" category="Performance" group="performance" status="warn" docs="https://docs.squirrelscan.com/rules/perf/lcp-fetchpriority">
+  Hero/LCP image loaded eagerly without fetchpriority=&apos;high&apos; or preload
+  Pages (2): /, /en
+  Items (1):
+   - /images/split-ac-indoor-640.webp (split-ac-indoor-640.webp) | &lt;img src=&quot;/images/split-ac-indoor-640.webp&quot;&gt;
+ </rule>
+ <rule id="a11y/identical-links-same-purpose" severity="warning" category="Accessibility" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/identical-links-same-purpose">
+  N link text(s) lead to different destinations
+  Pages (2): /, /en
+  Items (5):
+   - &quot;leaking water&quot; → 2 different URLs
+   - &quot;loud&quot; → 2 different URLs
+   - &quot;not cooling&quot; → 2 different URLs
+   - &quot;will not start&quot; → 4 different URLs
+   - &quot;ما تشتغل&quot; → 3 different URLs
+ </rule>
+ <rule id="a11y/image-redundant-alt" severity="warning" category="Accessibility" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/image-redundant-alt">
+  N image(s) with redundant alt text
+  Pages (5/6): /, /en, /work, /en/work, /services/ac-repair
+  Items (5/13):
+   - &quot;AC: changing the com...&quot; duplicates figcaption
+   - &quot;AC: connecting the c...&quot; duplicates figcaption
+   - &quot;AC: fitting a compre...&quot; duplicates figcaption
+   - &quot;Illustration of a split air co...&quot; (split-ac-indoor-640.webp)
+   - &quot;Outdoor unit: checki...&quot; duplicates figcaption
+ </rule>
+ <rule id="a11y/input-types" severity="warning" category="Accessibility" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/input-types">
+  1 multi-field form(s) set no enterkeyhint; 1 form(s) set novalidate but still rely on browser constraints
+  Pages (2): /contact, /en/contact
+  Items (2):
+   - form#lead-form (5-field form, no field sets enterkeyhint) | &lt;form id=&quot;lead-form&quot; novalidate=&quot;&quot; class=&quot;flex max-w-prose flex-col gap-4&quot; data-endpoint=&quot;/api/lead&quot; data-thanks=&quot;/thanks&quot; data-whatsapp=&quot;https://wa.me/966568022197&quot; data-errors=&quot;{&quot;required&quot;:&quot;هذا الحقل مطلوب.&quot;,&quot;phone&quot;:&quot;اكتب رقم جوال صحيح، … [reason: missing-enterkeyhint, fields: 5]
+   - form#lead-form (novalidate disables the browser&apos;s error messages, but the form still declares constraints and no custom validation) | &lt;form id=&quot;lead-form&quot; novalidate=&quot;&quot; class=&quot;flex max-w-prose flex-col gap-4&quot; data-endpoint=&quot;/api/lead&quot; data-thanks=&quot;/thanks&quot; data-whatsapp=&quot;https://wa.me/966568022197&quot; data-errors=&quot;{&quot;required&quot;:&quot;هذا الحقل مطلوب.&quot;,&quot;phone&quot;:&quot;اكتب رقم جوال صحيح، … [reason: novalidate-mismatch, fields: 5]
+ </rule>
+ <rule id="eeat/content-dates" severity="warning" category="E-E-A-T" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/eeat/content-dates">
+  No content pages have datePublished
+ </rule>
+ <rule id="local/nap-consistency" severity="warning" category="Local SEO" group="seo" status="warn" docs="https://docs.squirrelscan.com/rules/local/nap-consistency">
+  The same phone number is formatted 2 different ways across 72 pages
+  Pages (5/20): /, /about, /areas, /blog, /brands
+  Items (2):
+   - +966568022197 (&quot;+966568022197&quot; on 46 page(s)) [pageCount: 46] (from: /, /areas/appliance-repair-in-dammam, /brands, /contact, /en; +5 more)
+   - 056 802 2197 (&quot;056 802 2197&quot; on 26 page(s)) [pageCount: 26] (from: /about, /areas, /blog, /blog/ac-repair-in-dammam, /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide; +5 more)
+ </rule>
+ <rule id="ax/token-weight" severity="warning" category="Agent Experience" group="ai" status="warn" docs="https://docs.squirrelscan.com/rules/ax/token-weight">
+  Visible text is under 15% of the page HTML — agents pay token cost mostly for markup, scripts, and styles
+  Pages (5/72): /, /about, /areas, /blog, /brands
+  Items (5/72):
+   - / (~5% of HTML is visible text (~14,694 est. tokens))
+   - /about (~6% of HTML is visible text (~4,010 est. tokens))
+   - /areas (~4% of HTML is visible text (~3,663 est. tokens))
+   - /areas/appliance-repair-in-dammam (~4% of HTML is visible text (~4,561 est. tokens))
+   - /blog (~4% of HTML is visible text (~3,767 est. tokens))
+ </rule>
+</issues>
+</audit>

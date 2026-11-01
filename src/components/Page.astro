@@ -117,7 +117,7 @@ const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
     <Section>
       <div class="flex flex-col gap-8">
         <div class="flex flex-col items-start gap-2"><Text>{c.reviews.rating} · {c.reviews.asOf}</Text><Button variant="quiet" href={site.maps.listing}>{c.reviews.sourceLink}</Button><Text soft>{c.reviews.source}</Text></div>
-        <ul class="grid gap-4 md:grid-cols-2">{reviews.map((r) => <li class="flex flex-col gap-2 rounded-card bg-pearl-step p-card"><bdi lang="en" dir="ltr" class="text-start font-display text-lead font-head">{r.text}</bdi><span class="text-small text-ink-soft"><bdi>{r.name}</bdi> · {r.when}</span></li>)}</ul>
+        <ul class="grid gap-4 md:grid-cols-2">{reviews.map((r) => <li class="flex flex-col gap-2 rounded-card bg-pearl-step p-card"><bdi lang="en" dir="ltr" class="text-start font-display text-lead font-head">{r.text}</bdi><span class="text-small text-ink-soft"><bdi lang="en">{r.name}</bdi> · {r.when}</span></li>)}</ul>
       </div>
     </Section>
   )}
@@ -125,9 +125,9 @@ const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
   {kind === 'work' && (
     <Section tone="teal">
       <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
-        {photos.map((p) => (
+        {photos.map((p, i) => (
           <figure class="flex flex-col gap-2">
-            <Img name={p.photo} widths={size(p.photo) > 400 ? [340, 680] : [287]} width={size(p.photo)} height={size(p.photo) > 400 ? 382 : 510} alt={p.caption} sizes="(min-width: 64rem) 30vw, 50vw" rounded job />
+            <Img name={p.photo} widths={size(p.photo) > 400 ? [340, 680] : [287]} width={size(p.photo)} height={size(p.photo) > 400 ? 382 : 510} alt={p.caption} sizes="(min-width: 64rem) 30vw, 50vw" eager={i < 2} rounded job />
             <figcaption class="text-small">{p.caption}</figcaption>
           </figure>
         ))}

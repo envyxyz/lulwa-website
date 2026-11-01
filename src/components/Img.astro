@@ -15,6 +15,7 @@ const srcset = (ext: string) => widths.map((w) => `/images/${name}-${w}.${ext} $
     height={height}
     alt={alt}
     loading={eager ? 'eager' : 'lazy'}
+    fetchpriority={eager ? 'high' : undefined}
     decoding="async"
     data-job={job || undefined}
     style={`max-inline-size:${width}px`}

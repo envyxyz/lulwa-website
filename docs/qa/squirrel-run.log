@@ -1,0 +1,24 @@
+
+ ▄█▀ ▄▀█ █ █ █ █▀▄ █▀▄ █▀▀ █   ▄█▀ ▄▀▀ ▄▀█ █▄ █
+ ▀▄  █ █ █ █ █ ██▀ ██▀ █▀  █   ▀▄  █   █▀█ █ ▀█
+ █▄▀ ▀▀█ ▀▄▀ █ █ █ █ █ █▄▄ █▄▄ █▄▀ ▀▄▄ █ █ █  █
+
+  v0.0.90  •  https://squirrelscan.com
+────────────────────────────────────────────
+Account   offline (--offline) — cloud features disabled
+Auditing  http://localhost:4322
+Coverage  full · max 500 pages
+Config    defaults
+Mode      fresh crawl (ignoring cache)
+
+New crawl: http://localhost:4322
+✓ Audited 72 pages in 26.1s
+
+Audit stored in database. Use 'squirrel report' to view latest audit.
+Use 'squirrel report --list' to see all stored audits.
+
+LLM report saved to: docs/qa/squirrel.txt
+────────────────────────────────────────────────────────────
+
+
+File issues: https://github.com/squirrelscan/squirrelscan/issues  •  Send feedback: squirrel feedback

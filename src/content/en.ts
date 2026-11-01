@@ -94,7 +94,7 @@ export const en: Content = {
   actions: { whatsapp: 'WhatsApp us', call: 'Call us', directions: 'Directions', allServices: 'All services' },
   icons: { next: 'Next' },
   home: {
-    seo: { title: `AC, fridge and washing machine repair in Dammam | ${name}`, description: 'A registered repair shop in Al-Jalawiyah, Dammam: air conditioners, fridges, automatic washing machines and dryers. Photograph the fault and send it on WhatsApp.' },
+    seo: { title: `AC, fridge and washing machine repair in Dammam | ${name}`, description: 'A registered repair shop in Al-Jalawiyah, Dammam: air conditioners, fridges, automatic washing machines and dryers. Send a photo of the fault on WhatsApp.' },
     hero: {
       question: 'AC gave up?',
       service: 'Dammam repair',
@@ -193,7 +193,7 @@ export const en: Content = {
     ],
   },
   areas: {
-    seo: { title: `Where we work | ${name}`, description: `${name}, in Al-Jalawiyah, Dammam.` },
+    seo: { title: `Where we work in Dammam | ${name}`, description: `${name}, in Al-Jalawiyah, Dammam.` },
     h1: 'Dammam',
     lead: 'The shop is in Al-Jalawiyah, Dammam.',
     pending: 'We add other cities once we confirm them.',
@@ -209,14 +209,14 @@ export const en: Content = {
     ],
   },
   brands: {
-    seo: { title: `Appliance brands | ${name}`, description: 'Send your appliance brand and unit label on WhatsApp and we will tell you whether we can repair it.' },
+    seo: { title: `Appliance brands in Dammam | ${name}`, description: 'Send your appliance brand and unit label on WhatsApp and we will tell you whether we can repair it.' },
     h1: 'Appliance brands',
     lead: 'Send your appliance brand and unit label on WhatsApp and we will tell you whether we can repair it.',
     disclaimer: `${name} is an independent repair shop, not an agent of any brand named here.`,
     items: brandItems,
   },
   about: {
-    seo: { title: `About us | ${name}`, description: `${name}: a registered repair shop in Al-Jalawiyah, Dammam.` },
+    seo: { title: `About our Dammam repair shop | ${name}`, description: `${name}: a registered repair shop in Al-Jalawiyah, Dammam.` },
     h1: 'About us',
     lead: 'A registered repair shop in Al-Jalawiyah, Dammam.',
     factsHeading: 'Our details',
@@ -234,9 +234,9 @@ export const en: Content = {
     ],
   },
   contact: {
-    seo: { title: `Contact us | ${name}`, description: `Contact ${name} on WhatsApp or call ${phone}.` },
+    seo: { title: `Contact our Dammam repair shop | ${name}`, description: `Contact ${name} on WhatsApp or call ${phone}.` },
     h1: 'Contact us',
-    lead: 'WhatsApp is quickest. Send a photo of the fault with it.',
+    lead: 'Message us on WhatsApp and send a photo of the fault.',
     form: {
       name: 'Name',
       phone: 'Mobile number',
@@ -256,7 +256,7 @@ export const en: Content = {
     addressLabel: 'Address',
   },
   reviews: {
-    seo: { title: `Customer reviews | ${name}`, description: 'Reviews copied as they are from our Google Maps listing.' },
+    seo: { title: `Customer reviews on Google | ${name}`, description: 'Reviews copied as they are from our Google Maps listing.' },
     h1: 'Customer reviews',
     lead: 'Copied as they are from Google Maps.',
     rating: '5.0 from 8 reviews',
@@ -272,7 +272,7 @@ export const en: Content = {
     ],
   },
   work: {
-    seo: { title: `Our work | ${name}`, description: 'Real photos from the shop’s jobs.' },
+    seo: { title: `Real photos of our repair work | ${name}`, description: 'Real photos from the shop’s jobs.' },
     h1: 'Our work',
     lead: 'Real photos from the shop’s jobs.',
     empty: 'Photos coming soon.',
@@ -287,7 +287,7 @@ export const en: Content = {
         { h: 'Who we are', body: `${site.legal.name}, commercial registration ${site.legal.cr}, Al-Jalawiyah, Dammam.` },
         { h: 'What we collect', body: 'If you fill in the contact form we receive your name, mobile number, appliance, district and a description of the fault.' },
         { h: 'Why', body: 'Only to answer your request. We do not sell your data or share it for marketing.' },
-        { h: 'Where it is kept', body: 'In a spreadsheet and an email inbox that belong to the shop.' },
+        { h: 'Where it is kept', body: 'In a Google spreadsheet and an email inbox that belong to the shop. Requests pass through Cloudflare, which runs this site and may keep them briefly in its logs.' },
         { h: 'Your rights', body: `You can ask to see or delete your data by contacting us on ${phone}.` },
       ],
     },
@@ -314,7 +314,7 @@ export const en: Content = {
     },
   },
   blog: {
-    seo: { title: `Blog | ${name}`, description: 'Short tips for looking after ACs and washing machines.' },
+    seo: { title: `AC and washing machine tips | ${name}`, description: 'Short tips for looking after ACs and washing machines.' },
     h1: 'Blog',
     lead: 'Short tips for looking after your appliances.',
     updated: 'Updated',
@@ -365,7 +365,7 @@ export const en: Content = {
   thanks: {
     seo: { title: `Thank you | ${name}`, description: 'We received your request.' },
     h1: 'We have your request',
-    lead: 'We will reply on the number you gave. For a faster answer, message us on WhatsApp.',
+    lead: 'We will reply on the number you gave. You can also message us on WhatsApp.',
   },
   sink: {
     title: 'Component sink',

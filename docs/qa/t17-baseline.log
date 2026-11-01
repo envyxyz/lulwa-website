@@ -1,0 +1,36 @@
+$ playwright test "tests/visual.spec.ts" "--update-snapshots"
+[WebServer] (node:39856) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 12 tests using 2 workers
+
+(node:42488) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:12560) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\--1440-win32.png, writing actual.
+A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-en-1440-win32.png, writing actual.
+  ok  2 tests\visual.spec.ts:9:5 › T17 / at 1440 (5.9s)
+  ok  1 tests\visual.spec.ts:9:5 › T17 /en at 1440 (6.3s)
+A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-services-ac-repair-1440-win32.png, writing actual.
+  ok  3 tests\visual.spec.ts:9:5 › T17 /services/ac-repair at 1440 (3.0s)
+A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-en-services-ac-repair-1440-win32.png, writing actual.
+  ok  4 tests\visual.spec.ts:9:5 › T17 /en/services/ac-repair at 1440 (3.0s)
+A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-faults-ac-not-cooling-1440-win32.png, writing actual.
+  ok  5 tests\visual.spec.ts:9:5 › T17 /faults/ac-not-cooling at 1440 (2.8s)
+A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-en-faults-ac-not-cooling-1440-win32.png, writing actual.
+  ok  6 tests\visual.spec.ts:9:5 › T17 /en/faults/ac-not-cooling at 1440 (2.9s)
+A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\--390-win32.png, writing actual.
+  ok  7 tests\visual.spec.ts:9:5 › T17 / at 390 (2.1s)
+A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-en-390-win32.png, writing actual.
+  ok  8 tests\visual.spec.ts:9:5 › T17 /en at 390 (2.1s)
+A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-services-ac-repair-390-win32.png, writing actual.
+  ok  9 tests\visual.spec.ts:9:5 › T17 /services/ac-repair at 390 (1.9s)
+A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-en-services-ac-repair-390-win32.png, writing actual.
+  ok 10 tests\visual.spec.ts:9:5 › T17 /en/services/ac-repair at 390 (1.8s)
+A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-faults-ac-not-cooling-390-win32.png, writing actual.
+  ok 11 tests\visual.spec.ts:9:5 › T17 /faults/ac-not-cooling at 390 (1.8s)
+A snapshot doesn't exist at C:\Users\ameer\Desktop\lulwa\website\tests\visual.spec.ts-snapshots\-en-faults-ac-not-cooling-390-win32.png, writing actual.
+  ok 12 tests\visual.spec.ts:9:5 › T17 /en/faults/ac-not-cooling at 390 (2.2s)
+
+  12 passed (2.5m)

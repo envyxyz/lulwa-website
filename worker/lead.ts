@@ -41,8 +41,9 @@ const whatsappLink = (lead: { name: string; appliance: string; area: string; mes
 export async function handleLead(request: Request, env: LeadEnv, fetcher: typeof fetch = fetch): Promise<Response> {
   if (request.method !== 'POST') return json(405, { ok: false, error: 'method' });
   // A browser always sends Origin on a cross-site POST, so another site's form cannot post here.
+  // URL.canParse: a sandboxed frame sends `Origin: null`, which would otherwise throw and answer 500.
   const origin = request.headers.get('origin');
-  if (origin && new URL(origin).host !== new URL(request.url).host) return json(403, { ok: false, error: 'origin' });
+  if (origin && (!URL.canParse(origin) || new URL(origin).host !== new URL(request.url).host)) return json(403, { ok: false, error: 'origin' });
   if (Number(request.headers.get('content-length')) > MAX_BODY) return json(413, { ok: false, error: 'size' });
   const raw = await request.text();
   // Characters, not bytes, but the declared length above already stopped a large byte count.

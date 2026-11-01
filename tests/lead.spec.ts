@@ -30,6 +30,14 @@ test('T15 Worker accepts a good lead with a reference, and leaks no secret', asy
   expect(text).not.toContain(env.LEADS_WEBHOOK_URL);
 });
 
+test('T15 a foreign or malformed Origin gets 403, not a crash', async () => {
+  const { handleLead } = await load();
+  for (const origin of ['https://evil.test', 'null', 'not a url']) {
+    const request = new Request('https://x.test/api/lead', { method: 'POST', headers: { origin }, body: JSON.stringify(good) });
+    expect((await handleLead(request, env, sheetUp)).status, origin).toBe(403);
+  }
+});
+
 test('T15 honeypot is dropped without reaching the Sheet', async () => {
   const { handleLead } = await load();
   let called = false;

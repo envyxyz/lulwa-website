@@ -1,6 +1,6 @@
 $ astro check
-18:33:57 [types] Generated 238ms
-18:33:57 [check] Getting diagnostics for Astro files in C:\Users\ameer\Desktop\lulwa\website...
+19:14:27 [types] Generated 220ms
+19:14:27 [check] Getting diagnostics for Astro files in C:\Users\ameer\Desktop\lulwa\website...
 Result (93 files): 
 - 0 errors
 - 0 warnings

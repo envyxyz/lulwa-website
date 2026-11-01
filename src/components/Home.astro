@@ -104,10 +104,10 @@ const wall = [
     </div>
     <figure class="flex flex-col gap-4 md:col-span-9">
       <blockquote lang="en" dir="ltr" class="text-start font-display text-statement font-statement tracking-statement"><bdi>{quote.text}</bdi></blockquote>
-      <figcaption class="text-small"><bdi>{quote.name}</bdi> · {quote.when}</figcaption>
+      <figcaption class="text-small"><bdi lang="en">{quote.name}</bdi> · {quote.when}</figcaption>
     </figure>
     <ul class="flex flex-col gap-4 md:col-span-3 md:justify-end">
-      {others.map((r) => <li><bdi lang="en">{r.text}</bdi><span class="block text-small text-ink-soft"><bdi>{r.name}</bdi> · {r.when}</span></li>)}
+      {others.map((r) => <li><bdi lang="en">{r.text}</bdi><span class="block text-small text-ink-soft"><bdi lang="en">{r.name}</bdi> · {r.when}</span></li>)}
     </ul>
   </div>
 </Section>

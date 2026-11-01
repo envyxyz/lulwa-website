@@ -74,10 +74,10 @@ function sheet() {
   return s;
 }
 
-// Text that starts with = + - @ could run as a formula in the Sheet: a leading apostrophe stores it as plain text.
+// Text that starts with = + - @ or white space could run as a formula in the Sheet: a leading apostrophe stores it as plain text.
 function cell(v) {
   var t = v == null ? '' : String(v);
-  return /^[=+\-@]/.test(t) ? "'" + t : t;
+  return /^[\s=+\-@]/.test(t) ? "'" + t : t;
 }
 
 function esc(v) {
