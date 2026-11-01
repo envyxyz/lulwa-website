@@ -63,7 +63,7 @@ Keep this list in sync with `package.json`.
 - `pnpm worker:stub` (fake Apps Script), `pnpm worker:dev` (Worker plus `dist/` on :8788, reads `.dev.vars`), `pnpm worker:deploy`. Steps: `integrations/README.md`
 - `pnpm test:photos` (T22), `pnpm test:taste` (T20), `pnpm test:lighthouse` (T18)
 - `node scripts/images.mjs`: exports photos and product images to `public/images`, rewrites `src/images/provenance.json`. `python scripts/gen-products.py [names]`: product images with agy.
-- `python scripts/subset-fonts.py <raw font dir>`: rebuilds `public/fonts`. `node scripts/sink-shots.mjs`: kitchen sink screenshots. `node scripts/phase-shots.mjs <n>`: home screenshots to `docs/shots/phase-<n>/`, after `pnpm build`.
+- `python scripts/subset-fonts.py <raw font dir>`: rebuilds `public/fonts`. `node scripts/sink-shots.mjs`: kitchen sink screenshots. `node scripts/phase-shots.mjs <n> [routes]`: screenshots in light and dark to `docs/shots/phase-<n>/`, after `pnpm build` (in Git Bash set `MSYS_NO_PATHCONV=1` when passing routes).
 
 ## How work happens
 

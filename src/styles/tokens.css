@@ -26,7 +26,7 @@
   /* Five sizes, no more. Arabic here, English in :lang(en) below. */
   --text-*: initial;
   /* Ameer's feedback, Phase 8.5: no huge type. Statement is the h1 of a page, head a section. */
-  --text-statement: clamp(2.5rem, 4.4vw, 3.75rem);
+  --text-statement: clamp(2rem, 1.2rem + 4.5vw, 3.75rem);
   --text-statement--line-height: 1.15;
   --text-head: clamp(1.875rem, 3vw, 2.75rem);
   --text-head--line-height: 1.25;
@@ -67,7 +67,6 @@
   --spacing-bottom-bar: 4.5rem; /* phone action bar */
   --spacing-logo: 2.75rem;
   --spacing-tile: 17rem; /* hero product tile */
-  --spacing-hero: 30rem; /* hero panel floor on desktop */
 
   --container-*: initial;
   --container-page: 90rem; /* content lines up with the hero's margins at 1440 */
@@ -98,7 +97,7 @@
   --font-display: 'Schibsted Grotesk', 'Schibsted Fallback', sans-serif;
   /* Plex only fetches where Arabic appears: the legal name and the language link. */
   --font-body: 'Schibsted Grotesk', 'Schibsted Fallback', 'IBM Plex Sans Arabic', sans-serif;
-  --text-statement: clamp(2.25rem, 3.9vw, 3.5rem);
+  --text-statement: clamp(1.75rem, 1rem + 4vw, 3.5rem);
   --text-statement--line-height: 1.08;
   --text-head: clamp(1.625rem, 2.6vw, 2.375rem);
   --text-head--line-height: 1.15;
@@ -145,5 +144,10 @@
   /* The ground is already Ink, so an ink band steps darker to stay a band. */
   [data-tone='ink'] {
     --color-ink: #06141c;
+  }
+
+  /* A white tile sits on a dark ground, so it cannot inherit the ground's light text. */
+  .bg-white {
+    color: var(--color-ink);
   }
 }

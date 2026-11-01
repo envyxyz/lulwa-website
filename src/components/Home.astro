@@ -49,22 +49,22 @@ const wall = [
 
 <section class="pt-section">
   <div class="mx-auto flex max-w-page flex-col gap-4 px-gutter lg:flex-row lg:items-end lg:justify-between">
-    <Text>{repair.lead}</Text>
     <Heading>{repair.heading}<Fragment slot="quiet">{repair.quiet}</Fragment></Heading>
+    <Text>{repair.lead}</Text>
   </div>
-  <div class="mx-auto mt-4 hidden max-w-page justify-end gap-2 px-gutter md:flex">
+  <div class="mx-auto mt-4 hidden max-w-page justify-end gap-2 px-gutter md:flex xl:hidden">
     <button type="button" data-step="-1" disabled aria-label={repair.prev} class={step}><span class="-scale-x-100"><Icon name="arrow-next" /></span></button>
     <button type="button" data-step="1" aria-label={repair.next} class={step}><Icon name="arrow-next" /></button>
   </div>
   <div data-row class="mx-auto mt-4 flex max-w-page snap-x snap-mandatory gap-4 overflow-x-auto px-gutter pb-2">
-    <div class="flex w-tile shrink-0 snap-start flex-col justify-between gap-8 rounded-card bg-teal p-4 text-pearl" data-tone="teal">
+    <div class="flex w-tile shrink-0 snap-start flex-col justify-between gap-8 rounded-card bg-teal p-4 text-pearl xl:w-auto xl:min-w-0 xl:flex-1" data-tone="teal">
       <p class="font-display text-head font-head">{repair.callLabel}</p>
       <Button variant="call" light><bdi dir="ltr" class="whitespace-nowrap">{site.phone.display}</bdi></Button>
     </div>
     {services.items.map((s) => {
       const a = cardArt[s.slug]!;
       return (
-        <a href={localePath(lang, `/services/${s.slug}`)} class="flex w-tile shrink-0 snap-start flex-col gap-2 rounded-card bg-pearl-step p-4 transition hover:bg-pearl-hover active:scale-98">
+        <a href={localePath(lang, `/services/${s.slug}`)} class="flex w-tile shrink-0 snap-start flex-col gap-2 rounded-card bg-pearl-step p-4 transition hover:bg-pearl-hover active:scale-98 xl:w-auto xl:min-w-0 xl:flex-1">
           <span class="font-display text-lead font-head">{s.name}</span>
           <span class="grow text-small text-ink-soft">{s.summary}</span>
           <span class="mt-2 block rounded-card bg-white p-2">

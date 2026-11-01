@@ -87,3 +87,7 @@ Questions, verifications and access needed, gathered while Ameer sleeps. Nothing
 - **CSP** allows `'unsafe-inline'` scripts, because the home page has one small inline script. Tighten with hashes if wanted. After go-live, load every page once with GTM and check the console for blocked requests (GA4 and Clarity endpoints may need adding; Clarity is not in the CSP because the site does not load it).
 - **OG image** is one brand card (logo on pearl, no text) for every page and both languages, not one per page.
 - **Google SERP was not re-read** this phase (only autocomplete, `docs/KEYWORD-MAP.md`); the 1 Nov competitor table stands. No CAPTCHA met.
+
+## Phase 8.5 (2026-11-01)
+- **Arabic check for the new state lines:** `اختر الجهاز عشان نبدأ.`, `رسالتك جاهزة.`, `جاري تحميل الخريطة`, `جاري الإرسال`. Written by Claude, not reviewed by a native speaker.
+- **Lead failure changed:** a failed form no longer jumps to WhatsApp by itself. It keeps the typed text and offers a WhatsApp button. Say if you want the jump back.
