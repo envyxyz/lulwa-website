@@ -1,4 +1,5 @@
 ---
+import Button from './Button.astro';
 import Heading from './Heading.astro';
 import Section from './Section.astro';
 import Text from './Text.astro';
@@ -8,6 +9,7 @@ import { content, langFromUrl, localePath } from '../content';
 type Props = { kind: 'services' | 'faults' };
 const lang = langFromUrl(Astro.url);
 const c = content[lang];
+const { actions } = c;
 const { kind } = Astro.props;
 const page = c[kind];
 const card = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card font-display text-lead font-head';
@@ -16,7 +18,7 @@ const card = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
 <Base title={page.seo.title} description={page.seo.description}>
   <Section>
     <div class="flex flex-col gap-8">
-      <div class="flex flex-col gap-4"><Heading level={1} size="statement">{page.h1}</Heading><Text size="lead">{page.lead}</Text></div>
+      <div class="flex flex-col gap-4"><Heading level={1} size="statement">{page.h1}</Heading><Text size="lead">{page.lead}</Text><Button variant="quiet" href={localePath(lang, kind === 'services' ? '/faults' : '/services')}>{kind === 'services' ? c.chrome.nav.faults : actions.allServices}</Button></div>
       {kind === 'services' ? (
         <>
           <ul class="grid gap-4 md:grid-cols-2">{c.services.items.map((s) => <li><a href={localePath(lang, `/services/${s.slug}`)} class={card}>{s.name}<span class="text-small font-regular text-ink-soft">{s.summary}</span></a></li>)}</ul>

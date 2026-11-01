@@ -47,7 +47,7 @@ const services: Service[] = [
       { q: 'Do you repair non-automatic washers?', a: 'What we confirm right now is automatic washing machines.' },
     ],
     seo: { title: `Automatic washing machine repair in Dammam | ${name}`, description: 'Automatic washing machine repair in Dammam. Send a photo of the fault or the error code on WhatsApp.' },
-    h1: 'Automatic washing machine repair in Dammam',
+    h1: 'Automatic washer repair in Dammam',
     lead: 'We repair automatic washing machines. Send a photo of the fault or the error code on WhatsApp.',
   },
   {

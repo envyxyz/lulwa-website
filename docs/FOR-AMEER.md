@@ -50,3 +50,10 @@ Questions, verifications and access needed, gathered while Ameer sleeps. Nothing
 - **Logo wordmark:** only PNGs exist, so the website's is traced from one. Fine at header size. If you have a vector, it can replace the path in `src/components/Logo.astro`.
 - **Two copper dots in view:** the logo's pearl and the hero's pearl. I read the logo as exempt from the one-per-view rule. Tell me if you want a one-colour logo in the bar.
 - **Links:** Services, Faults, Reviews, Contact and the tile 404 until Phases 5 and 6 build those pages.
+
+## Phase 5 (2026-11-01)
+- **Technician review needed:** `docs/TECH-REVIEW.md` lists every claim on the 15 fault pages (AC not cooling, leaking, freezing, loud, not turning on; fridge not cooling, leaking, loud; washer not spinning, not draining, error code, shaking; dryer not heating, not drying well, not tumbling). All 15 are `noindex` and left out of the sitemap, so none is indexed yet. The `/faults` and `/services` hubs and the 4 service pages are in the sitemap. After the technician checks a page, add its slug to `reviewed` in `src/reviewed-faults.ts` and rebuild.
+- **Pages left out:** `/services/freezer-repair` is now `confirm` in `docs/url-map.csv` with a 301 to the fridge page, because PRODUCT.md says fridges, not freezers. The dishwasher, microwave, oven and water heater pages stay `confirm` as before. No page claims gas refilling for ACs.
+- **Product images still missing:** retried 1 Nov 2026 on fridge. agy returned 429 with about 3h44m left. Fridge, washer and dryer still use drawings. To finish: `python scripts/gen-products.py`, look at each, `node scripts/images.mjs`, `pnpm build`.
+- **Washer error-code page** gives no codes on purpose; codes differ by brand. Phase 6 brand pages need manufacturer-checked tables.
+- **Arabic additions for the native reader** are the fault pages in `src/content/ar.ts` (`faults.items`); they were written by the lead alone, not by agy.

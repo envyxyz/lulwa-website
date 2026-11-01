@@ -1,4 +1,4 @@
-// Home screenshots for a phase record: node scripts/phase-shots.mjs 3. Needs `pnpm build` first.
+// Screenshots for a phase record: node scripts/phase-shots.mjs 3 [/path ...] (default: home). Needs `pnpm build` first.
 import { spawn, spawnSync } from 'node:child_process';
 import { mkdirSync } from 'node:fs';
 import { chromium } from '@playwright/test';
@@ -14,7 +14,7 @@ try {
   }
   const browser = await chromium.launch({ channel: 'msedge' });
   for (const width of [1440, 390]) {
-    for (const [lang, path] of [['ar', '/'], ['en', '/en']]) {
+    for (const route of process.argv.length > 3 ? process.argv.slice(3) : ['/']) for (const [lang, path] of [['ar', route], ['en', route === '/' ? '/en' : `/en${route}`]]) {
       const page = await browser.newPage({ viewport: { width, height: width > 500 ? 900 : 844 } });
       await page.goto(`http://localhost:${port}${path}`, { waitUntil: 'networkidle' });
       await page.evaluate(() => document.fonts.ready);
@@ -25,7 +25,7 @@ try {
       }
       await page.evaluate(() => scrollTo(0, 0));
       await page.waitForTimeout(700);
-      await page.screenshot({ path: `${out}/home-${lang}-${width}.png`, fullPage: true });
+      await page.screenshot({ path: `${out}/${path === '/' || path === '/en' ? 'home' : path.replace(/^\/en/, '').slice(1).replace(/\//g, '-')}-${lang}-${width}.png`, fullPage: true });
       await page.close();
     }
   }

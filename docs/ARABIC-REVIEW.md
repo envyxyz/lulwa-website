@@ -23,3 +23,7 @@ agy reviewed these on 1 Nov 2026. Its suggestions are unverified and nothing was
 
 ## Phase 4: home bands and picker
 agy reviewed this copy once. Taken: القطعة المتوقعة, حي آخر في الدمام, الدينمو (agy says it is the common Saudi word for an appliance motor; confirm). Rejected: أرسلها (العطل is masculine), بدون تعديل (the photos are retouched). Please read: المساعدات for washer shock absorbers, ما تدور for a dryer drum, من مواقع الشغل, قبل ما تتواصل.
+
+## Phase 5 additions
+- All 15 `faults.items` in `src/content/ar.ts`. Check the Gulf phrasing: `وش أسوي`, `ما يبرّد`, `ما تعصر`, `مجرى التصريف`, `المساعدات` (shock absorbers), `الوبر` (lint), `السير` (belt), `الجلدة` (door seal).
+- `ليش` in question headings against `لماذا`: kept as spoken Saudi.
