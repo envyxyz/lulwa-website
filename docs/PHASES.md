@@ -8,6 +8,14 @@ Each phase appends a dated entry: what shipped, what is left, decisions made.
 
 ## Log
 
+### 2026-11-01 · Phase 2: Content and truth
+- Shipped: `src/content/types.ts` with all 11 page groups (home, services, faults, areas, brands, about, contact, reviews, work, legal, blog); full `ar.ts` and `en.ts`. T6 and T21 green (15 tests), typecheck clean, build clean.
+- Written by the lead alone, no agy or agents: the copy is short and almost all of it is gated by PRODUCT.md, so verifying agy output would have cost more than writing it. Plain-English twin written from the Arabic meaning, not literally.
+- Truth rules applied: four services only (AC split and window, fridges with gas refilling, automatic washers, dryers), Dammam only, no price, time, years, warranty, certification, home visit or "same day". `home.hero.homeVisitLine` is empty in both languages as the placeholder. Brand pages say only that the shop is independent and invite a unit-label photo. Blog posts rewritten as short generic how-tos on the old slugs.
+- Reviews: 5 of 8 copied exactly from the signed-out Google Maps listing; the rest need a signed-in look. `Content.status` stays, now only `'final'`, because T6 reads it.
+- Decided: client questions are one forwardable message in `docs/FOR-AMEER.md`; the PRD stays the source. Unsure Arabic in `docs/ARABIC-REVIEW.md`.
+- Left: faults items (Phase 5), area pages beyond Dammam (Phase 6, needs coverage), photo captions for `work` (Phase 4), chrome copy beyond the skip link (Phase 3), the 3 missing reviews. Impl-validator and ponytail-review passes not run: no agents, small diff.
+
 ### 2026-11-01 · Phase 1: Test contract and foundation
 - Shipped: Astro 7 static scaffold (TypeScript strictest, Tailwind v4, ar at root, en at `/en`), tokens, self-hosted fonts, Base layout, Container, Section, Heading, Text, Button, Icon, Img, `src/site.ts`, content types with ar and en stubs, dev-only kitchen sink, lint rules with `scripts/prove-lint.mjs`, all 22 contract tests, `test:contract`. Screens in `docs/shots/phase-1/`.
 - State: T19 green. Typecheck clean. T1 to T17, T20 to T22 run and are red (`--fast` run, one fix since). T18 red: a missing page fails with a 404 load error.

@@ -33,6 +33,8 @@ Source: `../growth/Notes/Project Brief.md` and the live Google listing, 1 Nov 20
 - Hours: 8:00 AM to 11:00 PM, every day.
 - Repairs confirmed: window and split ACs, fridges including gas refilling, automatic washing machines, dryers.
 - Google listing, 1 Nov 2026: 5.0 from 8 reviews.
+- Reviews read signed out on Google Maps, 1 Nov 2026, 5 of 8 visible: Jafar Sapra, Shahbaz Ahmad, Sohail Jamil, Usama Ch, Asad Amjad, copied in `src/content/` exactly with Google's relative dates.
+- Home page and service copy may say the shop is registered, is in Al-Jalawiyah, takes photos and video on WhatsApp, and repairs split and window ACs, fridges with gas refilling, automatic washers and dryers (1 Nov 2026).
 - Analytics already in use: GA4 `G-XYKP3DY4X7`, GTM `GTM-TVK4BRTS`, Clarity `yf0k43euob`. Ownership unconfirmed.
 
 ## Not confirmed: never publish until a dated line appears above
