@@ -91,3 +91,29 @@ Ameer's own direction, and it wins over the contract, blueprints and mock above 
 - Generate clean product images on pure white with agy: split AC indoor unit, window AC, outdoor unit, fridge, washing machine, dryer, compressor. No logos or brand names, same angle and lighting, about 14 per quota window, so spend them on these. Keep the raw files in `design/generated/`, export AVIF and WebP, list each in the photo provenance as AI-generated.
 - They are product illustrations, never shown as our jobs or customers. Real work stays real photos, captioned, at honest sizes.
 - The hero uses type and one product tile, not a generated scene of a technician. If quota is out, use the line drawings and record it in FOR-AMEER.md.
+
+## Ameer's feedback, Phase 8.5, 1 Nov 2026
+
+Ameer has seen the home page. This wins over everything above, including the Reference update and the type table in `DESIGN.md`.
+
+**Type: no huge text.** Remove the giant لولوه / LULWA from the hero and the giant name from the footer. Ameer dislikes both. Bring the whole scale down: confident but ordinary marketing-site sizes, with no statement-size display type anywhere. Hero h1 about 2.25 to 3.5rem on desktop scale, section heads smaller, phones comfortable at two lines. The hero carries a good headline, supporting line, buttons and the product tile. Update tokens, not page by page. Keep the rounded bento rhythm, and rebalance spacing so bands don't look empty after the type shrinks.
+
+**Feedback and motion everywhere.** Every interactive element responds smoothly:
+- Buttons, links, cards, tiles: hover, press (slight scale or tone), focus. Arrows nudge on hover. Cards lift through tone, not shadow.
+- Fault picker: selection transitions, the pearl glides to the part, the WhatsApp button updates with visible feedback.
+- Menu, FAQ and any open/close: animated height and fade, using `<details>` and CSS where possible.
+- Service row: scroll snap, smooth arrows, visible edge states.
+- Sections reveal gently on scroll with CSS `animation-timeline: view()` where supported, always visible by default. Nothing is hidden if the animation doesn't run.
+- Smooth page changes with cross-document CSS `@view-transition`, no JS router.
+- Use `apple-design` for timing: short, interruptible, ease-out. Duration tokens only. Everything respects `prefers-reduced-motion`.
+
+**Loading and state.**
+- Images: tone-step skeleton behind each until it loads, then a fade-in, with no layout shift.
+- Tap-to-load map: skeleton with a loading state until the iframe is ready.
+- Lead form: inline validation as people leave a field, submit button with spinner and disabled state, clear success and error states, and the WhatsApp fallback. Never lose what they typed.
+- Picker: empty, selected and complete states. Copy and call actions confirm where relevant.
+- Styled 404 and clear empty states. No skeleton for content that is already in the static HTML; that would only slow it down.
+
+**Dark and light mode, following the device.** See rule 14 in `CLAUDE.md`. Dark ground from Ink with step tones, teal lifted until it passes AA, white logo variant, copper still the only copper. Product images on white stay in their own white rounded tile. Job photos may dim slightly. Screens at 1440 and 390, in Arabic and English, in both themes. Update any test that assumes light only, and extend contrast and axe checks to dark. Do not weaken a test otherwise.
+
+**Limits stay:** JS and page budgets, Lighthouse 95+, no shadows at rest unless a card truly needs one on dark, no invented claims. Prefer CSS. Add a dependency only if the platform can't do it.

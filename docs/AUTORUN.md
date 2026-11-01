@@ -25,11 +25,11 @@ Read the "Reference update" section at the end of docs/DESIGN-DIRECTION.md. It r
 - Limits will run out mid-phase. Commit and push working checkpoints often (`phase N wip: ...`), so a resumed chat loses nothing. This replaces the one-commit-per-phase rule. Keep `docs/PHASES.md` current.
 - On resume: read this file, `docs/PHASES.md`, `git log -15`, then continue from what exists. Do not redo work.
 - Check limits with get_usage before spawning agents. Above 85% of the 5-hour window, do small work yourself and start no new agents.
-- Save limits: agy for bulk, Sonnet for builders, at most two builders at a time, no agent for what five tool calls can do.
+- Speed: Ameer asked for multi-agent work. Split each phase into independent file sets and run Sonnet builders in parallel worktrees, up to three, with agy for bulk. Merge and review them as lead. The 85% rule above still applies. Don't spawn an agent for what five tool calls can do.
 
 ## Finishing a phase
 Finish means: its tests are green (or the reason they cannot be is in FOR-AMEER.md), a dated entry `### YYYY-MM-DD · Phase N: title` is in `docs/PHASES.md`, and the final commit `phase N: title` is pushed. Do not start the next phase yourself. The parent chat or the hourly watchdog does.
 
-Order, one at a time: 1, 2, 3, 4, 5, 6, 7, 8, 9. Titles: `#web-phase-N - short name`.
+Order, one at a time: 1, 2, 3, 4, 5, 6, 7, 8, 8.5, 9. Titles: `#web-phase-N - short name`. Phase 8.5 is defined by "Ameer's feedback" at the end of docs/DESIGN-DIRECTION.md.
 
 The prompts' opening `/caveman` is optional. Keep ponytail on.

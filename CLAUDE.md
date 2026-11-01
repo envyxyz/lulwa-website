@@ -45,7 +45,7 @@ Check current docs with context7 before using any library API. No dependency for
 11. **JavaScript budget:** content pages ship 0 KB of our own JS except the fault picker island and the mobile menu, under 6 KB gzip together. Analytics load after first interaction.
 12. **Performance budget:** Lighthouse mobile 95+ in all four categories on every route in both languages, LCP under 2.0 s, TBT under 100 ms, CLS under 0.05, page weight under 250 KB on first load excluding analytics, fonts under 110 KB.
 13. **Accessibility:** WCAG 2.2 AA, 44 px targets, visible focus, keyboard complete, `prefers-reduced-motion` respected.
-14. **Light theme only,** `color-scheme: light`. No dark mode. Ponytail: add when a customer asks.
+14. **Light and dark themes follow the device** through `prefers-color-scheme`, with no toggle. `color-scheme: light dark`. Every colour token has both values, and both themes meet AA. The site must not flash the wrong theme on load.
 15. **Images:** job photos are real, shown no larger than their source allows (the WhatsApp set is 287 to 680 px wide). Generated unbranded product images on white are allowed as product illustrations, listed in the provenance file, never shown as our jobs. AVIF and WebP with `srcset`, explicit `width` and `height`, lazy below the fold. AI mockups of the shop, uniforms or vehicles never ship.
 16. **SEO:** every route has title, description, self canonical, reciprocal hreflang (`ar-SA`, `en-SA`, `x-default` to Arabic), OG, JSON-LD. Legal name and CR number in every footer.
 17. **Security:** secrets only in the Worker and `.env.local`. Validate with Zod at the Worker. Headers in `public/_headers`. PDPL: consent line and privacy link at every form, no personal data in URLs or analytics events.
