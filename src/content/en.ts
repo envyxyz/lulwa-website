@@ -90,7 +90,8 @@ const policyDate = '1 November 2026';
 export const en: Content = {
   status: 'final',
   meta: { title: name, description: `${name}, in Al-Jalawiyah, Dammam. Repair of air conditioners, fridges, automatic washing machines and dryers.` },
-  chrome: { skipLink: 'Skip to content', homeLabel: `${name}, home`, navLabel: 'Main menu', menu: 'Menu', language: 'العربية', nav: { services: 'Services', faults: 'Faults', reviews: 'Reviews', contact: 'Contact' }, word: site.brand.latin.toUpperCase() },
+  chrome: { skipLink: 'Skip to content', homeLabel: `${name}, home`, navLabel: 'Main menu', menu: 'Menu', language: 'العربية', nav: { services: 'Services', faults: 'Faults', reviews: 'Reviews', work: 'Work', contact: 'Contact' }, word: site.brand.latin.toUpperCase() },
+  footer: { line: 'Air conditioner, fridge, washing machine and dryer repair in Al-Jalawiyah, Dammam.', services: 'Services', company: 'Company', hours: 'Hours and area' },
   actions: { whatsapp: 'WhatsApp us', call: 'Call us', directions: 'Directions', allServices: 'All services' },
   icons: { next: 'Next' },
   home: {

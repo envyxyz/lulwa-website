@@ -16,6 +16,23 @@ for (const img of document.images) {
   }
 }
 
+// Header: hides on scroll down, returns on scroll up. Shown at the top, with the menu open or keyboard focus inside.
+const bar = document.querySelector<HTMLElement>('[data-bar]');
+if (bar) {
+  let last = 0;
+  let queued = false;
+  const update = () => {
+    queued = false;
+    const y = Math.max(0, scrollY);
+    const dy = y - last;
+    if (Math.abs(dy) < 8 && y > 80) return;
+    bar.toggleAttribute('data-floating', y > 8);
+    bar.toggleAttribute('data-hidden', y > 80 && dy > 0 && !bar.matches(':has(:focus-visible, :popover-open)'));
+    last = y;
+  };
+  addEventListener('scroll', () => queued || ((queued = true), requestAnimationFrame(update)), { passive: true });
+}
+
 // Smooth scroll and reveals load on the first touch too, and not at all under reduced motion.
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const types = ['pointermove', 'pointerdown', 'wheel', 'keydown', 'scroll'];
