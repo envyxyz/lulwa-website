@@ -1,6 +1,6 @@
 import { defineConfig } from '@playwright/test';
 
-// Runs against the built site: `pnpm build` first. Phase 8 points this at wrangler for T2.
+// Runs against the built site: `pnpm build` first. Served by wrangler so _redirects and the Worker's 410s are real.
 export default defineConfig({
   testDir: 'tests',
   fullyParallel: true,
@@ -9,5 +9,5 @@ export default defineConfig({
   updateSnapshots: 'none',
   expect: { toHaveScreenshot: { maxDiffPixelRatio: 0.01 } },
   use: { baseURL: 'http://localhost:4321', channel: 'msedge', actionTimeout: 5_000 },
-  webServer: { command: 'pnpm exec astro preview --port 4321', url: 'http://localhost:4321', reuseExistingServer: true },
+  webServer: { command: 'pnpm exec wrangler dev --port 4321', url: 'http://localhost:4321', reuseExistingServer: true },
 });

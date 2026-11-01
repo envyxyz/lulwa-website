@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
 import Home from '../../components/Home.astro';
 import { en } from '../../content/en';
+import { faqPage } from '../../seo';
 ---
 
-<Base title={en.home.seo.title} description={en.home.seo.description}><Hero /><Home /></Base>
+<Base title={en.home.seo.title} description={en.home.seo.description} ld={[faqPage(en.home.faq.items)]}><Hero /><Home /></Base>

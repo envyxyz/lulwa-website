@@ -6,6 +6,7 @@ import Text from './Text.astro';
 import { art } from './appliance-art';
 import Base from '../layouts/Base.astro';
 import { content, langFromUrl, localePath } from '../content';
+import { faqPage, service } from '../seo';
 
 type Props = { slug: string };
 const lang = langFromUrl(Astro.url);
@@ -16,7 +17,7 @@ const drawing = art[related[0]?.art ?? 'split-ac']!;
 const list = 'flex flex-col gap-2 ps-card list-disc marker:text-teal';
 ---
 
-<Base title={s.seo.title} description={s.seo.description}>
+<Base title={s.seo.title} description={s.seo.description} ld={[service(s.name, s.seo.description), faqPage(s.faq)]}>
   <Section>
     <div class="grid gap-8 lg:grid-cols-12">
       <div class="flex flex-col items-start gap-4 lg:col-span-7">

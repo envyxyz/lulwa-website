@@ -4,6 +4,6 @@
   "main": "worker/index.ts",
   "compatibility_date": "2026-10-01",
   // dist/ is the static site. Only /api/* wakes the Worker; everything else is served as a file.
-  "assets": { "directory": "./dist", "binding": "ASSETS", "run_worker_first": ["/api/*"], "not_found_handling": "404-page" }
+  "assets": { "directory": "./dist", "binding": "ASSETS", "run_worker_first": ["/api/*","/areas/appliance-repair-in-abqaiq","/areas/appliance-repair-in-al-ahsa","/areas/appliance-repair-in-al-awamiyah","/areas/appliance-repair-in-al-jish","/areas/appliance-repair-in-al-khobar","/areas/appliance-repair-in-al-mallaha","/areas/appliance-repair-in-al-mubarraz","/areas/appliance-repair-in-al-qudaih","/areas/appliance-repair-in-al-rabwah","/areas/appliance-repair-in-darin","/areas/appliance-repair-in-dhahran","/areas/appliance-repair-in-hofuf","/areas/appliance-repair-in-jubail","/areas/appliance-repair-in-qatif","/areas/appliance-repair-in-ras-tanura","/areas/appliance-repair-in-safwa","/areas/appliance-repair-in-saihat","/areas/appliance-repair-in-sanabes","/areas/appliance-repair-in-tarout","/areas/appliance-repair-in-umm-as-sahik"], "not_found_handling": "404-page" }
   // Secrets, never in this file: LEADS_WEBHOOK_URL, LEADS_WEBHOOK_SECRET (integrations/README.md). Local values: .dev.vars
 }
