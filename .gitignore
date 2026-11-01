@@ -10,3 +10,4 @@ playwright-report
 .taste-skill
 .dev.vars
 !.dev.vars.example
+.claude/worktrees

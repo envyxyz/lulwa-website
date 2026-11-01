@@ -42,7 +42,7 @@ Check current docs with context7 before using any library API. No dependency for
 8. **Phone** is written `056 802 2197`, dialled `tel:+966568022197`, WhatsApp `https://wa.me/966568022197`, from `site.ts` only. Wrap Latin and digits in Arabic text in `<bdi>`.
 9. **Never invent claims.** Years, counts, percentages, prices, warranty terms, response times, "certified", "original parts", "24 hours", "same day", ratings. Each needs a dated line in `PRODUCT.md` first. `tests/claims.spec.ts` fails the build if one appears.
 10. **Reviews are real or absent.** Copied from the Google listing with date and name as shown. No `AggregateRating` markup.
-11. **JavaScript budget:** content pages ship 0 KB of our own JS except the fault picker island and the mobile menu, under 6 KB gzip together. Analytics load after first interaction.
+11. **JavaScript budget:** content pages ship 0 KB of our own JS except the fault picker island and the mobile menu, under 6 KB gzip together. Analytics load after first interaction. So do Lenis and Motion (`src/scripts/motion.ts`), Ameer's request of 1 Nov 2026, outside the 6 KB because they arrive after first load and never under reduced motion.
 12. **Performance budget:** Lighthouse mobile 95+ in all four categories on every route in both languages, LCP under 2.0 s, TBT under 100 ms, CLS under 0.05, page weight under 250 KB on first load excluding analytics, fonts under 110 KB.
 13. **Accessibility:** WCAG 2.2 AA, 44 px targets, visible focus, keyboard complete, `prefers-reduced-motion` respected.
 14. **Light and dark themes follow the device** through `prefers-color-scheme`, with no toggle. `color-scheme: light dark`. Every colour token has both values, and both themes meet AA. The site must not flash the wrong theme on load.

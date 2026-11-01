@@ -86,7 +86,6 @@
   --duration-open: 260ms; /* menu, FAQ, anything that opens */
   --duration-fade: 320ms; /* images arriving, page changes */
   --nudge: 0.25rem; /* arrows on hover */
-  --reveal-range: 8rem; /* how far a section enters before it is fully shown */
   --stagger: 70ms;
   --rise: 1.25rem;
   --focus-width: 3px;

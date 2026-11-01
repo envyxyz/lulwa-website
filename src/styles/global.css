@@ -106,18 +106,13 @@
   }
 }
 
-@supports (animation-timeline: view()) {
-  main > * {
-    animation: reveal linear both;
-    animation-timeline: view();
-    animation-range: entry 0 entry var(--reveal-range);
-  }
-  @keyframes reveal {
-    from {
-      opacity: 0;
-      translate: 0 var(--rise);
-    }
-  }
+/* Lenis, from its lenis.css. Reveals and the scroll speed cap live in src/scripts/motion.ts. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 details::details-content {

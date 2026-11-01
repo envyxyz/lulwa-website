@@ -16,6 +16,16 @@ for (const img of document.images) {
   }
 }
 
+// Smooth scroll and reveals load on the first touch too, and not at all under reduced motion.
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const types = ['pointermove', 'pointerdown', 'wheel', 'keydown', 'scroll'];
+  const load = () => {
+    for (const type of types) removeEventListener(type, load);
+    void import('./motion');
+  };
+  for (const type of types) addEventListener(type, load, { passive: true });
+}
+
 // GTM loads on the first touch, key or scroll, never before.
 const gtm = document.documentElement.dataset.gtm;
 if (gtm) {
