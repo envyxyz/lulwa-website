@@ -1,0 +1,39 @@
+---
+import Button from './Button.astro';
+import Icon from './Icon.astro';
+import Stars from './Stars.astro';
+import Text from './Text.astro';
+import { site } from '../site';
+import { content, langFromUrl } from '../content';
+
+// The rating summary beside the real Google reviews, word for word. Used on the home page and /reviews.
+// No per-card stars and no markup that claims a rating (rule 10): the summary says what the listing says.
+const c = content[langFromUrl(Astro.url)];
+const { reviews, home } = c;
+---
+
+<div class="grid gap-4 lg:grid-cols-12">
+  <div class="flex flex-col items-start gap-4 rounded-card bg-pearl-step p-card lg:col-span-3 lg:self-start">
+    <p class="font-display text-head font-head"><bdi>{reviews.score}</bdi></p>
+    <Stars label={reviews.starsLabel} class="size-6" />
+    <div class="flex flex-col">
+      <Text>{reviews.count}</Text>
+      <Text size="small" soft>{reviews.asOf}</Text>
+    </div>
+    <Button variant="quiet" href={site.maps.listing}>{home.reviews.link}</Button>
+  </div>
+  <ul class="grid gap-4 sm:grid-cols-2 lg:col-span-9 xl:grid-cols-3">
+    {reviews.items.map((r) => (
+      <li dir="ltr" class="flex flex-col justify-between gap-6 rounded-card bg-pearl-step p-card">
+        <blockquote lang="en" dir="ltr" class="text-start font-display text-lead font-head">{r.text}</blockquote>
+        <p class="flex flex-col"><bdi lang="en" class="font-medium">{r.name}</bdi><span class="text-small text-ink-soft">{r.when}</span></p>
+      </li>
+    ))}
+    <li class="flex">
+      <a href={site.maps.listing} data-tone="teal" class="flex min-h-target grow items-end justify-between gap-4 rounded-card bg-teal p-card font-display text-lead font-head text-pearl transition hover:bg-teal-active active:scale-98">
+        {home.reviews.link}
+        <Icon name="arrow-next" />
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,19 +1,26 @@
 ---
-import Icon from './Icon.astro';
+import { Plus } from 'lucide-static';
+import { site } from '../site';
 
-// Question and answer in the static HTML. Opening animates through global.css (details::details-content).
+// Question and answer in the static HTML. One open at a time (details name), the first open on load.
+// Opening animates through global.css (details::details-content).
+// The phone number reads left to right inside Arabic text (rule 8); the Arabic legal name keeps its own direction in English.
 type Props = { items: { q: string; a: string }[] };
 const { items } = Astro.props;
+const plus = Plus.replace(/stroke-width="[^"]*"/, 'stroke-width="1.75"');
+const bdi = (t: string) => t.replaceAll(site.phone.display, `<bdi dir="ltr">${site.phone.display}</bdi>`).replaceAll(site.legal.name, `<bdi lang="ar" dir="rtl">${site.legal.name}</bdi>`);
 ---
 
-<div class="flex flex-col gap-2">
-  {items.map((item) => (
-    <details class="group rounded-card bg-pearl-step transition hover:bg-pearl-hover">
-      <summary class="flex min-h-target cursor-pointer list-none items-center justify-between gap-4 p-card py-3 font-display text-lead font-head [&::-webkit-details-marker]:hidden">
+<div class="flex flex-col gap-4">
+  {items.map((item, i) => (
+    <details name="faq" open={i === 0} class="group rounded-card bg-pearl-step transition hover:bg-pearl-hover">
+      <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 rounded-card px-card py-4 font-display text-lead font-head [&::-webkit-details-marker]:hidden">
         {item.q}
-        <span class="inline-flex shrink-0 text-teal transition-transform group-open:rotate-90 rtl:group-open:-rotate-90"><Icon name="chevron-next" /></span>
+        <span class="inline-flex size-target shrink-0 items-center justify-center rounded-dot bg-pearl text-teal transition group-open:bg-teal group-open:text-pearl">
+          <span aria-hidden="true" class="inline-block size-icon transition-transform group-open:rotate-45 *:size-full" set:html={plus} />
+        </span>
       </summary>
-      <p class="px-card pb-card text-ink-soft"><bdi>{item.a}</bdi></p>
+      <p class="max-w-text px-card pb-card text-body text-ink-soft"><Fragment set:html={bdi(item.a)} /></p>
     </details>
   ))}
 </div>

@@ -96,7 +96,7 @@ export type Content = {
     reviews: { heading: string; quiet: string; link: string };
     work: { heading: string; quiet: string; lead: string; statement: string; items: { photo: string; caption: string }[] };
     shop: { heading: string; addressLabel: string; address: string; hoursLabel: string; hours: string; hoursRange: string; today: string; days: string[]; mapLoad: string; mapLoading: string; legalLabel: string; crLabel: string };
-    faq: { heading: string; quiet: string; items: Faq[] };
+    faq: { heading: string; quiet: string; lead: string; cta: string; items: Faq[] };
     close: { heading: string; text: string };
   };
   services: Intro & {
@@ -131,7 +131,7 @@ export type Content = {
     hoursLabel: string;
     addressLabel: string;
   };
-  reviews: Intro & { rating: string; asOf: string; source: string; sourceLink: string; items: Review[] };
+  reviews: Intro & { score: string; count: string; starsLabel: string; asOf: string; items: Review[] };
   work: Intro & { empty: string };
   legal: { privacy: Policy; terms: Policy; cookies: Policy };
   blog: Intro & { updated: string; items: Post[] };

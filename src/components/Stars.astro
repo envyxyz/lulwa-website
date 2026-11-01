@@ -1,0 +1,12 @@
+---
+import { Star } from 'lucide-static';
+
+// Five filled stars in teal. Every review on the listing is five stars (5.0 from 8), so the count is fixed.
+type Props = { label: string; class?: string };
+const { label, class: size = 'size-4' } = Astro.props;
+const star = Star.replace('fill="none"', 'fill="currentColor"').replace(/stroke-width="[^"]*"/, 'stroke-width="1.5"');
+---
+
+<span role="img" aria-label={label} class="inline-flex gap-0.5 text-teal">
+  {[0, 1, 2, 3, 4].map(() => <span aria-hidden="true" class:list={['inline-block *:size-full', size]} set:html={star} />)}
+</span>
