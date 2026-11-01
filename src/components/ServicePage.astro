@@ -1,5 +1,6 @@
 ---
 import Button from './Button.astro';
+import Faq from './Faq.astro';
 import Heading from './Heading.astro';
 import Img from './Img.astro';
 import Section from './Section.astro';
@@ -59,14 +60,14 @@ const photos = jobPhotos.map((name) => home.work.items.find((w) => w.photo === n
     <Section>
       <div class="flex flex-col gap-4">
         <Heading>{services.labels.faults}</Heading>
-        <ul class="flex flex-wrap gap-3">{related.map((f) => <li><a href={localePath(lang, `/faults/${f.slug}`)} class="inline-flex min-h-target items-center rounded-button bg-pearl-step px-card font-medium">{f.name}</a></li>)}</ul>
+        <ul class="flex flex-wrap gap-3">{related.map((f) => <li><a href={localePath(lang, `/faults/${f.slug}`)} class="inline-flex min-h-target items-center rounded-button bg-pearl-step px-card font-medium transition hover:bg-pearl-hover active:scale-98">{f.name}</a></li>)}</ul>
       </div>
     </Section>
   )}
   <Section>
     <div class="flex flex-col gap-4">
       <Heading>{services.labels.faq}</Heading>
-      <dl class="flex flex-col gap-4">{s.faq.map((q) => <div class="grid gap-2 md:grid-cols-2 md:gap-8"><dt class="font-display text-lead font-head">{q.q}</dt><dd class="text-ink-soft">{q.a}</dd></div>)}</dl>
+      <Faq items={s.faq} />
     </div>
   </Section>
 </Base>

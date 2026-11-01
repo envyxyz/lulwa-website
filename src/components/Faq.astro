@@ -1,0 +1,19 @@
+---
+import Icon from './Icon.astro';
+
+// Question and answer in the static HTML. Opening animates through global.css (details::details-content).
+type Props = { items: { q: string; a: string }[] };
+const { items } = Astro.props;
+---
+
+<div class="flex flex-col gap-2">
+  {items.map((item) => (
+    <details class="group rounded-card bg-pearl-step transition hover:bg-pearl-hover">
+      <summary class="flex min-h-target cursor-pointer list-none items-center justify-between gap-4 p-card py-3 font-display text-lead font-head [&::-webkit-details-marker]:hidden">
+        {item.q}
+        <span class="inline-flex shrink-0 text-teal transition-transform group-open:rotate-90 rtl:group-open:-rotate-90"><Icon name="chevron-next" /></span>
+      </summary>
+      <p class="px-card pb-card text-ink-soft"><bdi>{item.a}</bdi></p>
+    </details>
+  ))}
+</div>

@@ -1,5 +1,6 @@
 ---
 import Button from './Button.astro';
+import Faq from './Faq.astro';
 import Heading from './Heading.astro';
 import Icon from './Icon.astro';
 import Img from './Img.astro';
@@ -22,6 +23,7 @@ const cardArt: Record<string, { image: string; drawing: string }> = {
   'washing-machine-repair': { image: 'washer', drawing: 'washer' },
   'dryer-repair': { image: 'dryer', drawing: 'dryer' },
 };
+const step = 'inline-flex size-target items-center justify-center rounded-button bg-pearl-step text-teal transition hover:bg-pearl-hover active:scale-98 disabled:opacity-40 disabled:hover:bg-pearl-step disabled:active:scale-100';
 const hasImage = (name: string) => name in provenance;
 
 // Emoji reviews wait for the call in docs/FOR-AMEER.md. Text is never edited, so they are left off the home page.
@@ -50,7 +52,11 @@ const wall = [
     <Text>{repair.lead}</Text>
     <Heading>{repair.heading}<Fragment slot="quiet">{repair.quiet}</Fragment></Heading>
   </div>
-  <div class="mx-auto mt-8 flex max-w-page snap-x gap-4 overflow-x-auto px-gutter pb-2">
+  <div class="mx-auto mt-4 hidden max-w-page justify-end gap-2 px-gutter md:flex">
+    <button type="button" data-step="-1" disabled aria-label={repair.prev} class={step}><span class="-scale-x-100"><Icon name="arrow-next" /></span></button>
+    <button type="button" data-step="1" aria-label={repair.next} class={step}><Icon name="arrow-next" /></button>
+  </div>
+  <div data-row class="mx-auto mt-4 flex max-w-page snap-x snap-mandatory gap-4 overflow-x-auto px-gutter pb-2">
     <div class="flex w-tile shrink-0 snap-start flex-col justify-between gap-8 rounded-card bg-teal p-4 text-pearl" data-tone="teal">
       <p class="font-display text-head font-head">{repair.callLabel}</p>
       <Button variant="call" light><bdi dir="ltr" class="whitespace-nowrap">{site.phone.display}</bdi></Button>
@@ -58,7 +64,7 @@ const wall = [
     {services.items.map((s) => {
       const a = cardArt[s.slug]!;
       return (
-        <a href={localePath(lang, `/services/${s.slug}`)} class="flex w-tile shrink-0 snap-start flex-col gap-2 rounded-card bg-pearl-step p-4 transition active:scale-98">
+        <a href={localePath(lang, `/services/${s.slug}`)} class="flex w-tile shrink-0 snap-start flex-col gap-2 rounded-card bg-pearl-step p-4 transition hover:bg-pearl-hover active:scale-98">
           <span class="font-display text-lead font-head">{s.name}</span>
           <span class="grow text-small text-ink-soft">{s.summary}</span>
           <span class="mt-2 block rounded-card bg-white p-2">
@@ -74,7 +80,7 @@ const wall = [
 </section>
 
 <div class="px-gutter pt-section">
-  <p class="mx-auto max-w-page rounded-panel bg-pearl-step p-card py-section text-center font-display text-panel font-head">
+  <p class="mx-auto max-w-page rounded-panel bg-pearl-step p-card text-center font-display text-panel font-head">
     {statement.start} <span class="text-teal">{statement.quiet}</span>
   </p>
 </div>
@@ -103,7 +109,7 @@ const wall = [
       </div>
     </div>
     <figure class="flex flex-col gap-4 md:col-span-9">
-      <blockquote lang="en" dir="ltr" class="text-start font-display text-statement font-statement tracking-statement"><bdi>{quote.text}</bdi></blockquote>
+      <blockquote lang="en" dir="ltr" class="text-start font-display text-panel font-head"><bdi>{quote.text}</bdi></blockquote>
       <figcaption class="text-small"><bdi lang="en">{quote.name}</bdi> · {quote.when}</figcaption>
     </figure>
     <ul class="flex flex-col gap-4 md:col-span-3 md:justify-end">
@@ -155,7 +161,7 @@ const wall = [
         ))}
       </tbody>
     </table>
-    <a href={site.maps.listing} data-map={site.maps.embed} class="flex min-h-section items-center justify-center gap-2 rounded-card bg-white font-medium text-teal md:col-span-2">
+    <a href={site.maps.listing} data-map={site.maps.embed} data-loading={shop.mapLoading} class="flex min-h-section items-center justify-center gap-2 rounded-card bg-pearl font-medium text-teal transition hover:bg-pearl-hover md:col-span-2">
       <Icon name="map-pin" />{shop.mapLoad}
     </a>
   </div>
@@ -164,14 +170,7 @@ const wall = [
 <Section>
   <div class="grid gap-8 md:grid-cols-12">
     <div class="md:col-span-12"><Heading>{faq.heading}<Fragment slot="quiet">{faq.quiet}</Fragment></Heading></div>
-    <dl class="flex flex-col gap-8 md:col-span-12">
-      {faq.items.map((item) => (
-        <div class="grid gap-2 md:grid-cols-2 md:gap-8">
-          <dt class="font-display text-lead font-head">{item.q}</dt>
-          <dd class="text-ink-soft"><bdi>{item.a}</bdi></dd>
-        </div>
-      ))}
-    </dl>
+    <div class="md:col-span-12"><Faq items={faq.items} /></div>
   </div>
 </Section>
 
@@ -198,11 +197,41 @@ const wall = [
   const map = document.querySelector<HTMLAnchorElement>('[data-map]')!;
   map.addEventListener('click', (event) => {
     event.preventDefault();
+    // Same box as the finished map, so nothing moves when it arrives.
+    const box = document.createElement('div');
+    box.className = 'relative aspect-video md:col-span-2';
+    const wait = document.createElement('div');
+    wait.className = 'skeleton absolute inset-0 flex items-center justify-center rounded-card font-medium text-teal';
+    wait.setAttribute('role', 'status');
+    wait.textContent = map.dataset.loading!;
     const frame = document.createElement('iframe');
-    frame.src = map.dataset.map!;
     frame.title = map.innerText;
-    frame.loading = 'lazy';
-    frame.className = 'aspect-video w-full rounded-card md:col-span-2';
-    map.replaceWith(frame);
+    frame.className = 'absolute inset-0 size-full rounded-card opacity-0 transition-opacity duration-(--duration-fade)';
+    frame.onload = () => {
+      frame.classList.remove('opacity-0');
+      wait.remove();
+    };
+    frame.src = map.dataset.map!;
+    box.append(wait, frame);
+    map.replaceWith(box);
   });
+
+  // Service row arrows: one card per press, the ends disable themselves. scrollLeft is negative in RTL.
+  const track = document.querySelector<HTMLElement>('[data-row]')!;
+  const steps = document.querySelectorAll<HTMLButtonElement>('[data-step]');
+  const edges = () => {
+    const x = Math.abs(track.scrollLeft);
+    steps[0]!.disabled = x < 1;
+    steps[1]!.disabled = x + track.clientWidth >= track.scrollWidth - 1;
+  };
+  steps.forEach((b) =>
+    b.addEventListener('click', () => {
+      const w = track.firstElementChild!.getBoundingClientRect().width;
+      const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const dir = getComputedStyle(track).direction === 'rtl' ? -1 : 1;
+      track.scrollBy({ left: Number(b.dataset.step) * dir * w, behavior: calm ? 'auto' : 'smooth' });
+    }),
+  );
+  track.addEventListener('scroll', edges, { passive: true });
+  edges();
 </script>
