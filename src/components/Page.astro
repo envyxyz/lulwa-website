@@ -36,17 +36,22 @@ const rows = [
   [home.shop.addressLabel, home.shop.address],
   [home.shop.hoursLabel, home.shop.hours],
 ];
+const long = kind === 'area' || kind === 'post' || kind === 'privacy' || kind === 'terms' || kind === 'cookies' || kind === 'notFound';
+const needsNext = !['notFound', 'contact', 'reviews', 'post'].includes(kind);
+// The phone number reads left to right inside Arabic text (rule 8).
+const bdi = (t: string) => t.replaceAll(site.phone.display, `<bdi dir="ltr">${site.phone.display}</bdi>`);
 const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card font-display text-lead font-head';
 ---
 
 <Base title={intro.seo.title} description={intro.seo.description} noindex={kind === 'thanks'}>
   <Section>
     <div class="flex flex-col items-start gap-4">
-      <Heading level={1} size="statement">{intro.h1}</Heading>
+      <Heading level={1} size={long ? 'head' : 'statement'}>{intro.h1}</Heading>
       <Text size="lead">{intro.lead}</Text>
       {(kind === 'notFound' || kind === 'thanks' || kind === 'area' || kind === 'contact' || kind === 'brands') && (
         <div class="flex flex-wrap gap-3"><Button variant="whatsapp">{actions.whatsapp}</Button><Button variant="call">{actions.call}</Button></div>
       )}
+      {needsNext && <Button variant="quiet" href={localePath(lang, '/services')}>{actions.allServices}</Button>}
       {kind === 'notFound' && <Button variant="quiet" href={localePath(lang, '/')}>{c.notFound.home}</Button>}
       {doc?.updated && <Text soft>{c.blog.updated}: {doc.updated}</Text>}
     </div>
@@ -55,7 +60,7 @@ const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
   {sections.length > 0 && (
     <Section>
       <div class="flex max-w-prose flex-col gap-8">
-        {sections.map((s) => <div class="flex flex-col gap-2"><Heading level={2}>{s.h}</Heading><Text>{s.body}</Text></div>)}
+        {sections.map((s) => <div class="flex flex-col gap-2"><Heading level={2}>{s.h}</Heading><Text><Fragment set:html={bdi(s.body)} /></Text></div>)}
       </div>
     </Section>
   )}

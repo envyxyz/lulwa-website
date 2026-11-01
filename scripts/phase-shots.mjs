@@ -30,6 +30,8 @@ try {
     }
   }
   await browser.close();
+} catch (e) {
+  console.error(e);
 } finally {
   // astro allows one preview per project, and killing the pnpm shell leaves it running.
   server.kill();

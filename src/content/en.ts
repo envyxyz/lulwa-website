@@ -319,7 +319,7 @@ export const en: Content = {
       {
         slug: 'ac-repair-in-dammam',
         seo: { title: `When does your AC need a technician? | ${name}`, description: 'Signs your AC needs a technician, and what you can check yourself.' },
-        h1: 'When does your AC need a technician?',
+        h1: 'AC trouble? Check first',
         lead: 'A quick check before you call.',
         updated: policyDate,
         sections: [
@@ -331,7 +331,7 @@ export const en: Content = {
       {
         slug: 'ac-repair-installation-maintenance-in-dammam-the-complete-guide',
         seo: { title: `Looking after your AC before summer | ${name}`, description: 'Simple steps for looking after an AC.' },
-        h1: 'Looking after your AC before summer',
+        h1: 'Get your AC ready for summer',
         lead: 'Simple steps that cut down faults.',
         updated: policyDate,
         sections: [
