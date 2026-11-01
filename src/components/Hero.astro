@@ -12,16 +12,13 @@ const ac = services.items[0]!;
 ---
 
 <section data-tone="teal" class="px-gutter">
-  <div class="@container relative flex flex-col overflow-clip rounded-panel text-pearl md:min-h-hero">
-    <div class="seam absolute inset-0 rounded-panel bg-teal"></div>
+  <div class="@container relative flex flex-col overflow-clip rounded-panel bg-teal text-pearl md:min-h-hero">
+    <div class="seam absolute inset-x-0 top-0 h-1/5 bg-pearl"></div>
     <p class="relative text-center font-display text-giant font-statement tracking-statement">{chrome.word}</p>
-    <div class="relative mt-auto flex flex-col gap-8 p-card md:flex-row md:items-end md:justify-between">
+    <div class="relative mt-auto flex flex-col gap-8 px-4 py-card md:flex-row md:px-card md:items-end md:justify-between">
       <div class="flex flex-col gap-4">
-        <!-- The visible support sentence is in the h1, so service and city are never hidden text. -->
-        <h1 class="font-display text-head font-head">
-          {hero.question}
-          <span data-support class="block font-body text-body font-medium">{hero.support}</span>
-        </h1>
+        <h1 class="font-display text-head font-head">{hero.question}<br />{hero.service}</h1>
+        <p>{hero.support}</p>
         <!-- homeVisitLine replaces the answer once the client confirms home visits. -->
         <p class="text-lead font-medium">{hero.homeVisitLine || hero.answer}<span class="ms-1 inline-block size-pearl rounded-dot bg-copper" aria-hidden="true"></span></p>
         <div class="flex flex-wrap gap-3 *:grow md:*:grow-0">
@@ -39,12 +36,14 @@ const ac = services.items[0]!;
 </section>
 
 <style>
+  /* A strip of page lifts off the top of the panel, so teal rises behind the visible text. At rest it is out of the panel. */
   .seam {
-    animation: seam var(--duration-rise) var(--ease-out) both;
+    transform: translateY(-100%);
+    animation: seam var(--duration-rise) var(--ease-out);
   }
   @keyframes seam {
     from {
-      transform: translateY(var(--seam-rise));
+      transform: none;
     }
   }
 </style>

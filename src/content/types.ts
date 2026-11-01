@@ -44,6 +44,8 @@ export type Content = {
     seo: Seo;
     hero: {
       question: string;
+      /** Second part of the h1: carries the city, in plain sight. */
+      service: string;
       answer: string;
       support: string;
       /** Empty until the client confirms home visits (docs/FOR-AMEER.md). Render nothing when empty. */

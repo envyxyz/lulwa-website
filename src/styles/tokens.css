@@ -84,7 +84,6 @@
   --duration-rise: 500ms;
   --stagger: 70ms;
   --rise: 1.25rem;
-  --seam-rise: 16%; /* how far below rest the teal field starts */
   --focus-width: 3px;
 }
 

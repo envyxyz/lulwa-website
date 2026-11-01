@@ -97,6 +97,7 @@ export const en: Content = {
     seo: { title: `AC, fridge and washing machine repair in Dammam | ${name}`, description: 'A registered repair shop in Al-Jalawiyah, Dammam: air conditioners, fridges, automatic washing machines and dryers. Photograph the fault and send it on WhatsApp.' },
     hero: {
       question: 'AC gave up?',
+      service: 'Dammam repair',
       answer: 'Photograph the fault and send it on WhatsApp',
       support: 'Air conditioner, fridge, washing machine and dryer repair in Dammam.',
       homeVisitLine: '',

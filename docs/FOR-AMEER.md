@@ -27,3 +27,12 @@ Questions, verifications and access needed, gathered while Ameer sleeps. Nothing
 - **Privacy, terms and cookie text** are Claude drafts, based on the design (form to Sheet and email, analytics after interaction). Check against what actually runs, ideally with someone legal. "We do not sell your data" and the Saudi-law line are mine.
 - **Blog:** the 3 old posts are replaced by short, generic how-to posts on the same slugs. The old posts were full of unsourced claims. Technician to confirm the advice (filter, drain hose, lint) is right.
 - Arabic doubts for the native reader: `docs/ARABIC-REVIEW.md`.
+
+## Phase 3 (2026-11-01)
+- **Hero OK?** `docs/shots/phase-3/`. It follows your reference: teal panel, giant لولوه / LULWA, one AC tile.
+- **Home-visit swap:** the hero says `صوّر العطل وأرسله واتساب` / `Photograph the fault and send it on WhatsApp`, which are confirmed facts. When the client confirms visits, add a dated line to `PRODUCT.md`, then set `home.hero.homeVisitLine` to `نجيك لحد بيتك` / `We come to you` in `src/content/ar.ts` and `en.ts`. It replaces the line with no code change. `home.hero.service` could then be reviewed too.
+- **Hero wording I added, please check:** `نصلحه في الدمام` and `Dammam repair`. The English is short only because it must fit two lines at 320 px, and it reads a little stiff.
+- **Generated image:** the AC in the tile is AI-generated and unbranded, recorded in `src/images/provenance.json`. It links to the AC service page and is never captioned as our work.
+- **Logo wordmark:** only PNGs exist, so the website's is traced from one. Fine at header size. If you have a vector, it can replace the path in `src/components/Logo.astro`.
+- **Two copper dots in view:** the logo's pearl and the hero's pearl. I read the logo as exempt from the one-per-view rule. Tell me if you want a one-colour logo in the bar.
+- **Links:** Services, Faults, Reviews, Contact and the tile 404 until Phases 5 and 6 build those pages.
