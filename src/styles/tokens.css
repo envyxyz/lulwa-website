@@ -56,7 +56,7 @@
   --radius-dot: 9999px; /* the copper pearl */
 
   --spacing-section: clamp(3rem, 6vw, 4.5rem);
-  --spacing-gutter: clamp(1rem, 3vw, 2rem);
+  --spacing-gutter: clamp(1.25rem, 4vw, 3.5rem);
   --spacing-card: clamp(1.5rem, 3vw, 2.25rem);
   --spacing-button: 3.25rem; /* 52 px on phones, 56 px from md */
   --spacing-button-md: 3.5rem;
@@ -74,6 +74,7 @@
   --container-text: 40rem;
 
   --shadow-*: initial;
+  --shadow-bar: 0 0.5rem 1.5rem -1rem rgb(11 31 42 / 0.3); /* the bar while it floats over content */
   --shadow-menu: 0 0.75rem 2rem -0.75rem rgb(11 31 42 / 0.35); /* open menu only */
 
   --ease-*: initial;
@@ -116,15 +117,17 @@
    Teal lifts until it passes AA, and carries ground-coloured text as a button. */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-pearl: #0b1f2a;
-    --color-pearl-step: #15303e;
-    --color-pearl-hover: #1d3e4e;
-    --color-teal: #5ec4cf;
-    --color-teal-active: #48aab5;
-    --color-teal-quiet: #86bcc4;
+    --color-pearl: #121415;
+    --color-pearl-step: #1a1d1f;
+    --color-pearl-hover: #24282a;
+    --color-teal: #47b6c2;
+    --color-teal-active: #349ea9;
+    --color-teal-quiet: #7daab0;
     --color-ink: #eef2ef;
-    --color-ink-soft: #a9bcc4;
-    --color-error: #ff9f8a;
+    --color-ink-step: #181b1c;
+    --color-ink-soft: #9fa9af;
+    --color-error: #ff8c77;
+    --shadow-bar: 0 0.5rem 1.5rem -1rem rgb(0 0 0 / 0.6);
   }
 
   /* Teal and ink fields, white tiles and WhatsApp buttons keep their light values: their own colours do not change. */
@@ -143,9 +146,17 @@
     --color-error: #b4442e;
   }
 
-  /* The ground is already Ink, so an ink band steps darker to stay a band. */
+  /* A teal field goes deep and quiet on a dark ground; pearl text passes AA on every step. */
+  [data-tone='teal'] {
+    --color-teal: #0b4a52;
+    --color-teal-active: #083c43;
+    --color-teal-step: #0a434a;
+    --color-teal-hover: #083a40;
+  }
+
+  /* The ground is already near-black, so an ink band steps darker to stay a band. */
   [data-tone='ink'] {
-    --color-ink: #06141c;
+    --color-ink: #0a0b0c;
   }
 
   /* A white tile sits on a dark ground, so it cannot inherit the ground's light text. */

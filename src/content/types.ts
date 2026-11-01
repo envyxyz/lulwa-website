@@ -46,10 +46,11 @@ export type Content = {
     menu: string;
     /** The other language's name, shown as the language link. */
     language: string;
-    nav: { services: string; faults: string; reviews: string; contact: string };
+    nav: { services: string; faults: string; reviews: string; work: string; contact: string };
     /** The giant name across the hero and the end of the footer. */
     word: string;
   };
+  footer: { line: string; services: string; company: string; hours: string };
   actions: { whatsapp: string; call: string; directions: string; allServices: string };
   icons: { next: string };
   home: {

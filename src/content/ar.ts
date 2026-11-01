@@ -90,7 +90,8 @@ const policyDate = '1 نوفمبر 2026';
 export const ar: Content = {
   status: 'final',
   meta: { title: name, description: `${name} في حي الجلوية بالدمام. صيانة المكيفات والثلاجات والغسالات الأوتوماتيك والنشافات.` },
-  chrome: { skipLink: 'انتقل إلى المحتوى', homeLabel: `${name}، الصفحة الرئيسية`, navLabel: 'القائمة الرئيسية', menu: 'القائمة', language: 'English', nav: { services: 'الخدمات', faults: 'الأعطال', reviews: 'التقييمات', contact: 'تواصل معنا' }, word: site.brand.arabicShort },
+  chrome: { skipLink: 'انتقل إلى المحتوى', homeLabel: `${name}، الصفحة الرئيسية`, navLabel: 'القائمة الرئيسية', menu: 'القائمة', language: 'English', nav: { services: 'الخدمات', faults: 'الأعطال', reviews: 'التقييمات', work: 'أعمالنا', contact: 'تواصل معنا' }, word: site.brand.arabicShort },
+  footer: { line: 'صيانة مكيفات وثلاجات وغسالات ونشافات في حي الجلوية بالدمام.', services: 'الخدمات', company: 'الشركة', hours: 'ساعات العمل والمنطقة' },
   actions: { whatsapp: 'تواصل واتساب', call: 'اتصل بنا', directions: 'الاتجاهات', allServices: 'كل الخدمات' },
   icons: { next: 'التالي' },
   home: {

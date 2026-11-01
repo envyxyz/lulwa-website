@@ -1,36 +1,67 @@
 ---
+import Button from './Button.astro';
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
 import { site } from '../site';
-import { content, langFromUrl, localePath } from '../content';
+import { content, langFromUrl, localePath, twinPath } from '../content';
 
 const lang = langFromUrl(Astro.url);
 const c = content[lang];
-const { home } = c;
-const links = [
+const { chrome, footer, home } = c;
+const { shop } = home;
+const path = (p: string) => localePath(lang, p);
+const services = [...c.services.items.map((s) => [path(`/services/${s.slug}`), s.name] as const), [path('/faults'), chrome.nav.faults] as const];
+const company = [
   ['/about', c.about.h1],
-  ['/areas', c.areas.h1],
-  ['/brands', c.brands.h1],
   ['/work', c.work.h1],
+  ['/reviews', chrome.nav.reviews],
   ['/blog', c.blog.h1],
+  ['/brands', c.brands.h1],
+  ['/contact', chrome.nav.contact],
+].map(([p, label]) => [path(p!), label!] as const);
+const area = c.areas.items[0]!;
+const legal = [
   ['/privacy-policy', c.legal.privacy.h1],
   ['/terms-of-service', c.legal.terms.h1],
   ['/cookie-policy', c.legal.cookies.h1],
-] as const;
-const { shop } = home;
-const rows = [
-  [shop.addressLabel, shop.address],
-  [shop.hoursLabel, shop.hours],
-  [shop.legalLabel, site.legal.name],
-  [shop.crLabel, site.legal.cr],
-];
+].map(([p, label]) => [path(p!), label!] as const);
+const link = 'inline-flex min-h-target items-center opacity-75 transition hover:opacity-100 active:opacity-100';
+const strong = 'inline-flex min-h-target items-center font-medium transition hover:opacity-70 active:opacity-60';
+const head = 'mb-2 font-medium';
 ---
 
-<footer data-tone="ink" class="bg-ink py-section text-pearl">
-  <div class="px-gutter">
-    <a href={site.phone.tel} data-action="call" class="inline-flex min-h-target items-center font-display text-head font-head transition hover:opacity-70 active:opacity-60"><bdi dir="ltr">{site.phone.display}</bdi></a>
-    <dl class="mt-8 grid gap-6 md:grid-cols-2 lg:flex lg:justify-between">
-      {rows.map(([label, value]) => <div><dt class="text-small">{label}</dt><dd><bdi>{value}</bdi></dd></div>)}
-    </dl>
-    <ul class="mt-8 flex flex-wrap gap-x-6">{links.map(([path, label]) => <li><a href={localePath(lang, path)} class="inline-flex min-h-target items-center text-small underline underline-offset-4 transition hover:opacity-70">{label}</a></li>)}</ul>
+<footer data-tone="ink" class="bg-ink text-pearl">
+  <div class="mx-auto grid max-w-page grid-cols-2 gap-x-6 gap-y-10 px-gutter py-section text-small lg:grid-cols-4">
+    <div class="col-span-2 flex flex-col items-start gap-4 lg:col-span-1">
+      <a href={path('/')} class="transition hover:opacity-70 active:opacity-60"><Logo label={chrome.homeLabel} light /></a>
+      <p class="max-w-text opacity-75">{footer.line}</p>
+      <a href={site.phone.tel} data-action="call" class={`${strong} text-lead`}><bdi dir="ltr">{site.phone.display}</bdi></a>
+      <div class="flex flex-wrap gap-2">
+        <Button variant="whatsapp">{c.actions.whatsapp}</Button>
+        <Button variant="call" light>{c.actions.call}</Button>
+      </div>
+      <address class="not-italic"><bdi>{shop.address}</bdi></address>
+      <a href={site.maps.listing} data-action="directions" target="_blank" rel="noopener" class={`${strong} gap-2`}><Icon name="map-pin" />{c.actions.directions}</a>
+    </div>
+    <nav aria-label={footer.services}>
+      <p class={head}>{footer.services}</p>
+      <ul>{services.map(([href, label]) => <li><a href={href} class={link}>{label}</a></li>)}</ul>
+    </nav>
+    <nav aria-label={footer.company}>
+      <p class={head}>{footer.company}</p>
+      <ul>{company.map(([href, label]) => <li><a href={href} class={link}>{label}</a></li>)}</ul>
+    </nav>
+    <div class="col-span-2 lg:col-span-1">
+      <p class={head}>{footer.hours}</p>
+      <p class="opacity-75"><bdi>{shop.hours}</bdi></p>
+      <a href={path(`/areas/${area.slug}`)} class={`${link} mt-2`}>{area.name}</a>
+    </div>
+  </div>
+  <div class="bg-ink-step">
+    <div class="mx-auto flex max-w-page flex-col gap-x-8 gap-y-1 px-gutter py-4 text-small md:flex-row md:flex-wrap md:items-center">
+      <p class="me-auto">© {new Date().getFullYear()} <bdi>{site.legal.name}</bdi> · {shop.crLabel} <bdi dir="ltr">{site.legal.cr}</bdi></p>
+      <ul class="flex flex-wrap gap-x-6">{legal.map(([href, label]) => <li><a href={href} class={link}>{label}</a></li>)}</ul>
+      <a href={twinPath(Astro.url.pathname)} lang={lang === 'ar' ? 'en' : 'ar'} class={link}>{chrome.language}</a>
+    </div>
   </div>
 </footer>
-

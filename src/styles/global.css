@@ -46,6 +46,7 @@
   html {
     color-scheme: light dark;
     interpolate-size: allow-keywords;
+    scroll-padding-block-start: var(--spacing-bar);
     background: var(--color-pearl);
     color: var(--color-ink);
     font-family: var(--font-body);

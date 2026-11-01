@@ -1,42 +1,80 @@
 ---
+import Button from './Button.astro';
 import Icon from './Icon.astro';
 import Logo from './Logo.astro';
+import { site } from '../site';
 import { content, langFromUrl, localePath, twinPath } from '../content';
 
 const lang = langFromUrl(Astro.url);
-const { chrome } = content[lang];
+const { chrome, actions } = content[lang];
 const links = [
   ['/services', chrome.nav.services],
   ['/faults', chrome.nav.faults],
+  ['/work', chrome.nav.work],
   ['/reviews', chrome.nav.reviews],
   ['/contact', chrome.nav.contact],
 ] as const;
-const target = 'inline-flex min-h-target items-center transition hover:opacity-70 active:opacity-60';
+const here = Astro.url.pathname.replace(/(\/index)?\.html$/, '').replace(/\/$/, '') || '/';
+const current = (path: string) => {
+  const href = localePath(lang, path);
+  return here === href || here.startsWith(`${href}/`);
+};
+const target = 'min-h-target items-center transition';
+const twin = { href: twinPath(Astro.url.pathname), lang: lang === 'ar' ? 'en' : 'ar' };
 ---
 
-<header class="flex h-bar items-center gap-6 px-gutter">
-  <a href={localePath(lang, '/')} class="me-auto transition hover:opacity-70 active:opacity-60"><Logo label={chrome.homeLabel} /></a>
-  <nav aria-label={chrome.navLabel} class="hidden items-center gap-8 lg:flex">
-    {links.map(([path, label]) => <a href={localePath(lang, path)} class:list={[target, 'font-medium']}>{label}</a>)}
-  </nav>
-  <a href={twinPath(Astro.url.pathname)} lang={lang === 'ar' ? 'en' : 'ar'} data-testid="language-link" class:list={[target, 'underline underline-offset-4']}>{chrome.language}</a>
-  <!-- ponytail: native popover gives open, Esc, light dismiss and focus return with 0 KB of JS. -->
-  <button type="button" popovertarget="menu" data-testid="menu-toggle" aria-label={chrome.menu} class="inline-flex size-target items-center justify-center rounded-button transition hover:bg-pearl-step active:scale-90 lg:hidden">
-    <Icon name="menu" />
-  </button>
-  <nav id="menu" popover aria-label={chrome.navLabel} data-testid="menu" class="menu rounded-card bg-pearl-step p-card shadow-menu">
-    {links.map(([path, label]) => <a href={localePath(lang, path)} class:list={[target, 'w-full rounded-button px-3 text-lead font-medium hover:bg-pearl-hover']}>{label}</a>)}
-  </nav>
+<header data-bar class="bar group sticky top-0 z-20 px-gutter py-2">
+  <div class="bar-surface mx-auto flex h-16 max-w-page items-center gap-2 rounded-card bg-pearl-step px-3 group-data-floating:shadow-bar">
+    <div class="flex flex-1">
+      <a href={localePath(lang, '/')} class="transition hover:opacity-70 active:opacity-60"><Logo label={chrome.homeLabel} /></a>
+    </div>
+    <nav aria-label={chrome.navLabel} class="hidden items-center gap-1 lg:flex">
+      {links.map(([path, label]) => <a href={localePath(lang, path)} aria-current={current(path) ? 'page' : undefined} class:list={[target, 'inline-flex rounded-button px-3 font-medium', current(path) ? 'bg-pearl text-teal' : 'hover:bg-pearl-hover active:bg-pearl-hover']}>{label}</a>)}
+    </nav>
+    <div class="flex flex-1 items-center justify-end gap-1">
+      <a href={site.phone.tel} data-action="call" class:list={[target, 'hidden rounded-button px-3 font-medium hover:bg-pearl-hover active:bg-pearl-hover lg:inline-flex']}><bdi dir="ltr">{site.phone.display}</bdi></a>
+      <a href={twin.href} lang={twin.lang} data-testid="language-link" class:list={[target, 'inline-flex rounded-button px-3 font-medium hover:bg-pearl-hover active:bg-pearl-hover']}>{chrome.language}</a>
+      <a href={site.phone.whatsapp} data-action="whatsapp" aria-label={actions.whatsapp} class:list={[target, 'hidden h-target justify-center gap-2 rounded-button bg-whatsapp px-3 font-medium text-ink hover:bg-whatsapp-active active:bg-whatsapp-active md:inline-flex xl:px-4']}>
+        <Icon name="whatsapp" /><span class="hidden xl:inline">{actions.whatsapp}</span>
+      </a>
+      <!-- ponytail: native popover gives open, Esc, light dismiss and focus return with 0 KB of JS. -->
+      <button type="button" popovertarget="menu" data-testid="menu-toggle" aria-label={chrome.menu} class:list={[target, 'inline-flex size-target justify-center rounded-button hover:bg-pearl-hover active:scale-90 lg:hidden']}>
+        <Icon name="menu" />
+      </button>
+    </div>
+  </div>
+  <div id="menu" popover data-testid="menu" class="menu rounded-card bg-pearl-step p-card shadow-menu">
+    <nav aria-label={chrome.navLabel} class="flex flex-col">
+      {links.map(([path, label]) => <a href={localePath(lang, path)} aria-current={current(path) ? 'page' : undefined} class:list={[target, 'inline-flex w-full rounded-button px-3 text-lead font-medium', current(path) ? 'bg-pearl text-teal' : 'hover:bg-pearl-hover active:bg-pearl-hover']}>{label}</a>)}
+    </nav>
+    <div class="mt-4 hidden md:block"><Button variant="call">{actions.call}</Button></div>
+  </div>
 </header>
 
 <style>
+  .bar {
+    transition: translate var(--duration-open) var(--ease-out);
+  }
+  .bar[data-hidden] {
+    translate: 0 -110%;
+  }
+  .bar-surface {
+    transition: box-shadow var(--duration-open) var(--ease-out);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bar[data-hidden] {
+      translate: none;
+    }
+  }
   .menu {
     position: fixed;
-    inset-block-start: var(--spacing-bar);
+    inset-block-start: calc(var(--spacing-bar) + 0.25rem);
     inset-block-end: auto;
     inset-inline: var(--spacing-gutter);
     margin: 0;
     inline-size: auto;
+    max-block-size: calc(100dvh - var(--spacing-bar) - var(--spacing-gutter));
+    overflow-y: auto;
     color: var(--color-ink);
     opacity: 0;
     translate: 0 -0.5rem;
