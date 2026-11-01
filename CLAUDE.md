@@ -61,6 +61,7 @@ Keep this list in sync with `package.json`.
 - `pnpm test:contract`: builds, runs T1 to T22, prints each against the phase that owes it. Add `--fast` to skip Lighthouse. About 20 minutes while pages are missing.
 - `pnpm test:e2e`: Playwright only, on the built site, in installed Edge. `pnpm test:e2e tests/nap.spec.ts` for one.
 - `pnpm test:photos` (T22), `pnpm test:taste` (T20), `pnpm test:lighthouse` (T18)
+- `node scripts/images.mjs`: exports photos and product images to `public/images`, rewrites `src/images/provenance.json`. `python scripts/gen-products.py [names]`: product images with agy.
 - `python scripts/subset-fonts.py <raw font dir>`: rebuilds `public/fonts`. `node scripts/sink-shots.mjs`: kitchen sink screenshots. `node scripts/phase-shots.mjs <n>`: home screenshots to `docs/shots/phase-<n>/`, after `pnpm build`.
 
 ## How work happens

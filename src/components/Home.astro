@@ -38,7 +38,7 @@ const wall = [
   { name: 'compressor-closeup-2', span: 'lg:col-span-3 lg:row-span-2' },
   { name: 'statement', span: 'col-span-2 lg:col-span-6' },
   { name: 'compressor-pair', span: 'lg:col-span-3' },
-  { name: 'rooftop-unit-repair', span: 'col-span-2 lg:col-span-6 lg:row-start-3' },
+  { name: 'rooftop-unit-repair', span: 'col-span-2 lg:col-span-6' },
   { name: 'condensing-unit-wiring', span: 'lg:col-span-3' },
 ];
 ---
@@ -47,7 +47,7 @@ const wall = [
 
 <section class="pt-section">
   <div class="mx-auto flex max-w-page flex-col gap-4 px-gutter md:flex-row md:items-end md:justify-between">
-    <Text soft>{repair.lead}</Text>
+    <Text>{repair.lead}</Text>
     <Heading>{repair.heading}<Fragment slot="quiet">{repair.quiet}</Fragment></Heading>
   </div>
   <div class="mx-auto mt-8 flex max-w-page snap-x gap-4 overflow-x-auto px-gutter pb-2">
@@ -98,16 +98,16 @@ const wall = [
     <div class="flex flex-col gap-4 md:col-span-12 md:flex-row md:items-end md:justify-between">
       <Heading>{home.reviews.heading}<Fragment slot="quiet">{home.reviews.quiet}</Fragment></Heading>
       <div class="flex flex-col items-start">
-        <Text soft>{reviews.rating}, {reviews.asOf}</Text>
+        <Text>{reviews.rating} · {reviews.asOf}</Text>
         <Button variant="quiet" href={site.maps.listing}>{home.reviews.link}</Button>
       </div>
     </div>
     <figure class="flex flex-col gap-4 md:col-span-9">
       <blockquote lang="en" dir="ltr" class="text-start font-display text-statement font-statement tracking-statement"><bdi>{quote.text}</bdi></blockquote>
-      <figcaption class="text-small"><bdi>{quote.name}</bdi>، {quote.when}</figcaption>
+      <figcaption class="text-small"><bdi>{quote.name}</bdi> · {quote.when}</figcaption>
     </figure>
     <ul class="flex flex-col gap-4 md:col-span-3 md:justify-end">
-      {others.map((r) => <li><bdi lang="en">{r.text}</bdi><span class="block text-small text-ink-soft"><bdi>{r.name}</bdi>، {r.when}</span></li>)}
+      {others.map((r) => <li><bdi lang="en">{r.text}</bdi><span class="block text-small text-ink-soft"><bdi>{r.name}</bdi> · {r.when}</span></li>)}
     </ul>
   </div>
 </Section>
@@ -118,7 +118,7 @@ const wall = [
       <Heading tone="pearl">{work.heading}<Fragment slot="quiet">{work.quiet}</Fragment></Heading>
       <Text>{work.lead}</Text>
     </div>
-    <div class="grid grid-cols-2 gap-4 lg:grid-cols-12">
+    <div class="grid grid-flow-dense grid-cols-2 gap-4 lg:grid-cols-12">
       {wall.map(({ name, span }) =>
         name === 'statement' ? (
           <p class:list={['flex items-center rounded-card bg-teal-step p-card font-display text-head font-head', span]}>{work.statement}</p>

@@ -20,3 +20,6 @@ agy reviewed these on 1 Nov 2026. Its suggestions are unverified and nothing was
 - `العنوان` or `الموقع`, `ساعات العمل` or `أوقات العمل`.
 - `الاسم النظامي`: agy suggests `الاسم التجاري`, but that is a different thing from the legal name. Check the right term.
 - `الأعطال` in the nav: agy suggests `الأعطال الشائعة`. `التقييمات`: agy suggests `آراء العملاء`.
+
+## Phase 4: home bands and picker
+agy reviewed this copy once. Taken: القطعة المتوقعة, حي آخر في الدمام, الدينمو (agy says it is the common Saudi word for an appliance motor; confirm). Rejected: أرسلها (العطل is masculine), بدون تعديل (the photos are retouched). Please read: المساعدات for washer shock absorbers, ما تدور for a dryer drum, من مواقع الشغل, قبل ما تتواصل.

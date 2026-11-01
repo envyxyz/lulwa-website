@@ -59,6 +59,10 @@
     caret-color: var(--color-teal);
   }
 
+  .font-display:lang(ar) {
+    word-spacing: var(--word-display);
+  }
+
   ::selection {
     background: var(--color-teal);
     color: var(--color-pearl);

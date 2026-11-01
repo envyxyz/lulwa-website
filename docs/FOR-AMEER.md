@@ -28,6 +28,20 @@ Questions, verifications and access needed, gathered while Ameer sleeps. Nothing
 - **Blog:** the 3 old posts are replaced by short, generic how-to posts on the same slugs. The old posts were full of unsourced claims. Technician to confirm the advice (filter, drain hose, lint) is right.
 - Arabic doubts for the native reader: `docs/ARABIC-REVIEW.md`.
 
+## Phase 4 (2026-11-01)
+- **Home OK?** `docs/shots/phase-4/`. Layout follows your reference: picker bento, service row with call card, tinted statement, process, review, photo wall, shop, questions, close.
+- **Technician check needed:** every fault-to-part link in the picker (`home.picker.appliances` in `src/content/ar.ts` and `en.ts`, pearl spots in `src/components/appliance-art.ts`) is my own reasoning. The site labels them only as "likely" (القطعة المتوقعة). Nobody has confirmed them.
+- **Product images incomplete:** agy's image quota ran out (429, reset about 4.5 hours after 09:15 on 1 Nov). Window AC and outdoor unit came through, checked, no logos or lettering. Fridge, washer and dryer cards show line drawings for now. To swap: `python scripts/gen-products.py`, look at each image, `node scripts/images.mjs`, `pnpm build`. The cards pick them up with no code change. The compressor image was dropped, since nothing on the page uses it.
+- **Photo captions are read from the photos and their file names,** not from the shop: "compressor change", "checking the wiring". Client or technician to confirm.
+- **Rooftop units:** two wall photos show rooftop package units, and central AC is still unconfirmed in `PRODUCT.md`. Captions say only "rooftop AC". Drop the two photos if the client does not want to imply that work.
+- **Faces:** technicians are partly visible in the photos (`compressor-install`, `rooftop-unit-repair`). Get the client's OK to publish.
+- **Photos left out:** shopfront (old sign), technician-package-unit (coverall reads AJCO, another company), delivery truck and street night (plates, other shops), LG outdoor units (could read as an LG agency).
+- **Reviews on home:** the two with emoji are left off until you make the Phase 2 call. Only "Good Experience" and two "Good work" show, which is thin at statement size. A longer review from the 3 unseen ones would help.
+- **Map:** the tap-to-load map searches "Al-Jalawiyah, Dammam", not a pin. Needs the exact pin from the client (question 9). Directions opens the Google listing.
+- **Picker areas:** Al-Jalawiyah and "another Dammam district" only, because no other area is confirmed.
+- **New Arabic words for the native reader:** see `docs/ARABIC-REVIEW.md`.
+- **Links:** service cards and the picker's no-JS links 404 until Phase 5 builds those pages.
+
 ## Phase 3 (2026-11-01)
 - **Hero OK?** `docs/shots/phase-3/`. It follows your reference: teal panel, giant لولوه / LULWA, one AC tile.
 - **Home-visit swap:** the hero says `صوّر العطل وأرسله واتساب` / `Photograph the fault and send it on WhatsApp`, which are confirmed facts. When the client confirms visits, add a dated line to `PRODUCT.md`, then set `home.hero.homeVisitLine` to `نجيك لحد بيتك` / `We come to you` in `src/content/ar.ts` and `en.ts`. It replaces the line with no code change. `home.hero.service` could then be reviewed too.

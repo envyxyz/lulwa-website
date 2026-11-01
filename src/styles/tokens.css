@@ -68,7 +68,7 @@
   --spacing-hero: 44rem; /* hero panel floor on desktop */
 
   --container-*: initial;
-  --container-page: 80rem;
+  --container-page: 90rem; /* content lines up with the hero's margins at 1440 */
   --container-text: 40rem;
 
   --shadow-*: initial;
@@ -85,6 +85,7 @@
   --stagger: 70ms;
   --rise: 1.25rem;
   --focus-width: 3px;
+  --word-display: 0.12em; /* Beiruti's space is thin: words run together at display size */
 }
 
 :lang(en) {

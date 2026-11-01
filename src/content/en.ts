@@ -104,8 +104,8 @@ export const en: Content = {
       tile: { alt: 'Illustration of a split air conditioner' },
     },
     picker: {
-      heading: 'What is the fault?',
-      quiet: 'Pick it, send it on WhatsApp',
+      heading: 'What is wrong?',
+      quiet: 'Pick and send',
       lead: 'Pick the appliance, the fault, then your district. The pearl moves to the likely part and your message is ready.',
       applianceLabel: 'Appliance',
       faultLabel: 'Fault',
@@ -113,7 +113,7 @@ export const en: Content = {
       send: 'Send on WhatsApp',
       plain: 'Or browse the services',
       likely: 'Likely part:',
-      message: 'Hello, I have a {appliance}: {fault}. District: {area}.',
+      message: 'Hello. Appliance: {appliance}. Fault: {fault}. District: {area}.',
       appliances: [
         { slug: 'split-ac', name: 'Split AC', service: 'ac-repair', faults: [{ label: 'Not cooling', part: 'filter or gas' }, { label: 'Leaking water', part: 'drain line' }, { label: 'Will not start', part: 'control board' }, { label: 'Loud', part: 'fan' }] },
         { slug: 'window-ac', name: 'Window AC', service: 'ac-repair', faults: [{ label: 'Not cooling', part: 'filter or gas' }, { label: 'Leaking water', part: 'drain line' }, { label: 'Will not start', part: 'control board' }, { label: 'Loud', part: 'fan' }] },
@@ -123,7 +123,7 @@ export const en: Content = {
       ],
       areas: ['Al-Jalawiyah', 'Another Dammam district'],
     },
-    repair: { heading: 'What we repair', quiet: 'ACs, fridges, washers and dryers', lead: 'Four kinds of household appliance.', callLabel: 'Call now' },
+    repair: { heading: 'What we repair', quiet: 'Four appliances', lead: 'Four kinds of household appliance.', callLabel: 'Call now' },
     statement: { start: 'A registered shop in Al-Jalawiyah, Dammam, with one number to reach.', quiet: 'We only write here what we can show.' },
     steps: {
       heading: 'How it starts',
@@ -134,10 +134,10 @@ export const en: Content = {
         { title: 'We reply', text: 'And agree the next step with you.' },
       ],
     },
-    reviews: { heading: 'What customers say', quiet: 'From Google Maps', link: 'All reviews on Google Maps' },
+    reviews: { heading: 'Customer reviews', quiet: 'From Google Maps', link: 'All reviews on Google Maps' },
     work: {
       heading: 'Our work',
-      quiet: 'Real photos',
+      quiet: 'From the job site',
       lead: 'Real photos from the shop’s jobs.',
       statement: 'Every photo here is from a real job.',
       items: [
@@ -152,7 +152,7 @@ export const en: Content = {
     shop: { heading: 'The shop', addressLabel: 'Address', address: 'Prince Abdulmohsen bin Jalawi Street, Al-Jalawiyah, Dammam', hoursLabel: 'Opening hours', hours: 'Every day, 8:00 AM to 11:00 PM', hoursRange: '8:00 AM to 11:00 PM', today: 'Today', days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], mapLoad: 'Show the map', legalLabel: 'Legal name', crLabel: 'Commercial registration' },
     faq: {
       heading: 'Questions',
-      quiet: 'Before you get in touch',
+      quiet: 'Before you write',
       items: [
         { q: 'Which appliances do you repair?', a: 'Air conditioners (split and window), fridges including gas refilling, automatic washing machines and dryers.' },
         { q: 'How do I reach you?', a: `WhatsApp or call ${phone}, every day from 8:00 AM to 11:00 PM.` },
