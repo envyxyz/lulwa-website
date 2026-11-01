@@ -53,7 +53,7 @@ const fields = [
   <button type="submit" data-sending={form.sending} class="inline-flex h-button md:h-button-md items-center gap-2 rounded-button bg-teal px-card font-medium text-pearl transition hover:bg-teal-active active:scale-98 active:bg-teal-active disabled:cursor-wait disabled:opacity-70 self-start"><span data-spinner hidden class="spinner"></span><span data-label>{form.submit}</span></button>
   <div role="status" class="flex flex-col items-start gap-2" data-status>
     <p data-fallback-text hidden class="font-medium text-error">{form.fallback}</p>
-    <a data-fallback-link data-action="whatsapp" hidden class="inline-flex min-h-target items-center rounded-button bg-whatsapp px-card font-medium text-ink transition active:scale-98 active:bg-whatsapp-active" href={site.phone.whatsapp}>{form.whatsappFallback}</a>
+    <a data-fallback-link data-action="whatsapp" hidden class="inline-flex min-h-target items-center rounded-button bg-whatsapp px-card font-medium text-white transition active:scale-98 active:bg-whatsapp-active" href={site.phone.whatsapp}>{form.whatsappFallback}</a>
   </div>
 </form>
 

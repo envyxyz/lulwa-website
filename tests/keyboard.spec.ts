@@ -1,5 +1,5 @@
 // T9. Hooks for later phases: data-testid menu-toggle, menu, language-link, fault-picker;
-// data-picker-appliance, data-picker-fault, data-picker-area, data-picker-whatsapp; form#lead-form.
+// data-picker-appliance, data-picker-fault, data-picker-whatsapp; form#lead-form.
 import { expect, test, type Page } from '@playwright/test';
 import { visit } from './lib';
 
@@ -32,10 +32,11 @@ test('T9 phone menu opens and closes by keyboard', async ({ page }) => {
 
 test('T9 fault picker completes by keyboard', async ({ page }) => {
   await visit(page, '/');
-  for (const step of ['appliance', 'fault', 'area']) {
-    await tabTo(page, `[data-picker-${step}]`);
-    await page.keyboard.press('Enter');
-  }
+  await tabTo(page, '[data-picker-step="1"]');
+  await page.keyboard.press('Enter');
+  await tabTo(page, '[data-faults]:not([hidden]) [data-picker-fault]');
+  await page.keyboard.press('Space');
+  await expect(page.locator('[data-faults]:not([hidden]) [data-picker-fault]').first()).toHaveAttribute('aria-pressed', 'true');
   await tabTo(page, '[data-picker-whatsapp]');
   await expect(page.locator('[data-picker-whatsapp]')).toHaveAttribute('href', /wa\.me/);
 });
