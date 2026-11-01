@@ -1,0 +1,3 @@
+# Copy to .dev.vars for `pnpm worker:dev`. Local only, no real values.
+LEADS_WEBHOOK_URL=http://127.0.0.1:8799/exec
+LEADS_WEBHOOK_SECRET=local-test-secret

@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "lulwa-website",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-10-01",
+  // dist/ is the static site. Only /api/* wakes the Worker; everything else is served as a file.
+  "assets": { "directory": "./dist", "binding": "ASSETS", "run_worker_first": ["/api/*"], "not_found_handling": "404-page" }
+  // Secrets, never in this file: LEADS_WEBHOOK_URL, LEADS_WEBHOOK_SECRET (integrations/README.md). Local values: .dev.vars
+}
