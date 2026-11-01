@@ -1,0 +1,64 @@
+---
+// Dev only, injected by astro.config.mjs under `astro dev`. Never built.
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Heading from '../components/Heading.astro';
+import Text from '../components/Text.astro';
+import Button from '../components/Button.astro';
+import Icon from '../components/Icon.astro';
+import { content, langFromUrl } from '../content';
+import { site } from '../site';
+
+const lang = langFromUrl(Astro.url);
+const { sink, actions, icons } = content[lang];
+const swatches = ['bg-pearl', 'bg-pearl-step', 'bg-white', 'bg-teal', 'bg-teal-step', 'bg-teal-quiet', 'bg-ink', 'bg-ink-step', 'bg-ink-soft', 'bg-whatsapp', 'bg-error'];
+---
+
+<Base title={sink.title} description={sink.title} noindex>
+  <Section>
+    <Heading level={1} size="statement">{sink.statement}<span class="ms-1 inline-block size-pearl rounded-dot bg-copper"></span></Heading>
+    <Heading>{sink.headLine1}<Fragment slot="quiet">{sink.headLine2}</Fragment></Heading>
+    <Text size="lead">{sink.lead}</Text>
+    <Text>{sink.body}</Text>
+    <Text size="small" soft>{sink.small}</Text>
+    <div class="mt-6 flex flex-wrap items-center gap-4">
+      <Button variant="whatsapp">{actions.whatsapp}</Button>
+      <Button variant="call">{actions.call}</Button>
+      <Button variant="quiet" href="#main">{sink.quietAction}</Button>
+    </div>
+    <p class="mt-6 flex items-center gap-4">
+      {sink.mirrored}
+      <Icon name="arrow-next" label={icons.next} />
+      <Icon name="chevron-next" />
+    </p>
+    <p class="flex items-center gap-4">
+      {sink.fixed}
+      <Icon name="whatsapp" />
+      <Icon name="phone" />
+      <bdi dir="ltr">{site.phone.display}</bdi>
+    </p>
+    <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
+      <div class="rounded-card bg-pearl-step p-card">
+        <Text size="lead">{sink.cardTitle}</Text>
+        <Text size="small">{sink.cardBody}</Text>
+      </div>
+      <div class="rounded-card bg-white p-card">
+        <Text size="lead">{sink.cardTitle}</Text>
+      </div>
+      <div class="col-span-2 rounded-panel bg-teal p-card text-pearl md:col-span-1">
+        <Text size="lead">{sink.cardTitle}</Text>
+      </div>
+    </div>
+    <div class="mt-6 flex flex-wrap gap-2">
+      {swatches.map((swatch) => <span class:list={['size-target rounded-button', swatch]}></span>)}
+    </div>
+  </Section>
+  <Section tone="teal">
+    <Heading tone="pearl">{sink.headLine1}<Fragment slot="quiet">{sink.headLine2}</Fragment></Heading>
+    <div class="mt-6 rounded-card bg-teal-step p-card"><Text>{sink.body}</Text></div>
+  </Section>
+  <Section tone="ink">
+    <Heading tone="pearl">{sink.headLine2}</Heading>
+    <div class="mt-6 rounded-card bg-ink-step p-card"><Text>{sink.body}</Text></div>
+  </Section>
+</Base>

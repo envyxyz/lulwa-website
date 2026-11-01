@@ -1,0 +1,11 @@
+---
+import Container from './Container.astro';
+
+type Props = { tone?: 'pearl' | 'teal' | 'ink'; id?: string };
+const { tone = 'pearl', id } = Astro.props;
+const tones = { pearl: 'bg-pearl text-ink', teal: 'bg-teal text-pearl', ink: 'bg-ink text-pearl' };
+---
+
+<section id={id} data-tone={tone} class:list={['py-section', tones[tone]]}>
+  <Container><slot /></Container>
+</section>

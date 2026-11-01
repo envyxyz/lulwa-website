@@ -1,0 +1,7 @@
+---
+type Props = { size?: 'lead' | 'body' | 'small'; soft?: boolean };
+const { size = 'body', soft = false } = Astro.props;
+const sizes = { lead: 'text-lead', body: 'text-body', small: 'text-small font-medium' };
+---
+
+<p class:list={['max-w-text', sizes[size], soft && 'text-ink-soft']}><slot /></p>

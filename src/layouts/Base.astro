@@ -1,0 +1,26 @@
+---
+import '../styles/global.css';
+import { content, langFromUrl } from '../content';
+
+type Props = { title: string; description: string; noindex?: boolean };
+const { title, description, noindex = false } = Astro.props;
+const lang = langFromUrl(Astro.url);
+const dir = lang === 'ar' ? 'rtl' : 'ltr';
+const displayFont = lang === 'ar' ? '/fonts/beiruti-800-900.woff2' : '/fonts/schibsted-400-800.woff2';
+---
+
+<!doctype html>
+<html lang={lang} dir={dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <a href="#main" class="sr-only focus:not-sr-only">{content[lang].chrome.skipLink}</a>
+    <main id="main"><slot /></main>
+  </body>
+</html>

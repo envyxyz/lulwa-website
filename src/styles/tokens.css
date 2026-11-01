@@ -1,0 +1,96 @@
+/* Every design value lives here. From DESIGN.md "Website Overrides" and the
+   "Reference update" in docs/DESIGN-DIRECTION.md. Components use these, never raw values. */
+@theme {
+  --color-*: initial;
+  --color-pearl: #eef2ef;
+  --color-pearl-step: #e0e8e4; /* tone-step card on pearl */
+  --color-white: #fff; /* behind product images only */
+  --color-teal: #0f6e7a;
+  --color-teal-active: #0b5862;
+  --color-teal-step: #0c5f6a; /* tone-step card on teal */
+  --color-teal-quiet: #3f838d; /* second line of two-tone headings, large type only: 3.9:1 on pearl */
+  --color-ink: #0b1f2a;
+  --color-ink-step: #15303e;
+  --color-ink-soft: #3c4c55; /* secondary text on pearl */
+  --color-copper: #d9772b; /* the pearl: a dot, never a fill */
+  --color-whatsapp: #25d366; /* WhatsApp buttons only */
+  --color-whatsapp-active: #1fb457;
+  --color-error: #b4442e;
+
+  --font-*: initial;
+  --font-display: 'Beiruti', 'Beiruti Fallback', sans-serif;
+  --font-body: 'IBM Plex Sans Arabic', 'Plex Arabic Fallback', sans-serif;
+
+  /* Five sizes, no more. Arabic here, English in :lang(en) below. */
+  --text-*: initial;
+  --text-statement: clamp(4rem, 18.5vw, 18.5rem);
+  --text-statement--line-height: 1.06;
+  --text-head: clamp(2.25rem, 5vw, 4.5rem);
+  --text-head--line-height: 1.2;
+  --text-lead: 1.5rem;
+  --text-lead--line-height: 1.7;
+  --text-body: 1.125rem;
+  --text-body--line-height: 1.85;
+  --text-small: 0.9375rem;
+  --text-small--line-height: 1.6;
+
+  --font-weight-*: initial;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-head: 800;
+  --font-weight-statement: 900;
+
+  --tracking-*: initial;
+  --tracking-statement: 0;
+
+  /* Rounded tone-step surfaces are allowed as structure: no border, no shadow. */
+  --radius-*: initial;
+  --radius-button: 0.75rem;
+  --radius-card: 1.5rem; /* cards, tiles, photos beside them */
+  --radius-panel: 2.25rem; /* hero and statement panels */
+  --radius-dot: 9999px; /* the copper pearl */
+
+  --spacing-section: clamp(3.5rem, 8vw, 6rem);
+  --spacing-gutter: clamp(1rem, 3vw, 2rem);
+  --spacing-card: clamp(1.5rem, 3vw, 2.25rem);
+  --spacing-button: 3.25rem; /* 52 px on phones, 56 px from md */
+  --spacing-button-md: 3.5rem;
+  --spacing-target: 2.75rem; /* 44 px minimum tap target */
+  --spacing-pearl: 0.28em; /* the pearl scales with the type it ends */
+
+  --container-*: initial;
+  --container-page: 80rem;
+  --container-text: 40rem;
+
+  --shadow-*: initial;
+  --shadow-menu: 0 0.75rem 2rem -0.75rem rgb(11 31 42 / 0.35); /* open menu only */
+
+  --ease-*: initial;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-*: initial;
+  --default-transition-duration: 120ms; /* press feedback */
+}
+
+:root {
+  --duration-rise: 500ms;
+  --stagger: 70ms;
+  --rise: 1.25rem;
+  --focus-width: 3px;
+}
+
+:lang(en) {
+  --font-display: 'Schibsted Grotesk', 'Schibsted Fallback', sans-serif;
+  --font-body: 'Schibsted Grotesk', 'Schibsted Fallback', sans-serif;
+  --text-statement: clamp(3.4rem, 10.2vw, 10.25rem);
+  --text-statement--line-height: 1;
+  --text-head: clamp(2rem, 4.2vw, 4rem);
+  --text-head--line-height: 1.08;
+  --text-lead: 1.375rem;
+  --text-lead--line-height: 1.5;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.6;
+  --text-small: 0.875rem;
+  --font-weight-head: 700;
+  --font-weight-statement: 800;
+  --tracking-statement: -0.03em;
+}

@@ -1,0 +1,15 @@
+// Single source for the shop's facts. One line changes the Latin name or the domain.
+const phoneE164 = '+966568022197';
+
+export const site = {
+  url: 'https://lulwa.com.sa',
+  brand: { arabic: 'لولوه للتكييف والتبريد', arabicShort: 'لولوه', latin: 'Lulwa' },
+  legal: { name: 'مؤسسة لولوه عبدالله فرحان المرشود للتبريد والتكييف', cr: '2050163881' },
+  phone: {
+    display: '056 802 2197',
+    e164: phoneE164,
+    tel: `tel:${phoneE164}`,
+    whatsapp: `https://wa.me/${phoneE164.slice(1)}`,
+  },
+  hours: { open: '08:00', close: '23:00', timeZone: 'Asia/Riyadh', days: 'every-day' },
+} as const;

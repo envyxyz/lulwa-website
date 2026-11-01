@@ -1,0 +1,16 @@
+---
+// Two-tone heads: the default slot is the first line, `quiet` the quieter second line.
+type Props = { level?: 1 | 2 | 3; size?: 'statement' | 'head'; tone?: 'teal' | 'pearl' };
+const { level = 2, size = 'head', tone = 'teal' } = Astro.props;
+const Tag = `h${level}`;
+const sizes = {
+  statement: 'text-statement font-statement tracking-statement',
+  head: 'text-head font-head',
+};
+const quiet = { teal: 'text-teal-quiet', pearl: 'text-pearl' };
+---
+
+<Tag class:list={['font-display', sizes[size]]}>
+  <slot />
+  {Astro.slots.has('quiet') && <span class:list={['block', quiet[tone]]}><slot name="quiet" /></span>}
+</Tag>

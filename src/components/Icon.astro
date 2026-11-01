@@ -1,0 +1,27 @@
+---
+import { ArrowRight, ChevronRight, Clock, MapPin, Menu, Phone, X } from 'lucide-static';
+import { siWhatsapp } from 'simple-icons';
+
+export type IconName = keyof typeof lucide | 'whatsapp';
+const lucide = { 'arrow-next': ArrowRight, 'chevron-next': ChevronRight, clock: Clock, 'map-pin': MapPin, menu: Menu, phone: Phone, close: X };
+// Only these flip in RTL. Logo, phone and WhatsApp glyphs never do.
+const directional = new Set<string>(['arrow-next', 'chevron-next']);
+
+type Props = { name: IconName; label?: string };
+const { name, label } = Astro.props;
+const svg =
+  name === 'whatsapp'
+    ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="${siWhatsapp.path}"/></svg>`
+    : lucide[name].replace(/stroke-width="[^"]*"/, 'stroke-width="1.75"');
+const isDirectional = directional.has(name);
+---
+
+<span
+  class:list={['inline-block size-[1.25em] shrink-0 *:size-full', isDirectional && 'rtl:-scale-x-100']}
+  data-icon={name}
+  data-directional={isDirectional || undefined}
+  role={label ? 'img' : undefined}
+  aria-label={label}
+  aria-hidden={label ? undefined : 'true'}
+  set:html={svg}
+/>
