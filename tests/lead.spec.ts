@@ -64,3 +64,23 @@ for (const path of ['/contact', '/en/contact']) {
     await expect(form.locator('input[type="checkbox"]:checked')).toHaveCount(0);
   });
 }
+
+test('T15 form validates on blur, and a failed submit keeps what was typed and shows the WhatsApp fallback', async ({ page }) => {
+  await page.route('**/api/lead', (route) => route.fulfill({ status: 500, contentType: 'application/json', body: '{}' }));
+  await visit(page, '/en/contact');
+  const form = page.locator('#lead-form');
+  await form.locator('input[name="name"]').focus();
+  await form.locator('input[name="phone"]').focus();
+  await expect(form.locator('[data-error-for="name"]')).toBeVisible();
+  await form.locator('input[name="name"]').fill('Test');
+  await expect(form.locator('[data-error-for="name"]')).toBeHidden();
+  await form.locator('input[name="phone"]').fill('0500000000');
+  await form.locator('select[name="appliance"]').selectOption({ index: 1 });
+  await form.locator('input[name="area"]').fill('Dammam');
+  await form.locator('button[type="submit"]').click();
+  await expect(form.locator('[data-fallback-link]')).toBeVisible();
+  await expect(form.locator('[data-fallback-link]')).toBeFocused();
+  await expect(form.locator('input[name="name"]')).toHaveValue('Test');
+  await expect(form.locator('input[name="area"]')).toHaveValue('Dammam');
+  await expect(form.locator('button[type="submit"]')).toBeEnabled();
+});
