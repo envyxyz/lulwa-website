@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { site } from './src/site.ts';
+import { reviewed } from './src/reviewed-faults.ts';
 
 // The kitchen sink exists only under `astro dev`, so it can never reach dist or the sitemap.
 const kitchenSink = {
@@ -27,6 +28,6 @@ export default defineConfig({
     defaultLocale: 'ar',
     routing: { prefixDefaultLocale: false },
   },
-  integrations: [sitemap(), kitchenSink],
+  integrations: [sitemap({ filter: (page) => !/\/faults\/[^/]+$/.test(page) || reviewed.includes(page.split('/').pop()) }), kitchenSink],
   vite: { plugins: [tailwindcss()] },
 });

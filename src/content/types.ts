@@ -16,6 +16,18 @@ export type Service = Intro & {
   faq: Faq[];
 };
 
+/** art: the appliance drawing (src/components/appliance-art.ts); spot: which pearl spot in that drawing. */
+export type Fault = Intro & {
+  slug: string;
+  service: string;
+  art: string;
+  spot: number;
+  name: string;
+  part: string;
+  check: string[];
+  technician: string[];
+};
+
 export type Brand = Intro & { slug: string; name: string };
 
 export type Review = { name: string; text: string; when: string };
@@ -77,8 +89,15 @@ export type Content = {
     faq: { heading: string; quiet: string; items: Faq[] };
     close: { heading: string; text: string };
   };
-  services: Intro & { items: Service[]; notListed: string };
-  faults: Intro & { items: (Intro & { slug: string })[] };
+  services: Intro & {
+    items: Service[];
+    notListed: string;
+    labels: { units: string; faults: string; faq: string; art: string };
+  };
+  faults: Intro & {
+    items: Fault[];
+    labels: { answer: string; check: string; technician: string; part: string; related: string; closeH: string; closeText: string; appliances: string };
+  };
   areas: Intro & { pending: string; items: (Intro & { slug: string; name: string })[] };
   brands: Intro & { disclaimer: string; items: Brand[] };
   about: Intro & { sections: Section[]; factsHeading: string };

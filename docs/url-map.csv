@@ -67,7 +67,7 @@ old_path,action,target,english_twin,note
 /services/ac-repair,keep,/services/ac-repair,/en/services/ac-repair,
 /services/dishwasher-repair,confirm,/services,/en/services/dishwasher-repair,"keep if client confirms this repair, otherwise 301"
 /services/dryer-repair,keep,/services/dryer-repair,/en/services/dryer-repair,
-/services/freezer-repair,keep,/services/freezer-repair,/en/services/freezer-repair,
+/services/freezer-repair,confirm,/services/refrigerator-repair,/en/services/freezer-repair,
 /services/microwave-repair,confirm,/services,/en/services/microwave-repair,"keep if client confirms this repair, otherwise 301"
 /services/oven-stove-repair,confirm,/services,/en/services/oven-stove-repair,"keep if client confirms this repair, otherwise 301"
 /services/refrigerator-repair,keep,/services/refrigerator-repair,/en/services/refrigerator-repair,

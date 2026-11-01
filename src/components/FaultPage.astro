@@ -1,0 +1,52 @@
+---
+import Button from './Button.astro';
+import Heading from './Heading.astro';
+import Section from './Section.astro';
+import Text from './Text.astro';
+import { art } from './appliance-art';
+import Base from '../layouts/Base.astro';
+import { content, langFromUrl, localePath } from '../content';
+import { reviewed } from '../reviewed-faults';
+
+type Props = { slug: string };
+const lang = langFromUrl(Astro.url);
+const { faults, services, actions } = content[lang];
+const f = faults.items.find((i) => i.slug === Astro.props.slug)!;
+const service = services.items.find((s) => s.slug === f.service)!;
+const drawing = art[f.art]!;
+const [x, y] = drawing.spots[f.spot]!;
+const list = 'flex flex-col gap-2 ps-card list-disc marker:text-teal';
+---
+
+<Base title={f.seo.title} description={f.seo.description} noindex={!reviewed.includes(f.slug)}>
+  <Section>
+    <div class="grid gap-8 lg:grid-cols-12">
+      <div class="flex flex-col items-start gap-4 lg:col-span-7">
+        <Heading level={1} size="statement">{f.h1}</Heading>
+        <Text size="lead">{f.lead}</Text>
+        <div class="flex flex-wrap gap-3"><Button variant="whatsapp">{actions.whatsapp}</Button><Button variant="call">{actions.call}</Button></div>
+      </div>
+      <figure class="flex flex-col gap-2 rounded-panel bg-white p-card lg:col-span-5">
+        <svg viewBox="0 0 200 150" role="img" aria-label={`${f.name}: ${faults.labels.part} ${f.part}`} class="h-auto w-full fill-none stroke-teal stroke-2">
+          <g set:html={drawing.svg} />
+          <circle cx={x} cy={y} r="7" class="fill-copper stroke-none" />
+        </svg>
+        <figcaption class="text-small">{faults.labels.part}: {f.part}</figcaption>
+      </figure>
+    </div>
+  </Section>
+  <Section tone="teal">
+    <div class="grid gap-8 md:grid-cols-2">
+      <div class="flex flex-col gap-4"><Heading level={2} tone="pearl">{faults.labels.check}</Heading><ul class={list}>{f.check.map((c) => <li>{c}</li>)}</ul></div>
+      <div class="flex flex-col gap-4 rounded-card bg-teal-step p-card"><h2 class="font-display text-head font-head">{faults.labels.technician}</h2><ul class={list}>{f.technician.map((c) => <li>{c}</li>)}</ul></div>
+    </div>
+  </Section>
+  <Section>
+    <div class="flex flex-col items-start gap-4">
+      <Heading>{faults.labels.closeH}</Heading>
+      <Text>{faults.labels.closeText}</Text>
+      <div class="flex flex-wrap gap-3"><Button variant="whatsapp">{actions.whatsapp}</Button><Button variant="call">{actions.call}</Button></div>
+      <Button variant="quiet" href={localePath(lang, `/services/${service.slug}`)}>{faults.labels.related}: {service.name}</Button>
+    </div>
+  </Section>
+</Base>
