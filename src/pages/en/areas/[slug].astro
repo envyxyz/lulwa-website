@@ -1,0 +1,9 @@
+---
+import Page from '../../../components/Page.astro';
+import { ar } from '../../../content/ar';
+
+export const getStaticPaths = () => ar.areas.items.map((i) => ({ params: { slug: i.slug } }));
+const { slug } = Astro.params;
+---
+
+<Page kind="area" slug={slug} />

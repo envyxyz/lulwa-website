@@ -197,6 +197,7 @@ export const ar: Content = {
     h1: 'الدمام',
     lead: 'الورشة في حي الجلوية بالدمام.',
     pending: 'نضيف المدن الأخرى عندما نؤكدها.',
+    servicesLabel: 'وش نصلح هنا',
     items: [
       {
         slug: 'appliance-repair-in-dammam',
@@ -219,6 +220,14 @@ export const ar: Content = {
     h1: 'من نحن',
     lead: 'ورشة صيانة مسجلة في حي الجلوية بالدمام.',
     factsHeading: 'بياناتنا',
+    facts: [
+      { label: 'الاسم النظامي', value: site.legal.name },
+      { label: 'السجل التجاري', value: site.legal.cr },
+      { label: 'الرقم الموحد', value: site.legal.unified },
+      { label: 'رخصة بلدي', value: site.legal.balady },
+      { label: 'تنتهي الرخصة', value: `${site.legal.baladyExpires} هـ` },
+      { label: 'العنوان', value: 'شارع الأمير عبدالمحسن بن جلوي، رقم 8951، حي الجلوية 4885، الدمام' },
+    ],
     sections: [
       { h: 'وش نصلح', body: 'المكيفات (سبليت وشباك)، الثلاجات مع تعبئة الغاز، الغسالات الأوتوماتيك، والنشافات.' },
       { h: 'كيف تتواصل معنا', body: `واتساب أو اتصال على ${phone}، كل يوم من 8:00 صباحاً إلى 11:00 مساءً.` },
@@ -305,6 +314,7 @@ export const ar: Content = {
     seo: { title: `المدونة | ${name}`, description: 'نصائح قصيرة للعناية بالمكيفات والغسالات.' },
     h1: 'المدونة',
     lead: 'نصائح قصيرة للعناية بأجهزتك.',
+    updated: 'آخر تحديث',
     items: [
       {
         slug: 'ac-repair-in-dammam',
@@ -342,6 +352,17 @@ export const ar: Content = {
         ],
       },
     ],
+  },
+  notFound: {
+    seo: { title: `الصفحة غير موجودة | ${name}`, description: 'هذه الصفحة غير موجودة.' },
+    h1: 'ما لقينا هذي الصفحة',
+    lead: 'يمكن انتقلت. ابدأ من الصفحة الرئيسية، أو راسلنا على واتساب.',
+    home: 'الصفحة الرئيسية',
+  },
+  thanks: {
+    seo: { title: `شكراً لك | ${name}`, description: 'وصلنا طلبك.' },
+    h1: 'وصلنا طلبك',
+    lead: 'نرد عليك على الرقم اللي كتبته. وإذا تبي رد أسرع، راسلنا على واتساب.',
   },
   sink: {
     title: 'معرض المكونات',

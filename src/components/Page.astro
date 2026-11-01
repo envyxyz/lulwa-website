@@ -1,0 +1,141 @@
+---
+import Button from './Button.astro';
+import Heading from './Heading.astro';
+import Img from './Img.astro';
+import Section from './Section.astro';
+import Text from './Text.astro';
+import Base from '../layouts/Base.astro';
+import { site } from '../site';
+import { content, langFromUrl, localePath } from '../content';
+import type { Intro, Section as Block } from '../content/types';
+
+// One template for the plain pages: intro, then the body for its kind.
+type Props = {
+  kind: 'about' | 'areas' | 'area' | 'brands' | 'contact' | 'reviews' | 'work' | 'privacy' | 'terms' | 'cookies' | 'blog' | 'post' | 'notFound' | 'thanks';
+  slug?: string;
+};
+const lang = langFromUrl(Astro.url);
+const c = content[lang];
+const { actions, home } = c;
+const { kind, slug } = Astro.props;
+
+const legal = { privacy: c.legal.privacy, terms: c.legal.terms, cookies: c.legal.cookies };
+const doc: (Intro & { sections?: Block[]; updated?: string }) | undefined =
+  kind === 'area' ? c.areas.items.find((i) => i.slug === slug)
+  : kind === 'post' ? c.blog.items.find((i) => i.slug === slug)
+  : kind === 'privacy' || kind === 'terms' || kind === 'cookies' ? legal[kind]
+  : undefined;
+const intro: Intro = doc ?? (c as unknown as Record<string, Intro>)[kind]!;
+const sections = doc?.sections ?? (kind === 'about' ? c.about.sections : []);
+
+// Reviews with emoji stay off until the call in docs/FOR-AMEER.md. Text is never edited.
+const reviews = c.reviews.items.filter((r) => !/\p{Extended_Pictographic}/u.test(r.text));
+const photos = home.work.items;
+const size = (name: string) => (name.startsWith('rooftop') ? 680 : 287);
+const rows = [
+  [home.shop.addressLabel, home.shop.address],
+  [home.shop.hoursLabel, home.shop.hours],
+];
+const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card font-display text-lead font-head';
+---
+
+<Base title={intro.seo.title} description={intro.seo.description} noindex={kind === 'thanks'}>
+  <Section>
+    <div class="flex flex-col items-start gap-4">
+      <Heading level={1} size="statement">{intro.h1}</Heading>
+      <Text size="lead">{intro.lead}</Text>
+      {(kind === 'notFound' || kind === 'thanks' || kind === 'area' || kind === 'contact' || kind === 'brands') && (
+        <div class="flex flex-wrap gap-3"><Button variant="whatsapp">{actions.whatsapp}</Button><Button variant="call">{actions.call}</Button></div>
+      )}
+      {kind === 'notFound' && <Button variant="quiet" href={localePath(lang, '/')}>{c.notFound.home}</Button>}
+      {doc?.updated && <Text soft>{c.blog.updated}: {doc.updated}</Text>}
+    </div>
+  </Section>
+
+  {sections.length > 0 && (
+    <Section>
+      <div class="flex max-w-prose flex-col gap-8">
+        {sections.map((s) => <div class="flex flex-col gap-2"><Heading level={2}>{s.h}</Heading><Text>{s.body}</Text></div>)}
+      </div>
+    </Section>
+  )}
+
+  {kind === 'about' && (
+    <Section tone="teal">
+      <div class="flex flex-col gap-6">
+        <Heading level={2} tone="pearl">{c.about.factsHeading}</Heading>
+        <dl class="grid gap-4 md:grid-cols-2">{c.about.facts.map((f) => <div class="rounded-card bg-teal-step p-card"><dt class="text-small">{f.label}</dt><dd><bdi>{f.value}</bdi></dd></div>)}</dl>
+      </div>
+    </Section>
+  )}
+
+  {kind === 'areas' && (
+    <Section>
+      <div class="flex flex-col gap-4">
+        <ul class="grid gap-4 md:grid-cols-2">{c.areas.items.map((a) => <li><a href={localePath(lang, `/areas/${a.slug}`)} class={tile}>{a.name}<span class="text-small font-regular text-ink-soft">{a.lead}</span></a></li>)}</ul>
+        <Text soft>{c.areas.pending}</Text>
+      </div>
+    </Section>
+  )}
+
+  {kind === 'area' && (
+    <Section tone="teal">
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="flex flex-col gap-4"><Heading level={2} tone="pearl">{c.areas.servicesLabel}</Heading><ul class="flex flex-col gap-2">{c.services.items.map((s) => <li><a class="inline-flex min-h-target items-center underline underline-offset-4" href={localePath(lang, `/services/${s.slug}`)}>{s.name}</a></li>)}</ul></div>
+        <dl class="flex flex-col gap-4">{rows.map(([l, v]) => <div><dt class="text-small">{l}</dt><dd><bdi>{v}</bdi></dd></div>)}</dl>
+      </div>
+    </Section>
+  )}
+
+  {kind === 'brands' && (
+    <Section tone="teal">
+      <div class="flex flex-col gap-6">
+        <ul class="flex flex-wrap gap-3">{c.brands.items.map((b) => <li class="rounded-button bg-teal-step px-card py-2 font-medium"><bdi dir="ltr" lang="en">{b.name}</bdi></li>)}</ul>
+        <Text>{c.brands.disclaimer}</Text>
+      </div>
+    </Section>
+  )}
+
+  {kind === 'contact' && (
+    <Section>
+      <div class="grid gap-8 md:grid-cols-2">
+        <dl class="flex flex-col gap-4">{rows.map(([l, v]) => <div><dt class="text-small text-ink-soft">{l}</dt><dd><bdi>{v}</bdi></dd></div>)}</dl>
+        <div><Button variant="quiet" href={site.maps.listing} data-action="directions">{actions.directions}</Button></div>
+      </div>
+    </Section>
+  )}
+
+  {kind === 'reviews' && (
+    <Section>
+      <div class="flex flex-col gap-8">
+        <div class="flex flex-col items-start gap-2"><Text>{c.reviews.rating} · {c.reviews.asOf}</Text><Button variant="quiet" href={site.maps.listing}>{c.reviews.sourceLink}</Button><Text soft>{c.reviews.source}</Text></div>
+        <ul class="grid gap-4 md:grid-cols-2">{reviews.map((r) => <li class="flex flex-col gap-2 rounded-card bg-pearl-step p-card"><bdi lang="en" dir="ltr" class="text-start font-display text-lead font-head">{r.text}</bdi><span class="text-small text-ink-soft"><bdi>{r.name}</bdi> · {r.when}</span></li>)}</ul>
+      </div>
+    </Section>
+  )}
+
+  {kind === 'work' && (
+    <Section tone="teal">
+      <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
+        {photos.map((p) => (
+          <figure class="flex flex-col gap-2">
+            <Img name={p.photo} widths={size(p.photo) > 400 ? [340, 680] : [287]} width={size(p.photo)} height={size(p.photo) > 400 ? 382 : 510} alt={p.caption} sizes="(min-width: 64rem) 30vw, 50vw" rounded job />
+            <figcaption class="text-small">{p.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </Section>
+  )}
+
+  {kind === 'blog' && (
+    <Section>
+      <ul class="grid gap-4 md:grid-cols-2">{c.blog.items.map((p) => <li><a href={localePath(lang, `/blog/${p.slug}`)} class={tile}>{p.h1}<span class="text-small font-regular text-ink-soft">{p.lead}</span></a></li>)}</ul>
+    </Section>
+  )}
+
+  {kind === 'post' && (
+    <Section>
+      <div class="flex flex-wrap gap-3"><Button variant="whatsapp">{actions.whatsapp}</Button><Button variant="quiet" href={localePath(lang, '/blog')}>{c.blog.h1}</Button></div>
+    </Section>
+  )}
+</Base>

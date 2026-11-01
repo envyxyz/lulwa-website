@@ -197,6 +197,7 @@ export const en: Content = {
     h1: 'Dammam',
     lead: 'The shop is in Al-Jalawiyah, Dammam.',
     pending: 'We add other cities once we confirm them.',
+    servicesLabel: 'What we repair here',
     items: [
       {
         slug: 'appliance-repair-in-dammam',
@@ -219,6 +220,14 @@ export const en: Content = {
     h1: 'About us',
     lead: 'A registered repair shop in Al-Jalawiyah, Dammam.',
     factsHeading: 'Our details',
+    facts: [
+      { label: 'Legal name', value: site.legal.name },
+      { label: 'Commercial registration', value: site.legal.cr },
+      { label: 'Unified number', value: site.legal.unified },
+      { label: 'Balady licence', value: site.legal.balady },
+      { label: 'Licence expires', value: `${site.legal.baladyExpires} H` },
+      { label: 'Address', value: '8951 Prince Abdulmohsen bin Jalawi Street, Al-Jalawiyah 4885, Dammam' },
+    ],
     sections: [
       { h: 'What we repair', body: 'Air conditioners (split and window), fridges including gas refilling, automatic washing machines and dryers.' },
       { h: 'How to reach us', body: `WhatsApp or call ${phone}, every day from 8:00 AM to 11:00 PM.` },
@@ -305,6 +314,7 @@ export const en: Content = {
     seo: { title: `Blog | ${name}`, description: 'Short tips for looking after ACs and washing machines.' },
     h1: 'Blog',
     lead: 'Short tips for looking after your appliances.',
+    updated: 'Updated',
     items: [
       {
         slug: 'ac-repair-in-dammam',
@@ -342,6 +352,17 @@ export const en: Content = {
         ],
       },
     ],
+  },
+  notFound: {
+    seo: { title: `Page not found | ${name}`, description: 'This page does not exist.' },
+    h1: 'We could not find this page',
+    lead: 'It may have moved. You can start from the home page, or message us on WhatsApp.',
+    home: 'Home page',
+  },
+  thanks: {
+    seo: { title: `Thank you | ${name}`, description: 'We received your request.' },
+    h1: 'We have your request',
+    lead: 'We will reply on the number you gave. For a faster answer, message us on WhatsApp.',
   },
   sink: {
     title: 'Component sink',

@@ -4,7 +4,7 @@ const phoneE164 = '+966568022197';
 export const site = {
   url: 'https://lulwa.com.sa',
   brand: { arabic: 'لولوه للتكييف والتبريد', arabicShort: 'لولوه', latin: 'Lulwa' },
-  legal: { name: 'مؤسسة لولوه عبدالله فرحان المرشود للتبريد والتكييف', cr: '2050163881' },
+  legal: { name: 'مؤسسة لولوه عبدالله فرحان المرشود للتبريد والتكييف', cr: '2050163881', unified: '7031612190', balady: '441212549365', baladyExpires: '1448/12/05' },
   phone: {
     display: '056 802 2197',
     e164: phoneE164,

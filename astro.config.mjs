@@ -28,6 +28,6 @@ export default defineConfig({
     defaultLocale: 'ar',
     routing: { prefixDefaultLocale: false },
   },
-  integrations: [sitemap({ filter: (page) => !/\/faults\/[^/]+$/.test(page) || reviewed.includes(page.split('/').pop()) }), kitchenSink],
+  integrations: [sitemap({ filter: (page) => !/\/thanks$/.test(page) && (!/\/faults\/[^/]+$/.test(page) || reviewed.includes(page.split('/').pop())) }), kitchenSink],
   vite: { plugins: [tailwindcss()] },
 });

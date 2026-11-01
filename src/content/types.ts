@@ -98,9 +98,9 @@ export type Content = {
     items: Fault[];
     labels: { answer: string; check: string; technician: string; part: string; related: string; closeH: string; closeText: string; appliances: string };
   };
-  areas: Intro & { pending: string; items: (Intro & { slug: string; name: string })[] };
+  areas: Intro & { pending: string; servicesLabel: string; items: (Intro & { slug: string; name: string })[] };
   brands: Intro & { disclaimer: string; items: Brand[] };
-  about: Intro & { sections: Section[]; factsHeading: string };
+  about: Intro & { sections: Section[]; factsHeading: string; facts: { label: string; value: string }[] };
   contact: Intro & {
     form: {
       name: string;
@@ -120,7 +120,9 @@ export type Content = {
   reviews: Intro & { rating: string; asOf: string; source: string; sourceLink: string; items: Review[] };
   work: Intro & { empty: string };
   legal: { privacy: Policy; terms: Policy; cookies: Policy };
-  blog: Intro & { items: Post[] };
+  blog: Intro & { updated: string; items: Post[] };
+  notFound: Intro & { home: string };
+  thanks: Intro;
   sink: {
     title: string;
     statement: string;

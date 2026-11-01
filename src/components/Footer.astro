@@ -1,8 +1,20 @@
 ---
 import { site } from '../site';
-import { content, langFromUrl } from '../content';
+import { content, langFromUrl, localePath } from '../content';
 
-const { chrome, home } = content[langFromUrl(Astro.url)];
+const lang = langFromUrl(Astro.url);
+const c = content[lang];
+const { chrome, home } = c;
+const links = [
+  ['/about', c.about.h1],
+  ['/areas', c.areas.h1],
+  ['/brands', c.brands.h1],
+  ['/work', c.work.h1],
+  ['/blog', c.blog.h1],
+  ['/privacy-policy', c.legal.privacy.h1],
+  ['/terms-of-service', c.legal.terms.h1],
+  ['/cookie-policy', c.legal.cookies.h1],
+] as const;
 const { shop } = home;
 const rows = [
   [shop.addressLabel, shop.address],
@@ -18,6 +30,7 @@ const rows = [
     <dl class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
       {rows.map(([label, value]) => <div><dt class="text-small">{label}</dt><dd><bdi>{value}</bdi></dd></div>)}
     </dl>
+    <ul class="mt-8 flex flex-wrap gap-x-6">{links.map(([path, label]) => <li><a href={localePath(lang, path)} class="inline-flex min-h-target items-center text-small underline underline-offset-4">{label}</a></li>)}</ul>
   </div>
   <p aria-hidden="true" class="crop mt-8 text-center font-display text-giant font-statement tracking-statement text-teal-quiet">{chrome.word}</p>
 </footer>
