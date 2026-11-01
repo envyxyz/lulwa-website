@@ -55,7 +55,7 @@ const lulwa = {
 };
 
 export default [
-  { ignores: ['dist', '.astro', 'node_modules', 'playwright-report', 'test-results', '.lighthouseci', 'docs', 'design', 'scripts', 'public', '*.cjs', '*.mjs'] },
+  { ignores: ['dist', '.wrangler', '.astro', 'node_modules', 'playwright-report', 'test-results', '.lighthouseci', 'docs', 'design', 'scripts', 'public', '*.cjs', '*.mjs'] },
   ...tseslint.configs.recommended,
   ...astro.configs.recommended,
   {

@@ -67,3 +67,12 @@ Questions, verifications and access needed, gathered while Ameer sleeps. Nothing
 - **Blog:** the 3 posts keep their old slugs with short generic advice; the technician should confirm the tips.
 - **No technician names or social links** are published anywhere.
 - **Dammam area page is thin on purpose:** shop address, hours, the four services. No drive time, job or review is tied to Dammam specifically.
+
+## Phase 7 (2026-11-01)
+- **Deploy the lead path, then send one real lead.** Nothing is deployed. Exact steps: `integrations/README.md` (Sheet and Apps Script from the shop's Google account, two Worker secrets, `pnpm worker:deploy`, then a test lead through `/contact` to the Sheet and the email). Locally it passes against a stub: a good lead is stored, a down Sheet sends the visitor to WhatsApp with the message.
+- **Need from you or the client:** the email address that should receive leads (`SHOP_EMAIL` script property), and a Google account that owns the Sheet.
+- **GTM container `GTM-TVK4BRTS` now loads on first touch,** the ID kept from the old site. Ownership is unconfirmed. If it is not yours or the shop's, swap `site.analytics.gtm` in `src/site.ts`. Inside GTM you must create triggers on the events `call_click`, `whatsapp_click`, `directions_click`, `picker_complete`, `lead_submit` (each carries only `location`, the page slug) and send them to GA4.
+- **Consent is a line, not a checkbox:** "By sending this request you agree...", with the privacy link. T15 and the PRD ask for a consent line. If a lawyer wants a ticked box, say so.
+- **Privacy policy check:** it should name Google Sheets, Gmail and Cloudflare as places a lead passes through. Not edited this phase.
+- **No form without JavaScript:** the form needs JS to send. Without it the WhatsApp and call buttons still work.
+- **Rate limiting** is only the honeypot plus Cloudflare's defaults. Add a rule if spam shows.
