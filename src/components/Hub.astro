@@ -12,7 +12,7 @@ const c = content[lang];
 const { actions } = c;
 const { kind } = Astro.props;
 const page = c[kind];
-const card = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card font-display text-lead font-head';
+const card = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card font-display text-lead font-head transition hover:bg-pearl-hover active:scale-98';
 ---
 
 <Base title={page.seo.title} description={page.seo.description}>

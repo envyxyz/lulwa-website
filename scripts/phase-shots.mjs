@@ -13,9 +13,9 @@ try {
     await new Promise((done) => setTimeout(done, 500));
   }
   const browser = await chromium.launch({ channel: 'msedge' });
-  for (const width of [1440, 390]) {
+  for (const scheme of ['light', 'dark']) for (const width of [1440, 390]) {
     for (const route of process.argv.length > 3 ? process.argv.slice(3) : ['/']) for (const [lang, path] of [['ar', route], ['en', route === '/' ? '/en' : `/en${route}`]]) {
-      const page = await browser.newPage({ viewport: { width, height: width > 500 ? 900 : 844 } });
+      const page = await browser.newPage({ colorScheme: scheme, reducedMotion: 'reduce', viewport: { width, height: width > 500 ? 900 : 844 } });
       await page.goto(`http://localhost:${port}${path}`, { waitUntil: 'networkidle' });
       await page.evaluate(() => document.fonts.ready);
       // Walk the page so lazy images load before the full-page shot.
@@ -25,7 +25,7 @@ try {
       }
       await page.evaluate(() => scrollTo(0, 0));
       await page.waitForTimeout(700);
-      await page.screenshot({ path: `${out}/${path === '/' || path === '/en' ? 'home' : path.replace(/^\/en/, '').slice(1).replace(/\//g, '-')}-${lang}-${width}.png`, fullPage: true });
+      await page.screenshot({ path: `${out}/${path === '/' || path === '/en' ? 'home' : path.replace(/^\/en/, '').slice(1).replace(/\//g, '-')}-${lang}-${width}${scheme === 'dark' ? '-dark' : ''}.png`, fullPage: true });
       await page.close();
     }
   }

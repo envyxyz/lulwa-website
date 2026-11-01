@@ -42,7 +42,7 @@ const long = kind === 'area' || kind === 'post' || kind === 'privacy' || kind ==
 const needsNext = !['notFound', 'contact', 'reviews', 'post'].includes(kind);
 // The phone number reads left to right inside Arabic text (rule 8).
 const bdi = (t: string) => t.replaceAll(site.phone.display, `<bdi dir="ltr">${site.phone.display}</bdi>`);
-const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card font-display text-lead font-head';
+const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card font-display text-lead font-head transition hover:bg-pearl-hover active:scale-98';
 ---
 
 <Base title={intro.seo.title} description={intro.seo.description} noindex={kind === 'thanks'} ld={kind === 'post' ? [article(intro.h1, intro.seo.description, doc?.updated ?? '', lang)] : []}>
@@ -88,7 +88,7 @@ const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
   {kind === 'area' && (
     <Section tone="teal">
       <div class="grid gap-8 md:grid-cols-2">
-        <div class="flex flex-col gap-4"><Heading level={2} tone="pearl">{c.areas.servicesLabel}</Heading><ul class="flex flex-col gap-2">{c.services.items.map((s) => <li><a class="inline-flex min-h-target items-center underline underline-offset-4" href={localePath(lang, `/services/${s.slug}`)}>{s.name}</a></li>)}</ul></div>
+        <div class="flex flex-col gap-4"><Heading level={2} tone="pearl">{c.areas.servicesLabel}</Heading><ul class="flex flex-col gap-2">{c.services.items.map((s) => <li><a class="inline-flex min-h-target items-center underline underline-offset-4 transition hover:opacity-70" href={localePath(lang, `/services/${s.slug}`)}>{s.name}</a></li>)}</ul></div>
         <dl class="flex flex-col gap-4">{rows.map(([l, v]) => <div><dt class="text-small">{l}</dt><dd><bdi>{v}</bdi></dd></div>)}</dl>
       </div>
     </Section>
@@ -122,7 +122,9 @@ const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
     </Section>
   )}
 
-  {kind === 'work' && (
+  {kind === 'work' && photos.length === 0 && <Section><Text>{c.work.empty}</Text></Section>}
+
+  {kind === 'work' && photos.length > 0 && (
     <Section tone="teal">
       <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
         {photos.map((p, i) => (

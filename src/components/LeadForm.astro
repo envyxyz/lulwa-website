@@ -5,7 +5,7 @@ import { content, langFromUrl, localePath } from '../content';
 const lang = langFromUrl(Astro.url);
 const c = content[lang];
 const { form } = c.contact;
-const field = 'min-h-target w-full rounded-button bg-pearl-step px-card py-2 text-body';
+const field = 'min-h-target w-full rounded-button bg-pearl-step px-card py-2 text-body transition focus:bg-pearl-hover aria-invalid:outline-2 aria-invalid:-outline-offset-2 aria-invalid:outline-error';
 const label = 'flex flex-col gap-1 font-medium';
 const error = 'text-small text-error';
 const fields = [
@@ -50,10 +50,10 @@ const fields = [
   <!-- Honeypot: off screen and out of the tab order. People never see it. -->
   <input name="website" type="text" hidden tabindex="-1" autocomplete="off" />
   <p data-consent class="text-small text-ink-soft">{form.consent} <a class="underline underline-offset-4" href={localePath(lang, '/privacy-policy')}>{form.privacy}</a></p>
-  <button type="submit" class="h-button md:h-button-md rounded-button bg-teal px-card font-medium text-pearl transition active:scale-98 active:bg-teal-active self-start">{form.submit}</button>
+  <button type="submit" data-sending={form.sending} class="inline-flex h-button md:h-button-md items-center gap-2 rounded-button bg-teal px-card font-medium text-pearl transition hover:bg-teal-active active:scale-98 active:bg-teal-active disabled:cursor-wait disabled:opacity-70 self-start"><span data-spinner hidden class="spinner"></span><span data-label>{form.submit}</span></button>
   <div role="status" class="flex flex-col items-start gap-2" data-status>
-    <p data-fallback-text hidden>{form.fallback}</p>
-    <a data-fallback-link data-action="whatsapp" hidden class="min-h-target underline underline-offset-4" href={site.phone.whatsapp}>{form.whatsappFallback}</a>
+    <p data-fallback-text hidden class="font-medium text-error">{form.fallback}</p>
+    <a data-fallback-link data-action="whatsapp" hidden class="inline-flex min-h-target items-center rounded-button bg-whatsapp px-card font-medium text-ink transition active:scale-98 active:bg-whatsapp-active" href={site.phone.whatsapp}>{form.whatsappFallback}</a>
   </div>
 </form>
 
@@ -71,25 +71,36 @@ const fields = [
     field(name).setAttribute('aria-invalid', String(Boolean(message)));
   };
 
-  const check = () => {
-    const bad: string[] = [];
-    for (const name of ['name', 'phone', 'appliance', 'area']) {
-      const el = field(name);
-      const value = el.value.trim();
-      let message = '';
-      if (!value) message = errors.required!;
-      else if (name === 'phone' && !/^\d{8,15}$/.test(value.replace(/[\s-]|^\+/g, ''))) message = errors.phone!;
-      show(name, message);
-      if (message) bad.push(name);
-    }
-    return bad;
+  const validate = (name: string) => {
+    const value = field(name).value.trim();
+    let message = '';
+    if (!value) message = errors.required!;
+    else if (name === 'phone' && !/^\d{8,15}$/.test(value.replace(/[\s-]|^\+/g, ''))) message = errors.phone!;
+    show(name, message);
+    return message;
   };
+  const names = ['name', 'phone', 'appliance', 'area'];
+  const check = () => names.filter((name) => validate(name));
+  // Check a field as people leave it; once it has errored, keep checking as they fix it.
+  for (const name of names) {
+    field(name).addEventListener('blur', () => validate(name));
+    for (const type of ['input', 'change']) field(name).addEventListener(type, () => field(name).getAttribute('aria-invalid') === 'true' && validate(name));
+  }
+
+  const busy = (on: boolean) => {
+    button.disabled = on;
+    button.toggleAttribute('aria-busy', on);
+    button.querySelector<HTMLElement>('[data-spinner]')!.hidden = !on;
+    button.querySelector<HTMLElement>('[data-label]')!.textContent = on ? button.dataset.sending! : label;
+  };
+  const label = button.querySelector<HTMLElement>('[data-label]')!.textContent!;
+  addEventListener('pageshow', () => busy(false));
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const bad = check();
     if (bad.length) return field(bad[0]!).focus();
-    button.disabled = true;
+    busy(true);
     const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
     const lead = { name: data.name, phone: data.phone, appliance: data.appliance, area: data.area, message: data.message ?? '', website: data.website ?? '', page: slug(), utm: campaign() };
     let whatsapp = '';
@@ -104,13 +115,38 @@ const fields = [
     } catch {
       // Offline or the Worker is down: fall through to WhatsApp.
     }
-    // The Sheet failed: the message still reaches the shop on WhatsApp.
+    // The Sheet failed: typed values stay, and the WhatsApp link carries the message.
     const text = `${lead.appliance}, ${lead.area}. ${lead.message} ${sourceTag()}`.replace(/\s+/g, ' ').trim();
     const link = form.querySelector<HTMLAnchorElement>('[data-fallback-link]')!;
     link.href = whatsapp || `${form.dataset.whatsapp}?text=${encodeURIComponent(text)}`;
     link.hidden = false;
     form.querySelector<HTMLElement>('[data-fallback-text]')!.hidden = false;
-    button.disabled = false;
-    location.assign(link.href);
+    busy(false);
+    link.focus();
   });
 </script>
+
+<style>
+  [data-error-for]:not([hidden]) {
+    animation: error-in var(--duration-open) var(--ease-out);
+  }
+  @keyframes error-in {
+    from {
+      opacity: 0;
+      translate: 0 -0.25rem;
+    }
+  }
+  .spinner {
+    inline-size: 1em;
+    block-size: 1em;
+    border: 2px solid currentColor;
+    border-block-start-color: transparent;
+    border-radius: var(--radius-dot);
+    animation: spin calc(var(--duration-rise) * 1.6) linear infinite;
+  }
+  @keyframes spin {
+    to {
+      rotate: 1turn;
+    }
+  }
+</style>

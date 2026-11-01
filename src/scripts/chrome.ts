@@ -2,6 +2,20 @@ import { campaign, sourceTag, track } from './track';
 
 campaign();
 
+// Images still arriving fade in over their skeleton. No JS: they just show.
+for (const img of document.images) {
+  const done = () => {
+    img.classList.remove('loading');
+    img.parentElement?.classList.remove('skeleton');
+  };
+  if (img.complete) done();
+  else {
+    img.classList.add('loading');
+    img.addEventListener('load', done, { once: true });
+    img.addEventListener('error', done, { once: true });
+  }
+}
+
 // GTM loads on the first touch, key or scroll, never before.
 const gtm = document.documentElement.dataset.gtm;
 if (gtm) {
