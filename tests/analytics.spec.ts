@@ -21,7 +21,7 @@ test('T16 directions_click', ({ page }) => clickAndExpect(page, '[data-action="d
 
 test('T16 picker_complete', async ({ page }) => {
   await visit(page, '/');
-  for (const step of ['appliance', 'fault', 'area']) await page.locator(`[data-picker-${step}]`).first().click({ timeout: 2000 });
+  await page.locator('[data-faults]:not([hidden]) [data-picker-fault]').first().click({ timeout: 2000 });
   expect((await events(page)).map((e) => e['event'])).toContain('picker_complete');
 });
 

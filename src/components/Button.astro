@@ -10,7 +10,7 @@ const targets = { whatsapp: site.phone.whatsapp, call: site.phone.tel, quiet: hr
 const icons = { whatsapp: 'whatsapp', call: 'phone', quiet: 'arrow-next' } as const;
 const solid = 'h-button md:h-button-md rounded-button px-card active:scale-98';
 const styles = {
-  whatsapp: `${solid} bg-whatsapp text-ink hover:bg-whatsapp-active active:bg-whatsapp-active`,
+  whatsapp: `${solid} bg-whatsapp text-white hover:bg-whatsapp-active active:bg-whatsapp-active`,
   call: `${solid} ${light ? 'bg-pearl text-ink hover:bg-pearl-step active:bg-pearl-step' : 'bg-teal text-pearl hover:bg-teal-active active:bg-teal-active'}`,
   quiet: 'min-h-target underline underline-offset-4 decoration-transparent hover:decoration-current',
 };

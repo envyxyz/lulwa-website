@@ -1,6 +1,8 @@
 ---
 import Button from './Button.astro';
 import Heading from './Heading.astro';
+import Icon from './Icon.astro';
+import Img from './Img.astro';
 import Text from './Text.astro';
 import { art } from './appliance-art';
 import { content, langFromUrl, localePath } from '../content';
@@ -9,47 +11,64 @@ const lang = langFromUrl(Astro.url);
 const { home } = content[lang];
 const { picker } = home;
 const service = (slug: string) => localePath(lang, `/services/${slug}`);
-const option = 'inline-flex min-h-target items-center rounded-button px-3 transition hover:bg-teal-hover active:scale-98 aria-pressed:bg-pearl aria-pressed:text-teal';
+// Generated product images, by appliance slug.
+const photo: Record<string, string> = { 'split-ac': 'split-ac-indoor', 'window-ac': 'window-ac', fridge: 'fridge', washer: 'washer', dryer: 'dryer' };
+// Seat of each appliance relative to the selected one: -2 to 2, wrapping. Server-rendered so the carousel is right before JS.
+const seat = (k: number) => ((k + 7) % picker.appliances.length) - 2;
+const pill = 'inline-flex min-h-target items-center rounded-button bg-pearl-step px-4 font-medium transition hover:bg-pearl-hover active:scale-98 aria-pressed:bg-teal aria-pressed:text-pearl';
+const arrow = 'absolute top-1/2 z-10 hidden size-target -translate-y-1/2 items-center justify-center rounded-dot bg-pearl-step transition hover:bg-pearl-hover active:scale-98 group-data-ready:inline-flex';
 ---
 
 <section class="px-gutter pt-section">
   <div class="mx-auto flex max-w-page flex-col gap-8">
-    <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+    <div class="flex flex-col gap-4">
       <Heading>{picker.heading}<Fragment slot="quiet">{picker.quiet}</Fragment></Heading>
       <Text>{picker.lead}</Text>
     </div>
-    <div data-testid="fault-picker" data-message={picker.message} class="grid gap-4 lg:grid-cols-12">
-      <div data-tone="teal" class="flex flex-col gap-6 rounded-panel bg-teal p-card text-pearl lg:col-span-7">
-        <div class="flex grow flex-col">
-          <p class="text-small">{picker.applianceLabel}</p>
-          <ul class="mt-2 grid grow auto-rows-fr grid-cols-2 gap-2 font-display text-lead font-head md:grid-cols-3">
-            {picker.appliances.map((a) => <li><a href={service(a.service)} data-picker-appliance={a.slug} class:list={[option, 'size-full min-h-button justify-center bg-teal-step text-center']}>{a.name}</a></li>)}
-          </ul>
-        </div>
-        {picker.appliances.map((a) => (
-          <div data-faults={a.slug} hidden>
-            <p class="text-small">{picker.faultLabel}</p>
-            <ul class="flex flex-wrap gap-2 text-lead font-medium">
-              {a.faults.map((f, i) => {
-                const [x, y] = art[a.slug]!.spots[i]!;
-                return <li><a href={service(a.service)} data-picker-fault data-part={f.part} data-x={x} data-y={y} class:list={[option, 'bg-teal-step']}>{f.label}</a></li>;
-              })}
+    <div
+      data-testid="fault-picker"
+      data-start={picker.message.start}
+      data-fault={picker.message.fault}
+      data-note={picker.message.note}
+      data-join={picker.join}
+      class="group flex flex-col items-center gap-6 text-center"
+    >
+      <p data-picker-name aria-live="polite" class="font-display text-lead font-head">{picker.appliances[0]!.name}</p>
+      <div data-stage role="group" aria-roledescription="carousel" aria-label={picker.applianceLabel} class="stage relative w-full">
+        <button type="button" data-picker-step="-1" aria-label={picker.prev} class:list={[arrow, 'prev']}><span class="-scale-x-100"><Icon name="arrow-next" /></span></button>
+        <button type="button" data-picker-step="1" aria-label={picker.next} class:list={[arrow, 'next']}><Icon name="arrow-next" /></button>
+        <ul class="grid">
+          {picker.appliances.map((a, k) => (
+            <li class="item col-start-1 row-start-1 w-stage justify-self-center" style={`--d:${seat(k)}`} data-pos={seat(k) === 0 ? 'c' : Math.abs(seat(k)) === 1 ? 'n' : 'f'}>
+              <a href={service(a.service)} data-picker-appliance={a.slug} data-name={a.name} tabindex={Math.abs(seat(k)) === 2 ? -1 : undefined} class="relative block rounded-card">
+                <span class="photo block">
+                  <Img name={photo[a.slug]!} widths={[320, 640]} width={640} height={478} alt={a.name} sizes="(min-width: 48rem) 20rem, 13rem" />
+                </span>
+                <svg viewBox="0 0 200 150" aria-hidden="true" class="art absolute inset-0 size-full fill-none stroke-teal stroke-2 p-4">
+                  <g set:html={art[a.slug]!.svg} />
+                  {art[a.slug]!.spots.map(([x, y], i) => <circle data-i={i} cx={x} cy={y} r="7" class="pearl fill-copper stroke-none" />)}
+                </svg>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="w-full">
+        {picker.appliances.map((a, k) => (
+          <div data-faults={a.slug} hidden={k > 0} role="group" aria-label={picker.faultLabel}>
+            <ul class="flex flex-wrap justify-center gap-2 text-body">
+              {a.faults.map((f, i) => <li><a href={service(a.service)} data-picker-fault data-i={i} data-part={f.part} class={pill}>{f.label}</a></li>)}
+              <li><a href={localePath(lang, '/contact')} data-picker-unsure class={pill}>{picker.notSure}</a></li>
             </ul>
           </div>
         ))}
-        <div data-areas hidden>
-          <p class="text-small">{picker.areaLabel}</p>
-          <ul class="flex flex-wrap gap-2 text-lead font-medium">
-            {picker.areas.map((area) => <li><a href={localePath(lang, '/contact')} data-picker-area class:list={[option, 'bg-teal-step']}>{area}</a></li>)}
-          </ul>
-        </div>
       </div>
-      <div class="flex flex-col gap-4 rounded-panel bg-white p-card lg:col-span-5">
-        <svg viewBox="0 0 200 150" aria-hidden="true" class="mx-auto h-40 w-auto max-w-full fill-none stroke-teal stroke-2">
-          {Object.entries(art).map(([slug, a], i) => <g data-art={slug} class={i ? 'hidden' : ''} set:html={a.svg} />)}
-          <circle data-pearl r="7" class="pearl fill-copper stroke-none opacity-0" />
-        </svg>
-        <p data-likely data-prefix={picker.likely} data-empty={picker.empty} data-ready={picker.ready} aria-live="polite" class="min-h-target text-small">{picker.empty}</p>
+      <label data-picker-note hidden class="flex w-full max-w-text flex-col gap-1 text-start font-medium">
+        {picker.noteLabel}
+        <textarea dir="auto" rows="3" maxlength="500" placeholder={picker.notePlaceholder} class="min-h-target w-full rounded-button bg-pearl-step px-card py-2 text-body font-normal transition focus:bg-pearl-hover"></textarea>
+      </label>
+      <p data-likely data-prefix={picker.likely} data-empty={picker.empty} aria-live="polite" class="min-h-target text-small text-ink-soft">{picker.empty}</p>
+      <div class="flex flex-col items-center gap-2">
         <Button variant="whatsapp" data-picker-whatsapp>{picker.send}</Button>
         <Button variant="quiet" href={localePath(lang, '/services')}>{picker.plain}</Button>
       </div>
@@ -58,15 +77,65 @@ const option = 'inline-flex min-h-target items-center rounded-button px-3 transi
 </section>
 
 <style>
+  .stage {
+    --dir: 1;
+    overflow-x: clip;
+    padding-block: calc(var(--spacing) * 2);
+  }
+  :global([dir='rtl']) .stage {
+    --dir: -1;
+  }
+  .prev {
+    inset-inline-start: calc(50% - var(--spacing-stage) / 2 - var(--spacing-target));
+  }
+  .next {
+    inset-inline-end: calc(50% - var(--spacing-stage) / 2 - var(--spacing-target));
+  }
+  .item {
+    translate: calc(var(--d) * var(--spacing-stage) * var(--dir));
+    transition: translate var(--duration-rise) var(--ease-out), scale var(--duration-rise) var(--ease-out), opacity var(--duration-rise) var(--ease-out), filter var(--duration-rise) var(--ease-out);
+  }
+  .item[data-pos='n'],
+  .item[data-pos='f'] {
+    scale: var(--picker-near-scale);
+    opacity: var(--picker-near-opacity);
+    filter: grayscale(1);
+  }
+  .item[data-pos='f'] {
+    opacity: 0;
+    pointer-events: none;
+  }
+  /* The product image is its own layer, never a tile: the photo stays transparent. */
+  .photo :global(picture) {
+    background: none;
+    animation: none;
+  }
+  .photo,
+  .art {
+    transition: opacity var(--duration-fade) var(--ease-out);
+  }
+  .art {
+    opacity: 0;
+  }
+  [data-draw] .photo {
+    opacity: 0;
+  }
+  [data-draw] .art {
+    opacity: 1;
+  }
   .pearl {
-    transition: transform var(--duration-rise) var(--ease-out), opacity var(--duration-open) var(--ease-out);
+    opacity: 0;
+    scale: 0.4;
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: opacity var(--duration-open) var(--ease-out), scale var(--duration-rise) var(--ease-out);
   }
-  [data-faults]:not([hidden]),
-  [data-areas]:not([hidden]) {
+  .pearl[data-on] {
+    opacity: 1;
+    scale: 1;
+  }
+  [data-faults]:not([hidden]) {
     animation: rise var(--duration-open) var(--ease-out);
-  }
-  :global(.confirm) {
-    animation: confirm var(--duration-open) var(--ease-out);
   }
   @keyframes rise {
     from {
@@ -74,78 +143,104 @@ const option = 'inline-flex min-h-target items-center rounded-button px-3 transi
       translate: 0 calc(var(--spacing) * 2);
     }
   }
-  @keyframes confirm {
-    40% {
-      scale: 1.05;
-    }
-  }
 </style>
 
 <script>
-  // Appliance, fault, area. Every option is a plain link until this runs, so the picker works without JS.
+  // Every option is a plain link until this runs, so the picker works without JS.
+  import { sourceTag, track } from '../scripts/track';
   const root = document.querySelector<HTMLElement>('[data-testid="fault-picker"]')!;
   const all = <T extends Element = HTMLElement>(selector: string) => [...root.querySelectorAll<T>(selector)];
-  const send = root.querySelector<HTMLAnchorElement>('[data-picker-whatsapp]')!;
-  const pearl = root.querySelector<SVGElement>('[data-pearl]')!;
-  const likely = root.querySelector<HTMLElement>('[data-likely]')!;
-  import { sourceTag, track } from '../scripts/track';
+  const one = <T extends Element = HTMLElement>(selector: string) => root.querySelector<T>(selector)!;
+  const send = one<HTMLAnchorElement>('[data-picker-whatsapp]');
+  const nameEl = one('[data-picker-name]');
+  const likely = one('[data-likely]');
+  const noteBox = one('[data-picker-note]');
+  const note = one<HTMLTextAreaElement>('textarea');
+  const items = all('[data-picker-appliance]');
+  const groups = all('[data-faults]');
+  const rtl = getComputedStyle(root).direction === 'rtl';
   const base = send.href;
-  const picked: Record<string, string> = {};
-  let placed = false;
+  const { start, fault, note: noteText, join } = root.dataset as Record<string, string>;
+  let cur = 0;
+  let tracked = false;
+  let warm = false;
 
-  const select = (group: HTMLElement[], el: HTMLElement) => group.forEach((o) => o.setAttribute('aria-pressed', String(o === el)));
-  const write = () => {
-    const text = root.dataset.message!.replace(/\{(\w+)\}/g, (_, key) => picked[key] ?? '…');
-    send.href = `${base}?text=${encodeURIComponent(`${text} ${sourceTag()}`)}`;
-  };
-  const appliances = all('[data-picker-appliance]');
-  const faults = all('[data-picker-fault]');
-  const areas = all('[data-picker-area]');
-  const areaStep = root.querySelector<HTMLElement>('[data-areas]')!;
+  const fill = (template: string, value: string) => template.replace(/\{\w+\}/, value);
+  const pressed = (group: HTMLElement) => [...group.querySelectorAll<HTMLElement>('[aria-pressed="true"]')];
 
-  for (const el of [...appliances, ...faults, ...areas]) {
-    el.setAttribute('role', 'button');
-    el.setAttribute('aria-pressed', 'false');
-  }
-
-  root.addEventListener('click', (event) => {
-    const el = (event.target as Element).closest<HTMLElement>('a[role="button"]');
-    if (!el) return;
-    event.preventDefault();
-    const label = el.innerText.trim();
-    if ('pickerAppliance' in el.dataset) {
-      select(appliances, el);
-      picked.appliance = label;
-      delete picked.fault;
-      all('[data-faults]').forEach((g) => (g.hidden = g.dataset.faults !== el.dataset.pickerAppliance));
-      all<SVGElement>('[data-art]').forEach((g) => g.classList.toggle('hidden', g.dataset.art !== el.dataset.pickerAppliance));
-      select(faults, el);
-      pearl.classList.add('opacity-0');
-      placed = false;
-      areaStep.hidden = true;
-      select(areas, el);
-      delete picked.area;
-      likely.textContent = likely.dataset.empty!;
-    } else if ('pickerFault' in el.dataset) {
-      select(faults, el);
-      picked.fault = label;
-      areaStep.hidden = false;
-      select(areas, el);
-      delete picked.area;
-      // first placement has no transition so the pearl fades in at the part instead of sliding from the origin
-      if (!placed) { pearl.style.transition = 'opacity var(--duration-open)'; pearl.style.transform = `translate(${el.dataset.x}px, ${el.dataset.y}px)`; pearl.getBoundingClientRect(); pearl.style.transition = ''; placed = true; }
-      else pearl.style.transform = `translate(${el.dataset.x}px, ${el.dataset.y}px)`;
-      pearl.classList.remove('opacity-0');
-      likely.textContent = `${likely.dataset.prefix} ${el.dataset.part}`;
-    } else {
-      select(areas, el);
-      picked.area = label;
-      likely.textContent = likely.dataset.ready!;
-      send.classList.remove('confirm');
-      void send.offsetWidth;
-      send.classList.add('confirm');
+  const update = () => {
+    const on = pressed(groups[cur]!);
+    const real = on.filter((p) => 'pickerFault' in p.dataset);
+    const unsure = on.find((p) => 'pickerUnsure' in p.dataset);
+    const text = note.value.trim();
+    noteBox.hidden = !unsure;
+    items[cur]!.closest('li')!.toggleAttribute('data-draw', real.length > 0);
+    items[cur]!.querySelectorAll<SVGElement>('circle').forEach((c) => c.toggleAttribute('data-on', real.some((p) => p.dataset.i === c.dataset.i)));
+    likely.textContent = real.length ? `${likely.dataset.prefix} ${real.map((p) => p.dataset.part).join(join)}` : likely.dataset.empty!;
+    const picked = on.map((p) => p.innerText.trim()).join(join);
+    let message = fill(start!, items[cur]!.dataset.name!);
+    if (picked) message += fill(fault!, picked);
+    if (unsure && text) message += fill(noteText!, text);
+    send.href = `${base}?text=${encodeURIComponent(`${message} ${sourceTag()}`)}`;
+    if (!tracked && (real.length || (unsure && text))) {
+      tracked = true;
       track('picker_complete');
     }
-    write();
+  };
+
+  const go = (to: number) => {
+    if (!warm) {
+      warm = true;
+      all<HTMLImageElement>('img').forEach((img) => (img.loading = 'eager'));
+    }
+    const focused = items.includes(document.activeElement as HTMLElement);
+    cur = (to + items.length) % items.length;
+    items.forEach((el, k) => {
+      const d = ((k - cur + 7) % items.length) - 2;
+      const li = el.closest('li')!;
+      li.style.setProperty('--d', String(d));
+      li.dataset.pos = d === 0 ? 'c' : Math.abs(d) === 1 ? 'n' : 'f';
+      li.removeAttribute('data-draw');
+      li.setAttribute('aria-hidden', String(Math.abs(d) === 2));
+      el.tabIndex = Math.abs(d) === 2 ? -1 : 0;
+      el.setAttribute('aria-pressed', String(d === 0));
+      el.querySelectorAll('circle').forEach((c) => c.removeAttribute('data-on'));
+    });
+    groups.forEach((g, k) => {
+      g.hidden = k !== cur;
+      g.querySelectorAll('[aria-pressed]').forEach((p) => p.setAttribute('aria-pressed', 'false'));
+    });
+    note.value = '';
+    nameEl.textContent = items[cur]!.dataset.name!;
+    if (focused) items[cur]!.focus();
+    update();
+  };
+
+  for (const el of all('[data-picker-appliance], [data-picker-fault], [data-picker-unsure]')) el.setAttribute('role', 'button');
+  root.dataset.ready = '';
+  go(0);
+
+  root.addEventListener('click', (event) => {
+    const el = (event.target as Element).closest<HTMLElement>('a[role="button"], [data-picker-step]');
+    if (!el) return;
+    event.preventDefault();
+    if ('pickerAppliance' in el.dataset) go(items.indexOf(el));
+    else if (el.dataset.pickerStep) go(cur + Number(el.dataset.pickerStep));
+    else {
+      el.setAttribute('aria-pressed', String(el.getAttribute('aria-pressed') !== 'true'));
+      update();
+      if ('pickerUnsure' in el.dataset && el.getAttribute('aria-pressed') === 'true') note.focus();
+    }
   });
+  root.addEventListener('keydown', (event) => {
+    const target = event.target as HTMLElement;
+    if (event.key === ' ' && target.matches('a[role="button"]')) {
+      event.preventDefault();
+      target.click();
+    } else if ((event.key === 'ArrowRight' || event.key === 'ArrowLeft') && target.closest('[data-stage]')) {
+      event.preventDefault();
+      go(cur + (event.key === 'ArrowRight' ? 1 : -1) * (rtl ? -1 : 1));
+    }
+  });
+  note.addEventListener('input', update);
 </script>

@@ -15,8 +15,8 @@
   --color-ink-step: #15303e;
   --color-ink-soft: #3c4c55; /* secondary text on pearl */
   --color-copper: #d9772b; /* the pearl: a dot, never a fill */
-  --color-whatsapp: #25d366; /* WhatsApp buttons only */
-  --color-whatsapp-active: #1fb457;
+  --color-whatsapp: #0b7a46; /* WhatsApp buttons only, with white text: 5.4:1. Brand #25d366 fails AA under white. Same in both themes */
+  --color-whatsapp-active: #096b3b; /* 6.6:1 */
   --color-error: #b4442e;
 
   --font-*: initial;
@@ -67,6 +67,7 @@
   --spacing-bottom-bar: 4.5rem; /* phone action bar */
   --spacing-logo: 2.75rem;
   --spacing-tile: 17rem; /* hero product tile */
+  --spacing-stage: clamp(13rem, 36vw, 20rem); /* the selected appliance in the picker carousel */
 
   --container-*: initial;
   --container-page: 90rem; /* content lines up with the hero's margins at 1440 */
@@ -86,6 +87,8 @@
   --duration-open: 260ms; /* menu, FAQ, anything that opens */
   --duration-fade: 320ms; /* images arriving, page changes */
   --nudge: 0.25rem; /* arrows on hover */
+  --picker-near-scale: 0.58; /* picker neighbours, as if further away */
+  --picker-near-opacity: 0.55;
   --stagger: 70ms;
   --rise: 1.25rem;
   --focus-width: 3px;

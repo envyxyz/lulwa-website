@@ -68,20 +68,26 @@ export type Content = {
       heading: string;
       quiet: string;
       lead: string;
+      /** Names the carousel and the row of faults for assistive technology. */
       applianceLabel: string;
       faultLabel: string;
-      areaLabel: string;
+      prev: string;
+      next: string;
       send: string;
       plain: string;
-      /** Shown before anything is picked, then when all three steps are done. */
+      /** Shown until a fault is picked. */
       empty: string;
-      ready: string;
+      /** The pill that opens the note field. */
+      notSure: string;
+      noteLabel: string;
+      notePlaceholder: string;
+      /** Joins several picked faults. */
+      join: string;
       /** Prefix of the part the pearl lands on. The mapping stays "likely" until a technician confirms it (docs/FOR-AMEER.md). */
       likely: string;
-      /** {appliance}, {fault}, {area} are replaced by the labels the visitor tapped. */
-      message: string;
+      /** Built up as the visitor picks: start always, fault once one is picked, note once written. {appliance}, {fault}, {note} are replaced. */
+      message: { start: string; fault: string; note: string };
       appliances: { slug: string; name: string; service: string; faults: { label: string; part: string }[] }[];
-      areas: string[];
     };
     repair: { heading: string; quiet: string; lead: string; callLabel: string; prev: string; next: string };
     statement: { start: string; quiet: string };
