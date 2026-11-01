@@ -68,6 +68,9 @@
   --spacing-bottom-bar: 4.5rem; /* phone action bar */
   --spacing-logo: 2.75rem;
   --spacing-tile: 17rem; /* hero product tile */
+  --spacing-node: 4rem; /* step node in the how-it-works diagram */
+  --spacing-rail: 0.25rem; /* connector line between step nodes */
+  --spacing-hero: 85svh; /* the hero panel is at least this tall */
   --spacing-stage: clamp(13rem, 36vw, 20rem); /* the selected appliance in the picker carousel */
 
   --container-*: initial;

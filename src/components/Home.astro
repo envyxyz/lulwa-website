@@ -41,7 +41,7 @@ const wall = [
 ];
 ---
 
-<Picker />
+<div id="pick"><Picker /></div>
 
 <section class="pt-section">
   <div class="mx-auto flex max-w-page flex-col items-start gap-4 px-gutter">
@@ -83,18 +83,25 @@ const wall = [
 
 <div class="pt-section">
   <Section tone="ink">
-    <div class="flex flex-col gap-8">
-      <Heading tone="pearl">{steps.heading}<Fragment slot="quiet">{steps.quiet}</Fragment></Heading>
-      <ol class="grid gap-4 md:grid-cols-3">
-        {steps.items.map((step, i) => (
-          <li class="flex flex-col items-start gap-4 rounded-card bg-ink-step p-card">
-            <span aria-hidden="true" class="inline-flex size-target items-center justify-center rounded-dot bg-teal font-display text-lead font-head text-pearl">{i + 1}</span>
-            <div class="flex flex-col gap-2">
-              <h3 class="font-display text-lead font-head">{step.title}</h3>
-              <p class="text-body"><Fragment set:html={step.text.replaceAll(site.phone.display, `<bdi dir="ltr">${site.phone.display}</bdi>`)} /></p>
-            </div>
-          </li>
-        ))}
+    <div class="flex flex-col gap-12">
+      <Heading tone="pearl">{steps.heading}</Heading>
+      <ol class="grid md:grid-cols-3">
+        {steps.items.map((s, i) => {
+          const last = i === steps.items.length - 1;
+          const href = [`#pick`, site.phone.whatsapp][i];
+          return (
+            <li class:list={['group flex gap-4 md:flex-col md:gap-0', !last && 'pb-8 md:pb-0']}>
+              <div class:list={['flex flex-col items-center md:mb-0 md:flex-row', !last && '-mb-8']}>
+                <span class:list={['rail hidden md:flex', i === 0 && 'invisible']} style={`--seg:${i * 2 - 1}`} aria-hidden="true"><span class="rail-fill"></span></span>
+                <span class="inline-flex size-node shrink-0 items-center justify-center rounded-dot bg-ink-step text-head text-pearl transition group-focus-within:bg-teal group-hover:bg-teal motion-safe:group-focus-within:-translate-y-1 motion-safe:group-hover:-translate-y-1" aria-hidden="true"><Icon name={['pointer', 'camera', 'circle-check'][i] as 'pointer'} /></span>
+                <span class:list={['rail', last && 'invisible']} style={`--seg:${i * 2}`} aria-hidden="true"><span class="rail-fill"></span></span>
+              </div>
+              <p class="flex min-h-node items-center font-display text-lead font-head transition md:min-h-0 md:justify-center md:px-4 md:pt-6 md:text-center motion-safe:group-focus-within:-translate-y-1 motion-safe:group-hover:-translate-y-1">
+                <span>{s.before}{s.link && <a href={href} data-action={i === 1 ? 'whatsapp' : undefined} data-scroll={i === 0 ? 'pick' : undefined} class="underline decoration-2 underline-offset-4 transition hover:text-teal-quiet">{s.link}</a>}{s.after}</span>
+              </p>
+            </li>
+          );
+        })}
       </ol>
     </div>
   </Section>
@@ -184,6 +191,13 @@ const wall = [
 </div>
 
 <script>
+  // "Select" glides to the picker; without this the plain #pick link still jumps there.
+  document.querySelector<HTMLAnchorElement>('[data-scroll]')?.addEventListener('click', (event) => {
+    event.preventDefault();
+    const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.getElementById('pick')?.scrollIntoView({ behavior: calm ? 'auto' : 'smooth' });
+  });
+
   // Today in the shop's time zone, and the map only on request: no Google request until the tap.
   const today = new Date(Date.now() + 3 * 3600_000).getUTCDay();
   const row = document.querySelector<HTMLElement>(`[data-day="${today}"]`);
@@ -231,3 +245,56 @@ const wall = [
   track.addEventListener('scroll', edges, { passive: true });
   edges();
 </script>
+
+<style>
+  /* The connector between step nodes: a track with a teal fill that draws in as the diagram scrolls into view.
+     Fully drawn by default, so nothing is hidden when scroll-driven animation is missing or reduced motion is on. */
+  .rail {
+    position: relative;
+    flex: 1;
+    inline-size: var(--spacing-rail);
+    background: var(--color-ink-step);
+  }
+  .rail-fill {
+    position: absolute;
+    inset: 0;
+    background: var(--color-teal);
+  }
+  @media (min-width: 48rem) {
+    .rail {
+      inline-size: auto;
+      block-size: var(--spacing-rail);
+    }
+  }
+  @keyframes draw-y {
+    from {
+      block-size: 0;
+      inset-block-end: auto;
+    }
+  }
+  @keyframes draw-x {
+    from {
+      inline-size: 0;
+      inset-inline-end: auto;
+    }
+  }
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .rail-fill {
+        /* Longhands on purpose: the minifier folds a view() timeline into the animation shorthand, which browsers drop. */
+        animation-name: draw-y;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: view();
+        animation-range: cover 5% cover 25%;
+      }
+      @media (min-width: 48rem) {
+        .rail-fill {
+          animation-name: draw-x;
+          /* Four segments in a row, each drawing right after the one before. */
+          animation-range: cover calc(5% + var(--seg) * 8%) cover calc(5% + var(--seg) * 8% + 12%);
+        }
+      }
+    }
+  }
+</style>

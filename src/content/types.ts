@@ -51,7 +51,7 @@ export type Content = {
     word: string;
   };
   footer: { line: string; services: string; company: string; hours: string };
-  actions: { whatsapp: string; call: string; directions: string; allServices: string };
+  actions: { whatsapp: string; /** The header and hero button word, where the icon says the rest. */ whatsappShort: string; call: string; directions: string; allServices: string };
   icons: { next: string };
   home: {
     seo: Seo;
@@ -63,7 +63,8 @@ export type Content = {
       support: string;
       /** Empty until the client confirms home visits (docs/FOR-AMEER.md). Render nothing when empty. */
       homeVisitLine: string;
-      tile: { alt: string };
+      /** Beside the address and hours in the hero. The rating repeats the Google listing. */
+      facts: { registered: string; rating: string };
     };
     picker: {
       heading: string;
@@ -92,7 +93,8 @@ export type Content = {
     };
     repair: { heading: string; quiet: string; lead: string; callLabel: string; prev: string; next: string };
     statement: { start: string; quiet: string };
-    steps: { heading: string; quiet: string; items: { title: string; text: string }[] };
+    /** Each step reads before + link + after, spaces included; link is empty on a step with no link. */
+    steps: { heading: string; items: { before: string; link: string; after: string }[] };
     reviews: { heading: string; quiet: string; link: string };
     work: { heading: string; quiet: string; lead: string; statement: string; items: { photo: string; caption: string }[] };
     shop: { heading: string; addressLabel: string; address: string; hoursLabel: string; hours: string; hoursRange: string; today: string; days: string[]; mapLoad: string; mapLoading: string; legalLabel: string; crLabel: string };

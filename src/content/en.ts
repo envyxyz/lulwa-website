@@ -92,7 +92,7 @@ export const en: Content = {
   meta: { title: name, description: `${name}, in Al-Jalawiyah, Dammam. Repair of air conditioners, fridges, automatic washing machines and dryers.` },
   chrome: { skipLink: 'Skip to content', homeLabel: `${name}, home`, navLabel: 'Main menu', menu: 'Menu', language: 'العربية', nav: { services: 'Services', faults: 'Faults', reviews: 'Reviews', work: 'Work', contact: 'Contact' }, word: site.brand.latin.toUpperCase() },
   footer: { line: 'Air conditioner, fridge, washing machine and dryer repair in Al-Jalawiyah, Dammam.', services: 'Services', company: 'Company', hours: 'Hours and area' },
-  actions: { whatsapp: 'WhatsApp us', call: 'Call us', directions: 'Directions', allServices: 'All services' },
+  actions: { whatsapp: 'WhatsApp us', whatsappShort: 'WhatsApp', call: 'Call us', directions: 'Directions', allServices: 'All services' },
   icons: { next: 'Next' },
   home: {
     seo: { title: `AC, fridge and washing machine repair in Dammam | ${name}`, description: 'A registered repair shop in Al-Jalawiyah, Dammam: air conditioners, fridges, automatic washing machines and dryers. Send a photo of the fault on WhatsApp.' },
@@ -100,9 +100,9 @@ export const en: Content = {
       question: 'AC gave up?',
       service: 'Dammam repair',
       answer: 'Photograph the fault and send it on WhatsApp',
-      support: 'Air conditioner, fridge, washing machine and dryer repair in Dammam.',
+      support: 'Split and window air conditioners, fridges, washing machines and dryers.',
       homeVisitLine: '',
-      tile: { alt: 'Illustration of a split air conditioner' },
+      facts: { registered: 'A registered repair shop', rating: '5.0 on Google Maps, from 8 reviews' },
     },
     picker: {
       heading: 'What is wrong?',
@@ -132,12 +132,11 @@ export const en: Content = {
     repair: { heading: 'What we repair', quiet: 'Four appliances', lead: 'Four kinds of household appliance.', callLabel: 'Call now', prev: 'Previous', next: 'Next' },
     statement: { start: 'A registered shop in Al-Jalawiyah, Dammam, with one number to reach.', quiet: 'We only write here what we can show.' },
     steps: {
-      heading: 'How it starts',
-      quiet: 'Three steps',
+      heading: 'Get it fixed in 3 easy steps',
       items: [
-        { title: 'Photograph the fault', text: 'A photo or a short video of the appliance.' },
-        { title: 'Send it on WhatsApp', text: `To ${phone}, with your district.` },
-        { title: 'We reply', text: 'And agree the next step with you.' },
+        { before: '', link: 'Select', after: ' your issue' },
+        { before: 'Send us photos on ', link: 'WhatsApp', after: ', and we take it from there' },
+        { before: 'Done. Your appliance is back at work.', link: '', after: '' },
       ],
     },
     reviews: { heading: 'Customer reviews', quiet: 'From Google Maps', link: 'All reviews on Google Maps' },
