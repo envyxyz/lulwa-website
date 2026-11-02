@@ -17,6 +17,7 @@ const company = [
   ['/reviews', chrome.nav.reviews],
   ['/blog', c.blog.h1],
   ['/brands', c.brands.h1],
+  ['/areas', c.areas.h1],
   ['/contact', chrome.nav.contact],
 ].map(([p, label]) => [path(p!), label!] as const);
 const area = c.areas.items[0]!;

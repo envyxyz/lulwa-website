@@ -94,5 +94,35 @@
     "source": "design/generated/internals/cutout/dryer.png",
     "sourceWidth": 1200,
     "note": "AI-generated cutaway illustration, agy, 2 Nov 2026, background removed. Shows typical internal parts, not this customer's unit."
+  },
+  "dishwasher": {
+    "kind": "generated",
+    "source": "design/generated/cutout/dishwasher.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated unbranded product illustration, agy, 2 Nov 2026, background removed. Never a job photo."
+  },
+  "freezer": {
+    "kind": "generated",
+    "source": "design/generated/cutout/freezer.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated unbranded product illustration, agy, 2 Nov 2026, background removed. Never a job photo."
+  },
+  "microwave": {
+    "kind": "generated",
+    "source": "design/generated/cutout/microwave.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated unbranded product illustration, agy, 2 Nov 2026, background removed. Never a job photo."
+  },
+  "oven-stove": {
+    "kind": "generated",
+    "source": "design/generated/cutout/oven-stove.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated unbranded product illustration, agy, 2 Nov 2026, background removed. Never a job photo."
+  },
+  "water-heater": {
+    "kind": "generated",
+    "source": "design/generated/cutout/water-heater.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated unbranded product illustration, agy, 2 Nov 2026, background removed. Never a job photo."
   }
 }

@@ -1,21 +1,93 @@
-// Single source for the shop's facts. One line changes the Latin name or the domain.
+// Single source for every fact about the shop: name, address, phone, hours, tags. Pages, schema, llms and tests all read from here.
 const phoneE164 = '+966568022197';
+const geo = { latitude: 26.435556, longitude: 50.079611 } as const;
+
+const address = {
+  ar: { number: '8951', street: 'شارع الأمير عبدالمحسن بن جلوي', district: 'حي الجلوية', city: 'الدمام', region: 'المنطقة الشرقية', country: 'المملكة العربية السعودية' },
+  en: { number: '8951', street: 'Prince Abdulmohsen bin Jalawi Street', district: 'Al-Jalawiyah', city: 'Dammam', region: 'Eastern Province', country: 'Saudi Arabia' },
+} as const;
+const comma = { ar: '، ', en: ', ' } as const;
+const line = (lang: 'ar' | 'en') => {
+  const a = address[lang];
+  return { streetLine: `${a.number} ${a.street}`, streetAddress: `${a.number} ${a.street}${comma[lang]}${a.district}`, full: `${a.number} ${a.street}${comma[lang]}${a.district}${comma[lang]}${a.city}` };
+};
 
 export const site = {
   url: 'https://lulwa.com.sa',
-  brand: { arabic: 'لولوه للتكييف والتبريد', arabicShort: 'لولوه', latin: 'Lulwa' },
+  brand: {
+    arabic: 'لولوه للتكييف والتبريد',
+    arabicShort: 'لولوه',
+    latin: 'Lulwa',
+    english: 'Lulwa Air Conditioning & Refrigeration',
+    englishAlt: 'Lulwa AC & Refrigeration',
+  },
   legal: { name: 'مؤسسة لولوه عبدالله فرحان المرشود للتبريد والتكييف', cr: '2050163881', unified: '7031612190', balady: '441212549365', baladyExpires: '1448/12/05' },
+  email: 'lulwadammam@gmail.com',
   phone: {
     display: '056 802 2197',
     e164: phoneE164,
     tel: `tel:${phoneE164}`,
     whatsapp: `https://wa.me/${phoneE164.slice(1)}`,
   },
+  address: {
+    ar: { ...address.ar, ...line('ar') },
+    en: { ...address.en, ...line('en') },
+    countryCode: 'SA',
+    regionCode: 'SA-04',
+  },
+  geo,
   maps: {
     listing: 'https://maps.app.goo.gl/6iLsTdG3y7FAq7jP9',
-    // ponytail: area search, not a pin. Swap for the exact pin when the client sends it (docs/FOR-AMEER.md).
-    embed: 'https://www.google.com/maps?q=Al-Jalawiyah%2C%20Dammam&output=embed',
+    // The shop's own pin, by coordinates.
+    embed: `https://www.google.com/maps?q=${geo.latitude},${geo.longitude}&output=embed`,
   },
-  analytics: { gtm: 'GTM-TVK4BRTS' }, // existing container; ownership unconfirmed (docs/FOR-AMEER.md)
-  hours: { open: '08:00', close: '23:00', timeZone: 'Asia/Riyadh', days: 'every-day' },
+  // Hours as the page says them, per language, and as schema writes them.
+  hours: {
+    open: '08:00',
+    close: '23:00',
+    timeZone: 'Asia/Riyadh',
+    days: 'every-day',
+    text: { ar: 'كل يوم من 8:00 صباحاً إلى 11:00 مساءً', en: 'Every day, 8:00 AM to 11:00 PM' },
+    range: { ar: '8:00 صباحاً إلى 11:00 مساءً', en: '8:00 AM to 11:00 PM' },
+  },
+  analytics: { ga4: 'G-XYKP3DY4X7', gtm: 'GTM-TVK4BRTS', clarity: 'yf0k43euob' }, // GTM container ownership unconfirmed (docs/FOR-AMEER.md)
+  verification: { google: 'NhugWL1gVcIPJCf6bi0eTNAXzZ2v7ZZvIHHS-Neh2E4' },
+  // Profiles that resolved to this business on 2 Nov 2026. Trustpilot, Crunchbase did not (404 / 403), so they are out.
+  sameAs: [
+    'https://www.facebook.com/profile.php?id=61596078749614',
+    'https://www.instagram.com/lulwadammam/',
+    'https://x.com/lulwadammam',
+    'https://www.youtube.com/@lulwadammam',
+    'https://www.snapchat.com/@lulwadammam',
+    'https://www.pinterest.com/lulwadammam/',
+    'https://www.threads.com/@lulwadammam',
+    'https://linktr.ee/lulwadammam',
+    'https://www.openstreetmap.org/node/14335255741',
+  ],
+  // Date the pages last changed, for sitemaps. Bump it when copy changes.
+  updated: '2026-11-02',
+  images: {
+    og: '/images/og-default.png',
+    logo: '/images/brand/lulwa-logo.png',
+  },
 } as const;
+
+
+/** The confirmed facts as plain lines, in one language. llms.txt and llms-full.txt print these first, so they match the pages character for character. */
+export const factLines = (lang: 'ar' | 'en') => {
+  const a = site.address[lang];
+  const ar = lang === 'ar';
+  return [
+    `${ar ? 'الاسم' : 'Name'}: ${ar ? site.brand.arabic : site.brand.english}`,
+    `${ar ? 'يُعرف أيضاً' : 'Also known as'}: ${ar ? `${site.brand.english}، ${site.brand.englishAlt}` : `${site.brand.arabic}, ${site.brand.englishAlt}`}`,
+    `${ar ? 'العنوان' : 'Address'}: ${a.full}`,
+    `${ar ? 'المنطقة' : 'Region'}: ${a.region}, ${a.country}`,
+    `${ar ? 'الهاتف' : 'Phone'}: ${site.phone.display}`,
+    `WhatsApp: ${site.phone.whatsapp}`,
+    `${ar ? 'البريد' : 'Email'}: ${site.email}`,
+    `${ar ? 'ساعات العمل' : 'Hours'}: ${site.hours.text[lang]}`,
+    `${ar ? 'الاسم النظامي' : 'Legal name'}: ${site.legal.name}`,
+    `${ar ? 'السجل التجاري' : 'Commercial registration'}: ${site.legal.cr}`,
+    `${ar ? 'الخريطة' : 'Map'}: ${site.maps.listing} (${site.geo.latitude}, ${site.geo.longitude})`,
+  ];
+};

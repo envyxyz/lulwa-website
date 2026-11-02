@@ -27,11 +27,14 @@ const files = existsSync('dist') ? walk('dist') : [];
 // Exports are named <name>-<width>.<ext> by the Phase 4 pipeline.
 const exportName = /\/images\/(.+)-(\d+)\.(avif|webp|jpe?g|png)$/;
 // Logo artwork from scripts/brand-assets.mjs, not photos. Named one by one so a stray photo in public/ still fails.
-const brandAsset = /^dist\/(logo\.png|og\.jpg|apple-touch-icon\.png|favicon-32\.png|icon-192\.png|icon-512\.png)$/;
+const brandAsset = /^dist\/(logo\.png|og\.jpg|apple-touch-icon\.png|favicon-(32|48|96|192)\.png|mstile-150x150\.png|images\/(og-default\.png|brand\/lulwa-logo\.png|icons\/[a-z0-9-]+\.png))$/;
+// The old site's images keep their names and paths (docs/LAUNCH-PLAN.md rule 2). They are copied as they were, not made by the pipeline.
+const legacyNames = new Set(["AC Repair in Dammam.avif", "Dishwasher Repair in Dammam.avif", "Dryer Repair in Dammam.avif", "Freezer Repair in Dammam.avif", "Microwave Repair in Dammam.avif", "Oven & Stove Repair in Dammam.avif", "Washing Machine Repair in Dammam.avif", "Water Heater Repair in Dammam.avif", "WhatsApp_Logo_green.svg.webp", "ac mechanic.avif", "ac repair near me.avif", "ac repair services near me.avif", "ac repair services.avif", "ac repair shop near me.avif", "ac repair shop.avif", "ac repair.avif", "ac service near me.avif", "ac service.avif", "air conditioner maintenance near me.avif", "air conditioning repair near me.avif", "air conditioning repair service.avif", "air conditioning repair.avif", "air conditioning service near me.avif", "hvac service.avif", "refrigerator repair dammam.avif"]);
+const legacy = (file) => /^dist\/(assets\/img\/|uploads\/|blog\/images\/|images\/screenshots\/)/.test(file) || (file.startsWith('dist/images/') && legacyNames.has(file.slice('dist/images/'.length)));
 for (const file of files) {
   const match = file.match(exportName);
   if (!match) {
-    if (/\.(avif|webp|jpe?g|png|gif)$/i.test(file) && !brandAsset.test(file)) fail.push(`${file}: not from the image pipeline`);
+    if (/\.(avif|webp|jpe?g|png|gif)$/i.test(file) && !brandAsset.test(file) && !legacy(file)) fail.push(`${file}: not from the image pipeline`);
     continue;
   }
   const [, name, width] = match;

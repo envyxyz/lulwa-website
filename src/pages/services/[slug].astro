@@ -1,9 +1,11 @@
 ---
+import AskPage from '../../components/AskPage.astro';
 import ServicePage from '../../components/ServicePage.astro';
 import { ar } from '../../content/ar';
 
-export const getStaticPaths = () => ar.services.items.map((i) => ({ params: { slug: i.slug } }));
-const { slug } = Astro.params;
+export const getStaticPaths = () => [...ar.services.items, ...ar.services.more].map((i) => ({ params: { slug: i.slug } }));
+const slug = Astro.params.slug!;
+const confirmed = ar.services.items.some((i) => i.slug === slug);
 ---
 
-<ServicePage slug={slug!} />
+{confirmed ? <ServicePage slug={slug} /> : <AskPage kind="service" slug={slug} />}

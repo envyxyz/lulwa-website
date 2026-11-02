@@ -1,0 +1,645 @@
+[
+  {
+    "slug": "alessa-appliance-repair",
+    "name": {
+      "ar": "العيسى",
+      "en": "Alessa"
+    },
+    "titleName": {
+      "ar": "العيسى",
+      "en": "Alessa"
+    },
+    "note": {
+      "ar": "شركة سعودية معروفة في السوق المحلي. تصنع وتوزع أجهزة التكييف بالإضافة إلى الثلاجات والغسالات المنزلية.",
+      "en": "Alessa is a Saudi brand known in the local market. It manufactures and distributes air conditioners along with home refrigerators and washing machines."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair"
+    ]
+  },
+  {
+    "slug": "amana-appliance-repair",
+    "name": {
+      "ar": "أمانا",
+      "en": "Amana"
+    },
+    "titleName": {
+      "ar": "أمانا",
+      "en": "Amana"
+    },
+    "note": {
+      "ar": "علامة أمريكية متخصصة في الأجهزة المنزلية. تشتهر بإنتاج الثلاجات والغسالات ونشافات الملابس.",
+      "en": "Amana is an American brand specializing in home appliances. It produces refrigerators, washing machines, and clothes dryers."
+    },
+    "services": [
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "bosch-appliance-repair",
+    "name": {
+      "ar": "بوش",
+      "en": "Bosch"
+    },
+    "titleName": {
+      "ar": "بوش",
+      "en": "Bosch"
+    },
+    "note": {
+      "ar": "شركة ألمانية تصنع مختلف الأجهزة المنزلية. تنتج الغسالات ونشافات الملابس والثلاجات ومكيفات الهواء.",
+      "en": "Bosch is a German manufacturer of household appliances. It makes washing machines, clothes dryers, refrigerators, and air conditioning systems."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "carrier-appliance-repair",
+    "name": {
+      "ar": "كاريير",
+      "en": "Carrier"
+    },
+    "titleName": {
+      "ar": "كاريير",
+      "en": "Carrier"
+    },
+    "note": {
+      "ar": "شركة أمريكية متخصصة في أنظمة التبريد والتكييف. تشتهر بصناعة مكيفات الهواء المركزية ومكيفات سبليت والشباك للمنازل.",
+      "en": "Carrier is an American company specializing in cooling systems. It produces air conditioning units for residential use."
+    },
+    "services": [
+      "ac-repair"
+    ]
+  },
+  {
+    "slug": "chigo-appliance-repair",
+    "name": {
+      "ar": "تشيجو",
+      "en": "Chigo"
+    },
+    "titleName": {
+      "ar": "تشيغو",
+      "en": "Chigo"
+    },
+    "note": {
+      "ar": "شركة صينية تركز بشكل أساسي على أجهزة التبريد. تصنع مكيفات الهواء بأنواعها المختلفة للاستخدام المنزلي والتجاري.",
+      "en": "Chigo is a Chinese brand focused on cooling equipment. It produces residential and commercial air conditioning units."
+    },
+    "services": [
+      "ac-repair"
+    ]
+  },
+  {
+    "slug": "daewoo-appliance-repair",
+    "name": {
+      "ar": "دايو",
+      "en": "Daewoo"
+    },
+    "titleName": {
+      "ar": "دايو",
+      "en": "Daewoo"
+    },
+    "note": {
+      "ar": "علامة كورية تصنع تشكيلة واسعة من الأجهزة الكهربائية المنزلية. تشمل منتجاتها الثلاجات والغسالات ونشافات الملابس والمكيفات.",
+      "en": "Daewoo is a South Korean brand that makes major home appliances. Its lineup includes refrigerators, washing machines, clothes dryers, and air conditioners."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "daikin-appliance-repair",
+    "name": {
+      "ar": "دايكن",
+      "en": "Daikin"
+    },
+    "titleName": {
+      "ar": "دايكين",
+      "en": "Daikin"
+    },
+    "note": {
+      "ar": "شركة يابانية متخصصة في صناعة أنظمة التكييف وتبريد الهواء.",
+      "en": "Daikin is a Japanese company that manufactures air conditioning and cooling systems."
+    },
+    "services": [
+      "ac-repair"
+    ]
+  },
+  {
+    "slug": "electrolux-appliance-repair",
+    "name": {
+      "ar": "إلكترولوكس",
+      "en": "Electrolux"
+    },
+    "titleName": {
+      "ar": "إلكترولوكس",
+      "en": "Electrolux"
+    },
+    "note": {
+      "ar": "شركة سويدية تصنع الأجهزة المنزلية مثل الثلاجات والغسالات ونشافات الملابس.",
+      "en": "Electrolux is a Swedish company that produces home appliances such as refrigerators, washing machines, and clothes dryers."
+    },
+    "services": [
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "frigidaire-appliance-repair",
+    "name": {
+      "ar": "فريجيدير",
+      "en": "Frigidaire"
+    },
+    "titleName": {
+      "ar": "فريجيدير",
+      "en": "Frigidaire"
+    },
+    "note": {
+      "ar": "علامة أمريكية تنتج أجهزة المنزل وتشمل الثلاجات والغسالات ومجففات الملابس ومكيفات الهواء.",
+      "en": "Frigidaire is an American brand that manufactures home appliances including refrigerators, washing machines, clothes dryers, and room air conditioners."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "fujitsu-appliance-repair",
+    "name": {
+      "ar": "فوجيتسو",
+      "en": "Fujitsu"
+    },
+    "titleName": {
+      "ar": "فوجيتسو",
+      "en": "Fujitsu"
+    },
+    "note": {
+      "ar": "شركة يابانية تصنع أجهزة ومكيفات الهواء للمنازل والمباني.",
+      "en": "Fujitsu is a Japanese company that manufactures residential and commercial air conditioners."
+    },
+    "services": [
+      "ac-repair"
+    ]
+  },
+  {
+    "slug": "ge-appliance-repair",
+    "name": {
+      "ar": "جنرال إلكتريك",
+      "en": "GE Appliances"
+    },
+    "titleName": {
+      "ar": "جي إي",
+      "en": "GE Appliances"
+    },
+    "note": {
+      "ar": "علامة أمريكية تصنع أجهزة منزلية متنوعة مثل الثلاجات والغسالات ومجففات الملابس والمكيفات.",
+      "en": "GE Appliances is an American brand that manufactures home appliances such as refrigerators, washing machines, dryers, and air conditioners."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "gree-appliance-repair",
+    "name": {
+      "ar": "جري",
+      "en": "Gree"
+    },
+    "titleName": {
+      "ar": "جري",
+      "en": "Gree"
+    },
+    "note": {
+      "ar": "شركة صينية تصنع مكيفات الهواء بأنواعها المختلفة بالإضافة إلى بعض أجهزة التبريد المنزلية.",
+      "en": "Gree is a Chinese manufacturer that produces air conditioners along with residential cooling appliances and refrigerators."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair"
+    ]
+  },
+  {
+    "slug": "haier-appliance-repair",
+    "name": {
+      "ar": "هاير",
+      "en": "Haier"
+    },
+    "titleName": {
+      "ar": "هاير",
+      "en": "Haier"
+    },
+    "note": {
+      "ar": "هاير شركة صينية تسوي أجهزة منزلية مثل المكيفات والثلاجات والغسالات والنشافات.",
+      "en": "Haier is a Chinese brand that makes home appliances such as air conditioners, refrigerators, washing machines, and dryers."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "hitachi-appliance-repair",
+    "name": {
+      "ar": "هيتاشي",
+      "en": "Hitachi"
+    },
+    "titleName": {
+      "ar": "هيتاشي",
+      "en": "Hitachi"
+    },
+    "note": {
+      "ar": "هيتاشي علامة يابانية معروفة بصناعة أجهزة البيت ومنها الثلاجات والغسالات والمكيفات ومجففات الملابس.",
+      "en": "Hitachi is a Japanese brand that produces home appliances including refrigerators, washing machines, air conditioners, and clothes dryers."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "kenmore-appliance-repair",
+    "name": {
+      "ar": "كينمور",
+      "en": "Kenmore"
+    },
+    "titleName": {
+      "ar": "كينمور",
+      "en": "Kenmore"
+    },
+    "note": {
+      "ar": "كينمور علامة أمريكية توفر أجهزة منزلية تشمل الثلاجات وغسالات الملابس والنشافات ومكيفات الهواء.",
+      "en": "Kenmore is an American brand that offers home appliances including refrigerators, washing machines, dryers, and air conditioners."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "lg-appliance-repair",
+    "name": {
+      "ar": "إل جي",
+      "en": "LG"
+    },
+    "titleName": {
+      "ar": "LG",
+      "en": "LG"
+    },
+    "note": {
+      "ar": "إل جي شركة كورية تنتج أجهزة البيت مثل المكيفات والثلاجات والغسالات ونشافات الملابس.",
+      "en": "LG is a South Korean brand that makes home appliances such as air conditioners, refrigerators, washing machines, and clothes dryers."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "maytag-appliance-repair",
+    "name": {
+      "ar": "مايتاج",
+      "en": "Maytag"
+    },
+    "titleName": {
+      "ar": "مايتاج",
+      "en": "Maytag"
+    },
+    "note": {
+      "ar": "مايتاج علامة أمريكية تصنع أجهزة منزلية منها غسالات الملابس والنشافات والثلاجات ومكيفات الهواء.",
+      "en": "Maytag is an American brand that produces home appliances such as washing machines, clothes dryers, refrigerators, and air conditioners."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "midea-appliance-repair",
+    "name": {
+      "ar": "ميديا",
+      "en": "Midea"
+    },
+    "titleName": {
+      "ar": "ميديا",
+      "en": "Midea"
+    },
+    "note": {
+      "ar": "ميديا شركة صينية متخصصة في تصنيع أجهزة التكييف والثلاجات والغسالات ونشافات الملابس.",
+      "en": "Midea is a Chinese brand that manufactures air conditioners, refrigerators, washing machines, and clothes dryers."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "nikai-appliance-repair",
+    "name": {
+      "ar": "نيكاي",
+      "en": "Nikai"
+    },
+    "titleName": {
+      "ar": "نيكاي",
+      "en": "Nikai"
+    },
+    "note": {
+      "ar": "علامة تجارية توفر أجهزة منزلية متنوعة مثل الثلاجات والغسالات وأجهزة التكييف. تنتشر منتجاتها في السوق المحلي للاستخدام المنزلي اليومي.",
+      "en": "Nikai produces home appliances including refrigerators, washing machines, and air conditioners. The brand offers everyday domestic appliances across the region."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "o-general-appliance-repair",
+    "name": {
+      "ar": "أو جنرال",
+      "en": "O General"
+    },
+    "titleName": {
+      "ar": "اوجنرال",
+      "en": "O General"
+    },
+    "note": {
+      "ar": "علامة يابانية متخصصة في صناعة أنظمة التكييف بمختلف أنواعها مثل الاسبليت والشباك والمركزية.",
+      "en": "O General is a Japanese brand focused on air conditioning systems, including split, window, and central units."
+    },
+    "services": [
+      "ac-repair"
+    ]
+  },
+  {
+    "slug": "panasonic-appliance-repair",
+    "name": {
+      "ar": "باناسونيك",
+      "en": "Panasonic"
+    },
+    "titleName": {
+      "ar": "باناسونيك",
+      "en": "Panasonic"
+    },
+    "note": {
+      "ar": "شركة يابانية تصنع أجهزة منزلية متعددة منها المكيفات والغسالات والثلاجات ومجففات الملابس.",
+      "en": "Panasonic is a Japanese company that manufactures home appliances, including air conditioners, washing machines, refrigerators, and clothes dryers."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "samsung-appliance-repair",
+    "name": {
+      "ar": "سامسونج",
+      "en": "Samsung"
+    },
+    "titleName": {
+      "ar": "سامسونج",
+      "en": "Samsung"
+    },
+    "note": {
+      "ar": "شركة كورية تنتج مجموعة واسعة من الأجهزة المنزلية، وتصنع الثلاجات والغسالات ومجففات الملابس ومكيفات الهواء.",
+      "en": "Samsung is a South Korean manufacturer that produces home appliances, including refrigerators, washing machines, clothes dryers, and air conditioners."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "sanyo-appliance-repair",
+    "name": {
+      "ar": "سانيو",
+      "en": "Sanyo"
+    },
+    "titleName": {
+      "ar": "سانيو",
+      "en": "Sanyo"
+    },
+    "note": {
+      "ar": "علامة يابانية للأجهزة الكهربائية اشتهرت بصناعة مكيفات الهواء والثلاجات والغسالات المنزلية.",
+      "en": "Sanyo is a Japanese electronics brand that produced home appliances such as air conditioners, refrigerators, and washing machines."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair"
+    ]
+  },
+  {
+    "slug": "sharp-appliance-repair",
+    "name": {
+      "ar": "شارب",
+      "en": "Sharp"
+    },
+    "titleName": {
+      "ar": "شارب",
+      "en": "Sharp"
+    },
+    "note": {
+      "ar": "شركة يابانية تصنع أجهزة منزلية مختلفة تشمل الثلاجات ومكيفات الهواء والغسالات ومجففات الملابس.",
+      "en": "Sharp is a Japanese manufacturer producing home appliances such as refrigerators, air conditioners, washing machines, and clothes dryers."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "siemens-appliance-repair",
+    "name": {
+      "ar": "سيمنز",
+      "en": "Siemens"
+    },
+    "titleName": {
+      "ar": "سيمنز",
+      "en": "Siemens"
+    },
+    "note": {
+      "ar": "شركة ألمانية تنتج أجهزة منزلية للمطبخ والغسيل. توفر ثلاجات وغسالات ملابس ونشافات.",
+      "en": "A German brand that manufactures kitchen and laundry home appliances. It produces refrigerators, washing machines, and clothes dryers."
+    },
+    "services": [
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "super-general-appliance-repair",
+    "name": {
+      "ar": "سوبر جنرال",
+      "en": "Super General"
+    },
+    "titleName": {
+      "ar": "سوبر جنرال",
+      "en": "Super General"
+    },
+    "note": {
+      "ar": "علامة تجارية توفر أجهزة منزلية متنوعة. تشمل منتجاتها المكيفات والثلاجات وغسالات الملابس والنشافات.",
+      "en": "A brand that provides diverse home appliances. Its products include air conditioners, refrigerators, washing machines, and clothes dryers."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "tcl-appliance-repair",
+    "name": {
+      "ar": "تي سي إل",
+      "en": "TCL"
+    },
+    "titleName": {
+      "ar": "تي سي إل",
+      "en": "TCL"
+    },
+    "note": {
+      "ar": "شركة تصنع أجهزة منزلية وإلكترونيات. تشمل منتجاتها مكيفات الهواء والثلاجات وغسالات الملابس.",
+      "en": "A company that manufactures electronics and home appliances. Its products include air conditioners, refrigerators, and washing machines."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair"
+    ]
+  },
+  {
+    "slug": "toshiba-appliance-repair",
+    "name": {
+      "ar": "توشيبا",
+      "en": "Toshiba"
+    },
+    "titleName": {
+      "ar": "توشيبا",
+      "en": "Toshiba"
+    },
+    "note": {
+      "ar": "علامة يابانية للأجهزة الكهربائية المنزلية. تنتج مكيفات الهواء وثلاجات حفظ الأطعمة وغسالات الملابس والنشافات.",
+      "en": "A Japanese brand for home appliances. It manufactures air conditioners, refrigerators, washing machines, and clothes dryers."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "whirlpool-appliance-repair",
+    "name": {
+      "ar": "ويرلبول",
+      "en": "Whirlpool"
+    },
+    "titleName": {
+      "ar": "ويرلبول",
+      "en": "Whirlpool"
+    },
+    "note": {
+      "ar": "شركة أمريكية متخصصة في تصنيع أجهزة المنزل. تشمل أجهزتها الثلاجات وغسالات الملابس والنشافات والمكيفات.",
+      "en": "An American manufacturer specialized in home appliances. Its appliances include refrigerators, washing machines, dryers, and air conditioners."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "white-westinghouse-appliance-repair",
+    "name": {
+      "ar": "وايت وستنجهاوس",
+      "en": "White-Westinghouse"
+    },
+    "titleName": {
+      "ar": "وايت وستنجهاوس",
+      "en": "White-Westinghouse"
+    },
+    "note": {
+      "ar": "علامة أمريكية للأجهزة المنزلية الكبيرة. تصنع مكيفات الهواء والثلاجات وغسالات الملابس والنشافات.",
+      "en": "An American home appliance brand. It produces air conditioners, refrigerators, washing machines, and clothes dryers."
+    },
+    "services": [
+      "ac-repair",
+      "refrigerator-repair",
+      "washing-machine-repair",
+      "dryer-repair"
+    ]
+  },
+  {
+    "slug": "york-appliance-repair",
+    "name": {
+      "ar": "يورك",
+      "en": "York"
+    },
+    "titleName": {
+      "ar": "يورك",
+      "en": "York"
+    },
+    "note": {
+      "ar": "شركة أمريكية معروفة بتصنيع مكيفات الهواء بأنواعها المختلفة.",
+      "en": "York is an American brand that manufactures air conditioning systems."
+    },
+    "services": [
+      "ac-repair"
+    ]
+  },
+  {
+    "slug": "zamil-appliance-repair",
+    "name": {
+      "ar": "الزامل",
+      "en": "Zamil"
+    },
+    "titleName": {
+      "ar": "زامل",
+      "en": "Zamil"
+    },
+    "note": {
+      "ar": "شركة سعودية تصنع مكيفات الهواء المناسبة لأجواء المنطقة.",
+      "en": "Zamil is a Saudi brand that manufactures air conditioning systems."
+    },
+    "services": [
+      "ac-repair"
+    ]
+  }
+]

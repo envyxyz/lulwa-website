@@ -51,7 +51,7 @@ const pill = 'inline-flex min-h-target items-center rounded-button bg-pearl-step
                     <img src={`/images/${internals[a.slug]!.image}-640.webp`} width="640" height="478" alt="" loading="lazy" decoding="async" class="size-full object-contain" />
                   </picture>
                   {internals[a.slug]!.spots.map(([x, y, r], i) => (
-                    <span data-hl data-i={i} class="hl" style={`--x:${x};--y:${y};--r:${r}`}><span class="glow" /><span class="ring" /></span>
+                    <span data-hl data-i={i} class="hl" style={`--x:${x};--y:${y};--r:${r}`}><span class="glow" /><span class="halo" /></span>
                   ))}
                 </span>
               </div>
@@ -133,7 +133,7 @@ const pill = 'inline-flex min-h-target items-center rounded-button bg-pearl-step
     opacity: 1;
   }
   .glow,
-  .ring {
+  .halo {
     position: absolute;
     inset: 0;
     border-radius: var(--radius-dot);
@@ -143,9 +143,9 @@ const pill = 'inline-flex min-h-target items-center rounded-button bg-pearl-step
     opacity: 0.6;
     filter: blur(0.4rem);
   }
-  .ring {
+  .halo {
     border: 2px solid var(--color-highlight);
-    animation: ring calc(var(--duration-rise) * 4) linear infinite;
+    animation: halo calc(var(--duration-rise) * 4) linear infinite;
   }
   /* The note rises in when it appears; the actions follow once the text has settled. */
   .rise:not([hidden]) {
@@ -164,7 +164,7 @@ const pill = 'inline-flex min-h-target items-center rounded-button bg-pearl-step
       translate: 0 calc(var(--spacing) * 2);
     }
   }
-  @keyframes ring {
+  @keyframes halo {
     from {
       scale: 0.8;
       opacity: 1;

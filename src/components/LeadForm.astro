@@ -18,7 +18,7 @@ const fields = [
   id="lead-form"
   novalidate
   class="flex max-w-prose flex-col gap-4"
-  data-endpoint="/api/lead"
+  data-endpoint="/contact-submit.php"
   data-thanks={localePath(lang, '/thanks')}
   data-whatsapp={site.phone.whatsapp}
   data-errors={JSON.stringify(form.errors)}
@@ -113,9 +113,9 @@ const fields = [
       }
       whatsapp = out.whatsapp ?? '';
     } catch {
-      // Offline or the Worker is down: fall through to WhatsApp.
+      // Offline or the server is down: fall through to WhatsApp.
     }
-    // The Sheet failed: typed values stay, and the WhatsApp link carries the message.
+    // Saving failed: typed values stay, and the WhatsApp link carries the message.
     const text = `${lead.appliance}, ${lead.area}. ${lead.message} ${sourceTag()}`.replace(/\s+/g, ' ').trim();
     const link = form.querySelector<HTMLAnchorElement>('[data-fallback-link]')!;
     link.href = whatsapp || `${form.dataset.whatsapp}?text=${encodeURIComponent(text)}`;

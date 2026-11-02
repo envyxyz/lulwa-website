@@ -1,58 +1,64 @@
-// T15. worker/lead.ts must export handleLead(request, env, fetcher) returning a Response.
-import { expect, test } from '@playwright/test';
-import { visit } from './lib';
+// T15. The lead form posts to /contact-submit.php (PHP on Hostinger; real Apache and PHP here, see scripts/serve-apache.mjs).
+// mail() has no server locally, so a good lead is saved to logs/contact-submissions.log and the answer says so honestly.
+import { existsSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { expect, test, type APIRequestContext } from '@playwright/test';
+import { DOCROOT, visit } from './lib';
 
-const env = { LEADS_WEBHOOK_URL: 'https://sheet.test/hook', LEADS_WEBHOOK_SECRET: 'top-secret-value' };
-const good = { name: 'Test', phone: '0500000000', appliance: 'ac', area: 'dammam', message: 'not cooling' };
-const post = (body: unknown) => new Request('https://x.test/api/lead', { method: 'POST', body: typeof body === 'string' ? body : JSON.stringify(body) });
-const sheetUp = async () => new Response('{"ok":true}');
-const sheetDown = async () => new Response('down', { status: 500 });
-
-const load = async () => {
-  const path = '../worker/lead.ts'; // a variable: the file arrives in Phase 7 and this must fail at run time, not compile time
-  return (await import(path)) as { handleLead: (r: Request, e: typeof env, f: typeof fetch) => Promise<Response> };
+const ENDPOINT = '/contact-submit.php';
+const origin = process.env.PW_BASE_URL ?? `http://localhost:${process.env.PW_PORT ?? '4330'}`;
+const good = { name: 'Test Lead', phone: '0500000000', appliance: 'ac', area: 'dammam', message: 'not cooling', page: 'contact', utm: '' };
+const log = () => {
+  const file = join(DOCROOT, 'logs', 'contact-submissions.log');
+  return existsSync(file) ? readFileSync(file, 'utf8') : '';
 };
+const post = (request: APIRequestContext, body: unknown, headers: Record<string, string> = { origin }) =>
+  request.post(ENDPOINT, { headers: { 'content-type': 'application/json', ...headers }, data: typeof body === 'string' ? body : JSON.stringify(body) });
 
-test('T15 Worker rejects invalid input', async () => {
-  const { handleLead } = await load();
-  for (const bad of ['not json', {}, { ...good, phone: 'abc' }, { ...good, name: '' }, { ...good, message: 'x'.repeat(40_000) }]) {
-    expect((await handleLead(post(bad), env, sheetUp)).status, JSON.stringify(bad).slice(0, 40)).toBeGreaterThanOrEqual(400);
+test('T15 handler rejects invalid input', async ({ request }) => {
+  for (const bad of ['not json', {}, { ...good, phone: 'abc' }, { ...good, name: '' }, { ...good, appliance: '' }, { ...good, area: '' }, { ...good, name: '<b>x</b>' }, { ...good, message: 'x'.repeat(1001) }]) {
+    expect((await post(request, bad)).status(), JSON.stringify(bad).slice(0, 40)).toBe(400);
   }
+  expect((await post(request, { ...good, message: 'x'.repeat(40_000) })).status(), 'oversize').toBe(413);
 });
 
-test('T15 Worker accepts a good lead with a reference, and leaks no secret', async () => {
-  const { handleLead } = await load();
-  const response = await handleLead(post(good), env, sheetUp);
-  expect(response.status).toBe(200);
-  const text = await response.text();
-  expect(JSON.parse(text).reference).toBeTruthy();
-  expect(text).not.toContain(env.LEADS_WEBHOOK_SECRET);
-  expect(text).not.toContain(env.LEADS_WEBHOOK_URL);
+test('T15 handler accepts a good lead, gives a reference, saves it first, and says whether the email went', async ({ request }) => {
+  const response = await post(request, { ...good, name: `Reference Check ${Date.now()}` });
+  expect(response.status()).toBe(200);
+  const out = await response.json();
+  expect(out.ok).toBe(true);
+  expect(out.reference).toMatch(/^L-[0-9A-F]{8}$/);
+  expect(out.saved).toBe(true);
+  expect(typeof out.mailed, 'the answer is honest about the email').toBe('boolean');
+  expect(log()).toContain(out.reference);
+  expect(JSON.stringify(out)).not.toContain('lulwadammam');
 });
 
-test('T15 a foreign or malformed Origin gets 403, not a crash', async () => {
-  const { handleLead } = await load();
-  for (const origin of ['https://evil.test', 'null', 'not a url']) {
-    const request = new Request('https://x.test/api/lead', { method: 'POST', headers: { origin }, body: JSON.stringify(good) });
-    expect((await handleLead(request, env, sheetUp)).status, origin).toBe(403);
-  }
+test('T15 an Arabic lead with a +966 number is accepted', async ({ request }) => {
+  const response = await post(request, { ...good, name: 'أحمد', phone: '+966 56 802 2197', appliance: 'مكيف', area: 'الدمام', message: 'لا يبرد' });
+  expect(response.status()).toBe(200);
+  expect(log()).toContain('أحمد');
 });
 
-test('T15 honeypot is dropped without reaching the Sheet', async () => {
-  const { handleLead } = await load();
-  let called = false;
-  await handleLead(post({ ...good, website: 'spam' }), env, async () => {
-    called = true;
-    return new Response('{}');
-  });
-  expect(called).toBe(false);
+test('T15 a foreign, missing or malformed Origin gets 403, not a crash', async ({ request }) => {
+  for (const o of ['https://evil.test', 'null', 'not a url']) expect((await post(request, good, { origin: o })).status(), o).toBe(403);
+  expect((await post(request, good, {})).status(), 'no Origin or Referer').toBe(403);
+  expect((await post(request, good, { referer: 'https://evil.test/form' })).status(), 'foreign Referer').toBe(403);
+  expect((await post(request, good, { referer: `${origin}/contact` })).status(), 'own Referer').toBe(200);
 });
 
-test('T15 Sheet down gives a WhatsApp fallback and no secret', async () => {
-  const { handleLead } = await load();
-  const text = await (await handleLead(post(good), env, sheetDown)).text();
-  expect(text).toContain('wa.me');
-  expect(text).not.toContain(env.LEADS_WEBHOOK_SECRET);
+test('T15 the honeypot gets a normal answer and nothing is stored', async ({ request }) => {
+  const response = await post(request, { ...good, name: `Spam ${Date.now()}`, website: 'spam' });
+  expect(response.status()).toBe(200);
+  const out = await response.json();
+  expect(out.ok).toBe(true);
+  expect(log()).not.toContain(out.reference);
+});
+
+test('T15 only POST is accepted', async ({ request }) => {
+  const response = await request.get(ENDPOINT);
+  expect(response.status()).toBe(405);
+  expect(response.headers()['allow']).toBe('POST');
 });
 
 for (const path of ['/contact', '/en/contact']) {
@@ -62,11 +68,21 @@ for (const path of ['/contact', '/en/contact']) {
     await expect(form.locator('[data-consent]')).toBeVisible();
     await expect(form.locator('a[href*="privacy-policy"]')).toBeVisible();
     await expect(form.locator('input[type="checkbox"]:checked')).toHaveCount(0);
+    await expect(form).toHaveAttribute('data-endpoint', ENDPOINT);
   });
 }
 
+const fill = async (page: import('@playwright/test').Page, name: string) => {
+  const form = page.locator('#lead-form');
+  await form.locator('input[name="name"]').fill(name);
+  await form.locator('input[name="phone"]').fill('0500000000');
+  await form.locator('select[name="appliance"]').selectOption({ index: 1 });
+  await form.locator('input[name="area"]').fill('Dammam');
+  return form;
+};
+
 test('T15 form validates on blur, and a failed submit keeps what was typed and shows the WhatsApp fallback', async ({ page }) => {
-  await page.route('**/api/lead', (route) => route.fulfill({ status: 500, contentType: 'application/json', body: '{}' }));
+  await page.route('**/contact-submit.php', (route) => route.fulfill({ status: 500, contentType: 'text/html', body: 'broken' }));
   await visit(page, '/en/contact');
   const form = page.locator('#lead-form');
   await form.locator('input[name="name"]').focus();
@@ -74,13 +90,29 @@ test('T15 form validates on blur, and a failed submit keeps what was typed and s
   await expect(form.locator('[data-error-for="name"]')).toBeVisible();
   await form.locator('input[name="name"]').fill('Test');
   await expect(form.locator('[data-error-for="name"]')).toBeHidden();
-  await form.locator('input[name="phone"]').fill('0500000000');
-  await form.locator('select[name="appliance"]').selectOption({ index: 1 });
-  await form.locator('input[name="area"]').fill('Dammam');
+  await fill(page, 'Test');
   await form.locator('button[type="submit"]').click();
   await expect(form.locator('[data-fallback-link]')).toBeVisible();
   await expect(form.locator('[data-fallback-link]')).toBeFocused();
   await expect(form.locator('input[name="name"]')).toHaveValue('Test');
   await expect(form.locator('input[name="area"]')).toHaveValue('Dammam');
   await expect(form.locator('button[type="submit"]')).toBeEnabled();
+});
+
+test('T15 a delivery failure from the server shows the WhatsApp link the server built', async ({ page }) => {
+  const whatsapp = 'https://wa.me/966568022197?text=from-server';
+  await page.route('**/contact-submit.php', (route) => route.fulfill({ status: 502, contentType: 'application/json', body: JSON.stringify({ ok: false, error: 'delivery', whatsapp }) }));
+  await visit(page, '/en/contact');
+  const form = await fill(page, 'Test');
+  await form.locator('button[type="submit"]').click();
+  await expect(form.locator('[data-fallback-link]')).toHaveAttribute('href', whatsapp);
+});
+
+test('T15 a real submit reaches the server, is saved, and lands on the thanks page', async ({ page }) => {
+  const name = `Browser Lead ${Date.now()}`;
+  await visit(page, '/en/contact');
+  const form = await fill(page, name);
+  await form.locator('button[type="submit"]').click();
+  await page.waitForURL('**/en/thanks');
+  expect(log()).toContain(name);
 });

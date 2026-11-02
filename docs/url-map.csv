@@ -1,76 +1,76 @@
 old_path,action,target,english_twin,note
-/,keep,/,/en/,
+/,keep,/,/en,
 /about,keep,/about,/en/about,
 /areas,keep,/areas,/en/areas,
-/areas/appliance-repair-in-abqaiq,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-al-ahsa,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-al-awamiyah,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-al-jish,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-al-khobar,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-al-mallaha,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-al-mubarraz,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-al-qudaih,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-al-rabwah,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
+/areas/appliance-repair-in-abqaiq,keep,/areas/appliance-repair-in-abqaiq,/en/areas/appliance-repair-in-abqaiq,
+/areas/appliance-repair-in-al-ahsa,keep,/areas/appliance-repair-in-al-ahsa,/en/areas/appliance-repair-in-al-ahsa,
+/areas/appliance-repair-in-al-awamiyah,keep,/areas/appliance-repair-in-al-awamiyah,/en/areas/appliance-repair-in-al-awamiyah,
+/areas/appliance-repair-in-al-jish,keep,/areas/appliance-repair-in-al-jish,/en/areas/appliance-repair-in-al-jish,
+/areas/appliance-repair-in-al-khobar,keep,/areas/appliance-repair-in-al-khobar,/en/areas/appliance-repair-in-al-khobar,
+/areas/appliance-repair-in-al-mallaha,keep,/areas/appliance-repair-in-al-mallaha,/en/areas/appliance-repair-in-al-mallaha,
+/areas/appliance-repair-in-al-mubarraz,keep,/areas/appliance-repair-in-al-mubarraz,/en/areas/appliance-repair-in-al-mubarraz,
+/areas/appliance-repair-in-al-qudaih,keep,/areas/appliance-repair-in-al-qudaih,/en/areas/appliance-repair-in-al-qudaih,
+/areas/appliance-repair-in-al-rabwah,keep,/areas/appliance-repair-in-al-rabwah,/en/areas/appliance-repair-in-al-rabwah,
 /areas/appliance-repair-in-dammam,keep,/areas/appliance-repair-in-dammam,/en/areas/appliance-repair-in-dammam,"keep URL, rewrite with real local proof"
-/areas/appliance-repair-in-darin,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-dhahran,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-hofuf,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-jubail,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-qatif,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-ras-tanura,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-safwa,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-saihat,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-sanabes,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-tarout,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
-/areas/appliance-repair-in-umm-as-sahik,410,,,"Only Dammam is confirmed (PRODUCT.md 1 Nov 2026). Page not built; Worker answers 410. Returns if the client confirms coverage, see docs/FOR-AMEER.md"
+/areas/appliance-repair-in-darin,keep,/areas/appliance-repair-in-darin,/en/areas/appliance-repair-in-darin,
+/areas/appliance-repair-in-dhahran,keep,/areas/appliance-repair-in-dhahran,/en/areas/appliance-repair-in-dhahran,
+/areas/appliance-repair-in-hofuf,keep,/areas/appliance-repair-in-hofuf,/en/areas/appliance-repair-in-hofuf,
+/areas/appliance-repair-in-jubail,keep,/areas/appliance-repair-in-jubail,/en/areas/appliance-repair-in-jubail,
+/areas/appliance-repair-in-qatif,keep,/areas/appliance-repair-in-qatif,/en/areas/appliance-repair-in-qatif,
+/areas/appliance-repair-in-ras-tanura,keep,/areas/appliance-repair-in-ras-tanura,/en/areas/appliance-repair-in-ras-tanura,
+/areas/appliance-repair-in-safwa,keep,/areas/appliance-repair-in-safwa,/en/areas/appliance-repair-in-safwa,
+/areas/appliance-repair-in-saihat,keep,/areas/appliance-repair-in-saihat,/en/areas/appliance-repair-in-saihat,
+/areas/appliance-repair-in-sanabes,keep,/areas/appliance-repair-in-sanabes,/en/areas/appliance-repair-in-sanabes,
+/areas/appliance-repair-in-tarout,keep,/areas/appliance-repair-in-tarout,/en/areas/appliance-repair-in-tarout,
+/areas/appliance-repair-in-umm-as-sahik,keep,/areas/appliance-repair-in-umm-as-sahik,/en/areas/appliance-repair-in-umm-as-sahik,
 /blog,keep,/blog,/en/blog,
 /blog/ac-repair-in-dammam,keep,/blog/ac-repair-in-dammam,/en/blog/ac-repair-in-dammam,"keep URL, truth pass; add Arabic and English twins"
 /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide,keep,/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide,/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide,"keep URL, truth pass; add Arabic and English twins"
 /blog/washing-machine-maintenance-repair-services-in-dammam,keep,/blog/washing-machine-maintenance-repair-services-in-dammam,/en/blog/washing-machine-maintenance-repair-services-in-dammam,"keep URL, truth pass; add Arabic and English twins"
 /brands,keep,/brands,/en/brands,
-/brands/alessa-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/amana-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/bosch-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/carrier-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/chigo-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/daewoo-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/daikin-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/electrolux-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/frigidaire-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/fujitsu-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/ge-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/gree-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/haier-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/hitachi-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/kenmore-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/lg-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/maytag-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/midea-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/nikai-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/o-general-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/panasonic-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/samsung-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/sanyo-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/sharp-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/siemens-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/super-general-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/tcl-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/toshiba-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/whirlpool-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/white-westinghouse-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/york-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
-/brands/zamil-appliance-repair,301,/brands,,Brand listed on the /brands hub; no brand page without checked manufacturer facts
+/brands/alessa-appliance-repair,keep,/brands/alessa-appliance-repair,/en/brands/alessa-appliance-repair,
+/brands/amana-appliance-repair,keep,/brands/amana-appliance-repair,/en/brands/amana-appliance-repair,
+/brands/bosch-appliance-repair,keep,/brands/bosch-appliance-repair,/en/brands/bosch-appliance-repair,
+/brands/carrier-appliance-repair,keep,/brands/carrier-appliance-repair,/en/brands/carrier-appliance-repair,
+/brands/chigo-appliance-repair,keep,/brands/chigo-appliance-repair,/en/brands/chigo-appliance-repair,
+/brands/daewoo-appliance-repair,keep,/brands/daewoo-appliance-repair,/en/brands/daewoo-appliance-repair,
+/brands/daikin-appliance-repair,keep,/brands/daikin-appliance-repair,/en/brands/daikin-appliance-repair,
+/brands/electrolux-appliance-repair,keep,/brands/electrolux-appliance-repair,/en/brands/electrolux-appliance-repair,
+/brands/frigidaire-appliance-repair,keep,/brands/frigidaire-appliance-repair,/en/brands/frigidaire-appliance-repair,
+/brands/fujitsu-appliance-repair,keep,/brands/fujitsu-appliance-repair,/en/brands/fujitsu-appliance-repair,
+/brands/ge-appliance-repair,keep,/brands/ge-appliance-repair,/en/brands/ge-appliance-repair,
+/brands/gree-appliance-repair,keep,/brands/gree-appliance-repair,/en/brands/gree-appliance-repair,
+/brands/haier-appliance-repair,keep,/brands/haier-appliance-repair,/en/brands/haier-appliance-repair,
+/brands/hitachi-appliance-repair,keep,/brands/hitachi-appliance-repair,/en/brands/hitachi-appliance-repair,
+/brands/kenmore-appliance-repair,keep,/brands/kenmore-appliance-repair,/en/brands/kenmore-appliance-repair,
+/brands/lg-appliance-repair,keep,/brands/lg-appliance-repair,/en/brands/lg-appliance-repair,
+/brands/maytag-appliance-repair,keep,/brands/maytag-appliance-repair,/en/brands/maytag-appliance-repair,
+/brands/midea-appliance-repair,keep,/brands/midea-appliance-repair,/en/brands/midea-appliance-repair,
+/brands/nikai-appliance-repair,keep,/brands/nikai-appliance-repair,/en/brands/nikai-appliance-repair,
+/brands/o-general-appliance-repair,keep,/brands/o-general-appliance-repair,/en/brands/o-general-appliance-repair,
+/brands/panasonic-appliance-repair,keep,/brands/panasonic-appliance-repair,/en/brands/panasonic-appliance-repair,
+/brands/samsung-appliance-repair,keep,/brands/samsung-appliance-repair,/en/brands/samsung-appliance-repair,
+/brands/sanyo-appliance-repair,keep,/brands/sanyo-appliance-repair,/en/brands/sanyo-appliance-repair,
+/brands/sharp-appliance-repair,keep,/brands/sharp-appliance-repair,/en/brands/sharp-appliance-repair,
+/brands/siemens-appliance-repair,keep,/brands/siemens-appliance-repair,/en/brands/siemens-appliance-repair,
+/brands/super-general-appliance-repair,keep,/brands/super-general-appliance-repair,/en/brands/super-general-appliance-repair,
+/brands/tcl-appliance-repair,keep,/brands/tcl-appliance-repair,/en/brands/tcl-appliance-repair,
+/brands/toshiba-appliance-repair,keep,/brands/toshiba-appliance-repair,/en/brands/toshiba-appliance-repair,
+/brands/whirlpool-appliance-repair,keep,/brands/whirlpool-appliance-repair,/en/brands/whirlpool-appliance-repair,
+/brands/white-westinghouse-appliance-repair,keep,/brands/white-westinghouse-appliance-repair,/en/brands/white-westinghouse-appliance-repair,
+/brands/york-appliance-repair,keep,/brands/york-appliance-repair,/en/brands/york-appliance-repair,
+/brands/zamil-appliance-repair,keep,/brands/zamil-appliance-repair,/en/brands/zamil-appliance-repair,
 /contact,keep,/contact,/en/contact,
 /cookie-policy,keep,/cookie-policy,/en/cookie-policy,
 /privacy-policy,keep,/privacy-policy,/en/privacy-policy,
 /services,keep,/services,/en/services,
 /services/ac-repair,keep,/services/ac-repair,/en/services/ac-repair,
-/services/dishwasher-repair,confirm,/services,/en/services/dishwasher-repair,"keep if client confirms this repair, otherwise 301"
+/services/dishwasher-repair,keep,/services/dishwasher-repair,/en/services/dishwasher-repair,
 /services/dryer-repair,keep,/services/dryer-repair,/en/services/dryer-repair,
-/services/freezer-repair,confirm,/services/refrigerator-repair,/en/services/freezer-repair,
-/services/microwave-repair,confirm,/services,/en/services/microwave-repair,"keep if client confirms this repair, otherwise 301"
-/services/oven-stove-repair,confirm,/services,/en/services/oven-stove-repair,"keep if client confirms this repair, otherwise 301"
+/services/freezer-repair,keep,/services/freezer-repair,/en/services/freezer-repair,
+/services/microwave-repair,keep,/services/microwave-repair,/en/services/microwave-repair,
+/services/oven-stove-repair,keep,/services/oven-stove-repair,/en/services/oven-stove-repair,
 /services/refrigerator-repair,keep,/services/refrigerator-repair,/en/services/refrigerator-repair,
 /services/washing-machine-repair,keep,/services/washing-machine-repair,/en/services/washing-machine-repair,
-/services/water-heater-repair,confirm,/services,/en/services/water-heater-repair,"keep if client confirms this repair, otherwise 301"
+/services/water-heater-repair,keep,/services/water-heater-repair,/en/services/water-heater-repair,
 /terms-of-service,keep,/terms-of-service,/en/terms-of-service,

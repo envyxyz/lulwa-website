@@ -1,5 +1,6 @@
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { site } from './src/site.ts';
 import { reviewed } from './src/reviewed-faults.ts';
@@ -17,6 +18,59 @@ const kitchenSink = {
   },
 };
 
+// Sitemaps under the old file names, written after the build: sitemap-index.xml and sitemap.xml (same content),
+// then sitemap-pages, -services, -areas, -brands, -blog. Every URL has lastmod and ar-SA, en-SA and x-default alternates.
+// thanks and 404 stay out. A fault page is listed once a technician has checked it (src/reviewed-faults.ts).
+const sitemaps = {
+  name: 'lulwa-sitemaps',
+  hooks: {
+    'astro:build:done': ({ dir, pages }) => {
+      const out = fileURLToPath(dir);
+      const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+      const paths = new Set(
+        pages
+          .map((p) => `/${p.pathname}`.replace(/\.html$/, '').replace(/\/+$/, '') || '/')
+          .filter((p) => !/^\/(en\/)?(thanks|404|dev(\/|$))/.test(p) && p !== '/en/404')
+          .filter((p) => !/^\/(en\/)?faults\/[^/]+$/.test(p) || reviewed.includes(p.split('/').pop()))
+          .map((p) => (p === '/en/' ? '/en' : p)),
+      );
+      const arOf = (p) => (p === '/en' ? '/' : p.replace(/^\/en(?=\/)/, ''));
+      const enOf = (p) => (p === '/' ? '/en' : `/en${p}`);
+      const full = (p) => (p === '/' ? `${site.url}/` : `${site.url}${p}`);
+      // A post carries its own date in a meta tag; everything else changed when the copy did.
+      const lastmod = (p) => {
+        const file = `${out}${p === '/' ? 'index' : p.slice(1)}.html`;
+        const html = existsSync(file) ? readFileSync(file, 'utf8') : '';
+        return html.match(/property="article:modified_time" content="(\d{4}-\d\d-\d\d)/)?.[1] ?? site.updated;
+      };
+      const groups = { pages: [], services: [], areas: [], brands: [], blog: [] };
+      for (const p of [...paths].sort()) {
+        const ar = arOf(p);
+        const group = /^\/(services|faults)(\/|$)/.test(ar) ? 'services' : /^\/areas(\/|$)/.test(ar) ? 'areas' : /^\/brands(\/|$)/.test(ar) ? 'brands' : /^\/blog(\/|$)/.test(ar) ? 'blog' : 'pages';
+        groups[group].push(p);
+      }
+      const urlset = (list) => {
+        const alt = (p) => {
+          const ar = arOf(p), en = enOf(ar);
+          const pair = paths.has(ar) && paths.has(en) ? [['ar-SA', ar], ['en-SA', en], ['x-default', ar]] : [];
+          return pair.map(([l, h]) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${esc(full(h))}"/>`).join('\n');
+        };
+        const rows = list.map((p) => `  <url>\n    <loc>${esc(full(p))}</loc>\n    <lastmod>${lastmod(p)}</lastmod>\n${alt(p)}\n  </url>`.replace('\n\n', '\n'));
+        return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${rows.join('\n')}\n</urlset>\n`;
+      };
+      const names = [];
+      for (const [name, list] of Object.entries(groups)) {
+        if (!list.length) continue;
+        writeFileSync(`${out}sitemap-${name}.xml`, urlset(list));
+        names.push(name);
+      }
+      const index = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${names.map((n) => `  <sitemap>\n    <loc>${site.url}/sitemap-${n}.xml</loc>\n    <lastmod>${site.updated}</lastmod>\n  </sitemap>`).join('\n')}\n</sitemapindex>\n`;
+      writeFileSync(`${out}sitemap-index.xml`, index);
+      writeFileSync(`${out}sitemap.xml`, index);
+    },
+  },
+};
+
 export default defineConfig({
   site: site.url,
   output: 'static',
@@ -28,6 +82,6 @@ export default defineConfig({
     defaultLocale: 'ar',
     routing: { prefixDefaultLocale: false },
   },
-  integrations: [sitemap({ i18n: { defaultLocale: 'ar', locales: { ar: 'ar-SA', en: 'en-SA' } }, filter: (page) => !/\/thanks$/.test(page) && (!/\/faults\/[^/]+$/.test(page) || reviewed.includes(page.split('/').pop())) }), kitchenSink],
+  integrations: [sitemaps, kitchenSink],
   vite: { plugins: [tailwindcss()] },
 });

@@ -2,10 +2,9 @@
 import '../styles/global.css';
 import TopBar from '../components/TopBar.astro';
 import Footer from '../components/Footer.astro';
-import BottomBar from '../components/BottomBar.astro';
 import { site } from '../site';
 import { content, langFromUrl } from '../content';
-import { alternates, breadcrumbs, business } from '../seo';
+import { alternates, breadcrumbs, business, carriesBusiness, isoDate, pageNodes } from '../seo';
 
 type Props = { title: string; description: string; noindex?: boolean; ld?: object[] };
 const { title, description, noindex = false, ld = [] } = Astro.props;
@@ -14,44 +13,81 @@ const dir = lang === 'ar' ? 'rtl' : 'ltr';
 const alt = alternates(Astro.url.pathname);
 const canonical = lang === 'ar' ? alt.ar : alt.en;
 const home = alt.path === '/' || alt.path === '/en';
-const graph = [home ? business(lang) : breadcrumbs(lang, Astro.url.pathname, title.split(' | ')[0]!), ...ld];
+const shortTitle = title.split(' | ')[0]!;
+const graph = [...(carriesBusiness(Astro.url.pathname) ? [business(lang)] : []), ...pageNodes(lang, Astro.url.pathname, title, description), ...(home ? [] : [breadcrumbs(lang, Astro.url.pathname, shortTitle)]), ...ld];
+// Posts carry their date: article:modified_time and the article type.
+const arPath = alt.ar.slice(site.url.length);
+const postSlug = arPath.startsWith('/blog/') ? arPath.slice(6) : undefined;
+const post = postSlug ? content[lang].blog.items.find((p) => p.slug === postSlug) : undefined;
+const modified = post && isoDate(post.updated);
+const ogImage = `${site.url}${site.images.og}`;
+const ogAlt = lang === 'ar' ? `شعار ${site.brand.arabic}` : `${site.brand.english} logo`;
+const businessName = lang === 'ar' ? site.brand.arabic : site.brand.english;
+const rss = lang === 'ar' ? '/blog/rss.xml' : '/en/blog/rss.xml';
 // Everything the first paint needs, so no font waits for the stylesheet to be parsed.
 const preloadFonts = lang === 'ar' ? ['beiruti-800-900', 'plex-arabic-400', 'plex-arabic-500'] : ['schibsted-400-800'];
 ---
 
 <!doctype html>
-<html lang={lang} dir={dir} data-gtm={site.analytics.gtm}>
+<html lang={lang} dir={dir}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#eef2ef" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121415" media="(prefers-color-scheme: dark)" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content={site.brand.english} />
+    <meta name="google-site-verification" content={site.verification.google} />
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="ar-SA" href={alt.ar} />
     <link rel="alternate" hreflang="en-SA" href={alt.en} />
     <link rel="alternate" hreflang="x-default" href={alt.ar} />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={site.brand.arabic} />
+    <link rel="alternate" type="application/rss+xml" title={`${businessName} RSS`} href={rss} />
+    <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
+    <meta name="geo.region" content={site.address.regionCode} />
+    <meta name="geo.placename" content={site.address[lang].city} />
+    <meta name="geo.position" content={`${site.geo.latitude};${site.geo.longitude}`} />
+    <meta name="ICBM" content={`${site.geo.latitude}, ${site.geo.longitude}`} />
+    <meta property="og:type" content={post ? 'article' : 'website'} />
+    <meta property="og:site_name" content={businessName} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={lang === 'ar' ? 'ar_SA' : 'en_US'} />
-    <meta property="og:image" content={`${site.url}/og.jpg`} />
+    <meta property="og:locale:alternate" content={lang === 'ar' ? 'en_US' : 'ar_SA'} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:secure_url" content={ogImage} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogAlt} />
+    {modified && <meta property="article:modified_time" content={modified} />}
+    {modified && <meta property="article:published_time" content={modified} />}
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:url" content={canonical} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogAlt} />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
+    <link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png" />
+    <link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <meta name="msapplication-TileColor" content="#0f6e7a" />
     <script is:inline type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })} />
     {preloadFonts.map((f) => <link rel="preload" href={`/fonts/${f}.woff2`} as="font" type="font/woff2" crossorigin />)}
   </head>
-  <body class="pb-bottom-bar md:pb-0">
+  <body>
     <a href="#main" class="sr-only focus:not-sr-only">{content[lang].chrome.skipLink}</a>
     <TopBar />
     <main id="main"><slot /></main>
     <Footer />
-    <BottomBar />
     <script>
       import '../scripts/chrome';
     </script>

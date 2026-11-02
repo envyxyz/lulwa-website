@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Astro 7 static site, TypeScript, Tailwind CSS v4, vanilla islands. Cloudflare Workers free plan with a small Worker for leads.
+Astro 7 static site, TypeScript, Tailwind CSS v4, vanilla islands. Hosted on Hostinger with a small PHP file for leads (Ameer, 2 Nov 2026).
 
 ## Users
 
@@ -35,6 +35,9 @@ Source: `../growth/Notes/Project Brief.md` and the live Google listing, 1 Nov 20
 - Google listing, 1 Nov 2026: 5.0 from 8 reviews.
 - Reviews read signed out on Google Maps, 1 Nov 2026, 5 of 8 visible: Jafar Sapra, Shahbaz Ahmad, Sohail Jamil, Usama Ch, Asad Amjad, copied in `src/content/` exactly with Google's relative dates.
 - Home page and service copy may say the shop is registered, is in Al-Jalawiyah, takes photos and video on WhatsApp, and repairs split and window ACs, fridges with gas refilling, automatic washers and dryers (1 Nov 2026).
+- Email lulwadammam@gmail.com, owner-approved per the live contact form, 31 Oct 2026. Coordinates 26.435556, 50.079611 from the live schema, 2 Nov 2026.
+- Old URLs stay (Ameer, 2 Nov 2026). Pages for areas, brands and appliances not confirmed below keep their old URL and old search wording in the title, and the body asks first: send the device and district on WhatsApp and the shop replies whether it can take the job. That wording is allowed. A promise of coverage is not.
+- Fault pages are indexed from launch at Ameer's request, 2 Nov 2026, ahead of the technician read in `docs/TECH-REVIEW.md`.
 - Analytics already in use: GA4 `G-XYKP3DY4X7`, GTM `GTM-TVK4BRTS`, Clarity `yf0k43euob`. Ownership unconfirmed.
 
 ## Not confirmed: never publish until a dated line appears above

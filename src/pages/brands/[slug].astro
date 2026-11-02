@@ -1,0 +1,8 @@
+---
+import AskPage from '../../components/AskPage.astro';
+import { ar } from '../../content/ar';
+
+export const getStaticPaths = () => ar.brands.items.map((i) => ({ params: { slug: i.slug } }));
+---
+
+<AskPage kind="brand" slug={Astro.params.slug!} />

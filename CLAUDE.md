@@ -16,6 +16,7 @@ Arabic-first, English-second marketing and lead site for لولوه للتكيي
 | `docs/AGENTS.md` | How to split a phase across Opus, Sonnet and agy |
 | `docs/PHASES.md` | Plan link and dated log |
 | `design/reference/roofguard-inspiration.webp` | Layout inspiration, see "Reference update" in `docs/DESIGN-DIRECTION.md`. It replaces `design/mock/hero.html` as the hero target |
+| `docs/LAUNCH-PLAN.md` | Ameer's launch rules of 2 Nov 2026. **Wins over everything below where they conflict** |
 | `docs/AUTORUN.md` | Rules for unattended runs. **Wins over this file while it exists** |
 | `docs/PHASE-PROMPTS.md` | The prompt for each phase |
 | `docs/FOR-AMEER.md` | Questions and verifications gathered for Ameer |
@@ -26,7 +27,7 @@ Brand assets: `../growth/Brand/`. Photos: `../growth/Photos/Edited/`. Copy into 
 
 ## Stack
 
-Astro 7 static output · TypeScript strict · Tailwind CSS v4 through `@tailwindcss/vite` · vanilla TypeScript islands, no React · self-hosted subset fonts · Playwright + axe · Lighthouse CI · **pnpm** · **Cloudflare Workers free plan**: `dist/` as static assets, a small Worker in `worker/` for `/api/*` only.
+Astro 7 static output · TypeScript strict · Tailwind CSS v4 through `@tailwindcss/vite` · vanilla TypeScript islands, no React · self-hosted subset fonts · Playwright + axe · Lighthouse CI · **pnpm** · **Hostinger** (Ameer, 2 Nov 2026): `dist/` goes into `public_html`, `public/.htaccess` gives clean URLs, 301s, headers and caching, `public/contact-submit.php` takes leads. No Worker.
 
 Check current docs with context7 before using any library API. No dependency for what a few lines or the platform already does.
 
@@ -42,6 +43,7 @@ Check current docs with context7 before using any library API. No dependency for
 8. **Phone** is written `056 802 2197`, dialled `tel:+966568022197`, WhatsApp `https://wa.me/966568022197`, from `site.ts` only. Wrap Latin and digits in Arabic text in `<bdi>`.
 9. **Never invent claims.** Years, counts, percentages, prices, warranty terms, response times, "certified", "original parts", "24 hours", "same day", ratings. Each needs a dated line in `PRODUCT.md` first. `tests/claims.spec.ts` fails the build if one appears.
 10. **Reviews are real or absent.** Copied from the Google listing with date and name as shown. No `AggregateRating` markup.
+0. **Slugs and file names never change** (Ameer, 2 Nov 2026, critical). Every URL in `docs/url-map.csv` stays a real page at its original path.
 11. **JavaScript budget:** content pages ship 0 KB of our own JS except the fault picker island, the mobile menu and the header's hide-on-scroll script (about 0.3 KB, Ameer's request of 1 Nov 2026), under 6 KB gzip together. Analytics load after first interaction. So do Lenis and Motion (`src/scripts/motion.ts`), Ameer's request of 1 Nov 2026, outside the 6 KB because they arrive after first load and never under reduced motion.
 12. **Performance budget:** Lighthouse mobile 95+ in all four categories on every route in both languages, LCP under 2.0 s, TBT under 100 ms, CLS under 0.05, page weight under 250 KB on first load excluding analytics, fonts under 110 KB.
 13. **Accessibility:** WCAG 2.2 AA, 44 px targets, visible focus, keyboard complete, `prefers-reduced-motion` respected.
@@ -49,7 +51,7 @@ Check current docs with context7 before using any library API. No dependency for
 15. **Images:** job photos are real, shown no larger than their source allows (the WhatsApp set is 287 to 680 px wide). Generated unbranded product images on white are allowed as product illustrations, listed in the provenance file, never shown as our jobs. AVIF and WebP with `srcset`, explicit `width` and `height`, lazy below the fold. AI mockups of the shop, uniforms or vehicles never ship.
 16. **SEO:** every route has title, description, self canonical, reciprocal hreflang (`ar-SA`, `en-SA`, `x-default` to Arabic), OG, JSON-LD. Legal name and CR number in every footer.
 17. **Security:** secrets only in the Worker and `.env.local`. Validate with Zod at the Worker. Headers in `public/_headers`. PDPL: consent line and privacy link at every form, no personal data in URLs or analytics events.
-18. **Static only.** No SSR adapter. Anything needing a server goes in `worker/`. No Google Cloud billing APIs.
+18. **Static only.** No SSR adapter. Anything needing a server is a small PHP file in `public/`. No Google Cloud billing APIs.
 
 ## Commands
 

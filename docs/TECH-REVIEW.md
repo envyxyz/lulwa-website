@@ -106,3 +106,181 @@ Every fault page below makes technical claims nobody at the shop has checked. Ea
 - Self-checks: Check the door is fully shut. / Reduce the load. / Unplug the dryer and start it again. / With it unplugged, turn the drum by hand; if it spins with no resistance, tell us.
 - Needs a technician: The motor runs but the drum is still. / Grinding noise. / Opening the machine.
 - [ ] Reviewed by technician
+
+# Guides (drafts, not on the site yet)
+
+One page per guide, Arabic first with the English under each line, to forward on WhatsApp or print. Generated 2 Nov 2026 from `docs/drafts/guides/<slug>.json`; regenerate if a draft changes. The tick boxes are the review.
+
+## /blog/ac-summer-checklist: كيف تجهز مكيفك في البيت قبل بداية حر الصيف؟ / How should you prepare your air conditioner at home before summer?
+
+_صفحة واحدة للفني. أرسلها كما هي على واتساب أو اطبعها. One page for the technician: forward as is._
+
+**السؤال:** كيف تجهز مكيفك في البيت قبل بداية حر الصيف؟
+
+**الجواب على الصفحة:** فحص المكيف وتنظيف الفلاتر والتأكد من انسياب تصريف الماء قبل اشتداد الحر في الدمام يجنبك التوقف المفاجئ وقت الذروة. خطوات فحص منزلية بسيطة وآمنة تكشف جاهزية مكيف السبلت أو الشباك، وتوضح لك الوقت المناسب للتواصل مع الفني المتخصص.
+
+- [ ] الجواب صحيح / The answer is right
+
+**ما يفحصه صاحب الجهاز بنفسه (هل كل خطوة آمنة وصحيحة؟)**
+
+- [ ] آمن  - [ ] صحيح: فصل القاطع الكهربائي الخاص بالمكيف تماما قبل لمس الجهاز.  
+  _Switching off the dedicated circuit breaker before handling the unit._
+- [ ] آمن  - [ ] صحيح: غسل فلاتر الوحدة الداخلية بالماء وتجفيفها جيدا في الظل.  
+  _Washing indoor mesh filters under running water and drying them in shade._
+- [ ] آمن  - [ ] صحيح: التأكد من خلو خرطوم تصريف الماء الخارجي من الانسداد والالتواء.  
+  _Checking the outdoor drain line so condensation flows down freely._
+- [ ] آمن  - [ ] صحيح: إبعاد الكراتين والمخلفات عن محيط فتحات تهوية الوحدة الخارجية.  
+  _Clearing boxes, timber, and clutter from around outdoor unit grilles._
+- [ ] آمن  - [ ] صحيح: استبدال بطاريات الريموت وضبط وضعية التبريد برمز الثلج.  
+  _Fitting fresh remote batteries and confirming cooling mode with the snowflake icon._
+
+**يحتاج فني**
+
+- [ ] صحيح: خروج هواء دافئ مستمر مع استمرار دوران المروحة.  
+  _Warm air blowing continuously while the compressor hums._
+- [ ] صحيح: تراكم طبقة من الثلج الأبيض على مواسير النحاس أو الشبك الداخلي.  
+  _White frost or ice forming over copper pipes or cooling coils._
+- [ ] صحيح: صدور أصوات صرير أو طقطقة حادة أو اهتزاز شديد من المراوح.  
+  _Harsh screeching, metallic grinding, or excessive mechanical shaking._
+- [ ] صحيح: انبعاث رائحة حريق أو تصاعد دخان أو تسريب ماء مستمر داخل الغرفة.  
+  _Burning smells, electrical scorch marks, or persistent indoor water overflows._
+- [ ] صحيح: فصل القاطع الكهربائي الخاص بالمكيف بشكل متكرر عند التشغيل.  
+  _Repeated electrical circuit breaker tripping whenever cooling starts up._
+
+ما يجب إضافته أو حذفه / Add or remove: ____________________
+
+الاسم / Name: ____________  التاريخ / Date: ____________
+
+Full draft: `docs/drafts/guides/ac-summer-checklist.md`. Once signed, the date becomes the page's "last reviewed" line.
+
+---
+
+## /blog/repair-or-replace: اصلاح ام تغيير المكيف والأجهزة المنزلية في البيت؟ / Is it better to repair or replace ac unit and home appliances?
+
+_صفحة واحدة للفني. أرسلها كما هي على واتساب أو اطبعها. One page for the technician: forward as is._
+
+**السؤال:** اصلاح ام تغيير المكيف والأجهزة المنزلية في البيت؟
+
+**الجواب على الصفحة:** القرار بين صيانة الجهاز أو استبداله يعتمد على مكان العطل وتكرار المشاكل وسلامة الهيكل الخارجي. الأعطال السطحية في المفاتيح ومضخات التصريف تستحق الإصلاح غالبا، بينما تآكل القواعد الأساسية أو تلف الضاغط والمحرك الرئيسي في جهاز متكرر التوقف يرجح شراء بديل جديد لحماية استقرار البيت وسلامته.
+
+- [ ] الجواب صحيح / The answer is right
+
+**ما يفحصه صاحب الجهاز بنفسه (هل كل خطوة آمنة وصحيحة؟)**
+
+- [ ] آمن  - [ ] صحيح: افصل مفتاح الكهرباء تماما قبل النظر خلف الأجهزة أو أسفلها.  
+  _Always cut mains power before checking behind or beneath any domestic unit._
+- [ ] آمن  - [ ] صحيح: افحص أسفل الغسالة والنشافة للتأكد من خلو القوائم من الصدأ العميق.  
+  _Examine washer and dryer feet to verify the metal remains structurally sound._
+- [ ] آمن  - [ ] صحيح: تأكد من تماسك إطار مكيف الشباك وعدم تفتت هيكله الخارجي.  
+  _Check window frames and split outdoor casings for deep flaking metal._
+- [ ] آمن  - [ ] صحيح: لاحظ صوت الضاغط وما إذا كان يفصل بانتظام أثناء العمل.  
+  _Listen closely to whether the compressor cycles off or runs without pause._
+- [ ] آمن  - [ ] صحيح: افصل مصدر التيار فورا عند الشعور بأي التماس على جسم الجهاز.  
+  _Switch off mains electricity immediately if an appliance casing tingles._
+- [ ] آمن  - [ ] صحيح: صور ملصق الموديل والبيانات الفنية خلف الجهاز بوضوح.  
+  _Take a clear photograph of the technical rating plate on the unit._
+- [ ] آمن  - [ ] صحيح: سجل فيديو قصيرا يوضح صوت العطل أثناء تشغيل الجهاز.  
+  _Film a short video clip showing the abnormal noise or symptom clearly._
+
+**يحتاج فني**
+
+- [ ] صحيح: تآكل القواعد الحاملة للمحرك أو تفتت زعانف تبريد المكيف.  
+  _Rusted motor mount brackets or crumbled cooling condenser fins._
+- [ ] صحيح: تعطل الضاغط في المكيف أو الثلاجة أو احتراق محرك الغسالة والنشافة.  
+  _A seized compressor in an AC or fridge, or a burnt drum motor in a washer or dryer._
+- [ ] صحيح: تتابع الأعطال وتكرار التوقف كل بضعة أسابيع.  
+  _Sequential breakdowns repeating every few weeks across different components._
+- [ ] صحيح: ضعف التبريد مع استمرار دوران المروحة وارتفاع صوت التشغيل.  
+  _Loss of cooling output while fans continue running with loud noise._
+- [ ] صحيح: انبعاث رائحة حريق أو حدوث التماس كهربائي في هيكل الجهاز.  
+  _Burning insulation smells, smoke, or electrical shocks from appliance cabinets._
+
+ما يجب إضافته أو حذفه / Add or remove: ____________________
+
+الاسم / Name: ____________  التاريخ / Date: ____________
+
+Full draft: `docs/drafts/guides/repair-or-replace.md`. Once signed, the date becomes the page's "last reviewed" line.
+
+---
+
+## /blog/ac-error-code: كيف أتعامل مع ظهور خطأ مكيف انفرتر؟ / How do you handle an inverter ac error code?
+
+_صفحة واحدة للفني. أرسلها كما هي على واتساب أو اطبعها. One page for the technician: forward as is._
+
+**السؤال:** كيف أتعامل مع ظهور خطأ مكيف انفرتر؟
+
+**الجواب على الصفحة:** ظهور رمز خطأ أو وميض لمبة في مكيف الإنفرتر يشير إلى رصد الحساسات الداخلية لمشكلة في دورة التبريد أو التيار، فتتوقف الوحدة تلقائياً لتفادي تضرر الأجزاء الداخلية. تعامل مع الرمز كإجراء وقائي ولا تحاول تشغيل الجهاز بالقوة قبل معرفة السبب.
+
+- [ ] الجواب صحيح / The answer is right
+
+**ما يفحصه صاحب الجهاز بنفسه (هل كل خطوة آمنة وصحيحة؟)**
+
+- [ ] آمن  - [ ] صحيح: فصل القاطع الكهربائي المغذي للمكيف بالكامل قبل لمس الجهاز  
+  _Switching off the dedicated electrical breaker before touching the appliance_
+- [ ] آمن  - [ ] صحيح: تصوير شاشة الوحدة والملصق الفني لبيانات الطراز  
+  _Taking photographs of the fault display and unit model label_
+- [ ] آمن  - [ ] صحيح: تنظيف فلاتر الهواء من الأتربة العالقة وإعادتها جافة  
+  _Cleaning dust from mesh air filters and refitting them dry_
+- [ ] آمن  - [ ] صحيح: إعادة رفع القاطع الكهربائي لمرة واحدة فقط لاختبار عمل النظام  
+  _Restoring breaker power once to check system response_
+
+**يحتاج فني**
+
+- [ ] صحيح: استمرار ظهور نفس رمز العطل فور تشغيل القاطع  
+  _The same fault code returning immediately after a single breaker reset_
+- [ ] صحيح: خروج هواء دافئ من المكيف مع استمرار تدفق الهواء  
+  _Warm air discharging from the vents during fan operation_
+- [ ] صحيح: صدور أصوات احتكاك غير طبيعية أو توقف دوران المروحة الخارجية  
+  _Unusual mechanical sounds or an outdoor fan that fails to spin_
+- [ ] صحيح: انبعاث رائحة حريق كهربائي أو تسرب مياه مفاجئ داخل الغرفة  
+  _Burnt electrical smells or unexpected water dripping indoors_
+
+ما يجب إضافته أو حذفه / Add or remove: ____________________
+
+الاسم / Name: ____________  التاريخ / Date: ____________
+
+Full draft: `docs/drafts/guides/ac-error-code.md`. Once signed, the date becomes the page's "last reviewed" line.
+
+---
+
+## /blog/best-ac-temperature: ما هي افضل درجة حرارة للمكيف في الصيف؟ / What is the best AC temperature setting in summer?
+
+_صفحة واحدة للفني. أرسلها كما هي على واتساب أو اطبعها. One page for the technician: forward as is._
+
+**السؤال:** ما هي افضل درجة حرارة للمكيف في الصيف؟
+
+**الجواب على الصفحة:** الخيار العملي هو اختيار درجة معتدلة تشعرك بالراحة دون برودة مفرطة، ثم رفع المؤشر قليلا بالتدريج كل فترة حتى تعتاد الغرفة على الجو. هذا التدرج يمنحك هواء منعشا ويخفف الجهد المتواصل على مكيفات الاسبليت والشباك في أجواء الصيف الحارة.
+
+- [ ] الجواب صحيح / The answer is right
+
+**ما يفحصه صاحب الجهاز بنفسه (هل كل خطوة آمنة وصحيحة؟)**
+
+- [ ] آمن  - [ ] صحيح: فصل مفتاح الكهرباء الجداري تماما قبل لمس المكيف  
+  _Turn off the wall power switch before touching the air conditioner_
+- [ ] آمن  - [ ] صحيح: رفع الغطاء الأمامي وسحب الفلاتر الشبكية بلطف دون فتح الجهاز  
+  _Lift the front plastic cover and slide out the mesh screens gently_
+- [ ] آمن  - [ ] صحيح: غسل الفلتر بالماء وتجفيفه بالكامل قبل إعادته لمكانه  
+  _Wash the filter with clean water and dry thoroughly before reinstalling_
+- [ ] آمن  - [ ] صحيح: التأكد من إحكام إغلاق الأبواب والنوافذ والستائر لمنع تسرب الهواء  
+  _Check that doors, windows, and curtains are firmly closed against heat_
+- [ ] آمن  - [ ] صحيح: الامتناع التام عن لمس الأسلاك الكهربائية أو أنابيب الغاز المعدنية  
+  _Never open the main casing or touch electrical wiring and copper gas pipes_
+
+**يحتاج فني**
+
+- [ ] صحيح: خروج هواء فاتر مع استمرار دوران المروحة الداخلية  
+  _Tepid airflow emerging from vents while the fan continues to spin_
+- [ ] صحيح: تراكم الثلج فوق أنابيب النحاس أو على وجه الفلتر الداخلي  
+  _Thick frost or ice forming on copper tubing or the indoor cooling coil_
+- [ ] صحيح: تسرب قطرات الماء من هيكل المكيف نحو جدار الغرفة  
+  _Water leaking from the air conditioner body down interior walls_
+- [ ] صحيح: صدور أصوات طحن أو نقر واحتكاك غير معتادة من الجهاز  
+  _Unusual grinding, clicking, or screeching sounds coming from the motor assembly_
+
+ما يجب إضافته أو حذفه / Add or remove: ____________________
+
+الاسم / Name: ____________  التاريخ / Date: ____________
+
+Full draft: `docs/drafts/guides/best-ac-temperature.md`. Once signed, the date becomes the page's "last reviewed" line.
+
+---

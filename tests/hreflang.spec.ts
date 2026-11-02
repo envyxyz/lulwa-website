@@ -14,3 +14,21 @@ for (const path of allRoutes()) {
     }
   });
 }
+
+// The sitemaps list both languages of a page and say so with alternates.
+test('T4 every sitemap url carries ar-SA, en-SA and x-default alternates and a lastmod', async ({ request }) => {
+  const index = await (await request.get('/sitemap-index.xml')).text();
+  expect(await (await request.get('/sitemap.xml')).text(), 'sitemap.xml mirrors the index').toBe(index);
+  const files = [...index.matchAll(/<loc>[^<]*\/(sitemap-[a-z]+\.xml)<\/loc>/g)].map((m) => m[1]!);
+  expect(files.length).toBeGreaterThan(0);
+  for (const file of files) {
+    const xml = await (await request.get(`/${file}`)).text();
+    const urls = xml.split('<url>').slice(1);
+    expect(urls.length, file).toBeGreaterThan(0);
+    for (const url of urls) {
+      expect(url, file).toMatch(/<lastmod>\d{4}-\d\d-\d\d<\/lastmod>/);
+      for (const lang of ['ar-SA', 'en-SA', 'x-default']) expect(url, `${file} ${lang}`).toContain(`hreflang="${lang}"`);
+      expect(url).not.toMatch(/\/thanks</);
+    }
+  }
+});

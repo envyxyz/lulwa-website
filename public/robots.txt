@@ -1,8 +1,176 @@
-# Everyone is welcome, including AI search and training crawlers (docs/PRD.md section 8).
+# Lulwa Air Conditioning & Refrigeration, https://lulwa.com.sa
+# Search engines and AI assistants are welcome on every public page.
+# Only the form handler, its thank-you pages and the logs are closed.
+
 User-agent: *
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /ai.txt
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: GPTBot
 Allow: /
 Disallow: /thanks
 Disallow: /en/thanks
-Disallow: /api/
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: Googlebot
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: Applebot
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: FacebookBot
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: CCBot
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: Bytespider
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: MistralAI-User
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /thanks
+Disallow: /en/thanks
+Disallow: /contact-submit.php
+Disallow: /logs/
 
 Sitemap: https://lulwa.com.sa/sitemap-index.xml

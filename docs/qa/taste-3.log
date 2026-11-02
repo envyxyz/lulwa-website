@@ -339,3 +339,477 @@ LOOK AT THE RENDER — open these with your image viewer / Read tool before sayi
 
 report: .taste-skill/inspect/cookie-policy/report.json
 RESULT: 0 FAIL, 3 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/en
+
+MEASURED (first viewport listed)
+  hero headline   "LULWA"  1 words · 1 line(s) · 344px (23.9vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 0.95
+  @768px          1 line(s) · 180.5px
+  @390px          1 line(s) · 89.5px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    15 / 17 / 22 / 36 / 61 / 147 / 344 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #0f6e7a #e0e8e4 #0b1f2a #eef2ef · button #25d366
+  page            8.6 screens · 463 words · 8 images · hero media none
+  headings        21 · longest 2 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [grey-body] @1440px (+768, 390)  The running text is a soft grey on its ground (5.3:1).
+      → Set body copy in the full ink (7:1 or more). Keep the muted ink for secondary notes; pages read thin and unfinished when everything is grey.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [side-scroll] @1440px (+768, 390)  1 row(s) scroll sideways with content past their edge.
+      → Jurors and most visitors read a row cut at the edge as clipped, not as scrollable. Wrap it onto more lines, or end it inside the grid.
+  [empty-middle] @768px  1 section(s) have content at both edges and 408px of nothing between: "What we repair"
+      → Bring the two parts together on the grid, or put the picture or figure of the section in the middle. An empty middle third reads as a hole, the same as an empty half.
+  [statement-length] @390px  1 large-set statement(s) run past 4 lines at 390px: "A registered shop in Al-Jalawiyah, Damma…" → 5 lines at 24px
+      → A statement set large is about 30 words. Cut it, or set the rest as ordinary body text.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/desktop-fold.jpg
+                  .taste-skill/inspect/en/desktop-page-01.jpg
+                  .taste-skill/inspect/en/desktop-page-02.jpg
+                  .taste-skill/inspect/en/desktop-page-03.jpg
+  tablet 768px    .taste-skill/inspect/en/tablet-fold.jpg
+                  .taste-skill/inspect/en/tablet-page-01.jpg
+                  .taste-skill/inspect/en/tablet-page-02.jpg
+  mobile 390px    .taste-skill/inspect/en/mobile-fold.jpg
+                  .taste-skill/inspect/en/mobile-page-01.jpg
+                  .taste-skill/inspect/en/mobile-page-02.jpg
+
+report: .taste-skill/inspect/en/report.json
+RESULT: 0 FAIL, 5 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/en/about
+
+MEASURED (first viewport listed)
+  hero headline   "About us"  2 words · 1 line(s) · 146.9px (10.2vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 1
+  @768px          1 line(s) · 78.3px
+  @390px          1 line(s) · 54.4px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    15 / 17 / 22 / 61 / 147 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a
+  page            2.5 screens · 136 words · 0 images · hero media none
+  headings        6 · longest 1 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [lopsided] @1440px  A section keeps its content on one side and leaves 816px of the width empty: "What we repair".
+      → Fill the other side with what the section has (its picture, a second column, the figure), or defend the void in one sentence.
+  [hero-void] @1440px  47% of the first screen is one empty block (780×780px at 660,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+  [off-centre] @768px  The margins differ: 23px on the left, 55px on the right, at 768px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/about/desktop-fold.jpg
+                  .taste-skill/inspect/en/about/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/about/tablet-fold.jpg
+                  .taste-skill/inspect/en/about/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/about/mobile-fold.jpg
+                  .taste-skill/inspect/en/about/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/about/report.json
+RESULT: 0 FAIL, 5 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/en/areas
+
+MEASURED (first viewport listed)
+  hero headline   "Dammam"  1 words · 1 line(s) · 146.9px (10.2vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 1
+  @768px          1 line(s) · 78.3px
+  @390px          1 line(s) · 54.4px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    15 / 17 / 22 / 61 / 147 / 360 px   body 15px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            1.6 screens · 88 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [body-size] @1440px (+768)  Body text is 15px.
+      → Body copy 16–20px.
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  43% of the first screen is one empty block (720×780px at 720,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+  [off-centre] @768px  The margins differ: 23px on the left, 55px on the right, at 768px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/areas/desktop-fold.jpg
+                  .taste-skill/inspect/en/areas/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/areas/tablet-fold.jpg
+                  .taste-skill/inspect/en/areas/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/areas/mobile-fold.jpg
+                  .taste-skill/inspect/en/areas/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/areas/report.json
+RESULT: 0 FAIL, 5 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/en/areas/appliance-repair-in-dammam
+
+MEASURED (first viewport listed)
+  hero headline   "Appliance repair in Dammam"  4 words · 1 line(s) · 60.5px (4.2vw) · Schibsted Grotesk 700 · tracking 0em · leading 1.08
+  @768px          1 line(s) · 32.3px
+  @390px          2 line(s) · 32px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    15 / 17 / 22 / 61 / 360 px   body 22px / 1.5
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a · button #25d366
+  page            1.8 screens · 107 words · 0 images · hero media none
+  headings        4 · longest 1 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/areas/appliance-repair-in-dammam/desktop-fold.jpg
+                  .taste-skill/inspect/en/areas/appliance-repair-in-dammam/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/areas/appliance-repair-in-dammam/tablet-fold.jpg
+                  .taste-skill/inspect/en/areas/appliance-repair-in-dammam/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/areas/appliance-repair-in-dammam/mobile-fold.jpg
+                  .taste-skill/inspect/en/areas/appliance-repair-in-dammam/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/areas/appliance-repair-in-dammam/report.json
+RESULT: 0 FAIL, 1 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/en/blog
+
+MEASURED (first viewport listed)
+  hero headline   "Blog"  1 words · 1 line(s) · 146.9px (10.2vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 1
+  @768px          1 line(s) · 78.3px
+  @390px          1 line(s) · 54.4px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    15 / 17 / 22 / 61 / 147 / 360 px
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            1.8 screens · 99 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  36% of the first screen is one empty block (960×480px at 480,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+  [off-centre] @768px  The margins differ: 23px on the left, 55px on the right, at 768px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/blog/desktop-fold.jpg
+                  .taste-skill/inspect/en/blog/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/blog/tablet-fold.jpg
+                  .taste-skill/inspect/en/blog/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/blog/mobile-fold.jpg
+                  .taste-skill/inspect/en/blog/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/blog/report.json
+RESULT: 0 FAIL, 4 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/en/blog/ac-repair-in-dammam
+
+MEASURED (first viewport listed)
+  hero headline   "AC trouble? Check first"  4 words · 1 line(s) · 60.5px (4.2vw) · Schibsted Grotesk 700 · tracking 0em · leading 1.08
+  @768px          1 line(s) · 32.3px
+  @390px          2 line(s) · 32px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    15 / 17 / 22 / 61 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0b1f2a · button #25d366
+  page            2 screens · 132 words · 0 images · hero media none
+  headings        6 · longest 1 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [first-action] @1440px  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  43% of the first screen is one empty block (720×780px at 720,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+  [off-centre] @768px  The margins differ: 23px on the left, 55px on the right, at 768px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/blog/ac-repair-in-dammam/desktop-fold.jpg
+                  .taste-skill/inspect/en/blog/ac-repair-in-dammam/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/blog/ac-repair-in-dammam/tablet-fold.jpg
+                  .taste-skill/inspect/en/blog/ac-repair-in-dammam/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/blog/ac-repair-in-dammam/mobile-fold.jpg
+                  .taste-skill/inspect/en/blog/ac-repair-in-dammam/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/blog/ac-repair-in-dammam/report.json
+RESULT: 0 FAIL, 4 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+
+MEASURED (first viewport listed)
+  hero headline   "Get your AC ready for summer"  6 words · 1 line(s) · 60.5px (4.2vw) · Schibsted Grotesk 700 · tracking 0em · leading 1.08
+  @768px          1 line(s) · 32.3px
+  @390px          2 line(s) · 32px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    15 / 17 / 22 / 61 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0b1f2a · button #25d366
+  page            1.9 screens · 117 words · 0 images · hero media none
+  headings        5 · longest 1 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [first-action] @1440px  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  37% of the first screen is one empty block (720×660px at 720,240).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+  [off-centre] @768px  The margins differ: 23px on the left, 55px on the right, at 768px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/desktop-fold.jpg
+                  .taste-skill/inspect/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/tablet-fold.jpg
+                  .taste-skill/inspect/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/mobile-fold.jpg
+                  .taste-skill/inspect/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide/report.json
+RESULT: 0 FAIL, 4 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/en/blog/washing-machine-maintenance-repair-services-in-dammam
+
+MEASURED (first viewport listed)
+  hero headline   "Automatic washer will not spin"  5 words · 1 line(s) · 60.5px (4.2vw) · Schibsted Grotesk 700 · tracking 0em · leading 1.08
+  @768px          1 line(s) · 32.3px
+  @390px          2 line(s) · 32px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    15 / 17 / 22 / 61 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0b1f2a · button #25d366
+  page            2 screens · 118 words · 0 images · hero media none
+  headings        6 · longest 1 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [first-action] @1440px  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  43% of the first screen is one empty block (840×660px at 600,240).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+  [off-centre] @768px  The margins differ: 23px on the left, 55px on the right, at 768px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/blog/washing-machine-maintenance-repair-services-in-dammam/desktop-fold.jpg
+                  .taste-skill/inspect/en/blog/washing-machine-maintenance-repair-services-in-dammam/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/blog/washing-machine-maintenance-repair-services-in-dammam/tablet-fold.jpg
+                  .taste-skill/inspect/en/blog/washing-machine-maintenance-repair-services-in-dammam/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/blog/washing-machine-maintenance-repair-services-in-dammam/mobile-fold.jpg
+                  .taste-skill/inspect/en/blog/washing-machine-maintenance-repair-services-in-dammam/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/blog/washing-machine-maintenance-repair-services-in-dammam/report.json
+RESULT: 0 FAIL, 4 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/en/brands
+
+MEASURED (first viewport listed)
+  hero headline   "Appliance brands"  2 words · 1 line(s) · 146.9px (10.2vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 1
+  @768px          1 line(s) · 78.3px
+  @390px          2 line(s) · 54.4px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    15 / 17 / 22 / 61 / 147 / 360 px   body 22px / 1.5
+  colour          page #eef2ef · sections #eef2ef #0f6e7a #0b1f2a · button #25d366
+  page            1.7 screens · 108 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @768px  The margins differ: 23px on the left, 55px on the right, at 768px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/brands/desktop-fold.jpg
+                  .taste-skill/inspect/en/brands/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/brands/tablet-fold.jpg
+                  .taste-skill/inspect/en/brands/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/brands/mobile-fold.jpg
+                  .taste-skill/inspect/en/brands/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/brands/report.json
+RESULT: 0 FAIL, 2 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/en/contact
+
+MEASURED (first viewport listed)
+  hero headline   "Contact us"  2 words · 1 line(s) · 146.9px (10.2vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 1
+  @768px          1 line(s) · 78.3px
+  @390px          1 line(s) · 54.4px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    15 / 17 / 22 / 61 / 147 / 360 px   body 15px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0b1f2a · button #0f6e7a
+  page            2.2 screens · 127 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [body-size] @1440px (+768)  Body text is 15px.
+      → Body copy 16–20px.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [measure] @1440px  Longest paragraph runs about 90 characters per line.
+      → Cap paragraphs at 45–75 characters (max-width: 60ch).
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/contact/desktop-fold.jpg
+                  .taste-skill/inspect/en/contact/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/contact/tablet-fold.jpg
+                  .taste-skill/inspect/en/contact/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/contact/mobile-fold.jpg
+                  .taste-skill/inspect/en/contact/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/contact/report.json
+RESULT: 0 FAIL, 3 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/en/cookie-policy
+
+MEASURED (first viewport listed)
+  hero headline   "Cookie policy"  2 words · 1 line(s) · 60.5px (4.2vw) · Schibsted Grotesk 700 · tracking 0em · leading 1.08
+  @768px          1 line(s) · 32.3px
+  @390px          1 line(s) · 32px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    15 / 17 / 22 / 61 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            1.7 screens · 110 words · 0 images · hero media none
+  headings        5 · longest 1 line(s) · median 1 words
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  47% of the first screen is one empty block (780×780px at 660,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+  [off-centre] @768px  The margins differ: 23px on the left, 55px on the right, at 768px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/cookie-policy/desktop-fold.jpg
+                  .taste-skill/inspect/en/cookie-policy/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/cookie-policy/tablet-fold.jpg
+                  .taste-skill/inspect/en/cookie-policy/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/cookie-policy/mobile-fold.jpg
+                  .taste-skill/inspect/en/cookie-policy/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/cookie-policy/report.json
+RESULT: 0 FAIL, 4 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/en/faults
+
+MEASURED (first viewport listed)
+  hero headline   "Appliance faults"  2 words · 1 line(s) · 146.9px (10.2vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 1
+  @768px          1 line(s) · 78.3px
+  @390px          2 line(s) · 54.4px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    15 / 17 / 22 / 61 / 147 / 360 px   body 22px / 1.5
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            2.5 screens · 140 words · 0 images · hero media none
+  headings        7 · longest 1 line(s) · median 2 words
+
+WARN — fix, or be able to defend
+  [first-action] @1440px  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @768px  The margins differ: 23px on the left, 55px on the right, at 768px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/faults/desktop-fold.jpg
+                  .taste-skill/inspect/en/faults/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/faults/tablet-fold.jpg
+                  .taste-skill/inspect/en/faults/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/faults/mobile-fold.jpg
+                  .taste-skill/inspect/en/faults/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/faults/report.json
+RESULT: 0 FAIL, 3 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/en/privacy-policy
+
+MEASURED (first viewport listed)
+  hero headline   "What we collect"  3 words · 1 line(s) · 60.5px (4.2vw) · Schibsted Grotesk 700 · tracking 0em · leading 1.08
+  @768px          1 line(s) · 32.3px
+  @390px          1 line(s) · 32px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    15 / 17 / 22 / 61 / 360 px   body 17px / 1.6
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            2.2 screens · 185 words · 0 images · hero media none
+  headings        8 · longest 1 line(s) · median 2 words
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  47% of the first screen is one empty block (780×780px at 660,120).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+  [off-centre] @768px  The margins differ: 23px on the left, 55px on the right, at 768px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/privacy-policy/desktop-fold.jpg
+                  .taste-skill/inspect/en/privacy-policy/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/privacy-policy/tablet-fold.jpg
+                  .taste-skill/inspect/en/privacy-policy/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/privacy-policy/mobile-fold.jpg
+                  .taste-skill/inspect/en/privacy-policy/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/privacy-policy/report.json
+RESULT: 0 FAIL, 4 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/en/reviews
+
+MEASURED (first viewport listed)
+  hero headline   "Customer reviews"  2 words · 1 line(s) · 146.9px (10.2vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 1
+  @768px          1 line(s) · 78.3px
+  @390px          2 line(s) · 54.4px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    15 / 17 / 22 / 61 / 147 / 360 px
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            1.8 screens · 105 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [hero-void] @1440px  28% of the first screen is one empty block (1020×360px at 420,360).
+      → Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.
+  [off-centre] @768px  The margins differ: 23px on the left, 55px on the right, at 768px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/reviews/desktop-fold.jpg
+                  .taste-skill/inspect/en/reviews/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/reviews/tablet-fold.jpg
+                  .taste-skill/inspect/en/reviews/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/reviews/mobile-fold.jpg
+                  .taste-skill/inspect/en/reviews/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/reviews/report.json
+RESULT: 0 FAIL, 4 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.
+TASTESKILL · INSPECT   http://localhost:4322/en/services
+
+MEASURED (first viewport listed)
+  hero headline   "Repair services"  2 words · 1 line(s) · 146.9px (10.2vw) · Schibsted Grotesk 800 · tracking -0.03em · leading 1
+  @768px          1 line(s) · 78.3px
+  @390px          2 line(s) · 54.4px
+  typefaces       Schibsted Grotesk 100%
+  sizes in use    15 / 17 / 22 / 61 / 147 / 360 px   body 22px / 1.5
+  colour          page #eef2ef · sections #eef2ef #0b1f2a
+  page            1.7 screens · 97 words · 0 images · hero media none
+  headings        3 · longest 1 line(s) · median 3 words
+
+WARN — fix, or be able to defend
+  [first-action] @1440px (+768)  No visible button in the first screen.
+      → Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @768px  The margins differ: 23px on the left, 55px on the right, at 768px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/en/services/desktop-fold.jpg
+                  .taste-skill/inspect/en/services/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect/en/services/tablet-fold.jpg
+                  .taste-skill/inspect/en/services/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect/en/services/mobile-fold.jpg
+                  .taste-skill/inspect/en/services/mobile-page-01.jpg
+
+report: .taste-skill/inspect/en/services/report.json
+RESULT: 0 FAIL, 3 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.

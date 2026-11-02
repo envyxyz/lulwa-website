@@ -1,8 +1,11 @@
-import type { Brand, Content, Service } from './types';
+import type { Area, Brand, Content, MoreService, Service } from './types';
+import brandData from './directory/brands.json';
+import areaData from './directory/areas.json';
+import moreData from './directory/services.json';
 import { site } from '../site';
 
 const phone = site.phone.display;
-const name = site.brand.latin;
+const name = site.brand.english;
 
 const services: Service[] = [
   {
@@ -215,25 +218,42 @@ const services: Service[] = [
   },
 ];
 
-const brandNames: [string, string][] = [
-  ['lg', 'LG'],
-  ['samsung', 'Samsung'],
-  ['gree', 'Gree'],
-  ['carrier', 'Carrier'],
-  ['midea', 'Midea'],
-  ['haier', 'Haier'],
-  ['daikin', 'Daikin'],
-  ['zamil', 'Zamil'],
-  ['whirlpool', 'Whirlpool'],
-  ['super-general', 'Super General'],
-];
+const brandItems: Brand[] = brandData.map((b) => ({
+  slug: b.slug,
+  name: b.name.en,
+  note: b.note.en,
+  services: b.services,
+  seo: { title: `${b.titleName.en} appliance repair in Dammam | ${name}`, description: `Have a ${b.titleName.en} appliance in Dammam? Send a photo of it and its label on WhatsApp, ${phone}, and we will tell you if we can repair it.` },
+  h1: `${b.titleName.en} appliance repair`,
+  lead: 'Send a photo of the appliance and its model label on WhatsApp, and we will tell you if we can repair it.',
+  disclaimer: `${name} is an independent repair shop, not an agent of ${b.titleName.en}.`,
+}));
 
-const brandItems: Brand[] = brandNames.map(([slug, n]) => ({
-  slug: `${slug}-appliance-repair`,
-  name: n,
-  seo: { title: `${n} repair in Dammam | ${name}`, description: `Have a ${n} appliance? Send a photo of the fault and the unit label on WhatsApp and we will tell you whether we can repair it.` },
-  h1: `${n} repair in Dammam`,
-  lead: `${name} is an independent repair shop, not an agent of ${n}. Send a photo of the fault and the unit label on WhatsApp and we will tell you whether we can repair it.`,
+const areaItems: Area[] = areaData.map((a) => {
+  const distance = a.km ? `about ${a.km} km from the shop` : '';
+  return {
+    slug: a.slug,
+    name: a.name.en,
+    note: a.note.en,
+    distance,
+    near: a.near,
+    seo: { title: `Appliance repair in ${a.name.en} | ${name}`, description: `In ${a.name.en}? Our shop is in Al-Jalawiyah, Dammam. Send your district and a photo of the fault on WhatsApp, ${phone}, and we will tell you if we can take the job.` },
+    h1: `Appliance repair in ${a.name.en}`,
+    lead: `Our shop is in Al-Jalawiyah, Dammam${distance ? `, ${distance}` : ''}. Send your district and a photo of the fault on WhatsApp, and we will tell you if we can take the job.`,
+  };
+});
+
+const moreServices: MoreService[] = moreData.map((m) => ({
+  slug: m.slug,
+  name: m.name.en,
+  ...('image' in m && m.image ? { image: m.image as string } : {}),
+  seo: { title: `${m.title.en} | ${name}`, description: m.description.en },
+  h1: m.title.en,
+  lead: 'Photograph the appliance and the fault and send it on WhatsApp, and we will tell you if we can repair it.',
+  problems: m.problems.map((p) => ({ name: p.name.en, signs: p.signs.en })),
+  checks: m.checks.en,
+  stop: m.stop.en,
+  faq: m.faq.map((f) => ({ q: f.q.en, a: f.a.en })),
 }));
 
 const policyDate = '1 November 2026';
@@ -243,7 +263,8 @@ export const en: Content = {
   meta: { title: name, description: `${name}, in Al-Jalawiyah, Dammam. Repair of air conditioners, fridges, automatic washing machines and dryers.` },
   chrome: { skipLink: 'Skip to content', homeLabel: `${name}, home`, navLabel: 'Main menu', menu: 'Menu', language: 'العربية', nav: { services: 'Services', faults: 'Faults', reviews: 'Reviews', work: 'Work', contact: 'Contact' }, word: site.brand.latin.toUpperCase() },
   footer: { line: 'Air conditioner, fridge, washing machine and dryer repair in Al-Jalawiyah, Dammam.', services: 'Services', company: 'Company', hours: 'Hours and area' },
-  actions: { whatsapp: 'WhatsApp us', whatsappShort: 'WhatsApp', call: 'Call us', directions: 'Directions', allServices: 'All services' },
+  actions: { whatsapp: 'WhatsApp', whatsappShort: 'WhatsApp', call: 'Call', directions: 'Directions', allServices: 'All services' },
+  ask: { how: 'How to start', steps: ['Photograph the appliance and the fault.', 'Send it on WhatsApp with your district.', 'We reply whether we can take the job, and how to start.'], services: 'Services', near: 'Nearby areas', problems: 'Common faults', checks: 'Check before you send', stop: 'Stop and call', faq: 'Questions', shop: 'The shop' },
   icons: { next: 'Next' },
   home: {
     seo: { title: `AC, fridge and washing machine repair in Dammam | ${name}`, description: 'A registered repair shop in Al-Jalawiyah, Dammam: air conditioners, fridges, automatic washing machines and dryers. Send a photo of the fault on WhatsApp.' },
@@ -307,7 +328,7 @@ export const en: Content = {
         { photo: 'condensing-unit-wiring', caption: 'Outdoor unit: checking the wiring' },
       ],
     },
-    shop: { heading: 'The shop', addressLabel: 'Address', address: 'Prince Abdulmohsen bin Jalawi Street, Al-Jalawiyah, Dammam', hoursLabel: 'Opening hours', hours: 'Every day, 8:00 AM to 11:00 PM', hoursRange: '8:00 AM to 11:00 PM', today: 'Today', days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], mapLoad: 'Show the map', mapLoading: 'Loading the map', legalLabel: 'Legal name', crLabel: 'Commercial registration' },
+    shop: { heading: 'The shop', addressLabel: 'Address', address: site.address.en.full, hoursLabel: 'Opening hours', hours: site.hours.text.en, hoursRange: site.hours.range.en, today: 'Today', days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], mapLoad: 'Show the map', mapLoading: 'Loading the map', legalLabel: 'Legal name', crLabel: 'Commercial registration' },
     faq: { heading: 'Questions', quiet: 'Before you write', lead: 'Still unsure? Ask us directly. A photo of the fault saves time for both of us.', cta: 'Ask us on WhatsApp', items: [
       { q: 'Which appliances do you repair?', a: 'Split and window ACs, fridges including gas refilling, automatic washing machines and dryers.' },
       { q: 'Where is your shop?', a: 'In Al-Jalawiyah, Dammam, on Prince Abdulmohsen bin Jalawi Street. Tap “Directions” to open it on the map.' },
@@ -326,6 +347,9 @@ export const en: Content = {
     notListed: 'Appliance not on the list? Ask us on WhatsApp.',
     labels: { units: 'Appliances', faults: 'Common faults', faq: 'Questions', art: 'Illustration' },
     items: services,
+    more: moreServices,
+    moreHeading: 'Other appliances',
+    moreLead: 'Send a photo of the appliance on WhatsApp, and we will tell you if we can repair it.',
   },
   faults: {
     seo: { title: `Appliance faults and fixes | ${name}`, description: 'Faults in ACs, fridges and washing machines, and what you can check yourself.' },
@@ -352,9 +376,9 @@ export const en: Content = {
   },
   areas: {
     seo: { title: `Where we work in Dammam | ${name}`, description: `${name}, in Al-Jalawiyah, Dammam.` },
-    h1: 'Dammam',
-    lead: 'The shop is in Al-Jalawiyah, Dammam.',
-    pending: 'We add other cities once we confirm them.',
+    h1: 'Areas',
+    lead: 'Our shop is in Al-Jalawiyah, Dammam. Outside Dammam, send your district on WhatsApp and we will tell you if we can take the job.',
+    pending: 'Outside Dammam we confirm each district case by case.',
     servicesLabel: 'What we repair here',
     items: [
       {
@@ -364,6 +388,7 @@ export const en: Content = {
         h1: 'Appliance repair in Dammam',
         lead: 'Our shop is in Al-Jalawiyah, Dammam. Photograph the fault and send it on WhatsApp.',
       },
+      ...areaItems,
     ],
   },
   brands: {
@@ -394,7 +419,7 @@ export const en: Content = {
   contact: {
     seo: { title: `Contact our Dammam repair shop | ${name}`, description: `Contact ${name} on WhatsApp or call ${phone}.` },
     h1: 'Contact us',
-    lead: 'Message us on WhatsApp and send a photo of the fault.',
+    lead: 'Send a photo of the fault on WhatsApp.',
     form: {
       name: 'Name',
       phone: 'Mobile number',

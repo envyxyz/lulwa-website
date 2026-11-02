@@ -1,0 +1,127 @@
+---
+import Button from './Button.astro';
+import Faq from './Faq.astro';
+import Heading from './Heading.astro';
+import Section from './Section.astro';
+import Text from './Text.astro';
+import Base from '../layouts/Base.astro';
+import { site } from '../site';
+import { content, langFromUrl, localePath } from '../content';
+import { faqPage } from '../seo';
+
+// Brands, areas and appliances nobody has confirmed keep their old URLs. These pages ask first and promise nothing (docs/LAUNCH-PLAN.md).
+type Props = { kind: 'brand' | 'area' | 'service'; slug: string };
+const lang = langFromUrl(Astro.url);
+const c = content[lang];
+const { actions, ask, home } = c;
+const { kind, slug } = Astro.props;
+const area = kind === 'area' ? c.areas.items.find((i) => i.slug === slug)! : undefined;
+const brand = kind === 'brand' ? c.brands.items.find((i) => i.slug === slug)! : undefined;
+const more = kind === 'service' ? c.services.more.find((i) => i.slug === slug)! : undefined;
+const page = (area ?? brand ?? more)!;
+const note = area?.note ?? brand?.note;
+const serviceLinks = c.services.items.filter((s) => (brand ? brand.services.includes(s.slug) : Boolean(area)));
+const near = (area?.near ?? []).map((s) => c.areas.items.find((i) => i.slug === s)!).filter(Boolean);
+const rows = [
+  [home.shop.addressLabel, home.shop.address],
+  [home.shop.hoursLabel, home.shop.hours],
+];
+const set = (name: string, ext: string) => [320, 640].map((n) => `/images/${name}-${n}.${ext} ${n}w`).join(', ');
+const card = 'flex min-h-target flex-col justify-center gap-1 rounded-card bg-pearl-step p-card font-medium transition hover:bg-pearl-hover active:scale-98';
+const list = 'flex flex-col gap-2 ps-card list-disc';
+---
+
+<Base title={page.seo.title} description={page.seo.description} ld={more ? [faqPage(more.faq)] : []}>
+  <Section>
+    <div class="grid gap-8 lg:grid-cols-12 lg:items-center">
+      <div class:list={['flex flex-col items-start gap-4', more?.image ? 'lg:col-span-7' : 'lg:col-span-9']}>
+        <Heading level={1}>{page.h1}</Heading>
+        <Text size="lead">{page.lead}</Text>
+        {note && <Text>{note}</Text>}
+        <div class="flex flex-wrap gap-3"><Button variant="whatsapp">{actions.whatsapp}</Button><Button variant="call">{actions.call}</Button></div>
+      </div>
+      {more?.image && (
+        <div aria-hidden="true" class="w-full max-w-text justify-self-center rounded-panel bg-pearl-step p-card lg:col-span-5">
+          <picture>
+            <source type="image/avif" srcset={set(more.image, 'avif')} sizes="(min-width: 64rem) 28rem, 90vw" />
+            <source type="image/webp" srcset={set(more.image, 'webp')} sizes="(min-width: 64rem) 28rem, 90vw" />
+            <img src={`/images/${more.image}-640.webp`} width="640" height="478" alt="" loading="eager" fetchpriority="high" decoding="async" class="mx-auto block h-auto w-full" />
+          </picture>
+        </div>
+      )}
+    </div>
+  </Section>
+
+  {more && (
+    <Section>
+      <div class="flex flex-col gap-6">
+        <Heading level={2}>{ask.problems}</Heading>
+        <ul class="grid gap-4 md:grid-cols-2">
+          {more.problems.map((p) => (
+            <li class="flex flex-col gap-2 rounded-card bg-pearl-step p-card">
+              <h3 class="font-display text-lead font-head">{p.name}</h3>
+              <p class="max-w-text text-body text-ink-soft">{p.signs}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Section>
+  )}
+
+  <Section tone="teal">
+    <div class="grid gap-8 md:grid-cols-2">
+      <div class="flex flex-col items-start gap-4">
+        <Heading level={2} tone="pearl">{more ? ask.checks : ask.how}</Heading>
+        <ol class="flex max-w-text flex-col gap-2 ps-card list-decimal">{(more ? more.checks : ask.steps).map((s) => <li>{s}</li>)}</ol>
+      </div>
+      {more ? (
+        <div class="flex flex-col items-start gap-4 rounded-card bg-teal-step p-card">
+          <Heading level={2} tone="pearl">{ask.stop}</Heading>
+          <ul class={list}>{more.stop.map((s) => <li>{s}</li>)}</ul>
+        </div>
+      ) : (
+        <div class="flex flex-col items-start gap-4 rounded-card bg-teal-step p-card">
+          <Heading level={2} tone="pearl">{ask.shop}</Heading>
+          <dl class="flex flex-col gap-4">{rows.map(([l, v]) => <div><dt class="text-small">{l}</dt><dd><bdi>{v}</bdi></dd></div>)}</dl>
+          <a href={site.phone.tel} data-action="call" class="inline-flex min-h-target items-center font-medium underline underline-offset-4"><bdi dir="ltr">{site.phone.display}</bdi></a>
+          <Button variant="quiet" href={site.maps.listing} data-action="directions">{actions.directions}</Button>
+        </div>
+      )}
+    </div>
+  </Section>
+
+  {serviceLinks.length > 0 && (
+    <Section>
+      <div class="flex flex-col gap-6">
+        <Heading level={2}>{ask.services}</Heading>
+        <ul class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">{serviceLinks.map((s) => <li><a class={card} href={localePath(lang, `/services/${s.slug}`)}>{s.name}<span class="text-small font-regular text-ink-soft">{s.summary}</span></a></li>)}</ul>
+      </div>
+    </Section>
+  )}
+
+  {more && (
+    <Section>
+      <div class="flex flex-col gap-6">
+        <Heading level={2}>{ask.faq}</Heading>
+        <Faq items={more.faq} />
+      </div>
+    </Section>
+  )}
+
+  {near.length > 0 && (
+    <Section>
+      <div class="flex flex-col gap-6">
+        <Heading level={2}>{ask.near}</Heading>
+        <ul class="grid gap-4 md:grid-cols-3">{near.map((a) => <li><a class={card} href={localePath(lang, `/areas/${a.slug}`)}>{a.name}{a.distance && <span class="text-small font-regular text-ink-soft">{a.distance}</span>}</a></li>)}</ul>
+      </div>
+    </Section>
+  )}
+
+  <Section>
+    <div class="flex flex-col items-start gap-4">
+      {brand && <Text soft>{brand.disclaimer}</Text>}
+      {area && <Text soft>{c.areas.pending}</Text>}
+      <Button variant="quiet" href={localePath(lang, area ? '/areas' : brand ? '/brands' : '/services')}>{area ? c.areas.h1 : brand ? c.brands.h1 : actions.allServices}</Button>
+    </div>
+  </Section>
+</Base>

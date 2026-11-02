@@ -40,6 +40,7 @@ const long = kind === 'area' || kind === 'post' || kind === 'privacy' || kind ==
 const needsNext = !['notFound', 'contact', 'reviews', 'post'].includes(kind);
 // The phone number reads left to right inside Arabic text (rule 8).
 const bdi = (t: string) => t.replaceAll(site.phone.display, `<bdi dir="ltr">${site.phone.display}</bdi>`);
+const chip = 'flex h-full min-h-target flex-col justify-center gap-1 rounded-card bg-pearl-step px-card py-3 font-medium transition hover:bg-pearl-hover active:scale-98';
 const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card font-display text-lead font-head transition hover:bg-pearl-hover active:scale-98';
 ---
 
@@ -52,6 +53,7 @@ const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
         <div class="flex flex-wrap gap-3"><Button variant="whatsapp">{actions.whatsapp}</Button><Button variant="call">{actions.call}</Button></div>
       )}
       {needsNext && <Button variant="quiet" href={localePath(lang, '/services')}>{actions.allServices}</Button>}
+      {kind === 'area' && <Button variant="quiet" href={localePath(lang, '/areas')}>{c.areas.h1}</Button>}
       {kind === 'notFound' && <Button variant="quiet" href={localePath(lang, '/')}>{c.notFound.home}</Button>}
       {doc?.updated && <Text soft>{c.blog.updated}: {doc.updated}</Text>}
     </div>
@@ -77,7 +79,7 @@ const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
   {kind === 'areas' && (
     <Section>
       <div class="flex flex-col gap-4">
-        <ul class="grid gap-4 md:grid-cols-2">{c.areas.items.map((a) => <li><a href={localePath(lang, `/areas/${a.slug}`)} class={tile}>{a.name}<span class="text-small font-regular text-ink-soft">{a.lead}</span></a></li>)}</ul>
+        <ul class="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">{c.areas.items.map((a) => <li><a href={localePath(lang, `/areas/${a.slug}`)} class={chip}>{a.name}{a.distance && <span class="text-small font-regular text-ink-soft">{a.distance}</span>}</a></li>)}</ul>
         <Text soft>{c.areas.pending}</Text>
       </div>
     </Section>
@@ -93,10 +95,10 @@ const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
   )}
 
   {kind === 'brands' && (
-    <Section tone="teal">
+    <Section>
       <div class="flex flex-col gap-6">
-        <ul class="flex flex-wrap gap-3">{c.brands.items.map((b) => <li class="rounded-button bg-teal-step px-card py-2 font-medium"><bdi dir="ltr" lang="en">{b.name}</bdi></li>)}</ul>
-        <Text>{c.brands.disclaimer}</Text>
+        <ul class="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">{c.brands.items.map((b) => <li><a href={localePath(lang, `/brands/${b.slug}`)} class={chip}>{b.name}</a></li>)}</ul>
+        <Text soft>{c.brands.disclaimer}</Text>
       </div>
     </Section>
   )}

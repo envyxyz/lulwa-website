@@ -39,7 +39,18 @@ export type Fault = Intro & {
   technician: string[];
 };
 
-export type Brand = Intro & { slug: string; name: string };
+export type Brand = Intro & { slug: string; name: string; note: string; disclaimer: string; services: string[] };
+export type Area = Intro & { slug: string; name: string; note?: string; distance?: string; near?: string[] };
+/** Appliances nobody has confirmed. The page asks first and promises nothing (docs/LAUNCH-PLAN.md). */
+export type MoreService = Intro & {
+  slug: string;
+  name: string;
+  image?: string;
+  problems: { name: string; signs: string }[];
+  checks: string[];
+  stop: string[];
+  faq: Faq[];
+};
 
 export type Review = { name: string; text: string; when: string };
 
@@ -117,6 +128,9 @@ export type Content = {
   };
   services: Intro & {
     items: Service[];
+    more: MoreService[];
+    moreHeading: string;
+    moreLead: string;
     notListed: string;
     labels: { units: string; faults: string; faq: string; art: string };
   };
@@ -124,7 +138,9 @@ export type Content = {
     items: Fault[];
     labels: { answer: string; check: string; technician: string; part: string; related: string; closeH: string; closeText: string; appliances: string };
   };
-  areas: Intro & { pending: string; servicesLabel: string; items: (Intro & { slug: string; name: string })[] };
+  areas: Intro & { pending: string; servicesLabel: string; items: Area[] };
+  /** The labels of the ask-first pages: extra areas, brands, extra appliances. */
+  ask: { how: string; steps: string[]; services: string; near: string; problems: string; checks: string; stop: string; faq: string; shop: string };
   brands: Intro & { disclaimer: string; items: Brand[] };
   about: Intro & { sections: Section[]; factsHeading: string; facts: { label: string; value: string }[] };
   contact: Intro & {
