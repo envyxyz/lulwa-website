@@ -24,7 +24,7 @@ const cardArt: Record<string, { image: string; drawing: string }> = {
   'washing-machine-repair': { image: 'washer', drawing: 'washer' },
   'dryer-repair': { image: 'dryer', drawing: 'dryer' },
 };
-const step = 'inline-flex size-target items-center justify-center rounded-button bg-pearl-step text-teal transition hover:bg-pearl-hover active:scale-98 disabled:opacity-40 disabled:hover:bg-pearl-step disabled:active:scale-100';
+const step = 'inline-flex size-target cursor-pointer items-center justify-center rounded-button bg-pearl-step text-teal transition hover:bg-pearl-hover active:scale-98 disabled:opacity-40 disabled:hover:bg-pearl-step disabled:active:scale-100';
 const hasImage = (name: string) => name in provenance;
 
 // Portrait photos are 287 wide, landscape 680: the grid never pushes them past that (Img caps it).
@@ -49,7 +49,7 @@ const wall = [
     <Text>{repair.lead}</Text>
   </div>
   <div class="mx-auto mt-4 hidden max-w-page justify-end gap-2 px-gutter md:flex xl:hidden">
-    <button type="button" data-step="-1" disabled aria-label={repair.prev} class={step}><span class="-scale-x-100"><Icon name="arrow-next" /></span></button>
+    <button type="button" data-step="-1" disabled aria-label={repair.prev} class={step}><span class="flex -scale-x-100"><Icon name="arrow-next" /></span></button>
     <button type="button" data-step="1" aria-label={repair.next} class={step}><Icon name="arrow-next" /></button>
   </div>
   <div data-row class="mx-auto mt-4 flex max-w-page snap-x snap-mandatory gap-4 overflow-x-auto px-gutter pb-2">

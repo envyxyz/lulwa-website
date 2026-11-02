@@ -1,0 +1,168 @@
+---
+import Icon from './Icon.astro';
+import Img from './Img.astro';
+import { content, langFromUrl } from '../content';
+
+// Idea from the 21st.dev "Coverflow Carousel" (educalvolpz): one centred item, scaled-down neighbours, wrap-around.
+// Same seating and arrows as Picker. Without JS (or with scripting off) it is a plain scroll-snap row of every photo.
+const lang = langFromUrl(Astro.url);
+const { home } = content[lang];
+const photos = home.work.items;
+const sizeOf = (name: string) => (name.startsWith('rooftop') ? 680 : 287);
+// Seat of each photo relative to the centred one: -2 to 3, wrapping. Server-rendered so the first paint is right before JS.
+const seat = (k: number) => ((k + photos.length + 2) % photos.length) - 2;
+const pos = (d: number) => (d === 0 ? 'c' : Math.abs(d) === 1 ? 'n' : 'f');
+const arrow = 'absolute top-1/2 z-10 cursor-pointer hidden size-target -translate-y-1/2 items-center justify-center rounded-dot bg-pearl-step transition hover:bg-pearl-hover active:scale-98 group-data-ready:inline-flex';
+---
+
+<div data-work-carousel role="group" aria-roledescription="carousel" aria-label={home.work.heading} class="stage group relative">
+  <button type="button" data-step="-1" aria-label={home.repair.prev} class:list={[arrow, 'prev']}><span class="flex -scale-x-100"><Icon name="arrow-next" /></span></button>
+  <button type="button" data-step="1" aria-label={home.repair.next} class:list={[arrow, 'next']}><Icon name="arrow-next" /></button>
+  <ul class="rail">
+    {photos.map((p, k) => {
+      const w = sizeOf(p.photo);
+      const tall = w < 400;
+      return (
+        <li class="slide" style={`--d:${seat(k)}`} data-pos={pos(seat(k))}>
+          <figure class="flex flex-col items-center gap-3">
+            <div class="shot flex w-full justify-center *:w-full">
+              <Img name={p.photo} widths={tall ? [287] : [340, 680]} width={w} height={tall ? 510 : 382} alt={p.caption} sizes="(min-width: 48rem) 32rem, 80vw" eager={k === 0} rounded job />
+            </div>
+            <figcaption class="cap text-center text-small text-balance">{p.caption}</figcaption>
+          </figure>
+        </li>
+      );
+    })}
+  </ul>
+  <p data-live aria-live="polite" class="sr-only"></p>
+</div>
+
+<style>
+  .stage {
+    --dir: 1;
+    --spacing-stage: var(--spacing-work-stage); /* photos need a wider seat than the picker's appliances */
+    overflow-x: clip;
+    padding-block: calc(var(--spacing) * 2);
+  }
+  :global([dir='rtl']) .stage {
+    --dir: -1;
+  }
+  /* No script: every photo and caption in a swipeable snap row. */
+  .rail {
+    display: flex;
+    gap: calc(var(--spacing) * 4);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-inline: calc(50% - var(--spacing-stage) / 2);
+  }
+  .slide {
+    flex: none;
+    inline-size: var(--spacing-stage);
+    scroll-snap-align: center;
+  }
+  .shot :global(picture) {
+    margin-inline: auto;
+  }
+  .prev {
+    inset-inline-start: calc(50% - var(--spacing-stage) / 2 - var(--spacing-target));
+  }
+  .next {
+    inset-inline-end: calc(50% - var(--spacing-stage) / 2 - var(--spacing-target));
+  }
+  @media (scripting: enabled) {
+    .rail {
+      display: grid;
+      overflow: visible;
+      padding-inline: 0;
+      touch-action: pan-y;
+    }
+    .slide {
+      grid-area: 1 / 1;
+      align-self: center;
+      justify-self: center;
+      translate: calc(var(--d) * var(--spacing-stage) * var(--dir));
+      transition: translate var(--duration-rise) var(--ease-out), opacity var(--duration-rise) var(--ease-out);
+    }
+    .shot {
+      transition: scale var(--duration-rise) var(--ease-out), opacity var(--duration-rise) var(--ease-out), filter var(--duration-rise) var(--ease-out);
+    }
+    .slide:not([data-pos='c']) .shot {
+      scale: var(--picker-near-scale);
+      opacity: var(--picker-near-opacity);
+      filter: grayscale(1);
+      cursor: pointer;
+    }
+    .slide[data-pos='f'] {
+      opacity: 0;
+      pointer-events: none;
+    }
+    /* Only the centred photo shows its caption, so dimmed text never has to meet contrast. */
+    .cap {
+      transition: opacity var(--duration-rise) var(--ease-out), visibility var(--duration-rise);
+    }
+    .slide:not([data-pos='c']) .cap {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .slide,
+    .shot,
+    .cap {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-work-carousel]')!;
+  const slides = [...root.querySelectorAll<HTMLElement>('.slide')];
+  const live = root.querySelector('[data-live]')!;
+  const n = slides.length;
+  const rtl = getComputedStyle(root).direction === 'rtl';
+  let cur = 0;
+  let x0 = 0;
+  let swiped = false;
+
+  const show = (to: number) => {
+    cur = (to + n) % n;
+    slides.forEach((s, k) => {
+      const d = ((k - cur + n + 2) % n) - 2;
+      s.style.setProperty('--d', String(d));
+      s.dataset.pos = d === 0 ? 'c' : Math.abs(d) === 1 ? 'n' : 'f';
+      s.ariaHidden = String(Math.abs(d) > 1);
+    });
+  };
+  const step = (to: number) => {
+    show(to);
+    live.textContent = slides[cur]!.querySelector('figcaption')!.textContent;
+  };
+  // Right-hand neighbour is next in left-to-right text and previous in right-to-left.
+  const toward = (right: boolean) => step(cur + (right ? 1 : -1) * (rtl ? -1 : 1));
+
+  show(0);
+  root.dataset.ready = '';
+  root.addEventListener('click', (e) => {
+    if (swiped) return void (swiped = false);
+    const t = e.target as Element;
+    const by = t.closest<HTMLElement>('[data-step]')?.dataset.step;
+    const i = slides.indexOf(t.closest<HTMLElement>('.slide')!);
+    if (by) step(cur + Number(by));
+    else if (i >= 0 && i !== cur) step(i);
+  });
+  root.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      toward(e.key === 'ArrowRight');
+    }
+  });
+  root.addEventListener('pointerdown', (e) => {
+    x0 = e.clientX;
+    swiped = false;
+  });
+  root.addEventListener('pointerup', (e) => {
+    const dx = e.clientX - x0;
+    swiped = Math.abs(dx) > 40;
+    if (swiped) toward(dx < 0);
+  });
+</script>

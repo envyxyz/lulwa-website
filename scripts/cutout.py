@@ -59,6 +59,11 @@ def cutout(name: str) -> None:
 
 
 if __name__ == '__main__':
+    args = sys.argv[1:]
+    if args[:1] == ['internals']:  # the cutaway illustrations live one folder down
+        SRC = SRC / 'internals'
+        OUT = SRC / 'cutout'
+        args = args[1:]
     OUT.mkdir(parents=True, exist_ok=True)
-    for n in sys.argv[1:] or NAMES:
+    for n in args or NAMES:
         cutout(n)

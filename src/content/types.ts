@@ -14,6 +14,17 @@ export type Service = Intro & {
   forWho: string;
   send: { h: string; items: string[] };
   faq: Faq[];
+  /** Hero paragraph under the lead: what we repair, where, how to reach us. Plain, searchable, no invented claims. */
+  intro: string;
+  /** What goes wrong: each problem with the signs a customer notices. */
+  problems: { h: string; lead: string; items: { name: string; signs: string }[] };
+  /** Safe checks and small fixes a customer can do, per problem. */
+  diy: { h: string; lead: string; items: { problem: string; steps: string[] }[] };
+  /** Heading and lead for the interactive cutaway diagram. The diagram data comes from home.picker and appliance-internals.json. */
+  diagram: { h: string; lead: string };
+  /** When to stop and leave it to a technician. */
+  stop: { h: string; lead: string; items: string[] };
+  close: { h: string; text: string };
 };
 
 /** art: the appliance drawing (src/components/appliance-art.ts); spot: which pearl spot in that drawing. */
@@ -81,6 +92,9 @@ export type Content = {
       empty: string;
       /** The pill that opens the note field. */
       notSure: string;
+      /** The service-page diagram's send button and its link down to the fixes. */
+      sendIssue: string;
+      seeFixes: string;
       noteLabel: string;
       notePlaceholder: string;
       /** Joins several picked faults. */

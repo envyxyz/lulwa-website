@@ -1,11 +1,11 @@
 ---
 import Button from './Button.astro';
 import Heading from './Heading.astro';
-import Img from './Img.astro';
 import LeadForm from './LeadForm.astro';
 import Reviews from './Reviews.astro';
 import Section from './Section.astro';
 import Text from './Text.astro';
+import WorkCarousel from './WorkCarousel.astro';
 import Base from '../layouts/Base.astro';
 import { site } from '../site';
 import { content, langFromUrl, localePath } from '../content';
@@ -32,7 +32,6 @@ const intro: Intro = doc ?? (c as unknown as Record<string, Intro>)[kind]!;
 const sections = doc?.sections ?? (kind === 'about' ? c.about.sections : []);
 
 const photos = home.work.items;
-const size = (name: string) => (name.startsWith('rooftop') ? 680 : 287);
 const rows = [
   [home.shop.addressLabel, home.shop.address],
   [home.shop.hoursLabel, home.shop.hours],
@@ -116,18 +115,7 @@ const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
 
   {kind === 'work' && photos.length === 0 && <Section><Text>{c.work.empty}</Text></Section>}
 
-  {kind === 'work' && photos.length > 0 && (
-    <Section tone="teal">
-      <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
-        {photos.map((p, i) => (
-          <figure class="flex flex-col gap-2">
-            <Img name={p.photo} widths={size(p.photo) > 400 ? [340, 680] : [287]} width={size(p.photo)} height={size(p.photo) > 400 ? 382 : 510} alt={p.caption} sizes="(min-width: 64rem) 30vw, 50vw" eager={i < 2} rounded job />
-            <figcaption class="text-small">{p.caption}</figcaption>
-          </figure>
-        ))}
-      </div>
-    </Section>
-  )}
+  {kind === 'work' && photos.length > 0 && <Section><WorkCarousel /></Section>}
 
   {kind === 'blog' && (
     <Section>

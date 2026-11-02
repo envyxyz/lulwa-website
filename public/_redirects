@@ -1,6 +1,7 @@
 https://www.lulwa.com.sa/* https://lulwa.com.sa/:splat 301
 https://automaticwashingmachine.com/* https://lulwa.com.sa/services/washing-machine-repair 301
 /en/ /en 301
+/sitemap.xml /sitemap-index.xml 301
 /brands/alessa-appliance-repair /brands 301
 /brands/amana-appliance-repair /brands 301
 /brands/bosch-appliance-repair /brands 301

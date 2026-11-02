@@ -1,0 +1,272 @@
+---
+import Button from './Button.astro';
+import Heading from './Heading.astro';
+import Icon from './Icon.astro';
+import Img from './Img.astro';
+import Section from './Section.astro';
+import Text from './Text.astro';
+import internalsJson from './appliance-internals.json';
+import { content, langFromUrl, localePath } from '../content';
+
+// The home picker for one service: the product, and the fault chips that fade to the cutaway and light the likely part.
+// Without JS the first appliance and the chips (plain links to the matching fault pages) still work.
+type Props = { slug: string };
+const lang = langFromUrl(Astro.url);
+const { home, faults, services } = content[lang];
+const { picker } = home;
+const s = services.items.find((i) => i.slug === Astro.props.slug)!;
+const list = picker.appliances.filter((a) => a.service === s.slug);
+// Cutaway image and fault spots (x, y, radius in % of the image) per appliance, in fault order.
+const internals = internalsJson as Record<string, { image: string; spots: number[][] }>;
+const photo: Record<string, string> = { 'split-ac': 'split-ac-indoor', 'window-ac': 'window-ac', fridge: 'fridge', washer: 'washer', dryer: 'dryer' };
+const sizes = '(min-width: 64rem) 34rem, 90vw';
+const set = (name: string, ext: string) => [320, 640].map((n) => `/images/${name}-${n}.${ext} ${n}w`).join(', ');
+// A fault chip goes to the fault page that points at the same spot; no such page, it goes to the service.
+const href = (service: string, i: number) => {
+  const fault = faults.items.find((f) => f.service === service && f.spot === i);
+  return localePath(lang, fault ? `/faults/${fault.slug}` : `/services/${service}`);
+};
+const pill = 'inline-flex min-h-target items-center rounded-button bg-pearl-step px-4 font-medium transition hover:bg-pearl-hover active:scale-98 aria-pressed:bg-teal aria-pressed:text-pearl';
+---
+
+{list.length > 0 && (
+  <Section id="diagram">
+    <div class="flex flex-col gap-8">
+      <div class="flex flex-col gap-4">
+        <Heading>{s.diagram.h}</Heading>
+        <Text>{s.diagram.lead}</Text>
+      </div>
+      <div data-diagram data-testid="service-diagram" data-start={picker.message.start} data-fault={picker.message.fault} data-note={picker.message.note} data-join={picker.join} class="group grid items-center gap-8 lg:grid-cols-2">
+        <div class="rounded-panel bg-pearl-step p-card">
+          <div class="grid">
+            {list.map((a, k) => (
+              <div data-item hidden={k > 0} class="item relative col-start-1 row-start-1 mx-auto w-full max-w-text">
+                <span class="photo block">
+                  <Img name={photo[a.slug]!} widths={[320, 640]} width={640} height={478} alt={a.name} sizes={sizes} />
+                </span>
+                <span dir="ltr" class="internals pointer-events-none absolute inset-0" aria-hidden="true">
+                  <picture>
+                    <source type="image/avif" srcset={set(internals[a.slug]!.image, 'avif')} sizes={sizes} />
+                    <source type="image/webp" srcset={set(internals[a.slug]!.image, 'webp')} sizes={sizes} />
+                    <img src={`/images/${internals[a.slug]!.image}-640.webp`} width="640" height="478" alt="" loading="lazy" decoding="async" class="size-full object-contain" />
+                  </picture>
+                  {internals[a.slug]!.spots.map(([x, y, r], i) => (
+                    <span data-hl data-i={i} class="hl" style={`--x:${x};--y:${y};--r:${r}`}><span class="glow" /><span class="ring" /></span>
+                  ))}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="flex flex-col items-start gap-6">
+          {list.length > 1 && (
+            <div role="group" aria-label={picker.applianceLabel} class="hidden group-data-ready:block">
+              <ul class="flex gap-2 text-body">
+                {list.map((a, k) => <li><button type="button" data-tab aria-pressed={k === 0} class:list={[pill, 'cursor-pointer']}>{a.name}</button></li>)}
+              </ul>
+            </div>
+          )}
+          {list.map((a, k) => (
+            <div data-faults data-name={a.name} hidden={k > 0} role="group" aria-label={picker.faultLabel}>
+              <ul class="flex flex-wrap gap-2 text-body">
+                {a.faults.map((f, i) => <li><a href={href(a.service, i)} data-fault data-i={i} data-part={f.part} class={pill}>{f.label}</a></li>)}
+                <li><a href={localePath(lang, '/contact')} data-unsure class={pill}>{picker.notSure}</a></li>
+              </ul>
+            </div>
+          ))}
+          <p data-likely data-prefix={picker.likely} data-empty={picker.empty} data-join={picker.join} aria-live="polite" class="min-h-20 font-display text-lead font-head">{picker.empty}</p>
+          <label data-note hidden class="rise flex w-full flex-col gap-1 font-medium">
+            {picker.noteLabel}
+            <textarea dir="auto" rows="3" maxlength="500" placeholder={picker.notePlaceholder} class="min-h-target w-full rounded-button bg-pearl-step px-card py-2 text-body font-normal transition focus:bg-pearl-hover"></textarea>
+          </label>
+          <div data-actions hidden class="later flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Button variant="whatsapp" data-send>{picker.sendIssue}</Button>
+            <a href="#fixes" class="group/fix inline-flex min-h-target items-center gap-2 font-medium underline decoration-2 underline-offset-4 transition hover:text-teal-quiet">{picker.seeFixes}<span class="transition group-hover/fix:translate-x-1 rtl:group-hover/fix:-translate-x-1"><Icon name="arrow-next" /></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+)}
+
+<style>
+  /* The product image is its own layer, never a tile: the photo stays transparent. */
+  .photo :global(picture) {
+    background: none;
+    animation: none;
+  }
+  /* Fault picked: the shell fades back, the cutaway settles in and the suspect parts glow. */
+  .photo,
+  .internals {
+    transition: opacity var(--duration-fade) var(--ease-out), scale var(--duration-rise) var(--ease-out);
+  }
+  .internals {
+    opacity: 0;
+    scale: 1.02;
+  }
+  /* Cutaway images are not fetched until the first interaction. */
+  .internals picture {
+    display: none;
+    block-size: 100%;
+  }
+  [data-warm] .internals picture {
+    display: block;
+  }
+  [data-draw] .photo {
+    opacity: 0.18;
+  }
+  [data-draw] .internals {
+    opacity: 1;
+    scale: 1;
+  }
+  .hl {
+    position: absolute;
+    inset-inline-start: calc(var(--x) * 1%);
+    inset-block-start: calc(var(--y) * 1%);
+    inline-size: calc(var(--r) * 2%);
+    aspect-ratio: 1;
+    translate: -50% -50%;
+    opacity: 0;
+    transition: opacity var(--duration-open) var(--ease-out);
+  }
+  .hl[data-on] {
+    opacity: 1;
+  }
+  .glow,
+  .ring {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-dot);
+  }
+  .glow {
+    background: var(--color-highlight);
+    opacity: 0.6;
+    filter: blur(0.4rem);
+  }
+  .ring {
+    border: 2px solid var(--color-highlight);
+    animation: ring calc(var(--duration-rise) * 4) linear infinite;
+  }
+  /* The note rises in when it appears; the actions follow once the text has settled. */
+  .rise:not([hidden]) {
+    animation: rise var(--duration-open) var(--ease-out);
+  }
+  .later:not([hidden]) {
+    animation: rise var(--duration-fade) var(--ease-out) var(--duration-open) both;
+  }
+  /* A new likely-part line rises in place of the old one, so it never just jumps. */
+  [data-likely][data-swap] {
+    animation: rise var(--duration-open) var(--ease-out);
+  }
+  @keyframes rise {
+    from {
+      opacity: 0;
+      translate: 0 calc(var(--spacing) * 2);
+    }
+  }
+  @keyframes ring {
+    from {
+      scale: 0.8;
+      opacity: 1;
+    }
+    to {
+      scale: 1.6;
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  // Every chip is a plain link until this runs. Picked chips light their spots on the cutaway; the other appliance swaps in.
+  import { sourceTag, track } from '../scripts/track';
+  const root = document.querySelector<HTMLElement>('[data-diagram]');
+  if (root) {
+    const all = (selector: string, from: ParentNode = root) => [...from.querySelectorAll<HTMLElement>(selector)];
+    const items = all('[data-item]');
+    const groups = all('[data-faults]');
+    const tabs = all('[data-tab]');
+    const likely = all('[data-likely]')[0]!;
+    const { prefix, empty, join } = likely.dataset;
+    const { start, fault, note: noteText } = root.dataset as Record<string, string>;
+    const noteBox = all('[data-note]')[0]!;
+    const note = noteBox.querySelector('textarea')!;
+    const actions = all('[data-actions]')[0]!;
+    const send = all('[data-send]')[0] as HTMLAnchorElement;
+    const base = send.href;
+    let cur = 0;
+    let tracked = false;
+
+    // Restart the rise only when the line really changes.
+    const swap = (text: string) => {
+      if (likely.textContent === text) return;
+      likely.textContent = text;
+      likely.removeAttribute('data-swap');
+      void likely.offsetWidth;
+      likely.setAttribute('data-swap', '');
+    };
+    const fill = (template: string, value: string) => template.replace(/\{\w+\}/, () => value);
+    const update = () => {
+      const on = all('[aria-pressed="true"]', groups[cur]!);
+      const real = on.filter((p) => 'fault' in p.dataset);
+      const unsure = on.some((p) => 'unsure' in p.dataset);
+      const text = note.value.trim();
+      items[cur]!.toggleAttribute('data-draw', real.length > 0);
+      all('[data-hl]', items[cur]!).forEach((h) => h.toggleAttribute('data-on', real.some((p) => p.dataset.i === h.dataset.i)));
+      swap(real.length ? `${prefix} ${real.map((p) => p.dataset.part).join(join)}` : empty!);
+      noteBox.hidden = !unsure;
+      actions.hidden = on.length === 0;
+      let message = fill(start!, groups[cur]!.dataset.name!);
+      message += fill(fault!, on.map((p) => p.innerText.trim()).join(join));
+      if (unsure && text) message += fill(noteText!, text);
+      send.href = `${base}?text=${encodeURIComponent(`${message} ${sourceTag()}`)}`;
+      if (!tracked && (real.length || (unsure && text))) {
+        tracked = true;
+        track('picker_complete');
+      }
+    };
+    const go = (to: number) => {
+      cur = to;
+      items.forEach((el, k) => {
+        el.hidden = k !== to;
+        el.removeAttribute('data-draw');
+        all('[data-on]', el).forEach((h) => h.removeAttribute('data-on'));
+      });
+      groups.forEach((g, k) => {
+        g.hidden = k !== to;
+        all('[aria-pressed]', g).forEach((p) => p.setAttribute('aria-pressed', 'false'));
+      });
+      tabs.forEach((t, k) => t.setAttribute('aria-pressed', String(k === to)));
+      note.value = '';
+      update();
+    };
+
+    // The cutaway images start loading on the first hover, touch or focus here.
+    const warm = () => (root.dataset.warm = '');
+    root.addEventListener('pointerover', warm, { once: true });
+    root.addEventListener('focusin', warm, { once: true });
+    note.addEventListener('input', update);
+    all('a[data-fault], a[data-unsure]').forEach((a) => {
+      a.setAttribute('role', 'button');
+      a.setAttribute('aria-pressed', 'false');
+    });
+    root.dataset.ready = '';
+    root.addEventListener('click', (event) => {
+      const el = (event.target as Element).closest<HTMLElement>('[data-tab], a[data-fault], a[data-unsure]');
+      if (!el) return;
+      event.preventDefault();
+      if ('tab' in el.dataset) go(tabs.indexOf(el));
+      else {
+        el.setAttribute('aria-pressed', String(el.getAttribute('aria-pressed') !== 'true'));
+        update();
+        if ('unsure' in el.dataset && el.getAttribute('aria-pressed') === 'true') note.focus();
+      }
+    });
+    root.addEventListener('keydown', (event) => {
+      const target = event.target as HTMLElement;
+      if (event.key === ' ' && target.matches('a[role="button"]')) {
+        event.preventDefault();
+        target.click();
+      }
+    });
+  }
+</script>

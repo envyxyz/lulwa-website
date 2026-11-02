@@ -6,7 +6,7 @@ import { site } from '../site';
 import { content, langFromUrl, localePath, twinPath } from '../content';
 
 const lang = langFromUrl(Astro.url);
-const { chrome, actions } = content[lang];
+const { chrome, actions, services } = content[lang];
 const links = [
   ['/services', chrome.nav.services],
   ['/faults', chrome.nav.faults],
@@ -20,6 +20,7 @@ const current = (path: string) => {
   return here === href || here.startsWith(`${href}/`);
 };
 const target = 'min-h-target items-center transition';
+const serviceHref = (slug: string) => localePath(lang, `/services/${slug}`);
 const twin = { href: twinPath(Astro.url.pathname), lang: lang === 'ar' ? 'en' : 'ar' };
 ---
 
@@ -29,7 +30,20 @@ const twin = { href: twinPath(Astro.url.pathname), lang: lang === 'ar' ? 'en' : 
       <a href={localePath(lang, '/')} class="transition hover:opacity-70 active:opacity-60"><Logo label={chrome.homeLabel} /></a>
     </div>
     <nav aria-label={chrome.navLabel} class="hidden items-center gap-1 lg:flex">
-      {links.map(([path, label]) => <a href={localePath(lang, path)} aria-current={current(path) ? 'page' : undefined} class:list={[target, 'inline-flex rounded-button px-3 font-medium', current(path) ? 'bg-pearl text-teal' : 'hover:bg-pearl-hover active:bg-pearl-hover']}>{label}</a>)}
+      {links.map(([path, label]) => path === '/services' ? (
+        <>
+          <!-- ponytail: native popover again. Anchor positioning aligns it to the button's inline start; a centred fixed position is the fallback. -->
+          <button type="button" popovertarget="services-menu" aria-current={current(path) ? 'page' : undefined} class:list={['svc', target, 'inline-flex cursor-pointer gap-1 rounded-button px-3 font-medium', current(path) ? 'bg-pearl text-teal' : 'hover:bg-pearl-hover active:bg-pearl-hover']}>
+            {label}<span class="chev inline-flex rotate-90 rtl:-rotate-90"><Icon name="chevron-next" small /></span>
+          </button>
+          <div id="services-menu" popover data-testid="services-menu" class="drop rounded-card bg-pearl-step p-2 shadow-menu">
+            <ul class="flex flex-col">
+              {services.items.map((s) => <li><a href={serviceHref(s.slug)} aria-current={current(`/services/${s.slug}`) ? 'page' : undefined} class:list={['flex min-h-target flex-col justify-center rounded-button px-3 py-2 transition', current(`/services/${s.slug}`) ? 'bg-pearl text-teal' : 'hover:bg-pearl-hover active:bg-pearl-hover']}><span class="font-medium">{s.name}</span><span class="text-small text-ink-soft">{s.summary}</span></a></li>)}
+              <li><a href={localePath(lang, '/services')} class="group/all flex min-h-target items-center gap-2 rounded-button px-3 font-medium text-teal transition hover:bg-pearl-hover active:bg-pearl-hover">{actions.allServices}<Icon name="arrow-next" small /></a></li>
+            </ul>
+          </div>
+        </>
+      ) : <a href={localePath(lang, path)} aria-current={current(path) ? 'page' : undefined} class:list={[target, 'inline-flex rounded-button px-3 font-medium', current(path) ? 'bg-pearl text-teal' : 'hover:bg-pearl-hover active:bg-pearl-hover']}>{label}</a>)}
     </nav>
     <div class="flex flex-1 items-center justify-end gap-1">
       <a href={site.phone.tel} data-action="call" class:list={[target, 'hidden rounded-button px-3 font-medium hover:bg-pearl-hover active:bg-pearl-hover lg:inline-flex']}><bdi dir="ltr">{site.phone.display}</bdi></a>
@@ -38,18 +52,36 @@ const twin = { href: twinPath(Astro.url.pathname), lang: lang === 'ar' ? 'en' : 
         <Icon name="whatsapp" /><span class="hidden xl:inline">{actions.whatsappShort}</span>
       </a>
       <!-- ponytail: native popover gives open, Esc, light dismiss and focus return with 0 KB of JS. -->
-      <button type="button" popovertarget="menu" data-testid="menu-toggle" aria-label={chrome.menu} class:list={[target, 'inline-flex size-target justify-center rounded-button hover:bg-pearl-hover active:scale-90 lg:hidden']}>
+      <button type="button" popovertarget="menu" data-testid="menu-toggle" aria-label={chrome.menu} class:list={[target, 'inline-flex size-target cursor-pointer justify-center rounded-button hover:bg-pearl-hover active:scale-90 lg:hidden']}>
         <Icon name="menu" />
       </button>
     </div>
   </div>
   <div id="menu" popover data-testid="menu" class="menu rounded-card bg-pearl-step p-card shadow-menu">
     <nav aria-label={chrome.navLabel} class="flex flex-col">
-      {links.map(([path, label]) => <a href={localePath(lang, path)} aria-current={current(path) ? 'page' : undefined} class:list={[target, 'inline-flex w-full rounded-button px-3 text-lead font-medium', current(path) ? 'bg-pearl text-teal' : 'hover:bg-pearl-hover active:bg-pearl-hover']}>{label}</a>)}
+      {links.map(([path, label]) => (
+        <>
+          <a href={localePath(lang, path)} aria-current={current(path) ? 'page' : undefined} class:list={[target, 'inline-flex w-full rounded-button px-3 text-lead font-medium', current(path) ? 'bg-pearl text-teal' : 'hover:bg-pearl-hover active:bg-pearl-hover']}>{label}</a>
+          {path === '/services' && (
+            <ul class="flex flex-col ps-4">
+              {services.items.map((s) => <li><a href={serviceHref(s.slug)} aria-current={current(`/services/${s.slug}`) ? 'page' : undefined} class:list={[target, 'inline-flex w-full rounded-button px-3 text-body', current(`/services/${s.slug}`) ? 'bg-pearl text-teal' : 'hover:bg-pearl-hover active:bg-pearl-hover']}>{s.name}</a></li>)}
+            </ul>
+          )}
+        </>
+      ))}
     </nav>
     <div class="mt-4 hidden md:block"><Button variant="call">{actions.call}</Button></div>
   </div>
 </header>
+
+<script>
+  // Focus leaving the open Services panel (Tab or Shift+Tab out) closes it. Esc, outside click and focus return are native.
+  const panel = document.getElementById('services-menu');
+  const button = document.querySelector('.svc');
+  document.addEventListener('focusin', ({ target }) => {
+    if (panel?.matches(':popover-open') && !panel.contains(target as Node) && !button?.contains(target as Node)) panel.hidePopover();
+  });
+</script>
 
 <style>
   .bar {
@@ -86,6 +118,45 @@ const twin = { href: twinPath(Astro.url.pathname), lang: lang === 'ar' ? 'en' : 
   }
   @starting-style {
     .menu:popover-open {
+      opacity: 0;
+      translate: 0 -0.5rem;
+    }
+  }
+  .chev {
+    transition: scale var(--duration-open) var(--ease-out);
+  }
+  .bar:has(.drop:popover-open) .chev {
+    scale: 1 -1;
+  }
+  .svc {
+    anchor-name: --services;
+  }
+  .drop {
+    position: fixed;
+    inset-block-start: calc(var(--spacing-bar) + 0.25rem);
+    inset-block-end: auto;
+    inset-inline: 0;
+    margin: auto;
+    inline-size: var(--container-dropdown);
+    color: var(--color-ink);
+    opacity: 0;
+    translate: 0 -0.5rem;
+    transition: opacity var(--duration-open) var(--ease-out), translate var(--duration-open) var(--ease-out), display var(--duration-open) allow-discrete, overlay var(--duration-open) allow-discrete;
+  }
+  @supports (anchor-name: --a) {
+    .drop {
+      position-anchor: --services;
+      inset-inline: anchor(start) auto;
+      margin: 0;
+      position-try-fallbacks: flip-inline;
+    }
+  }
+  .drop:popover-open {
+    opacity: 1;
+    translate: 0 0;
+  }
+  @starting-style {
+    .drop:popover-open {
       opacity: 0;
       translate: 0 -0.5rem;
     }

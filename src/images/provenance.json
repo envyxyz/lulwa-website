@@ -64,5 +64,35 @@
     "source": "design/generated/cutout/dryer.png",
     "sourceWidth": 1200,
     "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026, background removed. Never a job photo."
+  },
+  "internals-split-ac-indoor": {
+    "kind": "generated",
+    "source": "design/generated/internals/cutout/split-ac-indoor.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated cutaway illustration, agy, 2 Nov 2026, background removed. Shows typical internal parts, not this customer's unit."
+  },
+  "internals-window-ac": {
+    "kind": "generated",
+    "source": "design/generated/internals/cutout/window-ac.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated cutaway illustration, agy, 2 Nov 2026, background removed. Shows typical internal parts, not this customer's unit."
+  },
+  "internals-fridge": {
+    "kind": "generated",
+    "source": "design/generated/internals/cutout/fridge.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated cutaway illustration, agy, 2 Nov 2026, background removed. Shows typical internal parts, not this customer's unit."
+  },
+  "internals-washer": {
+    "kind": "generated",
+    "source": "design/generated/internals/cutout/washer.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated cutaway illustration, agy, 2 Nov 2026, background removed. Shows typical internal parts, not this customer's unit."
+  },
+  "internals-dryer": {
+    "kind": "generated",
+    "source": "design/generated/internals/cutout/dryer.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated cutaway illustration, agy, 2 Nov 2026, background removed. Shows typical internal parts, not this customer's unit."
   }
 }

@@ -42,10 +42,12 @@ for (const name of generated) {
 }
 
 for (const name of cutaways) {
-  const source = `design/generated/internals/${name}.png`;
+  const raw = `design/generated/internals/${name}.png`;
+  const cut = `design/generated/internals/cutout/${name}.png`;
+  const source = existsSync(cut) ? cut : raw;
   const { width: sourceWidth } = await sharp(source).metadata();
   await exportAll(source, `internals-${name}`, [320, 640]);
-  provenance[`internals-${name}`] = { kind: 'generated', source, sourceWidth, note: "AI-generated cutaway illustration, agy, 2 Nov 2026. Shows typical internal parts, not this customer's unit." };
+  provenance[`internals-${name}`] = { kind: 'generated', source, sourceWidth, note: `AI-generated cutaway illustration, agy, 2 Nov 2026${source === cut ? ', background removed' : ''}. Shows typical internal parts, not this customer's unit.` };
 }
 
 writeFileSync('src/images/provenance.json', `${JSON.stringify(provenance, null, 2)}\n`);

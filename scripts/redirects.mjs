@@ -8,6 +8,8 @@ const redirects = [
   // Second domain; applies only once that domain is on this Cloudflare account (docs/FOR-AMEER.md).
   'https://automaticwashingmachine.com/* https://lulwa.com.sa/services/washing-machine-repair 301',
   '/en/ /en 301',
+  // Crawlers and tools that guess the conventional name still find the sitemap.
+  '/sitemap.xml /sitemap-index.xml 301',
   ...rows.filter(([, a]) => a === '301' || a === 'confirm').map(([from, , to]) => `${from} ${to} 301`),
 ];
 writeFileSync('public/_redirects', `${redirects.join('\n')}\n`);

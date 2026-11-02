@@ -1,11 +1,12 @@
 ---
+import { Plus } from 'lucide-static';
 import Button from './Button.astro';
 import Faq from './Faq.astro';
 import Heading from './Heading.astro';
 import Img from './Img.astro';
 import Section from './Section.astro';
+import ServiceDiagram from './ServiceDiagram.astro';
 import Text from './Text.astro';
-import { art } from './appliance-art';
 import Base from '../layouts/Base.astro';
 import { content, langFromUrl, localePath } from '../content';
 import { faqPage, service } from '../seo';
@@ -15,30 +16,107 @@ const lang = langFromUrl(Astro.url);
 const { services, faults, actions, home } = content[lang];
 const s = services.items.find((i) => i.slug === Astro.props.slug)!;
 const related = faults.items.filter((f) => f.service === s.slug);
-const drawing = art[related[0]?.art ?? 'split-ac']!;
-const list = 'flex flex-col gap-2 ps-card list-disc marker:text-teal';
+const plus = Plus.replace(/stroke-width="[^"]*"/, 'stroke-width="1.75"');
+const list = 'flex flex-col gap-2 ps-card list-disc marker:text-pearl';
 // Real job photos exist for AC work only. The other services show none rather than a borrowed one.
 const jobPhotos = s.slug === 'ac-repair' ? ['compressor-install', 'compressor-pair', 'condensing-unit-wiring', 'compressor-closeup-2'] : [];
 const photos = jobPhotos.map((name) => home.work.items.find((w) => w.photo === name)!);
+
+// The product on a white panel, from the generated cutouts. Offsets are in percent of a 5:4 box so nothing moves while images load.
+// A service with two products overlaps them, as the home hero does.
+const products: Record<string, { name: string; x: number; y: number; w: number }[]> = {
+  'ac-repair': [{ name: 'split-ac-indoor', x: 0, y: 0, w: 80 }, { name: 'window-ac', x: 42, y: 46, w: 58 }],
+  'refrigerator-repair': [{ name: 'fridge', x: 0, y: 0, w: 100 }],
+  'washing-machine-repair': [{ name: 'washer', x: 0, y: 0, w: 100 }],
+  'dryer-repair': [{ name: 'dryer', x: 0, y: 0, w: 100 }],
+};
+const shown = products[s.slug] ?? [];
+const sizes = (w: number) => `(min-width: 64rem) ${((28 * w) / 100).toFixed(1)}rem, (min-width: 48rem) ${((36 * w) / 100).toFixed(1)}rem, ${Math.round((90 * w) / 100)}vw`;
+const set = (name: string, ext: string) => [320, 640].map((n) => `/images/${name}-${n}.${ext} ${n}w`).join(', ');
 ---
 
 <Base title={s.seo.title} description={s.seo.description} ld={[service(s.name, s.seo.description, lang), faqPage(s.faq)]}>
-  <Section>
-    <div class="grid gap-8 lg:grid-cols-12">
-      <div class="flex flex-col items-start gap-4 lg:col-span-7">
-        <Heading level={1}>{s.h1}</Heading>
-        <Text size="lead">{s.lead}</Text>
-        <Text>{s.forWho}</Text>
+  <Section class="lg:flex lg:min-h-first-screen lg:flex-col lg:justify-center">
+    <div class="grid gap-8 lg:grid-cols-12 lg:items-center">
+      <div class="flex flex-col items-start gap-6 lg:col-span-7">
+        <div class="flex flex-col gap-3">
+          <Heading level={1} size="statement">{s.h1}</Heading>
+          <Text size="lead">{s.lead}</Text>
+          <Text>{s.intro}</Text>
+        </div>
         <div class="flex flex-wrap gap-3"><Button variant="whatsapp">{actions.whatsapp}</Button><Button variant="call">{actions.call}</Button></div>
         <Button variant="quiet" href={localePath(lang, '/services')}>{actions.allServices}</Button>
       </div>
-      <svg viewBox="0 0 200 150" role="img" aria-label={services.labels.art} class="h-auto w-full self-start rounded-panel bg-white fill-none stroke-teal stroke-2 p-card lg:col-span-5" set:html={drawing.svg} />
+      <div aria-hidden="true" class="w-full max-w-text justify-self-center rounded-panel bg-pearl-step p-card lg:col-span-5">
+        {shown.length === 1 ? (
+          <picture>
+            <source type="image/avif" srcset={set(shown[0]!.name, 'avif')} sizes={sizes(100)} />
+            <source type="image/webp" srcset={set(shown[0]!.name, 'webp')} sizes={sizes(100)} />
+            <img src={`/images/${shown[0]!.name}-640.webp`} width="640" height="478" alt="" loading="eager" fetchpriority="high" decoding="async" class="mx-auto block h-auto w-full" />
+          </picture>
+        ) : (
+          <div class="relative w-full" style="aspect-ratio:5/4">
+            {shown.map(({ name, x, y, w }, i) => (
+              <picture class="absolute" style={`inset-inline-start:${x}%;inset-block-start:${y}%;inline-size:${w}%;z-index:${i + 1}`}>
+                <source type="image/avif" srcset={set(name, 'avif')} sizes={sizes(w)} />
+                <source type="image/webp" srcset={set(name, 'webp')} sizes={sizes(w)} />
+                <img src={`/images/${name}-640.webp`} width="640" height="478" alt="" loading="eager" fetchpriority={i === 0 ? 'high' : undefined} decoding="async" class="block h-auto w-full" />
+              </picture>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  </Section>
+  <Section>
+    <div class="flex flex-col gap-8">
+      <div class="flex flex-col gap-4">
+        <Heading>{s.problems.h}</Heading>
+        <Text>{s.problems.lead}</Text>
+      </div>
+      <ul class="grid gap-4 md:grid-cols-2">
+        {s.problems.items.map((p) => (
+          <li class="flex flex-col gap-2 rounded-card bg-pearl-step p-card">
+            <h3 class="font-display text-lead font-head">{p.name}</h3>
+            <p class="max-w-text text-body text-ink-soft">{p.signs}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </Section>
+  <ServiceDiagram slug={s.slug} />
+  <Section id="fixes">
+    <div class="grid gap-8 lg:grid-cols-12">
+      <div class="flex flex-col items-start gap-4 lg:col-span-4">
+        <Heading>{s.diy.h}</Heading>
+        <Text>{s.diy.lead}</Text>
+      </div>
+      <div class="flex flex-col gap-4 lg:col-span-8">
+        {s.diy.items.map((item, i) => (
+          <details name="diy" open={i === 0} class="group rounded-card bg-pearl-step transition hover:bg-pearl-hover">
+            <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 rounded-card px-card py-4 font-display text-lead font-head [&::-webkit-details-marker]:hidden">
+              {item.problem}
+              <span class="inline-flex size-target shrink-0 items-center justify-center rounded-dot bg-pearl text-teal transition group-open:bg-teal group-open:text-pearl">
+                <span aria-hidden="true" class="inline-block size-icon transition-transform group-open:rotate-45 *:size-full" set:html={plus} />
+              </span>
+            </summary>
+            <div class="px-card pb-card">
+              <ol class="flex max-w-text flex-col gap-2 ps-6 text-body text-ink-soft list-decimal marker:font-medium marker:text-teal">
+                {item.steps.map((step) => <li>{step}</li>)}
+              </ol>
+            </div>
+          </details>
+        ))}
+      </div>
     </div>
   </Section>
   <Section tone="teal">
-    <div class="grid gap-16 md:grid-cols-2 md:gap-8">
-      <div class="flex flex-col gap-4"><Heading level={2} tone="pearl">{services.labels.units}</Heading><ul class={list}>{s.units.map((u) => <li>{u}</li>)}</ul></div>
-      <div class="flex flex-col gap-4 rounded-card bg-teal-step p-card"><h2 class="font-display text-head font-head">{s.send.h}</h2><ul class={list}>{s.send.items.map((i) => <li>{i}</li>)}</ul></div>
+    <div class="grid gap-8 md:grid-cols-2">
+      <div class="flex flex-col items-start gap-4">
+        <Heading tone="pearl">{s.stop.h}</Heading>
+        <Text>{s.stop.lead}</Text>
+      </div>
+      <div class="rounded-card bg-teal-step p-card"><ul class={list}>{s.stop.items.map((i) => <li>{i}</li>)}</ul></div>
     </div>
   </Section>
   {photos.length > 0 && (
@@ -70,4 +148,16 @@ const photos = jobPhotos.map((name) => home.work.items.find((w) => w.photo === n
       <Faq items={s.faq} />
     </div>
   </Section>
+  <div class="px-gutter pb-section">
+    <div data-tone="teal" class="mx-auto flex max-w-page flex-col gap-4 rounded-panel bg-teal p-card text-pearl md:flex-row md:items-center md:justify-between">
+      <div>
+        <h2 class="font-display text-head font-head">{s.close.h}</h2>
+        <p>{s.close.text}</p>
+      </div>
+      <div class="flex flex-wrap gap-3 *:grow md:*:grow-0">
+        <Button variant="whatsapp">{actions.whatsapp}</Button>
+        <Button variant="call" light>{actions.call}</Button>
+      </div>
+    </div>
+  </div>
 </Base>

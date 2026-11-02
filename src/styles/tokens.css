@@ -63,6 +63,7 @@
   --spacing-button-md: 3.5rem;
   --spacing-target: 2.75rem; /* 44 px minimum tap target */
   --spacing-icon: 1.25em;
+  --spacing-icon-sm: 1em; /* an icon that sits beside a line of text, never taller than the line */
   --spacing-pearl: 0.28em; /* the pearl scales with the type it ends */
   --spacing-bar: 4.5rem; /* top bar */
   --spacing-bottom-bar: 4.5rem; /* phone action bar */
@@ -71,11 +72,14 @@
   --spacing-node: 4rem; /* step node in the how-it-works diagram */
   --spacing-rail: 0.25rem; /* connector line between step nodes */
   --spacing-hero: 85svh; /* the hero panel is at least this tall */
+  --spacing-first-screen: calc(100svh - var(--spacing-bar) - var(--spacing) * 2); /* viewport minus the sticky bar and its padding: a hero that fills the first screen */
+  --spacing-work-stage: clamp(16rem, 50vw, 32rem); /* the centred photo in the work carousel, never wider than the 680 px landscape source */
   --spacing-stage: clamp(13rem, 36vw, 20rem); /* the selected appliance in the picker carousel */
 
   --container-*: initial;
   --container-page: 90rem; /* content lines up with the hero's margins at 1440 */
   --container-text: 40rem;
+  --container-dropdown: 22rem; /* the Services panel in the top bar */
 
   --shadow-*: initial;
   --shadow-bar: 0 0.5rem 1.5rem -1rem rgb(11 31 42 / 0.3); /* the bar while it floats over content */

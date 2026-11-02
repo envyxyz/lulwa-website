@@ -20,7 +20,7 @@ const photo: Record<string, string> = { 'split-ac': 'split-ac-indoor', 'window-a
 // Seat of each appliance relative to the selected one: -2 to 2, wrapping. Server-rendered so the carousel is right before JS.
 const seat = (k: number) => ((k + 7) % picker.appliances.length) - 2;
 const pill = 'inline-flex min-h-target items-center rounded-button bg-pearl-step px-4 font-medium transition hover:bg-pearl-hover active:scale-98 aria-pressed:bg-teal aria-pressed:text-pearl';
-const arrow = 'absolute top-1/2 z-10 hidden size-target -translate-y-1/2 items-center justify-center rounded-dot bg-pearl-step transition hover:bg-pearl-hover active:scale-98 group-data-ready:inline-flex';
+const arrow = 'absolute top-1/2 z-10 cursor-pointer hidden size-target -translate-y-1/2 items-center justify-center rounded-dot bg-pearl-step transition hover:bg-pearl-hover active:scale-98 group-data-ready:inline-flex';
 ---
 
 <section class="px-gutter pt-section">
@@ -39,7 +39,7 @@ const arrow = 'absolute top-1/2 z-10 hidden size-target -translate-y-1/2 items-c
     >
       <p data-picker-name aria-live="polite" class="font-display text-lead font-head">{picker.appliances[0]!.name}</p>
       <div data-stage role="group" aria-roledescription="carousel" aria-label={picker.applianceLabel} class="stage relative w-full">
-        <button type="button" data-picker-step="-1" aria-label={picker.prev} class:list={[arrow, 'prev']}><span class="-scale-x-100"><Icon name="arrow-next" /></span></button>
+        <button type="button" data-picker-step="-1" aria-label={picker.prev} class:list={[arrow, 'prev']}><span class="flex -scale-x-100"><Icon name="arrow-next" /></span></button>
         <button type="button" data-picker-step="1" aria-label={picker.next} class:list={[arrow, 'next']}><Icon name="arrow-next" /></button>
         <ul class="grid">
           {picker.appliances.map((a, k) => (
@@ -193,7 +193,12 @@ const arrow = 'absolute top-1/2 z-10 hidden size-target -translate-y-1/2 items-c
       scale: 1;
     }
   }
-  [data-faults]:not([hidden]) {
+  /* A new likely-part line rises in place of the old one, so it never just jumps. */
+  [data-likely][data-swap] {
+    animation: rise var(--duration-open) var(--ease-out);
+  }
+  [data-faults]:not([hidden]),
+  [data-picker-note]:not([hidden]) {
     animation: rise var(--duration-open) var(--ease-out);
   }
   @keyframes rise {
@@ -228,6 +233,15 @@ const arrow = 'absolute top-1/2 z-10 hidden size-target -translate-y-1/2 items-c
   const fill = (template: string, value: string) => template.replace(/\{\w+\}/, () => value);
   const pressed = (group: HTMLElement) => [...group.querySelectorAll<HTMLElement>('[aria-pressed="true"]')];
 
+  // Restart the rise only when the line really changes.
+  const swap = (text: string) => {
+    if (likely.textContent === text) return;
+    likely.textContent = text;
+    likely.removeAttribute('data-swap');
+    void likely.offsetWidth;
+    likely.setAttribute('data-swap', '');
+  };
+
   const update = () => {
     const on = pressed(groups[cur]!);
     const real = on.filter((p) => 'pickerFault' in p.dataset);
@@ -236,7 +250,7 @@ const arrow = 'absolute top-1/2 z-10 hidden size-target -translate-y-1/2 items-c
     noteBox.hidden = !unsure;
     items[cur]!.closest('li')!.toggleAttribute('data-draw', real.length > 0);
     items[cur]!.querySelectorAll<HTMLElement>('[data-highlight]').forEach((h) => h.toggleAttribute('data-on', real.some((p) => p.dataset.i === h.dataset.i)));
-    likely.textContent = real.length ? `${likely.dataset.prefix} ${real.map((p) => p.dataset.part).join(join)}` : likely.dataset.empty!;
+    swap(real.length ? `${likely.dataset.prefix} ${real.map((p) => p.dataset.part).join(join)}` : likely.dataset.empty!);
     const picked = on.map((p) => p.innerText.trim()).join(join);
     let message = fill(start!, items[cur]!.dataset.name!);
     if (picked) message += fill(fault!, picked);

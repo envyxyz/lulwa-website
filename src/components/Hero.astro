@@ -12,8 +12,6 @@ const { hero, shop } = home;
 const facts = [
   ['map-pin', shop.address],
   ['clock', shop.hours],
-  ['badge-check', hero.facts.registered],
-  ['star', hero.facts.rating],
 ] as const;
 
 // "We fix all of these": a fixed 5:4 box, each cutout placed by percentage so nothing moves while images load.
@@ -33,19 +31,23 @@ const set = (name: string, ext: string) => [320, 640].map((n) => `/images/${name
 <section data-tone="teal" class="px-gutter">
   <div class="@container relative flex min-h-hero flex-col justify-center overflow-clip rounded-panel bg-teal text-pearl">
     <div class="grid items-center gap-8 p-card xl:grid-cols-2 md:py-section">
-      <div class="flex max-w-text flex-col gap-4">
-        <h1 class="font-display text-statement font-statement tracking-statement">{hero.question}<br />{hero.service}</h1>
-        <p>{hero.support}</p>
-        <!-- homeVisitLine replaces the answer once the client confirms home visits. -->
-        <p class="text-lead font-medium">{hero.homeVisitLine || hero.answer}<span class="ms-1 inline-block size-pearl rounded-dot bg-copper" aria-hidden="true"></span></p>
-        <div class="flex gap-3 *:first:grow md:*:first:grow-0">
+      <div class="flex max-w-text flex-col items-start gap-6">
+        <div class="flex flex-col gap-3">
+          <p class="flex items-center gap-2 text-body font-medium"><Icon name="badge-check" small />{hero.facts.registered}</p>
+          <h1 class="font-display text-statement font-statement tracking-statement">{hero.question}<br />{hero.service}</h1>
+          <p class="text-lead">{hero.support}</p>
+          <!-- homeVisitLine replaces the answer once the client confirms home visits. -->
+          <p class="text-lead font-medium">{hero.homeVisitLine || hero.answer}<span class="ms-1 inline-block size-pearl rounded-dot bg-copper" aria-hidden="true"></span></p>
+          <p class="flex items-center gap-2 text-body"><Icon name="star" small />{hero.facts.rating}</p>
+        </div>
+        <div class="flex gap-3 self-stretch *:first:grow md:self-auto md:*:first:grow-0">
           <Button variant="call" light>{actions.call}</Button>
           <a href={site.phone.whatsapp} data-action="whatsapp" aria-label={actions.whatsapp} class="inline-flex size-button shrink-0 items-center justify-center rounded-button bg-whatsapp text-white transition hover:bg-whatsapp-active active:scale-98 active:bg-whatsapp-active md:size-button-md"><Icon name="whatsapp" /></a>
         </div>
-        <ul class="grid gap-x-6 gap-y-2 text-small sm:grid-cols-2">
-          {facts.map(([icon, text]) => <li class="flex items-start gap-2"><Icon name={icon} /><span>{text}</span></li>)}
+        <ul class="flex flex-col gap-3 text-body">
+          {facts.map(([icon, text]) => <li class="flex items-center gap-2 md:whitespace-nowrap"><Icon name={icon} small /><span>{text}</span></li>)}
         </ul>
-        <div class="flex"><Button variant="quiet" href={localePath(lang, '/services')}>{actions.allServices}</Button></div>
+        <Button variant="quiet" href={localePath(lang, '/services')}>{actions.allServices}</Button>
       </div>
       <div aria-hidden="true" class="relative w-full max-w-text justify-self-center" style="aspect-ratio:5/4">
         {cluster.map(({ name, x, y, w, z, priority }) => (

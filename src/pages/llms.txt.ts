@@ -5,7 +5,7 @@ import { reviewed } from '../reviewed-faults';
 // llms.txt built from the content files, so it can never state anything the site does not.
 export const GET = () => {
   const link = (lang: 'ar' | 'en', path: string, label: string, note: string) => `- [${label}](${site.url}${localePath(lang, path)}): ${note}`;
-  const lines = [`# ${site.brand.latin} (${site.brand.arabic})`, '', `> ${content.en.meta.description}`, '', `Address: ${content.en.home.shop.address}. Hours: ${content.en.home.shop.hours}. Phone and WhatsApp: ${site.phone.display}. Legal name: ${site.legal.name}, CR ${site.legal.cr}.`, ''];
+  const lines = [`# ${site.brand.latin} (${site.brand.arabic})`, '', `> ${content.en.meta.description}`, '', `Address: ${content.en.home.shop.address}. Hours: ${content.en.home.shop.hours}. Phone and WhatsApp: ${site.phone.display}. Legal name: ${site.legal.name}, CR ${site.legal.cr}.`, '', `Full text of every page: ${site.url}/llms-full.txt`, ''];
   for (const lang of ['en', 'ar'] as const) {
     const c = content[lang];
     lines.push(lang === 'en' ? '## English' : '## العربية', '');
