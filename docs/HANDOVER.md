@@ -1,5 +1,7 @@
 # Handover, 2 Nov 2026
 
+**Finished the same day:** tests green, see the last entry in `docs/PHASES.md` and the list at the top of `docs/FOR-AMEER.md`. The rest of this file is history.
+
 Paste this into the next account, opened in `C:\Users\ameer\Desktop\lulwa\website`:
 
 > Read `docs/HANDOVER.md` and `docs/LAUNCH-PLAN.md`, then finish the Lulwa launch. Don't stop until the tests are green. End with only what's left for Ameer.

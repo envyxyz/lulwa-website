@@ -62,7 +62,8 @@ LogLevel warn
 LogFormat "%h %>s %r" brief
 CustomLog "${fwd(join(work, 'logs', 'access.log'))}" brief
 SetEnv LULWA_RATE_LIMIT 1000
-ThreadsPerChild 16
+# Each browser holds several keep-alive connections; 16 threads ran out with parallel Playwright workers.
+ThreadsPerChild 250
 <Directory />
   AllowOverride None
   Require all denied
