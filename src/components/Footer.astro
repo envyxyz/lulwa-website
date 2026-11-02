@@ -33,7 +33,7 @@ const head = 'mb-2 font-medium';
 <footer data-tone="ink" class="bg-ink text-pearl">
   <div class="mx-auto grid max-w-page grid-cols-2 gap-x-6 gap-y-10 px-gutter py-section text-small lg:grid-cols-4">
     <div class="col-span-2 flex flex-col items-start gap-4 lg:col-span-1">
-      <a href={path('/')} class="transition hover:opacity-70 active:opacity-60"><Logo label={chrome.homeLabel} light /></a>
+      <a href={path('/')} aria-label={chrome.homeLabel} class="transition hover:opacity-70 active:opacity-60"><Logo label={chrome.homeLabel} light /></a>
       <p class="max-w-text opacity-75">{footer.line}</p>
       <a href={site.phone.tel} data-action="call" class={`${strong} text-lead`}><bdi dir="ltr">{site.phone.display}</bdi></a>
       <div class="flex flex-wrap gap-2">

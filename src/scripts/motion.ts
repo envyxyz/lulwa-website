@@ -15,6 +15,8 @@ const lenis: Lenis = new Lenis({
   autoRaf: true,
   lerp: LERP,
   virtualScroll: (data) => {
+    // Touch stays native: a touchstart has deltaY 0, and cancelling it below would end every swipe after the first.
+    if (data.event.type !== 'wheel') return true;
     const lead = lenis.targetScroll - lenis.animatedScroll;
     data.deltaY = Math.max(-MAX_LEAD, Math.min(MAX_LEAD, lead + data.deltaY)) - lead;
     // At the cap Lenis sees no movement and ignores the event, which would let the browser scroll natively.

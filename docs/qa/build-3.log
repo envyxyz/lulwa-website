@@ -1,0 +1,97 @@
+40 redirects, 20 gone
+[2m11:44:27[22m [34m[vite][39m Re-optimizing dependencies because vite config has changed
+[2m11:44:28[22m [34m[types][39m Generated [2m1.18s[22m
+[2m11:44:28[22m [34m[build][39m output: [34m"static"[39m
+[2m11:44:28[22m [34m[build][39m mode: [34m"static"[39m
+[2m11:44:28[22m [34m[build][39m directory: [34mC:\Users\ameer\AppData\Local\Temp\claude\C--Users-ameer-Desktop-lulwa\71dc9f6a-f6b2-4d6a-ae57-87762d7215d8\scratchpad\p9\dist\[39m
+[2m11:44:28[22m [34m[build][39m Collecting build info...
+[2m11:44:28[22m [34m[build][39m [32m✓ Completed in 1.45s.[39m
+[2m11:44:28[22m [34m[build][39m Building static entrypoints...
+[2m11:44:31[22m [34m[vite][39m [32m✓ built in 3.01s[39m
+[2m11:44:32[22m [34m[vite][39m [32m✓ built in 737ms[39m
+[2m11:44:32[22m [34m[build][39m Rearranging server assets...
+
+[42m[30m generating static routes [39m[49m
+[2m11:44:32[22m   [34m├─[39m [2m/404.html[22m [2m(+132ms)[22m 
+[2m11:44:32[22m   [34m├─[39m [2m/about.html[22m [2m(+114ms)[22m 
+[2m11:44:32[22m   [34m├─[39m [2m/areas/appliance-repair-in-dammam.html[22m [2m(+10ms)[22m 
+[2m11:44:32[22m   [34m├─[39m [2m/areas.html[22m [2m(+20ms)[22m 
+[2m11:44:32[22m   [34m├─[39m [2m/blog/ac-repair-in-dammam.html[22m [2m(+18ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide.html[22m [2m(+16ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/blog/washing-machine-maintenance-repair-services-in-dammam.html[22m [2m(+7ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/blog.html[22m [2m(+16ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/brands.html[22m [2m(+18ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/contact.html[22m [2m(+15ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/cookie-policy.html[22m [2m(+29ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/404.html[22m [2m(+16ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/about.html[22m [2m(+9ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/areas/appliance-repair-in-dammam.html[22m [2m(+52ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/areas.html[22m [2m(+16ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/blog/ac-repair-in-dammam.html[22m [2m(+5ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide.html[22m [2m(+4ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/blog/washing-machine-maintenance-repair-services-in-dammam.html[22m [2m(+4ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/blog.html[22m [2m(+8ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/brands.html[22m [2m(+7ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/contact.html[22m [2m(+8ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/cookie-policy.html[22m [2m(+15ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/faults/ac-not-cooling.html[22m [2m(+7ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/faults/ac-leaking-water.html[22m [2m(+7ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/faults/ac-freezing-up.html[22m [2m(+25ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/faults/ac-loud.html[22m [2m(+13ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/faults/ac-not-turning-on.html[22m [2m(+14ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/faults/fridge-not-cooling.html[22m [2m(+12ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/faults/fridge-leaking-water.html[22m [2m(+27ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/faults/fridge-loud.html[22m [2m(+14ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/faults/washer-not-spinning.html[22m [2m(+21ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/faults/washer-not-draining.html[22m [2m(+26ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/faults/washer-error-code.html[22m [2m(+55ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/faults/washer-shaking.html[22m [2m(+40ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/faults/dryer-not-heating.html[22m [2m(+26ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/faults/dryer-not-drying-well.html[22m [2m(+24ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/faults/dryer-not-tumbling.html[22m [2m(+14ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/faults.html[22m [2m(+30ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/privacy-policy.html[22m [2m(+20ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/reviews.html[22m [2m(+19ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/services/ac-repair.html[22m [2m(+16ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/services/refrigerator-repair.html[22m [2m(+12ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/services/washing-machine-repair.html[22m [2m(+13ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/services/dryer-repair.html[22m [2m(+8ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/services.html[22m [2m(+32ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/terms-of-service.html[22m [2m(+27ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/thanks.html[22m [2m(+8ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en/work.html[22m [2m(+9ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/en.html[22m [2m(+23ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/faults/ac-not-cooling.html[22m [2m(+12ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/faults/ac-leaking-water.html[22m [2m(+10ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/faults/ac-freezing-up.html[22m [2m(+6ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/faults/ac-loud.html[22m [2m(+13ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/faults/ac-not-turning-on.html[22m [2m(+5ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/faults/fridge-not-cooling.html[22m [2m(+8ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/faults/fridge-leaking-water.html[22m [2m(+10ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/faults/fridge-loud.html[22m [2m(+9ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/faults/washer-not-spinning.html[22m [2m(+7ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/faults/washer-not-draining.html[22m [2m(+12ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/faults/washer-error-code.html[22m [2m(+4ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/faults/washer-shaking.html[22m [2m(+8ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/faults/dryer-not-heating.html[22m [2m(+17ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/faults/dryer-not-drying-well.html[22m [2m(+20ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/faults/dryer-not-tumbling.html[22m [2m(+12ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/faults.html[22m [2m(+13ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/llms.txt[22m [2m(+9ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/privacy-policy.html[22m [2m(+10ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/reviews.html[22m [2m(+7ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/services/ac-repair.html[22m [2m(+4ms)[22m 
+[2m11:44:33[22m   [34m├─[39m [2m/services/refrigerator-repair.html[22m [2m(+6ms)[22m 
+[2m11:44:34[22m   [34m├─[39m [2m/services/washing-machine-repair.html[22m [2m(+4ms)[22m 
+[2m11:44:34[22m   [34m├─[39m [2m/services/dryer-repair.html[22m [2m(+4ms)[22m 
+[2m11:44:34[22m   [34m├─[39m [2m/services.html[22m [2m(+14ms)[22m 
+[2m11:44:34[22m   [34m├─[39m [2m/terms-of-service.html[22m [2m(+11ms)[22m 
+[2m11:44:34[22m   [34m├─[39m [2m/thanks.html[22m [2m(+8ms)[22m 
+[2m11:44:34[22m   [34m├─[39m [2m/work.html[22m [2m(+11ms)[22m 
+[2m11:44:34[22m   [34m├─[39m [2m/index.html[22m [2m(+9ms)[22m 
+[2m11:44:34[22m [32m✓ Completed in 1.71s.
+[39m
+[2m11:44:34[22m [34m[build][39m [32m✓ Completed in 5.62s.[39m
+[2m11:44:34[22m [34m[@astrojs/sitemap][39m `sitemap-index.xml` created at `dist`
+[2m11:44:34[22m [34m[build][39m 76 page(s) built in [1m7.12s[22m
+[2m11:44:34[22m [34m[build][39m [1mComplete![22m

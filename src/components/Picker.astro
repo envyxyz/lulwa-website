@@ -57,7 +57,7 @@ const arrow = 'absolute top-1/2 z-10 cursor-pointer hidden size-target -translat
                     </picture>
                   )}
                   {(internals[a.slug]?.spots ?? art[a.slug]!.spots.map(([x, y]) => [x / 2, y / 1.5, 6])).map(([x, y, r], i) => (
-                    <span data-highlight data-i={i} class="hl" style={`--x:${x};--y:${y};--r:${r}`}><span class="glow" /><span class="ring" /></span>
+                    <span data-highlight data-i={i} class="hl" style={`--x:${x};--y:${y};--r:${r}`}><span class="glow" /><span class="halo" /></span>
                   ))}
                 </span>
               </a>
@@ -164,7 +164,7 @@ const arrow = 'absolute top-1/2 z-10 cursor-pointer hidden size-target -translat
     opacity: 1;
   }
   .glow,
-  .ring {
+  .halo {
     position: absolute;
     inset: 0;
     border-radius: var(--radius-dot);
@@ -174,11 +174,11 @@ const arrow = 'absolute top-1/2 z-10 cursor-pointer hidden size-target -translat
     opacity: 0.6;
     filter: blur(0.4rem);
   }
-  .ring {
+  .halo {
     border: 2px solid var(--color-highlight);
-    animation: ring calc(var(--duration-rise) * 4) linear infinite;
+    animation: halo calc(var(--duration-rise) * 4) linear infinite;
   }
-  @keyframes ring {
+  @keyframes halo {
     from {
       scale: 0.8;
       opacity: 1;

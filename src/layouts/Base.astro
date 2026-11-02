@@ -15,7 +15,8 @@ const alt = alternates(Astro.url.pathname);
 const canonical = lang === 'ar' ? alt.ar : alt.en;
 const home = alt.path === '/' || alt.path === '/en';
 const graph = [home ? business(lang) : breadcrumbs(lang, Astro.url.pathname, title.split(' | ')[0]!), ...ld];
-const displayFont = lang === 'ar' ? '/fonts/beiruti-800-900.woff2' : '/fonts/schibsted-400-800.woff2';
+// Everything the first paint needs, so no font waits for the stylesheet to be parsed.
+const preloadFonts = lang === 'ar' ? ['beiruti-800-900', 'plex-arabic-400', 'plex-arabic-500'] : ['schibsted-400-800'];
 ---
 
 <!doctype html>
@@ -43,7 +44,7 @@ const displayFont = lang === 'ar' ? '/fonts/beiruti-800-900.woff2' : '/fonts/sch
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <script is:inline type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })} />
-    <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin />
+    {preloadFonts.map((f) => <link rel="preload" href={`/fonts/${f}.woff2`} as="font" type="font/woff2" crossorigin />)}
   </head>
   <body class="pb-bottom-bar md:pb-0">
     <a href="#main" class="sr-only focus:not-sr-only">{content[lang].chrome.skipLink}</a>

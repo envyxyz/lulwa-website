@@ -1,0 +1,180 @@
+{
+ "ar": {
+  "reveal": {
+   "hidden": 31,
+   "first": [
+    0,
+    0
+   ],
+   "mid": [
+    600,
+    0
+   ],
+   "last": [
+    1201,
+    0
+   ],
+   "frames": 74,
+   "monotonic": true
+  },
+  "anchor": "#pick",
+  "anchorLanded": 72,
+  "pageDownY": 724,
+  "endReached": 0,
+  "menu": {
+   "frames": 32,
+   "first": [
+    0,
+    0,
+    "none"
+   ],
+   "mid": [
+    252,
+    0.999993,
+    "none"
+   ],
+   "last": [
+    502,
+    1,
+    "none"
+   ]
+  },
+  "map": [
+   [
+    0,
+    false,
+    null
+   ],
+   [
+    500,
+    false,
+    null
+   ],
+   [
+    1000,
+    false,
+    null
+   ],
+   [
+    1500,
+    false,
+    null
+   ],
+   [
+    2000,
+    false,
+    null
+   ],
+   [
+    2500,
+    false,
+    null
+   ],
+   [
+    3000,
+    false,
+    null
+   ],
+   [
+    3500,
+    false,
+    null
+   ]
+  ],
+  "errors": []
+ },
+ "en": {
+  "reveal": {
+   "hidden": 31,
+   "first": [
+    0,
+    0
+   ],
+   "mid": [
+    617,
+    1
+   ],
+   "last": [
+    1201,
+    1
+   ],
+   "frames": 70,
+   "monotonic": true
+  },
+  "anchor": "#pick",
+  "anchorLanded": 72,
+  "pageDownY": 724,
+  "endReached": 0,
+  "menu": {
+   "frames": 32,
+   "first": [
+    0,
+    0,
+    "none"
+   ],
+   "mid": [
+    253,
+    0.999993,
+    "none"
+   ],
+   "last": [
+    503,
+    1,
+    "none"
+   ]
+  },
+  "map": [
+   [
+    0,
+    false,
+    null
+   ],
+   [
+    500,
+    false,
+    null
+   ],
+   [
+    1000,
+    false,
+    null
+   ],
+   [
+    1500,
+    false,
+    null
+   ],
+   [
+    2000,
+    false,
+    null
+   ],
+   [
+    2500,
+    false,
+    null
+   ],
+   [
+    3000,
+    false,
+    null
+   ],
+   [
+    3500,
+    false,
+    null
+   ]
+  ],
+  "errors": []
+ },
+ "reduced": {
+  "lenis": false,
+  "scrollY": 724,
+  "hiddenReveals": 0,
+  "motionLoaded": false
+ },
+ "touch": {
+  "y": 0,
+  "lenis": true
+ }
+}

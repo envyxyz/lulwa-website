@@ -11,13 +11,14 @@ const { ci } = require('../lighthouserc.cjs');
 const lhciDir = dirname(require.resolve('@lhci/cli/package.json'));
 const cli = createRequire(join(lhciDir, 'x.js')).resolve('lighthouse/cli/index.js');
 const port = process.env.LH_PORT ?? 4322;
-const RUNS = ci.collect.numberOfRuns;
+const RUNS = Number(process.env.LH_RUNS) || ci.collect.numberOfRuns;
 const TIMEOUT_MS = 240_000;
-const dir = '.lighthouseci';
+const dir = process.env.LH_DIR ?? ".lighthouseci";
 
 if (process.argv.includes('--fresh')) rmSync(dir, { recursive: true, force: true });
 mkdirSync(dir, { recursive: true });
-const urls = ci.collect.url.map((url) => url.replace(':4322', `:${port}`));
+const only = process.env.LH_ONLY?.split(',');
+const urls = ci.collect.url.map((url) => url.replace(':4322', `:${port}`)).filter((url) => !only || only.includes(new URL(url).pathname));
 if (!(await fetch(urls[0]).then((r) => r.ok, () => false))) throw new Error(`No preview on port ${port}: run pnpm exec astro preview --port ${port}`);
 
 const done = {};
@@ -28,7 +29,7 @@ for (const f of readdirSync(dir).filter((name) => /^lhr-.*\.json$/.test(name))) 
 
 const once = (url, out) =>
   new Promise((resolve) => {
-    const child = spawn(process.execPath, [cli, url, '--output=json', `--output-path=${out}`, '--quiet', `--chrome-flags=${ci.collect.settings.chromeFlags}`], {
+    const child = spawn(process.execPath, [cli, url, '--output=json', `--output-path=${out}`, '--quiet', `--chrome-flags=${ci.collect.settings.chromeFlags} ${process.env.LH_FLAGS ?? ""}`], {
       stdio: 'ignore',
       env: { ...process.env, CHROME_PATH: ci.collect.chromePath },
     });

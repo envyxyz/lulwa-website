@@ -4,7 +4,7 @@
   --color-*: initial;
   --color-pearl: #eef2ef;
   --color-pearl-step: #e0e8e4; /* tone-step card on pearl */
-  --color-pearl-hover: #d3ded9; /* a pearl-step card under the pointer: lift through tone, not shadow */
+  --color-pearl-hover: #d3ded9; /* a pearl-step card under the pointer: lift through tone alone */
   --color-white: #fff; /* behind product images only */
   --color-teal: #0f6e7a;
   --color-teal-active: #0b5862;
