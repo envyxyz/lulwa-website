@@ -44,3 +44,11 @@ Spec for all three, with file ownership and JSON shapes: `docs/LAUNCH-PLAN.md`.
 - **To fix:** old Arabic brand titles differ for 7 slugs. Chigo, Daikin, Fujitsu, Gree, O General, Sanyo use `تصليح مكيفات وأجهزة X في الدمام`; Zamil uses `تصليح مكيفات زامل في الدمام`. `brandItems` in `src/content/ar.ts` must key off those slugs.
 - **To fix:** add dishwasher, freezer, microwave, oven-stove, water-heater to the `products` array in `scripts/images.mjs` before any rerun, or `provenance.json` loses them.
 - `km` is null for Al-Rabwah; the template's `a.km ?` check already handles it.
+
+## Late report from the SEO agent (unverified by the lead)
+Stopped safely. Status: `docs/HANDOVER-seo.md`. Reports a good build of 190 pages to a scratch folder; Playwright specs not run. **To fix:**
+- Address spelled without the number: `ar.ts` and `en.ts` line 334 (FAQ answer), `ar.ts` line 412 (about fact). Home, about and llms-full show the same drift.
+- `0568022197` in the contact form error text, `ar.ts` and `en.ts` around line 412. The new nap test fails on it.
+- `tests/lib.ts` `builtRoutes` still reads `dist/sitemap-0.xml`; check whether the Hostinger agent changed it.
+- `src/scripts/chrome.ts` GTM loader is dead code: delete it. Drop `@astrojs/sitemap` from `package.json`.
+- `.htaccess` must allow `/.well-known/` and the sitemap file names.
