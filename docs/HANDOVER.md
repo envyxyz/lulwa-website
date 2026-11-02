@@ -38,3 +38,9 @@ Spec for all three, with file ownership and JSON shapes: `docs/LAUNCH-PLAN.md`.
 - Back up `public_html` on Hostinger, extract `hostinger-upload.zip` there. The new site has no PHP admin, CMS or analytics dashboard; old database stays untouched.
 - Unconfirmed areas, brands and appliances ask first instead of promising, and fault pages are indexed without a technician read. He should know both.
 - GBP and citations by hand per `docs/GBP.md`, `docs/CITATIONS.md`. Send one real test lead to confirm `mail()` on Hostinger.
+
+## Late report from the agy agent (unverified by the lead)
+- Directory JSON and the 5 product images landed; the agent reports its validation clean. Agy review jobs were still to run.
+- **To fix:** old Arabic brand titles differ for 7 slugs. Chigo, Daikin, Fujitsu, Gree, O General, Sanyo use `تصليح مكيفات وأجهزة X في الدمام`; Zamil uses `تصليح مكيفات زامل في الدمام`. `brandItems` in `src/content/ar.ts` must key off those slugs.
+- **To fix:** add dishwasher, freezer, microwave, oven-stove, water-heater to the `products` array in `scripts/images.mjs` before any rerun, or `provenance.json` loses them.
+- `km` is null for Al-Rabwah; the template's `a.km ?` check already handles it.
