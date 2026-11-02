@@ -1,6 +1,25 @@
 # For Ameer
 
-Questions, verifications and access needed, gathered while Ameer sleeps. Nothing here blocked the work. Phase sessions append under their phase.
+## Launch: what only you can do (2 Nov 2026)
+
+The code side is done and tested (build, lint, typecheck, Playwright on real Apache and PHP). Nothing is deployed. Do these in order.
+
+1. **Back up `public_html` on Hostinger** (File Manager, compress, download). Keep `config/`, `includes/`, `database/`, `admin/` and the database itself untouched: the new site does not use them.
+2. **Upload:** `pnpm package` in this folder makes `hostinger-upload.zip`. Extract it into `public_html` over the old files. It carries `.htaccess`, `contact-submit.php` and `logs/` at the root. Hostinger needs PHP 8.1 or newer with `mbstring` (hPanel, PHP Configuration).
+3. **Mailbox:** leads go to `lulwadammam@gmail.com`, sent from `no-reply@lulwa.com.sa`, as on the live form. Make sure that sender is allowed for `mail()` on Hostinger, then **send one real test lead** from `/contact` on a phone and check it arrives. Leads are also saved to `logs/contact-submissions.log`, which the web cannot read.
+4. **Check after upload:** a few old URLs open at the same address (home, `/services/ac-repair`, one brand, one area, `/blog/rss.xml`, `/sitemap.xml`, `/favicon.ico`), a real call and a real WhatsApp tap from a phone.
+5. **Search Console:** the same verification tag is on every page, so the property keeps working. Resubmit `sitemap-index.xml` and inspect the home page. GA4 `G-XYKP3DY4X7`, GTM `GTM-TVK4BRTS` and Clarity `yf0k43euob` are the old IDs; confirm GTM is yours or the shop's.
+6. **Know what changed on the site:**
+   - No PHP admin, CMS or analytics dashboard any more. Edits go through the code.
+   - The 20 area, 32 brand and 5 extra service pages (dishwasher, freezer, microwave, oven, water heater) **ask first**: they say the shop is in Al-Jalawiyah and the visitor sends the device and district on WhatsApp. They never say "we serve" or "we repair". Tell the client so they answer those messages.
+   - All 15 fault pages are indexed as you asked, **without a technician having read them** (`docs/TECH-REVIEW.md`). The extra service pages' advice is also unread by a technician.
+7. **By hand, outside the site:** Google Business Profile changes in `docs/GBP.md` (category and name are the biggest levers) and directory listings in `docs/CITATIONS.md`, with the same name, address and phone as the footer.
+8. **Facts to confirm with the client** (none blocks launch): which areas, brands and extra appliances they really take; the Balady licence is still current; the 3 Google reviews not visible signed out; whether the 2 reviews with emoji should show.
+9. **Reviews by people:** native Saudi Arabic read of `docs/ARABIC-REVIEW.md` and the new directory pages; a legal read of the privacy, terms and cookie pages (now naming Hostinger, Gmail, Google Analytics, Tag Manager and Clarity).
+10. **Outer repo:** `website_old/` and `website_old.zip` sit untracked in the client repo. `website_old/config/` holds live database credentials. Never commit them; delete or move them out once the backup is safe.
+
+Everything below is the history of earlier phases. Where it mentions Cloudflare, Workers, Apps Script, 410s or 301s to hubs, `docs/LAUNCH-PLAN.md` replaced it.
+
 
 ## Phase 1 (2026-11-01)
 - Kitchen sink needs your OK: `docs/shots/phase-1/`. The dark toolbar in the shots is Astro's dev toolbar, not part of the site.

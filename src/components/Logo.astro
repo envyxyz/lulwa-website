@@ -5,7 +5,7 @@ type Props = { label: string; light?: boolean };
 const { label, light = false } = Astro.props;
 ---
 
-<svg viewBox="0 0 1587 570" class="block h-logo w-auto" role="img" aria-label={label}>
+<svg viewBox="0 0 1587 570" class="block h-logo w-auto max-w-full" role="img" aria-label={label}>
   <g transform="translate(-97 -93) scale(2.85)">
     <path d="M178 40V128C178 164 152 184 112 184C78 184 54 168 42 118" fill="none" class={light ? 'stroke-pearl' : 'stroke-teal'} stroke-width="34" stroke-linecap="round" stroke-linejoin="round"></path>
     <circle cx="112" cy="138" r="28" class="fill-copper"></circle>
