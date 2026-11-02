@@ -52,3 +52,6 @@ Stopped safely. Status: `docs/HANDOVER-seo.md`. Reports a good build of 190 page
 - `tests/lib.ts` `builtRoutes` still reads `dist/sitemap-0.xml`; check whether the Hostinger agent changed it.
 - `src/scripts/chrome.ts` GTM loader is dead code: delete it. Drop `@astrojs/sitemap` from `package.json`.
 - `.htaccess` must allow `/.well-known/` and the sitemap file names.
+
+## Late report from the agy agent, final (unverified by the lead)
+Stopped. Status: `docs/HANDOVER-agy.md`. Arabic and safety reviews ran but nobody read them; read and apply `C:\Users\ameer\AppData\Local\Temp\claude\c--Users-ameer-Desktop-lulwa\02cd0664-272d-4f2e-b0c8-52095807be0f\scratchpad\agy\qa-*.out`. The SEO audit never ran. Some brand `services` lists are judgment calls and area coordinates were only spot-checked.
