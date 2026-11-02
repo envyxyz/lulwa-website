@@ -8,7 +8,7 @@ const rows = urlMap();
 const hubs = new Set(['/services', '/areas', '/brands', '/blog']);
 const pathOf = (location: string) => decodeURIComponent(new URL(location, 'http://x').pathname);
 
-const get = (request: APIRequestContext, path: string, headers?: Record<string, string>) => request.get(path, { maxRedirects: 0, headers });
+const get = (request: APIRequestContext, path: string, headers?: Record<string, string>) => request.get(path, { maxRedirects: 0, ...(headers && { headers }) });
 
 /** Expect one 301 to `target`, and that `target` answers 200 with no further redirect. */
 const oneHop = async (request: APIRequestContext, from: string, target: string) => {

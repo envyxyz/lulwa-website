@@ -9,7 +9,7 @@ const ORIGINAL = '../growth/Photos/Originals/2026-10-19_';
 // Left out on purpose: shopfront (old sign), technician-package-unit (AJCO on the coverall),
 // delivery-truck and street-night (plates, other shops), lg-outdoor-units (reads as an LG agency).
 const real = ['compressor-closeup_02', 'compressor-install_01', 'compressor-pair_01', 'condensing-unit-wiring_01', 'rooftop-compressor-swap_01', 'rooftop-unit-repair_01'];
-const products = ['split-ac-indoor', 'window-ac', 'fridge', 'washer', 'dryer'];
+const products = ['split-ac-indoor', 'window-ac', 'fridge', 'washer', 'dryer', 'dishwasher', 'freezer', 'microwave', 'oven-stove', 'water-heater'];
 const generated = products.filter((name) => existsSync(`design/generated/${name}.png`));
 // Cutaways exist only once agy has produced them; the picker uses them for the slugs listed in appliance-internals.json.
 const cutaways = products.filter((name) => existsSync(`design/generated/internals/${name}.png`));

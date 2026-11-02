@@ -43,21 +43,6 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   for (const type of types) addEventListener(type, load, { passive: true });
 }
 
-// GTM loads on the first touch, key or scroll, never before.
-const gtm = document.documentElement.dataset.gtm;
-if (gtm) {
-  const load = () => {
-    for (const type of ['pointerdown', 'keydown', 'scroll']) removeEventListener(type, load);
-    const layer = ((window as unknown as { dataLayer?: unknown[] }).dataLayer ??= []);
-    layer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtm.js?id=${gtm}`;
-    document.head.append(script);
-  };
-  for (const type of ['pointerdown', 'keydown', 'scroll']) addEventListener(type, load, { once: true, passive: true });
-}
-
 const events: Record<string, string> = { call: 'call_click', whatsapp: 'whatsapp_click', directions: 'directions_click' };
 
 document.addEventListener('click', (event) => {

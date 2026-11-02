@@ -51,6 +51,8 @@ export const site = {
     range: { ar: '8:00 صباحاً إلى 11:00 مساءً', en: '8:00 AM to 11:00 PM' },
   },
   analytics: { ga4: 'G-XYKP3DY4X7', gtm: 'GTM-TVK4BRTS', clarity: 'yf0k43euob' }, // GTM container ownership unconfirmed (docs/FOR-AMEER.md)
+  // Browser chrome colours, the light and dark --surface and the teal from tokens.css. Meta tags need literal hex.
+  theme: { light: '#eef2ef', dark: '#121415', tile: '#0f6e7a' },
   verification: { google: 'NhugWL1gVcIPJCf6bi0eTNAXzZ2v7ZZvIHHS-Neh2E4' },
   // Profiles that resolved to this business on 2 Nov 2026. Trustpilot, Crunchbase did not (404 / 403), so they are out.
   sameAs: [

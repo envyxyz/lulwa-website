@@ -10,6 +10,7 @@ const digits = (s: string) => s.replace(/\D/g, '');
 
 const jsonLd = async (page: Page) => {
   const blocks = (await page.locator('script[type="application/ld+json"]').allTextContents()).map((t) => JSON.parse(t));
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- parsed JSON-LD, checked field by field below
   return blocks.flatMap((b) => b['@graph'] ?? [b]) as Record<string, any>[];
 };
 const langOf = (path: string) => (path === '/en' || path.startsWith('/en/') ? 'en' : 'ar') as 'ar' | 'en';

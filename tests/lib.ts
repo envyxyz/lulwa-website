@@ -17,11 +17,17 @@ const cells = (line: string) => {
   for (let i = 0; i < line.length; i++) {
     const ch = line[i]!;
     if (quoted) {
-      if (ch === '"' && line[i + 1] === '"') (cell += '"'), i++;
+      if (ch === '"' && line[i + 1] === '"') {
+        cell += '"';
+        i++;
+      }
       else if (ch === '"') quoted = false;
       else cell += ch;
     } else if (ch === '"') quoted = true;
-    else if (ch === ',') out.push(cell), (cell = '');
+    else if (ch === ',') {
+      out.push(cell);
+      cell = '';
+    }
     else cell += ch;
   }
   return [...out, cell];

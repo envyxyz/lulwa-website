@@ -1,6 +1,6 @@
 // Serves a built folder with real Apache (mod_rewrite, mod_headers, mod_deflate, mod_expires, mod_brotli) and PHP, so the
 // shipped .htaccess and contact-submit.php are exercised exactly as on Hostinger.
-//   HTTPD_DIR=<...>/Apache24 [PHP_DIR=<...>/php] node scripts/serve-apache.mjs <docroot> [--port 4330]
+//   [HTTPD_DIR=<...>/Apache24] [PHP_DIR=<...>/php] node scripts/serve-apache.mjs <docroot> [--port 4330]
 // PHP_DIR defaults to ../php beside HTTPD_DIR. Port: --port, env PW_PORT, else 4330. Config and logs go to the OS temp folder.
 import { spawn } from 'node:child_process';
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
@@ -14,7 +14,8 @@ const port = Number((portIndex >= 0 && args[portIndex + 1]) || process.env.PW_PO
 const docArg = args.find((a, i) => !a.startsWith('--') && args[i - 1] !== '--port');
 const docroot = fwd(docArg ?? process.env.PW_DOCROOT ?? 'dist');
 
-const httpdDir = process.env.HTTPD_DIR;
+// Default: the portable Apache and PHP unpacked in .tools/ (git-ignored).
+const httpdDir = process.env.HTTPD_DIR ?? resolve('.tools/Apache24');
 if (!httpdDir || !existsSync(join(httpdDir, 'bin', 'httpd.exe'))) {
   console.error('Set HTTPD_DIR to the Apache24 folder (the one holding bin/httpd.exe).');
   process.exit(1);

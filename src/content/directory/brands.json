@@ -10,7 +10,7 @@
       "en": "Alessa"
     },
     "note": {
-      "ar": "العيسى شركة سعودية معروفة في السوق المحلي. تصنع وتوزع أجهزة التكييف بالإضافة إلى الثلاجات والغسالات المنزلية.",
+      "ar": "العيسى شركة سعودية معروفة في السوق المحلي، تصنع وتوزع المكيفات بالإضافة إلى الثلاجات والغسالات.",
       "en": "Alessa is a Saudi brand known in the local market. It manufactures and distributes air conditioners along with home refrigerators and washing machines."
     },
     "services": [
@@ -30,7 +30,7 @@
       "en": "Amana"
     },
     "note": {
-      "ar": "أمانا علامة أمريكية متخصصة في الأجهزة المنزلية. تشتهر بإنتاج الثلاجات والغسالات ونشافات الملابس.",
+      "ar": "أمانا علامة أمريكية متخصصة بالأجهزة المنزلية، ومعروفة بثلاجاتها وغسالاتها والنشافات.",
       "en": "Amana is an American brand specializing in home appliances. It produces refrigerators, washing machines, and clothes dryers."
     },
     "services": [
@@ -50,7 +50,7 @@
       "en": "Bosch"
     },
     "note": {
-      "ar": "بوش شركة ألمانية تصنع مختلف الأجهزة المنزلية. تنتج الغسالات ونشافات الملابس والثلاجات ومكيفات الهواء.",
+      "ar": "بوش شركة ألمانية تصنع أجهزة منزلية متنوعة، وتوفر الغسالات والنشافات والثلاجات والمكيفات.",
       "en": "Bosch is a German manufacturer of household appliances. It makes washing machines, clothes dryers, refrigerators, and air conditioning systems."
     },
     "services": [
@@ -71,7 +71,7 @@
       "en": "Carrier"
     },
     "note": {
-      "ar": "كاريير شركة أمريكية متخصصة في أنظمة التبريد والتكييف. تشتهر بصناعة مكيفات الهواء المركزية ومكيفات سبليت والشباك للمنازل.",
+      "ar": "كاريير شركة أمريكية متخصصة في أنظمة التبريد والتكييف. معروفة بمكيفات المركزي والسبليت والشباك للبيوت.",
       "en": "Carrier is an American company specializing in cooling systems. It produces air conditioning units for residential use."
     },
     "services": [
@@ -89,7 +89,7 @@
       "en": "Chigo"
     },
     "note": {
-      "ar": "تشيجو شركة صينية تركز بشكل أساسي على أجهزة التبريد. تصنع مكيفات الهواء بأنواعها المختلفة للاستخدام المنزلي والتجاري.",
+      "ar": "تشيجو شركة صينية تركيزها الأساسي على التكييف، وتصنع مكيفات بأنواعها للبيوت والمحلات.",
       "en": "Chigo is a Chinese brand focused on cooling equipment. It produces residential and commercial air conditioning units."
     },
     "services": [
@@ -128,7 +128,7 @@
       "en": "Daikin"
     },
     "note": {
-      "ar": "دايكن شركة يابانية متخصصة في صناعة أنظمة التكييف وتبريد الهواء.",
+      "ar": "دايكن شركة يابانية متخصصة في أنظمة التكييف والتبريد.",
       "en": "Daikin is a Japanese company that manufactures air conditioning and cooling systems."
     },
     "services": [
@@ -146,7 +146,7 @@
       "en": "Electrolux"
     },
     "note": {
-      "ar": "إلكترولوكس شركة سويدية تصنع الأجهزة المنزلية مثل الثلاجات والغسالات ونشافات الملابس.",
+      "ar": "إلكترولوكس شركة سويدية تصنع أجهزة منزلية مثل الثلاجات والغسالات والنشافات.",
       "en": "Electrolux is a Swedish company that produces home appliances such as refrigerators, washing machines, and clothes dryers."
     },
     "services": [
@@ -166,7 +166,7 @@
       "en": "Frigidaire"
     },
     "note": {
-      "ar": "فريجيدير علامة أمريكية تنتج أجهزة المنزل وتشمل الثلاجات والغسالات ونشافات الملابس ومكيفات الهواء.",
+      "ar": "فريجيدير علامة أمريكية للأجهزة المنزلية تشمل الثلاجات والغسالات والنشافات والمكيفات.",
       "en": "Frigidaire is an American brand that manufactures home appliances including refrigerators, washing machines, clothes dryers, and room air conditioners."
     },
     "services": [
@@ -187,7 +187,7 @@
       "en": "Fujitsu"
     },
     "note": {
-      "ar": "فوجيتسو شركة يابانية تصنع أجهزة ومكيفات الهواء للمنازل والمباني.",
+      "ar": "فوجيتسو شركة يابانية تصنع مكيفات للبيوت والمباني.",
       "en": "Fujitsu is a Japanese company that manufactures residential and commercial air conditioners."
     },
     "services": [
@@ -265,7 +265,7 @@
       "en": "Hitachi"
     },
     "note": {
-      "ar": "هيتاشي علامة يابانية معروفة بصناعة أجهزة البيت ومنها الثلاجات والغسالات والمكيفات ونشافات الملابس.",
+      "ar": "هيتاشي علامة يابانية معروفة بأجهزة البيت، ومنها الثلاجات والغسالات والمكيفات والنشافات.",
       "en": "Hitachi is a Japanese brand that produces home appliances including refrigerators, washing machines, air conditioners, and clothes dryers."
     },
     "services": [
@@ -286,7 +286,7 @@
       "en": "Kenmore"
     },
     "note": {
-      "ar": "كينمور علامة أمريكية توفر أجهزة منزلية تشمل الثلاجات وغسالات الملابس والنشافات ومكيفات الهواء.",
+      "ar": "كينمور علامة أمريكية توفر أجهزة منزلية تشمل الثلاجات والغسالات والنشافات والمكيفات.",
       "en": "Kenmore is an American brand that offers home appliances including refrigerators, washing machines, dryers, and air conditioners."
     },
     "services": [
@@ -389,7 +389,7 @@
       "en": "O General"
     },
     "note": {
-      "ar": "أو جنرال علامة يابانية متخصصة في صناعة أنظمة التكييف بمختلف أنواعها مثل الاسبليت والشباك والمركزية.",
+      "ar": "أو جنرال علامة يابانية متخصصة في أنظمة التكييف بأنواعها مثل السبليت والشباك والمركزي.",
       "en": "O General is a Japanese brand focused on air conditioning systems, including split, window, and central units."
     },
     "services": [
@@ -428,7 +428,7 @@
       "en": "Samsung"
     },
     "note": {
-      "ar": "سامسونج شركة كورية تنتج مجموعة واسعة من الأجهزة المنزلية، وتصنع الثلاجات والغسالات ونشافات الملابس ومكيفات الهواء.",
+      "ar": "سامسونج شركة كورية توفر تشكيلة واسعة من الأجهزة المنزلية، مثل الثلاجات والغسالات والنشافات والمكيفات.",
       "en": "Samsung is a South Korean manufacturer that produces home appliances, including refrigerators, washing machines, clothes dryers, and air conditioners."
     },
     "services": [
@@ -449,7 +449,7 @@
       "en": "Sanyo"
     },
     "note": {
-      "ar": "سانيو علامة يابانية للأجهزة الكهربائية اشتهرت بصناعة مكيفات الهواء والثلاجات والغسالات المنزلية.",
+      "ar": "سانيو علامة يابانية معروفة في الأجهزة، واشتهرت بالمكيفات والثلاجات والغسالات.",
       "en": "Sanyo is a Japanese electronics brand that produced home appliances such as air conditioners, refrigerators, and washing machines."
     },
     "services": [
@@ -490,7 +490,7 @@
       "en": "Siemens"
     },
     "note": {
-      "ar": "سيمنز شركة ألمانية تنتج أجهزة منزلية للمطبخ والغسيل. توفر ثلاجات وغسالات ملابس ونشافات.",
+      "ar": "سيمنز شركة ألمانية تصنع أجهزة منزلية للمطبخ والغسيل، وتوفر ثلاجات وغسالات ونشافات.",
       "en": "Siemens is a German brand that manufactures kitchen and laundry home appliances. It produces refrigerators, washing machines, and clothes dryers."
     },
     "services": [
@@ -593,7 +593,7 @@
       "en": "White-Westinghouse"
     },
     "note": {
-      "ar": "وايت وستنجهاوس علامة أمريكية للأجهزة المنزلية الكبيرة. تصنع مكيفات الهواء والثلاجات وغسالات الملابس والنشافات.",
+      "ar": "وايت وستنجهاوس علامة أمريكية للأجهزة المنزلية الكبيرة، تصنع المكيفات والثلاجات والغسالات والنشافات.",
       "en": "White-Westinghouse is an American home appliance brand. It produces air conditioners, refrigerators, washing machines, and clothes dryers."
     },
     "services": [

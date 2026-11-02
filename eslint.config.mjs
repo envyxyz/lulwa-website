@@ -60,6 +60,7 @@ export default [
   ...astro.configs.recommended,
   {
     files: ['src/**/*.astro', 'src/**/*.ts'],
+    ignores: ['src/site.ts'], // site.theme holds the browser-chrome hex values that meta tags need
     plugins: { lulwa },
     rules: {
       'lulwa/no-raw-hex': 'error',

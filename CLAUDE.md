@@ -50,7 +50,7 @@ Check current docs with context7 before using any library API. No dependency for
 14. **Light and dark themes follow the device** through `prefers-color-scheme`, with no toggle. `color-scheme: light dark`. Every colour token has both values, and both themes meet AA. The site must not flash the wrong theme on load.
 15. **Images:** job photos are real, shown no larger than their source allows (the WhatsApp set is 287 to 680 px wide). Generated unbranded product images on white are allowed as product illustrations, listed in the provenance file, never shown as our jobs. AVIF and WebP with `srcset`, explicit `width` and `height`, lazy below the fold. AI mockups of the shop, uniforms or vehicles never ship.
 16. **SEO:** every route has title, description, self canonical, reciprocal hreflang (`ar-SA`, `en-SA`, `x-default` to Arabic), OG, JSON-LD. Legal name and CR number in every footer.
-17. **Security:** secrets only in the Worker and `.env.local`. Validate with Zod at the Worker. Headers in `public/_headers`. PDPL: consent line and privacy link at every form, no personal data in URLs or analytics events.
+17. **Security:** secrets only in `.env.local`, never in `public/`. `public/contact-submit.php` validates every lead (same origin, honeypot, per-IP rate limit). Headers in `public/.htaccess`. PDPL: consent line and privacy link at every form, no personal data in URLs or analytics events.
 18. **Static only.** No SSR adapter. Anything needing a server is a small PHP file in `public/`. No Google Cloud billing APIs.
 
 ## Commands
@@ -61,8 +61,8 @@ Keep this list in sync with `package.json`.
 - `pnpm build`, `pnpm preview`, `pnpm typecheck`
 - `pnpm lint`: ESLint and stylelint. `pnpm test:lint-proof` proves each rule fires (T19).
 - `pnpm test:contract`: builds, runs T1 to T22, prints each against the phase that owes it. Add `--fast` to skip Lighthouse. About 20 minutes while pages are missing.
-- `pnpm test:e2e`: Playwright only, on the built site, in installed Edge. `pnpm test:e2e tests/nap.spec.ts` for one.
-- `pnpm worker:stub` (fake Apps Script), `pnpm worker:dev` (Worker plus `dist/` on :8788, reads `.dev.vars`), `pnpm worker:deploy`. Steps: `integrations/README.md`
+- `pnpm test:e2e`: Playwright only, on the built site served by real Apache and PHP on :4330, in installed Edge. `pnpm test:e2e tests/nap.spec.ts` for one. Apache and PHP are portable copies in `.tools/` (git-ignored); set `HTTPD_DIR` to use another.
+- `pnpm serve`: the built `dist/` on Apache, as Hostinger runs it. `pnpm package`: build, then `hostinger-upload.zip` to extract into `public_html`.
 - `pnpm test:photos` (T22), `pnpm test:taste` (T20), `pnpm test:lighthouse` (T18)
 - `node scripts/images.mjs`: exports photos and product images to `public/images`, rewrites `src/images/provenance.json`. `python scripts/gen-products.py [names]`: product images with agy.
 - `python scripts/subset-fonts.py <raw font dir>`: rebuilds `public/fonts`. `node scripts/sink-shots.mjs`: kitchen sink screenshots. `node scripts/phase-shots.mjs <n> [routes]`: screenshots in light and dark to `docs/shots/phase-<n>/`, after `pnpm build` (in Git Bash set `MSYS_NO_PATHCONV=1` when passing routes).

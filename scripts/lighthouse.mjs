@@ -1,6 +1,6 @@
 // T18 collect: three Lighthouse runs per route into .lighthouseci, for `lhci assert` to judge.
 // Replaces `lhci collect`, which has no per-run timeout: one stuck Edge hung a whole sweep for hours.
-// Resumes by default, counting the runs already saved. --fresh starts over. Needs a preview on LH_PORT (4322).
+// Resumes by default, counting the runs already saved. --fresh starts over. Needs the site served on LH_PORT (4322): pnpm serve -- --port 4322.
 import { spawn, spawnSync } from 'node:child_process';
 import { mkdirSync, readFileSync, readdirSync, rmSync } from 'node:fs';
 import { createRequire } from 'node:module';
@@ -19,7 +19,7 @@ if (process.argv.includes('--fresh')) rmSync(dir, { recursive: true, force: true
 mkdirSync(dir, { recursive: true });
 const only = process.env.LH_ONLY?.split(',');
 const urls = ci.collect.url.map((url) => url.replace(':4322', `:${port}`)).filter((url) => !only || only.includes(new URL(url).pathname));
-if (!(await fetch(urls[0]).then((r) => r.ok, () => false))) throw new Error(`No preview on port ${port}: run pnpm exec astro preview --port ${port}`);
+if (!(await fetch(urls[0]).then((r) => r.ok, () => false))) throw new Error(`No preview on port ${port}: run pnpm serve -- --port ${port}`);
 
 const done = {};
 for (const f of readdirSync(dir).filter((name) => /^lhr-.*\.json$/.test(name))) {

@@ -34,8 +34,8 @@ const preloadFonts = lang === 'ar' ? ['beiruti-800-900', 'plex-arabic-400', 'ple
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#eef2ef" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#121415" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content={site.theme.light} media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content={site.theme.dark} media="(prefers-color-scheme: dark)" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content={site.brand.english} />
@@ -45,8 +45,8 @@ const preloadFonts = lang === 'ar' ? ['beiruti-800-900', 'plex-arabic-400', 'ple
     <link rel="alternate" hreflang="ar-SA" href={alt.ar} />
     <link rel="alternate" hreflang="en-SA" href={alt.en} />
     <link rel="alternate" hreflang="x-default" href={alt.ar} />
-    <link rel="alternate" type="application/rss+xml" title={`${businessName} RSS`} href={rss} />
-    <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
+    <link rel="alternate" type="application/rss+xml" title={businessName} href={rss} />
+    <link rel="alternate" type="text/plain" href="/llms.txt" />
     <meta name="geo.region" content={site.address.regionCode} />
     <meta name="geo.placename" content={site.address[lang].city} />
     <meta name="geo.position" content={`${site.geo.latitude};${site.geo.longitude}`} />
@@ -79,7 +79,7 @@ const preloadFonts = lang === 'ar' ? ['beiruti-800-900', 'plex-arabic-400', 'ple
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
     <link rel="manifest" href="/manifest.json" />
     <meta name="msapplication-config" content="/browserconfig.xml" />
-    <meta name="msapplication-TileColor" content="#0f6e7a" />
+    <meta name="msapplication-TileColor" content={site.theme.tile} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })} />
     {preloadFonts.map((f) => <link rel="preload" href={`/fonts/${f}.woff2`} as="font" type="font/woff2" crossorigin />)}
   </head>

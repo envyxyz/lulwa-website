@@ -52,7 +52,7 @@ test('T16 picker_complete', async ({ page }) => {
 });
 
 test('T16 lead_submit carries no personal data', async ({ page }) => {
-  await page.route('**/api/lead', (route) => route.fulfill({ json: { ok: true, reference: 'R1' } }));
+  await page.route('**/contact-submit.php', (route) => route.fulfill({ json: { ok: true, reference: 'R1' } }));
   await visit(page, '/contact');
   const form = page.locator('#lead-form');
   await form.locator('[name="name"]').fill('Sensitive Name', { timeout: 2000 });

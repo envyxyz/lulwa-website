@@ -6,10 +6,10 @@ type Layer = unknown[];
 const w = window as unknown as { dataLayer?: Layer; clarity?: ((...args: unknown[]) => void) & { q?: unknown[] }; requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => void };
 const layer: Layer = (w.dataLayer ??= []);
 // gtag.js reads Arguments objects, not arrays.
-function gtag(..._args: unknown[]) {
+const gtag: (...args: unknown[]) => void = function () {
   // eslint-disable-next-line prefer-rest-params
   layer.push(arguments);
-}
+};
 const { ga4, gtm, clarity } = site.analytics;
 gtag('js', new Date());
 gtag('config', ga4);

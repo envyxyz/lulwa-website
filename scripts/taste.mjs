@@ -8,7 +8,7 @@ import { join } from 'node:path';
 const skill = process.env.TASTE_SKILL ?? join(homedir(), '.claude/skills/design-taste-frontend/scripts');
 // The "Reference update" in docs/DESIGN-DIRECTION.md wins over the inspector: rounded tone-step cards are structure here.
 // still-page: the direction asks for one authored moment and nothing hidden behind an animation.
-// covered-text: DESIGN.md fixes the Ink bottom bar to the phone screen, so text passes under it while scrolling.
+// covered-text: the sticky header sits over the page, so text passes under it while scrolling.
 // Every allowance is listed with its evidence in docs/QA.md.
 const ALLOW = 'card-rows,radius-mix,still-page,covered-text';
 // Home only: the picker's step labels are form labels, and the Reference update's sideways service row runs past the edge.
@@ -32,7 +32,8 @@ const allowFor = (path) => {
 };
 // TASTE_PORT: inspect a preview that is already running. Astro allows one preview per project, so a second one would exit.
 const port = process.env.TASTE_PORT ?? 4323;
-const paths =[...readFileSync('dist/sitemap-0.xml', 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]).pathname);
+const locs = (file) => [...readFileSync(file, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]).pathname);
+const paths = locs('dist/sitemap-index.xml').flatMap((sitemap) => locs(`dist${sitemap}`));
 
 let failed = spawnSync('node', [join(skill, 'lint.mjs'), 'src'], { stdio: 'inherit' }).status !== 0;
 

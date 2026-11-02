@@ -3,8 +3,9 @@
 import { existsSync, mkdirSync, readdirSync, renameSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
-const arg = process.argv.find((a) => a.startsWith('--outDir='))?.slice(9) ?? process.argv[process.argv.indexOf('--outDir') + 1 || 0];
-const outDir = resolve(process.env.OUT_DIR || (arg && !arg.startsWith('--') ? arg : '') || 'dist');
+const i = process.argv.indexOf('--outDir');
+const arg = process.argv.find((a) => a.startsWith('--outDir='))?.slice(9) ?? (i >= 0 ? process.argv[i + 1] : undefined);
+const outDir = resolve(process.env.OUT_DIR || arg || 'dist');
 if (!existsSync(outDir)) throw new Error(`postbuild: ${outDir} does not exist, run astro build first`);
 
 // Always hubs, even if the folder has no children yet. Any other page with a same-named sibling folder (faults) is a hub too.
