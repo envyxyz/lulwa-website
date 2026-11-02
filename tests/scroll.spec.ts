@@ -58,3 +58,27 @@ test('reduced motion never loads smooth scroll', async ({ page }) => {
   await page.waitForTimeout(500);
   await expect(page.locator('html.lenis')).toHaveCount(0);
 });
+
+test.describe('touch', () => {
+  test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, contextOptions: { reducedMotion: 'no-preference' } });
+
+  test('every swipe scrolls, also after smooth scroll has loaded', async ({ page, context }) => {
+    await visit(page, '/en');
+    const cdp = await context.newCDPSession(page);
+    const swipe = async () => {
+      await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: 200, y: 700 }] });
+      for (let i = 1; i <= 12; i++) {
+        await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: 200, y: 700 - (500 * i) / 12 }] });
+        await page.waitForTimeout(16);
+      }
+      await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+      await page.waitForTimeout(1000);
+    };
+    await swipe();
+    const first = await page.evaluate(() => scrollY);
+    await swipe();
+    const second = await page.evaluate(() => scrollY);
+    expect(first, 'first swipe').toBeGreaterThan(300);
+    expect(second - first, 'second swipe').toBeGreaterThan(300);
+  });
+});

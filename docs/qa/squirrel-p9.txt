@@ -1,0 +1,1942 @@
+squirrelscan v0.0.90
+============================================================
+Auditing: http://localhost:4360
+Crawled 70 pages
+Scan: 70 pages crawled from the CLI (page limit 500).
+
+Health Score: 61/100 (D)
+
+Group Breakdown:
+--------------------------------------------------
+SEO                  ██████░░░░ 65%
+  Passed: 5498 | Warnings: 191 | Failed: 83
+Performance          ███████░░░ 77%
+  Passed: 1257 | Warnings: 84 | Failed: 1
+Security             ████░░░░░░ 45%
+  Passed: 289 | Warnings: 3 | Failed: 70
+Agents               █████░░░░░ 50%
+  Passed: 141 | Warnings: 70 | Failed: 0
+
+Category Breakdown:
+--------------------------------------------------
+Accessibility        █████░░░░░ 59%
+  Passed: 2276 | Warnings: 12 | Failed: 74
+Security             ████░░░░░░ 41%
+  Passed: 216 | Warnings: 3 | Failed: 70
+Structured Data      ███░░░░░░░ 30%
+  Passed: 66 | Warnings: 8 | Failed: 7
+Crawlability         ████░░░░░░ 41%
+  Passed: 264 | Warnings: 3 | Failed: 2
+Performance          ███████░░░ 77%
+  Passed: 1257 | Warnings: 84 | Failed: 1
+Content              █████░░░░░ 51%
+  Passed: 448 | Warnings: 84 | Failed: 0
+Core SEO             ██████░░░░ 60%
+  Passed: 619 | Warnings: 82 | Failed: 0
+Agent Experience     █████░░░░░ 50%
+  Passed: 141 | Warnings: 70 | Failed: 0
+E-E-A-T              █████████░ 90%
+  Passed: 6 | Warnings: 1 | Failed: 0
+Links                █████████░ 95%
+  Passed: 495 | Warnings: 1 | Failed: 0
+Internationalization ██████████ 100%
+  Passed: 140 | Warnings: 0 | Failed: 0
+Images               ██████████ 100%
+  Passed: 296 | Warnings: 0 | Failed: 0
+Site Integrity       ██████████ 100%
+  Passed: 2 | Warnings: 0 | Failed: 0
+Legal Compliance     ██████████ 100%
+  Passed: 71 | Warnings: 0 | Failed: 0
+Local SEO            ██████████ 100%
+  Passed: 2 | Warnings: 0 | Failed: 0
+Mobile               ██████████ 100%
+  Passed: 278 | Warnings: 0 | Failed: 0
+Social Media         ██████████ 100%
+  Passed: 141 | Warnings: 0 | Failed: 0
+URL Structure        ██████████ 100%
+  Passed: 467 | Warnings: 0 | Failed: 0
+
+Total: 7185 passed, 348 warnings, 154 errors
+
+TECHNOLOGIES
+----------------------------------------
+No changes since last scan
+(informational — not part of the score)
+
+🌐 CDN & Edge: Cloudflare
+🏷️ Tag Managers: Google Tag Manager
+🔒 Security & Consent: Cloudflare
+
+SUMMARY
+----------------------------------------
+Passed: 7185
+Warnings: 491
+Failed: 154
+SEO: 65/100
+Performance: 77/100
+Security: 45/100
+Agents: 50/100
+
+ISSUES
+----------------------------------------
+
+=== ERRORS ===
+
+[CRAWLABILITY]
+
+  [error] crawl/schema-noindex-conflict - Schema + Noindex Conflict
+  Description: Detects pages with rich result schema that are blocked from indexing
+  Solution: Pages with rich result schemas (Article, Product, Recipe, Event, etc.)
+            should be indexed so search engines can display rich results. Having
+            schema markup on noindexed pages wastes effort and prevents rich
+            results from appearing. Remove noindex directive or remove schema
+            markup if page shouldn't be indexed.
+
+    [X] schema-noindex: 30 page(s) have rich schema but are blocked from indexing
+
+  [error] crawl/sitemap-domain - Sitemap Domain
+  Description: Checks that all sitemap URLs belong to the expected domain
+  Solution: All URLs in your sitemap should point to pages on your own domain.
+            Cross-domain URLs in sitemaps are a configuration error - search
+            engines will ignore URLs that don't match the sitemap's domain. Remove
+            external URLs from your sitemap or fix the domain in URLs if they're
+            incorrectly formatted.
+
+    [X] sitemap-domain: 75 URL(s) point to different domain(s) (75 pages)
+        -> /
+        -> /about
+        -> /areas
+        -> /areas/appliance-repair-in-abqaiq
+        -> /areas/appliance-repair-in-al-ahsa
+        -> /areas/appliance-repair-in-al-awamiyah
+        -> /areas/appliance-repair-in-al-jish
+        -> /areas/appliance-repair-in-al-khobar
+        -> /areas/appliance-repair-in-al-mallaha
+        -> /areas/appliance-repair-in-al-mubarraz
+        -> /areas/appliance-repair-in-al-qudaih
+        -> /areas/appliance-repair-in-al-rabwah
+        -> /areas/appliance-repair-in-dammam
+        -> /areas/appliance-repair-in-darin
+        -> /areas/appliance-repair-in-dhahran
+        -> /areas/appliance-repair-in-hofuf
+        -> /areas/appliance-repair-in-jubail
+        -> /areas/appliance-repair-in-qatif
+        -> /areas/appliance-repair-in-ras-tanura
+        -> /areas/appliance-repair-in-safwa
+        -> /areas/appliance-repair-in-saihat
+        -> /areas/appliance-repair-in-sanabes
+        -> /areas/appliance-repair-in-tarout
+        -> /areas/appliance-repair-in-umm-as-sahik
+        -> /blog
+        -> /blog/ac-repair-in-dammam
+        -> /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /brands
+        -> /brands/alessa-appliance-repair
+        -> /brands/amana-appliance-repair
+        -> /brands/bosch-appliance-repair
+        -> /brands/carrier-appliance-repair
+        -> /brands/chigo-appliance-repair
+        -> /brands/daewoo-appliance-repair
+        -> /brands/daikin-appliance-repair
+        -> /brands/electrolux-appliance-repair
+        -> /brands/frigidaire-appliance-repair
+        -> /brands/fujitsu-appliance-repair
+        -> /brands/ge-appliance-repair
+        -> /brands/gree-appliance-repair
+        -> /brands/haier-appliance-repair
+        -> /brands/hitachi-appliance-repair
+        -> /brands/kenmore-appliance-repair
+        -> /brands/lg-appliance-repair
+        -> /brands/maytag-appliance-repair
+        -> /brands/midea-appliance-repair
+        -> /brands/nikai-appliance-repair
+        -> /brands/o-general-appliance-repair
+        -> /brands/panasonic-appliance-repair
+        -> /brands/samsung-appliance-repair
+        -> /brands/sanyo-appliance-repair
+        -> /brands/sharp-appliance-repair
+        -> /brands/siemens-appliance-repair
+        -> /brands/super-general-appliance-repair
+        -> /brands/tcl-appliance-repair
+        -> /brands/toshiba-appliance-repair
+        -> /brands/whirlpool-appliance-repair
+        -> /brands/white-westinghouse-appliance-repair
+        -> /brands/york-appliance-repair
+        -> /brands/zamil-appliance-repair
+        -> /contact
+        -> /cookie-policy
+        -> /privacy-policy
+        -> /services
+        -> /services/ac-repair
+        -> /services/dishwasher-repair
+        -> /services/dryer-repair
+        -> /services/freezer-repair
+        -> /services/microwave-repair
+        -> /services/oven-stove-repair
+        -> /services/refrigerator-repair
+        -> /services/washing-machine-repair
+        -> /services/water-heater-repair
+        -> /terms-of-service
+        -> https://lulwa.com.sa/
+        -> https://lulwa.com.sa/about
+        -> https://lulwa.com.sa/areas
+        -> https://lulwa.com.sa/areas/appliance-repair-in-abqaiq
+        -> https://lulwa.com.sa/areas/appliance-repair-in-al-ahsa
+        -> https://lulwa.com.sa/areas/appliance-repair-in-al-awamiyah
+        -> https://lulwa.com.sa/areas/appliance-repair-in-al-jish
+        -> https://lulwa.com.sa/areas/appliance-repair-in-al-khobar
+        -> https://lulwa.com.sa/areas/appliance-repair-in-al-mallaha
+        -> https://lulwa.com.sa/areas/appliance-repair-in-al-mubarraz
+        -> https://lulwa.com.sa/areas/appliance-repair-in-al-qudaih
+        -> https://lulwa.com.sa/areas/appliance-repair-in-al-rabwah
+        -> https://lulwa.com.sa/areas/appliance-repair-in-dammam
+        -> https://lulwa.com.sa/areas/appliance-repair-in-darin
+        -> https://lulwa.com.sa/areas/appliance-repair-in-dhahran
+        -> https://lulwa.com.sa/areas/appliance-repair-in-hofuf
+        -> https://lulwa.com.sa/areas/appliance-repair-in-jubail
+        -> https://lulwa.com.sa/areas/appliance-repair-in-qatif
+        -> https://lulwa.com.sa/areas/appliance-repair-in-ras-tanura
+        -> https://lulwa.com.sa/areas/appliance-repair-in-safwa
+        -> https://lulwa.com.sa/areas/appliance-repair-in-saihat
+        -> https://lulwa.com.sa/areas/appliance-repair-in-sanabes
+        -> https://lulwa.com.sa/areas/appliance-repair-in-tarout
+        -> https://lulwa.com.sa/areas/appliance-repair-in-umm-as-sahik
+        -> https://lulwa.com.sa/blog
+        -> https://lulwa.com.sa/blog/ac-repair-in-dammam
+        -> https://lulwa.com.sa/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> https://lulwa.com.sa/blog/washing-machine-maintenance-repair-services-in-dammam
+        -> https://lulwa.com.sa/brands
+        -> https://lulwa.com.sa/brands/alessa-appliance-repair
+        -> https://lulwa.com.sa/brands/amana-appliance-repair
+        -> https://lulwa.com.sa/brands/bosch-appliance-repair
+        -> https://lulwa.com.sa/brands/carrier-appliance-repair
+        -> https://lulwa.com.sa/brands/chigo-appliance-repair
+        -> https://lulwa.com.sa/brands/daewoo-appliance-repair
+        -> https://lulwa.com.sa/brands/daikin-appliance-repair
+        -> https://lulwa.com.sa/brands/electrolux-appliance-repair
+        -> https://lulwa.com.sa/brands/frigidaire-appliance-repair
+        -> https://lulwa.com.sa/brands/fujitsu-appliance-repair
+        -> https://lulwa.com.sa/brands/ge-appliance-repair
+        -> https://lulwa.com.sa/brands/gree-appliance-repair
+        -> https://lulwa.com.sa/brands/haier-appliance-repair
+        -> https://lulwa.com.sa/brands/hitachi-appliance-repair
+        -> https://lulwa.com.sa/brands/kenmore-appliance-repair
+        -> https://lulwa.com.sa/brands/lg-appliance-repair
+        -> https://lulwa.com.sa/brands/maytag-appliance-repair
+        -> https://lulwa.com.sa/brands/midea-appliance-repair
+        -> https://lulwa.com.sa/brands/nikai-appliance-repair
+        -> https://lulwa.com.sa/brands/o-general-appliance-repair
+        -> https://lulwa.com.sa/brands/panasonic-appliance-repair
+        -> https://lulwa.com.sa/brands/samsung-appliance-repair
+        -> https://lulwa.com.sa/brands/sanyo-appliance-repair
+        -> https://lulwa.com.sa/brands/sharp-appliance-repair
+        -> https://lulwa.com.sa/brands/siemens-appliance-repair
+        -> https://lulwa.com.sa/brands/super-general-appliance-repair
+        -> https://lulwa.com.sa/brands/tcl-appliance-repair
+        -> https://lulwa.com.sa/brands/toshiba-appliance-repair
+        -> https://lulwa.com.sa/brands/whirlpool-appliance-repair
+        -> https://lulwa.com.sa/brands/white-westinghouse-appliance-repair
+        -> https://lulwa.com.sa/brands/york-appliance-repair
+        -> https://lulwa.com.sa/brands/zamil-appliance-repair
+        -> https://lulwa.com.sa/contact
+        -> https://lulwa.com.sa/cookie-policy
+        -> https://lulwa.com.sa/privacy-policy
+        -> https://lulwa.com.sa/services
+        -> https://lulwa.com.sa/services/ac-repair
+        -> https://lulwa.com.sa/services/dishwasher-repair
+        -> https://lulwa.com.sa/services/dryer-repair
+        -> https://lulwa.com.sa/services/freezer-repair
+        -> https://lulwa.com.sa/services/microwave-repair
+        -> https://lulwa.com.sa/services/oven-stove-repair
+        -> https://lulwa.com.sa/services/refrigerator-repair
+        -> https://lulwa.com.sa/services/washing-machine-repair
+        -> https://lulwa.com.sa/services/water-heater-repair
+        -> https://lulwa.com.sa/terms-of-service
+
+[SECURITY]
+
+  [error] security/https - HTTPS
+  Description: Checks for HTTPS usage
+  Solution: HTTPS encrypts data between users and your server, protecting
+            sensitive information. It's a ranking signal and required for many
+            modern browser features. Migrate to HTTPS by obtaining an SSL
+            certificate (free from Let's Encrypt). Update internal links to use
+            https://. Set up 301 redirects from HTTP to HTTPS. Update your
+            canonical URLs and sitemap. Check for mixed content warnings after
+            migration.
+
+    [X] https: Page not served over HTTPS (70 pages)
+        -> /
+        -> /about
+        -> /areas/appliance-repair-in-dammam
+        -> /blog
+        -> /blog/ac-repair-in-dammam
+        -> /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /brands
+        -> /contact
+        -> /cookie-policy
+        -> /en
+        -> /en/about
+        -> /en/areas/appliance-repair-in-dammam
+        -> /en/blog
+        -> /en/blog/ac-repair-in-dammam
+        -> /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /en/blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /en/brands
+        -> /en/contact
+        -> /en/cookie-policy
+        -> /en/faults
+        -> /en/faults/ac-freezing-up
+        -> /en/faults/ac-leaking-water
+        -> /en/faults/ac-loud
+        -> /en/faults/ac-not-cooling
+        -> /en/faults/ac-not-turning-on
+        -> /en/faults/dryer-not-drying-well
+        -> /en/faults/dryer-not-heating
+        -> /en/faults/dryer-not-tumbling
+        -> /en/faults/fridge-leaking-water
+        -> /en/faults/fridge-loud
+        -> /en/faults/fridge-not-cooling
+        -> /en/faults/washer-error-code
+        -> /en/faults/washer-not-draining
+        -> /en/faults/washer-not-spinning
+        -> /en/faults/washer-shaking
+        -> /en/privacy-policy
+        -> /en/reviews
+        -> /en/services
+        -> /en/services/ac-repair
+        -> /en/services/dryer-repair
+        -> /en/services/refrigerator-repair
+        -> /en/services/washing-machine-repair
+        -> /en/terms-of-service
+        -> /en/work
+        -> /faults
+        -> /faults/ac-freezing-up
+        -> /faults/ac-leaking-water
+        -> /faults/ac-loud
+        -> /faults/ac-not-cooling
+        -> /faults/ac-not-turning-on
+        -> /faults/dryer-not-drying-well
+        -> /faults/dryer-not-heating
+        -> /faults/dryer-not-tumbling
+        -> /faults/fridge-leaking-water
+        -> /faults/fridge-loud
+        -> /faults/fridge-not-cooling
+        -> /faults/washer-error-code
+        -> /faults/washer-not-draining
+        -> /faults/washer-not-spinning
+        -> /faults/washer-shaking
+        -> /privacy-policy
+        -> /reviews
+        -> /services
+        -> /services/ac-repair
+        -> /services/dryer-repair
+        -> /services/refrigerator-repair
+        -> /services/washing-machine-repair
+        -> /terms-of-service
+        -> /work
+
+[ACCESSIBILITY]
+
+  [error] a11y/aria-command-name - ARIA Command Name
+  Description: Checks that command elements have accessible names
+  Solution: Command elements (buttons, links, menu items) must have accessible
+            names. Add text content, aria-label, aria-labelledby, or title
+            attribute. For icon-only buttons, use aria-label to describe the
+            action (e.g., aria-label='Close').
+
+    [X] aria-command-name: 2 command element(s) without accessible names (70 pages)
+        -> /
+        -> /about
+        -> /areas/appliance-repair-in-dammam
+        -> /blog
+        -> /blog/ac-repair-in-dammam
+        -> /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /brands
+        -> /contact
+        -> /cookie-policy
+        -> /en
+        -> /en/about
+        -> /en/areas/appliance-repair-in-dammam
+        -> /en/blog
+        -> /en/blog/ac-repair-in-dammam
+        -> /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /en/blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /en/brands
+        -> /en/contact
+        -> /en/cookie-policy
+        -> /en/faults
+        -> /en/faults/ac-freezing-up
+        -> /en/faults/ac-leaking-water
+        -> /en/faults/ac-loud
+        -> /en/faults/ac-not-cooling
+        -> /en/faults/ac-not-turning-on
+        -> /en/faults/dryer-not-drying-well
+        -> /en/faults/dryer-not-heating
+        -> /en/faults/dryer-not-tumbling
+        -> /en/faults/fridge-leaking-water
+        -> /en/faults/fridge-loud
+        -> /en/faults/fridge-not-cooling
+        -> /en/faults/washer-error-code
+        -> /en/faults/washer-not-draining
+        -> /en/faults/washer-not-spinning
+        -> /en/faults/washer-shaking
+        -> /en/privacy-policy
+        -> /en/reviews
+        -> /en/services
+        -> /en/services/ac-repair
+        -> /en/services/dryer-repair
+        -> /en/services/refrigerator-repair
+        -> /en/services/washing-machine-repair
+        -> /en/terms-of-service
+        -> /en/work
+        -> /faults
+        -> /faults/ac-freezing-up
+        -> /faults/ac-leaking-water
+        -> /faults/ac-loud
+        -> /faults/ac-not-cooling
+        -> /faults/ac-not-turning-on
+        -> /faults/dryer-not-drying-well
+        -> /faults/dryer-not-heating
+        -> /faults/dryer-not-tumbling
+        -> /faults/fridge-leaking-water
+        -> /faults/fridge-loud
+        -> /faults/fridge-not-cooling
+        -> /faults/washer-error-code
+        -> /faults/washer-not-draining
+        -> /faults/washer-not-spinning
+        -> /faults/washer-shaking
+        -> /privacy-policy
+        -> /reviews
+        -> /services
+        -> /services/ac-repair
+        -> /services/dryer-repair
+        -> /services/refrigerator-repair
+        -> /services/washing-machine-repair
+        -> /terms-of-service
+        -> /work
+        -> a[href="/"]
+        -> a[href="/"]
+        -> a[href="/en"]
+
+  [error] a11y/aria-input-field-name - ARIA Input Field Name
+  Description: Checks that input fields have accessible names
+  Solution: All input fields need accessible names. Best options: 1) Use <label
+            for='inputId'>. 2) Use aria-label or aria-labelledby. 3) Wrap input in
+            <label>. Placeholder alone is not sufficient as it disappears when
+            typing.
+
+    [X] aria-input-field-name: 1 input field(s) without accessible names (2 pages)
+        -> /contact
+        -> /en/contact
+        -> input[name="website"]
+
+  [error] a11y/form-labels - Form Labels
+  Description: Checks that form inputs have associated labels
+  Solution: Every form input needs an accessible label for screen readers.
+            Options: 1) Use <label for='inputId'>Label</label> with matching id.
+            2) Wrap the input inside <label>Label <input></label>. 3) Use
+            aria-label or aria-labelledby for inputs where visible labels aren't
+            feasible. Placeholders are not sufficient substitutes for labels.
+            Hidden inputs, submit buttons, and image buttons don't need labels.
+
+    [X] form-labels: 1 form input(s) without labels (2 pages)
+        -> /contact
+        -> /en/contact
+        -> website
+
+=== RECOMMENDATIONS ===
+
+[PERFORMANCE]
+
+  [recommendation] perf/http2 - HTTP/2
+  Description: Checks for HTTP/2 protocol support
+  Solution: HTTP/2 enables multiplexing, header compression, and server push for
+            faster page loads. Most modern web servers and CDNs support HTTP/2 out
+            of the box. Requires HTTPS. Check your server/CDN documentation to
+            enable it. HTTP/3 (QUIC) provides even better performance.
+
+    [!] http2-https-required: HTTP/2 requires HTTPS (70 pages)
+        -> /
+        -> /about
+        -> /areas/appliance-repair-in-dammam
+        -> /blog
+        -> /blog/ac-repair-in-dammam
+        -> /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /brands
+        -> /contact
+        -> /cookie-policy
+        -> /en
+        -> /en/about
+        -> /en/areas/appliance-repair-in-dammam
+        -> /en/blog
+        -> /en/blog/ac-repair-in-dammam
+        -> /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /en/blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /en/brands
+        -> /en/contact
+        -> /en/cookie-policy
+        -> /en/faults
+        -> /en/faults/ac-freezing-up
+        -> /en/faults/ac-leaking-water
+        -> /en/faults/ac-loud
+        -> /en/faults/ac-not-cooling
+        -> /en/faults/ac-not-turning-on
+        -> /en/faults/dryer-not-drying-well
+        -> /en/faults/dryer-not-heating
+        -> /en/faults/dryer-not-tumbling
+        -> /en/faults/fridge-leaking-water
+        -> /en/faults/fridge-loud
+        -> /en/faults/fridge-not-cooling
+        -> /en/faults/washer-error-code
+        -> /en/faults/washer-not-draining
+        -> /en/faults/washer-not-spinning
+        -> /en/faults/washer-shaking
+        -> /en/privacy-policy
+        -> /en/reviews
+        -> /en/services
+        -> /en/services/ac-repair
+        -> /en/services/dryer-repair
+        -> /en/services/refrigerator-repair
+        -> /en/services/washing-machine-repair
+        -> /en/terms-of-service
+        -> /en/work
+        -> /faults
+        -> /faults/ac-freezing-up
+        -> /faults/ac-leaking-water
+        -> /faults/ac-loud
+        -> /faults/ac-not-cooling
+        -> /faults/ac-not-turning-on
+        -> /faults/dryer-not-drying-well
+        -> /faults/dryer-not-heating
+        -> /faults/dryer-not-tumbling
+        -> /faults/fridge-leaking-water
+        -> /faults/fridge-loud
+        -> /faults/fridge-not-cooling
+        -> /faults/washer-error-code
+        -> /faults/washer-not-draining
+        -> /faults/washer-not-spinning
+        -> /faults/washer-shaking
+        -> /privacy-policy
+        -> /reviews
+        -> /services
+        -> /services/ac-repair
+        -> /services/dryer-repair
+        -> /services/refrigerator-repair
+        -> /services/washing-machine-repair
+        -> /terms-of-service
+        -> /work
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+        -> HTTP/2 requires HTTPS
+
+[INTERNATIONALIZATION]
+
+  [recommendation] i18n/hreflang - Hreflang Tags
+  Description: Checks for hreflang link elements
+  Solution: Hreflang tags tell search engines about language and regional
+            variations of pages, preventing duplicate content issues and ensuring
+            users see the right version. Add hreflang link tags for each
+            language/region version of a page. Include x-default for the fallback.
+            Every page referenced should link back to all variants
+            (bidirectional). Use correct ISO language and country codes.
+
+    [!] hreflang-self: No self-referencing hreflang found (70 pages)
+        -> /
+        -> /about
+        -> /areas/appliance-repair-in-dammam
+        -> /blog
+        -> /blog/ac-repair-in-dammam
+        -> /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /brands
+        -> /contact
+        -> /cookie-policy
+        -> /en
+        -> /en/about
+        -> /en/areas/appliance-repair-in-dammam
+        -> /en/blog
+        -> /en/blog/ac-repair-in-dammam
+        -> /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /en/blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /en/brands
+        -> /en/contact
+        -> /en/cookie-policy
+        -> /en/faults
+        -> /en/faults/ac-freezing-up
+        -> /en/faults/ac-leaking-water
+        -> /en/faults/ac-loud
+        -> /en/faults/ac-not-cooling
+        -> /en/faults/ac-not-turning-on
+        -> /en/faults/dryer-not-drying-well
+        -> /en/faults/dryer-not-heating
+        -> /en/faults/dryer-not-tumbling
+        -> /en/faults/fridge-leaking-water
+        -> /en/faults/fridge-loud
+        -> /en/faults/fridge-not-cooling
+        -> /en/faults/washer-error-code
+        -> /en/faults/washer-not-draining
+        -> /en/faults/washer-not-spinning
+        -> /en/faults/washer-shaking
+        -> /en/privacy-policy
+        -> /en/reviews
+        -> /en/services
+        -> /en/services/ac-repair
+        -> /en/services/dryer-repair
+        -> /en/services/refrigerator-repair
+        -> /en/services/washing-machine-repair
+        -> /en/terms-of-service
+        -> /en/work
+        -> /faults
+        -> /faults/ac-freezing-up
+        -> /faults/ac-leaking-water
+        -> /faults/ac-loud
+        -> /faults/ac-not-cooling
+        -> /faults/ac-not-turning-on
+        -> /faults/dryer-not-drying-well
+        -> /faults/dryer-not-heating
+        -> /faults/dryer-not-tumbling
+        -> /faults/fridge-leaking-water
+        -> /faults/fridge-loud
+        -> /faults/fridge-not-cooling
+        -> /faults/washer-error-code
+        -> /faults/washer-not-draining
+        -> /faults/washer-not-spinning
+        -> /faults/washer-shaking
+        -> /privacy-policy
+        -> /reviews
+        -> /services
+        -> /services/ac-repair
+        -> /services/dryer-repair
+        -> /services/refrigerator-repair
+        -> /services/washing-machine-repair
+        -> /terms-of-service
+        -> /work
+
+[LEGAL COMPLIANCE]
+
+  [recommendation] legal/subprocessor-disclosure - Sub-processor Disclosure
+  Description: Checks for a sub-processor / data-processing (DPA) disclosure page or link
+  Solution: Under GDPR Art. 28, processors must disclose the sub-processors they
+            engage and offer a Data Processing Agreement (DPA). Publish a
+            /subprocessors page listing each third party that handles customer
+            personal data (purpose, location), keep it current, and link a DPA
+            from your legal/trust pages. B2B SaaS and fintech buyers expect this
+            during security review.
+
+    [!] subprocessor-disclosure: No sub-processor / data-processing (DPA) disclosure found
+
+[AGENT EXPERIENCE]
+
+  [recommendation] ax/agents-md - AGENTS.md
+  Description: Detects /AGENTS.md (and variants) — plain-Markdown instructions for coding agents working against the site's repository
+  Solution: If the site has an associated codebase, publish an AGENTS.md at the
+            repository root covering setup, testing, and conventions a coding
+            agent needs to be productive. This is a recommendation only — it never
+            affects your score.
+
+    [!] agents-md-present: No AGENTS.md found — this site publishes llms.txt, so consider an AGENTS.md for coding agents too
+
+  [recommendation] ax/markdown-response - Markdown Response
+  Description: Checks whether the site serves text/markdown via content negotiation (Accept: text/markdown) or exposes a .md variant of the homepage — agents increasingly prefer clean Markdown over rendered HTML
+  Solution: Agents and answer engines parse Markdown more reliably than rendered
+            HTML. Serve a Markdown representation of your key pages: honor
+            `Accept: text/markdown` via content negotiation, and/or publish a
+            `.md` variant (e.g. /index.md). This is a recommendation only — it
+            never affects your score.
+
+    [!] markdown-response: No Markdown response — consider honoring Accept: text/markdown or publishing a .md variant so agents get clean content
+
+=== WARNINGS ===
+
+[CRAWLABILITY]
+
+  [warning] crawl/sitemap-coverage - Sitemap Coverage
+  Description: Checks for indexable pages that are not in the sitemap
+  Solution: Your sitemap should include all pages you want search engines to
+            index. Pages that are crawlable and indexable (no noindex, not blocked
+            by robots.txt) should generally be in your sitemap. Missing pages may
+            not be discovered or indexed efficiently. Use a sitemap generator that
+            automatically includes all indexable pages, or manually add important
+            pages.
+
+    [!] sitemap-coverage: 70 indexable page(s) not in sitemap (100%) (70 pages)
+        -> /
+        -> /about
+        -> /areas/appliance-repair-in-dammam
+        -> /blog
+        -> /blog/ac-repair-in-dammam
+        -> /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /brands
+        -> /contact
+        -> /cookie-policy
+        -> /en
+        -> /en/about
+        -> /en/areas/appliance-repair-in-dammam
+        -> /en/blog
+        -> /en/blog/ac-repair-in-dammam
+        -> /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /en/blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /en/brands
+        -> /en/contact
+        -> /en/cookie-policy
+        -> /en/faults
+        -> /en/faults/ac-freezing-up
+        -> /en/faults/ac-leaking-water
+        -> /en/faults/ac-loud
+        -> /en/faults/ac-not-cooling
+        -> /en/faults/ac-not-turning-on
+        -> /en/faults/dryer-not-drying-well
+        -> /en/faults/dryer-not-heating
+        -> /en/faults/dryer-not-tumbling
+        -> /en/faults/fridge-leaking-water
+        -> /en/faults/fridge-loud
+        -> /en/faults/fridge-not-cooling
+        -> /en/faults/washer-error-code
+        -> /en/faults/washer-not-draining
+        -> /en/faults/washer-not-spinning
+        -> /en/faults/washer-shaking
+        -> /en/privacy-policy
+        -> /en/reviews
+        -> /en/services
+        -> /en/services/ac-repair
+        -> /en/services/dryer-repair
+        -> /en/services/refrigerator-repair
+        -> /en/services/washing-machine-repair
+        -> /en/terms-of-service
+        -> /en/work
+        -> /faults
+        -> /faults/ac-freezing-up
+        -> /faults/ac-leaking-water
+        -> /faults/ac-loud
+        -> /faults/ac-not-cooling
+        -> /faults/ac-not-turning-on
+        -> /faults/dryer-not-drying-well
+        -> /faults/dryer-not-heating
+        -> /faults/dryer-not-tumbling
+        -> /faults/fridge-leaking-water
+        -> /faults/fridge-loud
+        -> /faults/fridge-not-cooling
+        -> /faults/washer-error-code
+        -> /faults/washer-not-draining
+        -> /faults/washer-not-spinning
+        -> /faults/washer-shaking
+        -> /privacy-policy
+        -> /reviews
+        -> /services
+        -> /services/ac-repair
+        -> /services/dryer-repair
+        -> /services/refrigerator-repair
+        -> /services/washing-machine-repair
+        -> /terms-of-service
+        -> /work
+        -> http://localhost:4360/
+        -> http://localhost:4360/about
+        -> http://localhost:4360/areas/appliance-repair-in-dammam
+        -> http://localhost:4360/blog
+        -> http://localhost:4360/blog/ac-repair-in-dammam
+        -> http://localhost:4360/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> http://localhost:4360/blog/washing-machine-maintenance-repair-services-in-dammam
+        -> http://localhost:4360/brands
+        -> http://localhost:4360/contact
+        -> http://localhost:4360/cookie-policy
+        -> http://localhost:4360/en
+        -> http://localhost:4360/en/about
+        -> http://localhost:4360/en/areas/appliance-repair-in-dammam
+        -> http://localhost:4360/en/blog
+        -> http://localhost:4360/en/blog/ac-repair-in-dammam
+        -> http://localhost:4360/en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> http://localhost:4360/en/blog/washing-machine-maintenance-repair-services-in-dammam
+        -> http://localhost:4360/en/brands
+        -> http://localhost:4360/en/contact
+        -> http://localhost:4360/en/cookie-policy
+        -> http://localhost:4360/en/faults
+        -> http://localhost:4360/en/faults/ac-freezing-up
+        -> http://localhost:4360/en/faults/ac-leaking-water
+        -> http://localhost:4360/en/faults/ac-loud
+        -> http://localhost:4360/en/faults/ac-not-cooling
+        -> http://localhost:4360/en/faults/ac-not-turning-on
+        -> http://localhost:4360/en/faults/dryer-not-drying-well
+        -> http://localhost:4360/en/faults/dryer-not-heating
+        -> http://localhost:4360/en/faults/dryer-not-tumbling
+        -> http://localhost:4360/en/faults/fridge-leaking-water
+        -> http://localhost:4360/en/faults/fridge-loud
+        -> http://localhost:4360/en/faults/fridge-not-cooling
+        -> http://localhost:4360/en/faults/washer-error-code
+        -> http://localhost:4360/en/faults/washer-not-draining
+        -> http://localhost:4360/en/faults/washer-not-spinning
+        -> http://localhost:4360/en/faults/washer-shaking
+        -> http://localhost:4360/en/privacy-policy
+        -> http://localhost:4360/en/reviews
+        -> http://localhost:4360/en/services
+        -> http://localhost:4360/en/services/ac-repair
+        -> http://localhost:4360/en/services/dryer-repair
+        -> http://localhost:4360/en/services/refrigerator-repair
+        -> http://localhost:4360/en/services/washing-machine-repair
+        -> http://localhost:4360/en/terms-of-service
+        -> http://localhost:4360/en/work
+        -> http://localhost:4360/faults
+        -> http://localhost:4360/faults/ac-freezing-up
+        -> http://localhost:4360/faults/ac-leaking-water
+        -> http://localhost:4360/faults/ac-loud
+        -> http://localhost:4360/faults/ac-not-cooling
+        -> http://localhost:4360/faults/ac-not-turning-on
+        -> http://localhost:4360/faults/dryer-not-drying-well
+        -> http://localhost:4360/faults/dryer-not-heating
+        -> http://localhost:4360/faults/dryer-not-tumbling
+        -> http://localhost:4360/faults/fridge-leaking-water
+        -> http://localhost:4360/faults/fridge-loud
+        -> http://localhost:4360/faults/fridge-not-cooling
+        -> http://localhost:4360/faults/washer-error-code
+        -> http://localhost:4360/faults/washer-not-draining
+        -> http://localhost:4360/faults/washer-not-spinning
+        -> http://localhost:4360/faults/washer-shaking
+        -> http://localhost:4360/privacy-policy
+        -> http://localhost:4360/reviews
+        -> http://localhost:4360/services
+        -> http://localhost:4360/services/ac-repair
+        -> http://localhost:4360/services/dryer-repair
+        -> http://localhost:4360/services/refrigerator-repair
+        -> http://localhost:4360/services/washing-machine-repair
+        -> http://localhost:4360/terms-of-service
+        -> http://localhost:4360/work
+    [!] sitemap-orphans: 75 sitemap URL(s) were not crawled (75 pages)
+        -> /
+        -> /about
+        -> /areas
+        -> /areas/appliance-repair-in-abqaiq
+        -> /areas/appliance-repair-in-al-ahsa
+        -> /areas/appliance-repair-in-al-awamiyah
+        -> /areas/appliance-repair-in-al-jish
+        -> /areas/appliance-repair-in-al-khobar
+        -> /areas/appliance-repair-in-al-mallaha
+        -> /areas/appliance-repair-in-al-mubarraz
+        -> /areas/appliance-repair-in-al-qudaih
+        -> /areas/appliance-repair-in-al-rabwah
+        -> /areas/appliance-repair-in-dammam
+        -> /areas/appliance-repair-in-darin
+        -> /areas/appliance-repair-in-dhahran
+        -> /areas/appliance-repair-in-hofuf
+        -> /areas/appliance-repair-in-jubail
+        -> /areas/appliance-repair-in-qatif
+        -> /areas/appliance-repair-in-ras-tanura
+        -> /areas/appliance-repair-in-safwa
+        -> /areas/appliance-repair-in-saihat
+        -> /areas/appliance-repair-in-sanabes
+        -> /areas/appliance-repair-in-tarout
+        -> /areas/appliance-repair-in-umm-as-sahik
+        -> /blog
+        -> /blog/ac-repair-in-dammam
+        -> /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /brands
+        -> /brands/alessa-appliance-repair
+        -> /brands/amana-appliance-repair
+        -> /brands/bosch-appliance-repair
+        -> /brands/carrier-appliance-repair
+        -> /brands/chigo-appliance-repair
+        -> /brands/daewoo-appliance-repair
+        -> /brands/daikin-appliance-repair
+        -> /brands/electrolux-appliance-repair
+        -> /brands/frigidaire-appliance-repair
+        -> /brands/fujitsu-appliance-repair
+        -> /brands/ge-appliance-repair
+        -> /brands/gree-appliance-repair
+        -> /brands/haier-appliance-repair
+        -> /brands/hitachi-appliance-repair
+        -> /brands/kenmore-appliance-repair
+        -> /brands/lg-appliance-repair
+        -> /brands/maytag-appliance-repair
+        -> /brands/midea-appliance-repair
+        -> /brands/nikai-appliance-repair
+        -> /brands/o-general-appliance-repair
+        -> /brands/panasonic-appliance-repair
+        -> /brands/samsung-appliance-repair
+        -> /brands/sanyo-appliance-repair
+        -> /brands/sharp-appliance-repair
+        -> /brands/siemens-appliance-repair
+        -> /brands/super-general-appliance-repair
+        -> /brands/tcl-appliance-repair
+        -> /brands/toshiba-appliance-repair
+        -> /brands/whirlpool-appliance-repair
+        -> /brands/white-westinghouse-appliance-repair
+        -> /brands/york-appliance-repair
+        -> /brands/zamil-appliance-repair
+        -> /contact
+        -> /cookie-policy
+        -> /privacy-policy
+        -> /services
+        -> /services/ac-repair
+        -> /services/dishwasher-repair
+        -> /services/dryer-repair
+        -> /services/freezer-repair
+        -> /services/microwave-repair
+        -> /services/oven-stove-repair
+        -> /services/refrigerator-repair
+        -> /services/washing-machine-repair
+        -> /services/water-heater-repair
+        -> /terms-of-service
+        -> https://lulwa.com.sa/
+        -> https://lulwa.com.sa/about
+        -> https://lulwa.com.sa/areas
+        -> https://lulwa.com.sa/areas/appliance-repair-in-abqaiq
+        -> https://lulwa.com.sa/areas/appliance-repair-in-al-ahsa
+        -> https://lulwa.com.sa/areas/appliance-repair-in-al-awamiyah
+        -> https://lulwa.com.sa/areas/appliance-repair-in-al-jish
+        -> https://lulwa.com.sa/areas/appliance-repair-in-al-khobar
+        -> https://lulwa.com.sa/areas/appliance-repair-in-al-mallaha
+        -> https://lulwa.com.sa/areas/appliance-repair-in-al-mubarraz
+        -> https://lulwa.com.sa/areas/appliance-repair-in-al-qudaih
+        -> https://lulwa.com.sa/areas/appliance-repair-in-al-rabwah
+        -> https://lulwa.com.sa/areas/appliance-repair-in-dammam
+        -> https://lulwa.com.sa/areas/appliance-repair-in-darin
+        -> https://lulwa.com.sa/areas/appliance-repair-in-dhahran
+        -> https://lulwa.com.sa/areas/appliance-repair-in-hofuf
+        -> https://lulwa.com.sa/areas/appliance-repair-in-jubail
+        -> https://lulwa.com.sa/areas/appliance-repair-in-qatif
+        -> https://lulwa.com.sa/areas/appliance-repair-in-ras-tanura
+        -> https://lulwa.com.sa/areas/appliance-repair-in-safwa
+        -> https://lulwa.com.sa/areas/appliance-repair-in-saihat
+        -> https://lulwa.com.sa/areas/appliance-repair-in-sanabes
+        -> https://lulwa.com.sa/areas/appliance-repair-in-tarout
+        -> https://lulwa.com.sa/areas/appliance-repair-in-umm-as-sahik
+        -> https://lulwa.com.sa/blog
+        -> https://lulwa.com.sa/blog/ac-repair-in-dammam
+        -> https://lulwa.com.sa/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> https://lulwa.com.sa/blog/washing-machine-maintenance-repair-services-in-dammam
+        -> https://lulwa.com.sa/brands
+        -> https://lulwa.com.sa/brands/alessa-appliance-repair
+        -> https://lulwa.com.sa/brands/amana-appliance-repair
+        -> https://lulwa.com.sa/brands/bosch-appliance-repair
+        -> https://lulwa.com.sa/brands/carrier-appliance-repair
+        -> https://lulwa.com.sa/brands/chigo-appliance-repair
+        -> https://lulwa.com.sa/brands/daewoo-appliance-repair
+        -> https://lulwa.com.sa/brands/daikin-appliance-repair
+        -> https://lulwa.com.sa/brands/electrolux-appliance-repair
+        -> https://lulwa.com.sa/brands/frigidaire-appliance-repair
+        -> https://lulwa.com.sa/brands/fujitsu-appliance-repair
+        -> https://lulwa.com.sa/brands/ge-appliance-repair
+        -> https://lulwa.com.sa/brands/gree-appliance-repair
+        -> https://lulwa.com.sa/brands/haier-appliance-repair
+        -> https://lulwa.com.sa/brands/hitachi-appliance-repair
+        -> https://lulwa.com.sa/brands/kenmore-appliance-repair
+        -> https://lulwa.com.sa/brands/lg-appliance-repair
+        -> https://lulwa.com.sa/brands/maytag-appliance-repair
+        -> https://lulwa.com.sa/brands/midea-appliance-repair
+        -> https://lulwa.com.sa/brands/nikai-appliance-repair
+        -> https://lulwa.com.sa/brands/o-general-appliance-repair
+        -> https://lulwa.com.sa/brands/panasonic-appliance-repair
+        -> https://lulwa.com.sa/brands/samsung-appliance-repair
+        -> https://lulwa.com.sa/brands/sanyo-appliance-repair
+        -> https://lulwa.com.sa/brands/sharp-appliance-repair
+        -> https://lulwa.com.sa/brands/siemens-appliance-repair
+        -> https://lulwa.com.sa/brands/super-general-appliance-repair
+        -> https://lulwa.com.sa/brands/tcl-appliance-repair
+        -> https://lulwa.com.sa/brands/toshiba-appliance-repair
+        -> https://lulwa.com.sa/brands/whirlpool-appliance-repair
+        -> https://lulwa.com.sa/brands/white-westinghouse-appliance-repair
+        -> https://lulwa.com.sa/brands/york-appliance-repair
+        -> https://lulwa.com.sa/brands/zamil-appliance-repair
+        -> https://lulwa.com.sa/contact
+        -> https://lulwa.com.sa/cookie-policy
+        -> https://lulwa.com.sa/privacy-policy
+        -> https://lulwa.com.sa/services
+        -> https://lulwa.com.sa/services/ac-repair
+        -> https://lulwa.com.sa/services/dishwasher-repair
+        -> https://lulwa.com.sa/services/dryer-repair
+        -> https://lulwa.com.sa/services/freezer-repair
+        -> https://lulwa.com.sa/services/microwave-repair
+        -> https://lulwa.com.sa/services/oven-stove-repair
+        -> https://lulwa.com.sa/services/refrigerator-repair
+        -> https://lulwa.com.sa/services/washing-machine-repair
+        -> https://lulwa.com.sa/services/water-heater-repair
+        -> https://lulwa.com.sa/terms-of-service
+
+  [warning] crawl/indexability-conflicts - Indexability Conflicts
+  Description: Detects conflicting signals between robots.txt and meta/headers
+  Solution: Conflicting signals confuse search engines and indicate configuration
+            errors. Type 1 conflict: robots.txt allows BUT meta/header has noindex
+            (works but confusing - choose one method). Type 2 conflict: robots.txt
+            disallows BUT page crawlable (search engines can't crawl to see
+            noindex anyway - remove unnecessary noindex or allow in robots.txt).
+
+    [!] robots-allow-but-noindex: 30 page(s) allowed in robots.txt but have noindex
+
+[CORE SEO]
+
+  [warning] core/meta-title - Meta Title
+  Description: Validates page title presence and length
+  Solution: Every page needs a unique, descriptive title tag between 30-75
+            characters. Titles appear in browser tabs, search results, and social
+            shares. Write titles that accurately describe the page content while
+            including your primary keyword near the beginning. If your title is
+            too short, add more descriptive context. If too long, prioritize the
+            most important information first and trim secondary details. Avoid
+            keyword stuffing or duplicate titles across pages.
+
+    [!] meta-title: Title too short (5 pages)
+        -> /en/cookie-policy
+        -> /en/faults/ac-loud
+        -> /en/privacy-policy
+        -> /en/services/ac-repair
+        -> /en/terms-of-service
+        -> Cookie policy | Lulwa (21 chars)
+        -> Why is my AC so loud? | Lulwa (29 chars)
+        -> Privacy policy | Lulwa (22 chars)
+        -> AC repair in Dammam | Lulwa (27 chars)
+        -> Terms of use | Lulwa (20 chars)
+
+  [warning] core/meta-description - Meta Description
+  Description: Validates meta description presence and length
+  Solution: Meta descriptions should be 120-160 characters and provide a
+            compelling summary of the page. While not a direct ranking factor,
+            good descriptions improve click-through rates from search results.
+            Write unique descriptions for each page that accurately preview the
+            content. Include a call-to-action when appropriate. If missing, search
+            engines will auto-generate snippets which may not represent your page
+            optimally.
+
+    [!] meta-description: Description too long (4 pages)
+        -> /en/faults/ac-freezing-up
+        -> /en/faults/ac-not-turning-on
+        -> /en/faults/washer-not-draining
+        -> /en/faults/washer-shaking
+        -> Ice on the unit is often a dirty filter blocking t (169 chars)
+        -> Check the remote batteries and that the room has p (175 chars)
+        -> Check the drain hose is not kinked or blocked and  (168 chars)
+        -> Usually the load is unbalanced or the machine is n (187 chars)
+    [!] meta-description: Description too short (43 pages)
+        -> /
+        -> /about
+        -> /areas/appliance-repair-in-dammam
+        -> /blog
+        -> /blog/ac-repair-in-dammam
+        -> /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /brands
+        -> /contact
+        -> /cookie-policy
+        -> /en/about
+        -> /en/areas/appliance-repair-in-dammam
+        -> /en/blog
+        -> /en/blog/ac-repair-in-dammam
+        -> /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /en/blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /en/brands
+        -> /en/contact
+        -> /en/cookie-policy
+        -> /en/faults
+        -> /en/privacy-policy
+        -> /en/reviews
+        -> /en/services
+        -> /en/services/ac-repair
+        -> /en/services/dryer-repair
+        -> /en/services/refrigerator-repair
+        -> /en/services/washing-machine-repair
+        -> /en/terms-of-service
+        -> /en/work
+        -> /faults
+        -> /faults/dryer-not-drying-well
+        -> /faults/dryer-not-heating
+        -> /faults/dryer-not-tumbling
+        -> /faults/fridge-leaking-water
+        -> /privacy-policy
+        -> /reviews
+        -> /services
+        -> /services/ac-repair
+        -> /services/dryer-repair
+        -> /services/refrigerator-repair
+        -> /services/washing-machine-repair
+        -> /terms-of-service
+        -> /work
+        -> ورشة صيانة مسجلة في حي الجلوية بالدمام: مكيفات، ثل (107 chars)
+        -> لولوه للتكييف والتبريد: ورشة صيانة مسجلة في حي الج (63 chars)
+        -> لولوه للتكييف والتبريد في حي الجلوية بالدمام. مكيف (87 chars)
+        -> نصائح قصيرة للعناية بالمكيفات والغسالات. (40 chars)
+        -> علامات المكيف الذي يحتاج فنياً، وما تقدر تفحصه بنف (53 chars)
+        -> خطوات بسيطة للعناية بالمكيف. (28 chars)
+        -> أسباب شائعة لعدم عصر الغسالة وما تفحصه بنفسك. (45 chars)
+        -> أرسل ماركة جهازك وبطاقته على واتساب ونخبرك إن كنا  (61 chars)
+        -> تواصل مع لولوه للتكييف والتبريد واتساب أو اتصال عل (65 chars)
+        -> كيف نستخدم ملفات الارتباط وأدوات القياس. (40 chars)
+        -> Lulwa: a registered repair shop in Al-Jalawiyah, D (56 chars)
+        -> Lulwa, in Al-Jalawiyah, Dammam. ACs, fridges, auto (84 chars)
+        -> Short tips for looking after ACs and washing machi (54 chars)
+        -> Signs your AC needs a technician, and what you can (66 chars)
+        -> Simple steps for looking after an AC. (37 chars)
+        -> Common reasons a washer will not spin, and what to (66 chars)
+        -> Send your appliance brand and unit label on WhatsA (99 chars)
+        -> Contact Lulwa on WhatsApp or call 056 802 2197. (47 chars)
+        -> How we use cookies and measurement tools. (41 chars)
+        -> Faults in ACs, fridges and washing machines, and w (77 chars)
+        -> How we handle your data when you use this site. (47 chars)
+        -> Reviews copied as they are from our Google Maps li (56 chars)
+        -> Repair of air conditioners, fridges, automatic was (85 chars)
+        -> Split and window AC repair in Dammam. Send a photo (87 chars)
+        -> Dryer repair in Dammam. Send a photo of the fault  (73 chars)
+        -> Fridge repair and gas refilling in Dammam. Send a  (92 chars)
+        -> Automatic washing machine repair in Dammam. Send a (100 chars)
+        -> Terms for using this site. (26 chars)
+        -> Real photos from the shop’s jobs. (33 chars)
+        -> أعطال المكيفات والثلاجات والغسالات وما تقدر تتأكد  (60 chars)
+        -> الوبر في الفلتر أو في مجرى الهواء يطوّل التجفيف. ن (116 chars)
+        -> نظّف فلتر الوبر وتأكد أن مجرى الهواء غير مسدود. إذ (110 chars)
+        -> تأكد أن الباب مقفل وأن الحمولة ليست ثقيلة. إذا سمع (102 chars)
+        -> الماء تحت الثلاجة غالباً من مجرى تصريف الذوبان الم (119 chars)
+        -> كيف نتعامل مع بياناتك عند استخدام الموقع. (41 chars)
+        -> تقييمات منسوخة كما هي من صفحتنا على خرائط قوقل. (47 chars)
+        -> صيانة المكيفات والثلاجات والغسالات الأوتوماتيك وال (67 chars)
+        -> تصليح مكيفات السبليت والشباك في الدمام. أرسل صورة  (79 chars)
+        -> صيانة النشافات في الدمام. أرسل صورة العطل على واتس (65 chars)
+        -> تصليح الثلاجات وتعبئة الغاز في الدمام. أرسل صورة ا (78 chars)
+        -> صيانة الغسالات الأوتوماتيك في الدمام. أرسل صورة ال (78 chars)
+        -> شروط استخدام الموقع. (20 chars)
+        -> صور حقيقية من أعمال الورشة. (27 chars)
+
+  [warning] core/robots-meta - Robots Meta
+  Description: Checks robots meta tag for indexing directives
+  Solution: The robots meta tag controls how search engines index and follow links
+            on a page. Common directives include noindex, nofollow, noarchive, and
+            nosnippet. If your page has noindex, it won't appear in search
+            results. Review whether this is intentional. For pages that should be
+            indexed, remove the noindex directive or change to "index, follow". Be
+            careful with nofollow as it prevents link equity from flowing to
+            linked pages.
+
+    [!] robots-meta: Page is set to noindex (30 pages)
+        -> /en/faults/ac-freezing-up
+        -> /en/faults/ac-leaking-water
+        -> /en/faults/ac-loud
+        -> /en/faults/ac-not-cooling
+        -> /en/faults/ac-not-turning-on
+        -> /en/faults/dryer-not-drying-well
+        -> /en/faults/dryer-not-heating
+        -> /en/faults/dryer-not-tumbling
+        -> /en/faults/fridge-leaking-water
+        -> /en/faults/fridge-loud
+        -> /en/faults/fridge-not-cooling
+        -> /en/faults/washer-error-code
+        -> /en/faults/washer-not-draining
+        -> /en/faults/washer-not-spinning
+        -> /en/faults/washer-shaking
+        -> /faults/ac-freezing-up
+        -> /faults/ac-leaking-water
+        -> /faults/ac-loud
+        -> /faults/ac-not-cooling
+        -> /faults/ac-not-turning-on
+        -> /faults/dryer-not-drying-well
+        -> /faults/dryer-not-heating
+        -> /faults/dryer-not-tumbling
+        -> /faults/fridge-leaking-water
+        -> /faults/fridge-loud
+        -> /faults/fridge-not-cooling
+        -> /faults/washer-error-code
+        -> /faults/washer-not-draining
+        -> /faults/washer-not-spinning
+        -> /faults/washer-shaking
+
+[SECURITY]
+
+  [warning] security/csp - Content Security Policy
+  Description: Checks for Content-Security-Policy header and validates directives
+  Solution: CSP prevents XSS attacks by restricting which resources can load.
+            Start with a report-only policy to identify issues. Key directives:
+            default-src 'self', script-src (avoid 'unsafe-inline'), img-src,
+            style-src, frame-ancestors. Use nonces or hashes instead of
+            'unsafe-inline' for scripts. Test thoroughly as strict CSP can break
+            functionality.
+
+    [!] csp-unsafe-scripts: CSP allows 'unsafe-inline'
+
+  [warning] security/form-captcha - Form CAPTCHA
+  Description: Checks for CAPTCHA protection on public forms
+  Solution: Add CAPTCHA protection (reCAPTCHA, Cloudflare Turnstile, hCaptcha,
+            FormShield, etc.) to public-facing forms to prevent spam and bot
+            submissions. Contact forms, comment forms, newsletter signups, and
+            registration forms are common targets for automated abuse. Modern
+            solutions like Turnstile and FormShield offer invisible protection
+            with minimal user friction.
+
+    [!] form-captcha: 1 public form(s) without CAPTCHA (2 pages)
+        -> /contact
+        -> /en/contact
+        -> #lead-form
+
+[LINKS]
+
+  [warning] links/no-contextual-inbound - No Contextual Inbound Links
+  Description: Detects pages whose only internal inbound links come from sitewide chrome (nav, header, footer, sidebar)
+  Solution: These pages look well-linked but receive no editorial support: every
+            link pointing at them is repeated on every page of the site, so it
+            carries no signal about what the page is about or how important it is.
+            Add links from the body copy of related articles, hub pages, or
+            category descriptions using descriptive anchor text. Sitewide
+            navigation links help discovery, but contextual links are what pass
+            topical relevance and internal link equity.
+
+    [!] no-contextual-inbound: 15 page(s) are linked only from sitewide chrome (15 pages)
+        -> /about
+        -> /areas/appliance-repair-in-dammam
+        -> /brands
+        -> /cookie-policy
+        -> /en
+        -> /en/about
+        -> /en/areas/appliance-repair-in-dammam
+        -> /en/brands
+        -> /en/cookie-policy
+        -> /en/reviews
+        -> /en/terms-of-service
+        -> /en/work
+        -> /reviews
+        -> /terms-of-service
+        -> /work
+        -> http://localhost:4360/about
+        -> http://localhost:4360/areas/appliance-repair-in-dammam
+        -> http://localhost:4360/brands
+        -> http://localhost:4360/cookie-policy
+        -> http://localhost:4360/en
+        -> http://localhost:4360/en/about
+        -> http://localhost:4360/en/areas/appliance-repair-in-dammam
+        -> http://localhost:4360/en/brands
+        -> http://localhost:4360/en/cookie-policy
+        -> http://localhost:4360/en/reviews
+        -> http://localhost:4360/en/terms-of-service
+        -> http://localhost:4360/en/work
+        -> http://localhost:4360/reviews
+        -> http://localhost:4360/terms-of-service
+        -> http://localhost:4360/work
+
+[CONTENT]
+
+  [warning] content/keyword-stuffing - Keyword Stuffing
+  Description: Detects excessive keyword repetition in content
+  Solution: Keyword stuffing is repeating words unnaturally to manipulate
+            rankings. Search engines penalize this practice. Write naturally for
+            users first. Use keywords where they fit naturally. Aim for 1-2%
+            keyword density at most. Use synonyms and related terms instead of
+            repeating the exact same phrase. Focus on providing value, not gaming
+            algorithms.
+
+    [!] keyword-stuffing: N word(s) may be overused (16 pages)
+        -> /en/faults/ac-freezing-up
+        -> /en/faults/ac-leaking-water
+        -> /en/faults/ac-loud
+        -> /en/faults/ac-not-cooling
+        -> /en/faults/ac-not-turning-on
+        -> /en/faults/dryer-not-drying-well
+        -> /en/faults/dryer-not-heating
+        -> /en/faults/dryer-not-tumbling
+        -> /en/faults/fridge-leaking-water
+        -> /en/faults/fridge-loud
+        -> /en/faults/fridge-not-cooling
+        -> /en/faults/washer-error-code
+        -> /en/faults/washer-not-draining
+        -> /en/faults/washer-not-spinning
+        -> /en/faults/washer-shaking
+        -> /en/services/ac-repair
+        -> "call" (4.3%)
+        -> "drain" (4.2%)
+        -> "whatsapp" (4.3%)
+
+  [warning] content/word-count - Word Count
+  Description: Checks content length for thin content issues
+  Solution: Pages with thin content (under 300 words) often struggle to rank well
+            and are actively deindexed by Google since the June 2025 core update.
+            Add more valuable, relevant content to thin pages—aim for at least 500
+            words for standard pages and 1000+ for in-depth articles. If a page
+            can't be fleshed out, voluntarily noindex it or consolidate it into a
+            more comprehensive resource. Trimming thin pages from your index is
+            better than leaving low-value content for Google to penalize.
+
+    [!] word-count: Thin content: N words (min N) (68 pages)
+        -> /about
+        -> /areas/appliance-repair-in-dammam
+        -> /blog
+        -> /blog/ac-repair-in-dammam
+        -> /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /brands
+        -> /contact
+        -> /cookie-policy
+        -> /en/about
+        -> /en/areas/appliance-repair-in-dammam
+        -> /en/blog
+        -> /en/blog/ac-repair-in-dammam
+        -> /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /en/blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /en/brands
+        -> /en/contact
+        -> /en/cookie-policy
+        -> /en/faults
+        -> /en/faults/ac-freezing-up
+        -> /en/faults/ac-leaking-water
+        -> /en/faults/ac-loud
+        -> /en/faults/ac-not-cooling
+        -> /en/faults/ac-not-turning-on
+        -> /en/faults/dryer-not-drying-well
+        -> /en/faults/dryer-not-heating
+        -> /en/faults/dryer-not-tumbling
+        -> /en/faults/fridge-leaking-water
+        -> /en/faults/fridge-loud
+        -> /en/faults/fridge-not-cooling
+        -> /en/faults/washer-error-code
+        -> /en/faults/washer-not-draining
+        -> /en/faults/washer-not-spinning
+        -> /en/faults/washer-shaking
+        -> /en/privacy-policy
+        -> /en/reviews
+        -> /en/services
+        -> /en/services/ac-repair
+        -> /en/services/dryer-repair
+        -> /en/services/refrigerator-repair
+        -> /en/services/washing-machine-repair
+        -> /en/terms-of-service
+        -> /en/work
+        -> /faults
+        -> /faults/ac-freezing-up
+        -> /faults/ac-leaking-water
+        -> /faults/ac-loud
+        -> /faults/ac-not-cooling
+        -> /faults/ac-not-turning-on
+        -> /faults/dryer-not-drying-well
+        -> /faults/dryer-not-heating
+        -> /faults/dryer-not-tumbling
+        -> /faults/fridge-leaking-water
+        -> /faults/fridge-loud
+        -> /faults/fridge-not-cooling
+        -> /faults/washer-error-code
+        -> /faults/washer-not-draining
+        -> /faults/washer-not-spinning
+        -> /faults/washer-shaking
+        -> /privacy-policy
+        -> /reviews
+        -> /services
+        -> /services/ac-repair
+        -> /services/dryer-repair
+        -> /services/refrigerator-repair
+        -> /services/washing-machine-repair
+        -> /terms-of-service
+        -> /work
+        -> Thin content: 120 words (min 300)
+        -> Thin content: 97 words (min 300)
+        -> Thin content: 88 words (min 300)
+        -> Thin content: 111 words (min 300)
+        -> Thin content: 96 words (min 300)
+        -> Thin content: 101 words (min 300)
+        -> Thin content: 91 words (min 300)
+        -> Thin content: 112 words (min 300)
+        -> Thin content: 95 words (min 300)
+        -> Thin content: 123 words (min 300)
+        -> Thin content: 101 words (min 300)
+        -> Thin content: 97 words (min 300)
+        -> Thin content: 128 words (min 300)
+        -> Thin content: 115 words (min 300)
+        -> Thin content: 114 words (min 300)
+        -> Thin content: 100 words (min 300)
+        -> Thin content: 124 words (min 300)
+        -> Thin content: 109 words (min 300)
+        -> Thin content: 125 words (min 300)
+        -> Thin content: 182 words (min 300)
+        -> Thin content: 181 words (min 300)
+        -> Thin content: 164 words (min 300)
+        -> Thin content: 196 words (min 300)
+        -> Thin content: 187 words (min 300)
+        -> Thin content: 165 words (min 300)
+        -> Thin content: 166 words (min 300)
+        -> Thin content: 166 words (min 300)
+        -> Thin content: 167 words (min 300)
+        -> Thin content: 172 words (min 300)
+        -> Thin content: 175 words (min 300)
+        -> Thin content: 176 words (min 300)
+        -> Thin content: 171 words (min 300)
+        -> Thin content: 179 words (min 300)
+        -> Thin content: 181 words (min 300)
+        -> Thin content: 178 words (min 300)
+        -> Thin content: 112 words (min 300)
+        -> Thin content: 92 words (min 300)
+        -> Thin content: 201 words (min 300)
+        -> Thin content: 161 words (min 300)
+        -> Thin content: 167 words (min 300)
+        -> Thin content: 185 words (min 300)
+        -> Thin content: 128 words (min 300)
+        -> Thin content: 91 words (min 300)
+        -> Thin content: 113 words (min 300)
+        -> Thin content: 145 words (min 300)
+        -> Thin content: 143 words (min 300)
+        -> Thin content: 138 words (min 300)
+        -> Thin content: 157 words (min 300)
+        -> Thin content: 152 words (min 300)
+        -> Thin content: 137 words (min 300)
+        -> Thin content: 133 words (min 300)
+        -> Thin content: 132 words (min 300)
+        -> Thin content: 144 words (min 300)
+        -> Thin content: 143 words (min 300)
+        -> Thin content: 152 words (min 300)
+        -> Thin content: 141 words (min 300)
+        -> Thin content: 145 words (min 300)
+        -> Thin content: 144 words (min 300)
+        -> Thin content: 141 words (min 300)
+        -> Thin content: 150 words (min 300)
+        -> Thin content: 107 words (min 300)
+        -> Thin content: 83 words (min 300)
+        -> Thin content: 159 words (min 300)
+        -> Thin content: 128 words (min 300)
+        -> Thin content: 137 words (min 300)
+        -> Thin content: 148 words (min 300)
+        -> Thin content: 104 words (min 300)
+        -> Thin content: 88 words (min 300)
+
+[STRUCTURED DATA]
+
+  [warning] schema/local-business - LocalBusiness Schema
+  Description: Validates LocalBusiness schema for local SEO
+  Solution: LocalBusiness schema helps your business appear in local search and
+            Google Maps. Required: name, plus either a full PostalAddress
+            (streetAddress, addressLocality, postalCode) for a storefront, or
+            areaServed for a service-area business (SAB) with no public
+            storefront: Google supports omitting the address when areaServed is
+            declared. Include telephone, openingHours (use
+            OpeningHoursSpecification for complex hours), geo coordinates, and
+            priceRange. Match data with your Google Business Profile.
+
+    [!] local-business-address: Address incomplete (2 pages)
+        -> /
+        -> /en
+        -> postalCode
+
+  [warning] schema/article - Article Schema
+  Description: Validates Article schema required properties
+  Solution: Article schema helps search engines understand news and blog content.
+            Required: headline, author (Person with name), datePublished.
+            Recommended: dateModified, image (ImageObject), publisher
+            (Organization). Use Article for general content, NewsArticle for news,
+            BlogPosting for blogs. Ensure author links to real author pages.
+
+    [!] article-required: Article schema missing required properties (6 pages)
+        -> /blog/ac-repair-in-dammam
+        -> /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /en/blog/ac-repair-in-dammam
+        -> /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /en/blog/washing-machine-maintenance-repair-services-in-dammam
+        -> datePublished
+
+  [warning] schema/json-ld-valid - JSON-LD Valid
+  Description: Validates JSON-LD structured data
+  Solution: JSON-LD structured data helps search engines understand your content
+            and can unlock rich results. Validate against schema.org rules
+            (headline, author, datePublished for articles, name/url for
+            organizations, etc.) and keep the JSON well-formed. Use squirrelscan's
+            built-in schema validator to expose the exact missing property path
+            before verifying on Google's Rich Results Test, and ensure each
+            required field points to a canonical resource.
+
+    [X] json-ld-valid: Invalid JSON-LD syntax (6 pages)
+        -> /blog/ac-repair-in-dammam
+        -> /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /en/blog/ac-repair-in-dammam
+        -> /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /en/blog/washing-machine-maintenance-repair-services-in-dammam
+        -> Article missing datePublished
+        -> Validation: Article.datePublished is required
+
+  [warning] schema/coverage-outlier - Structured Data Coverage Outlier
+  Description: Finds pages missing the structured data the rest of their page type carries
+  Solution: These pages break your own site's pattern: most pages of the same type
+            emit this schema @type and these do not. That is almost always a
+            template or CMS gap rather than a deliberate choice - a product
+            without its Product markup, an article without its Article markup -
+            and it costs those pages the rich results their siblings are eligible
+            for. Find where the working pages get their JSON-LD and make sure the
+            listed pages run through the same path. If a page genuinely should not
+            carry the markup (a discontinued product stub, a landing page filed
+            under the same type), leave it: the point is that it is currently the
+            exception.
+
+    [X] coverage-outlier: 2 of 10 page(s) are missing structured data their same-type siblings have (faq BreadcrumbList+FAQPage+Service) (2 pages)
+        -> /
+        -> /en
+        -> 8 of 10 faq pages have BreadcrumbList schema, these 2 do not
+            from: /
+            from: /en
+        -> 8 of 10 faq pages have Service schema, these 2 do not
+            from: /
+            from: /en
+
+[PERFORMANCE]
+
+  [warning] perf/lcp-hints - LCP Optimization Hints
+  Description: Checks for Largest Contentful Paint optimization opportunities
+  Solution: LCP measures when the largest content element becomes visible.
+            Optimize by: 1) Preload your LCP image with <link rel='preload'
+            as='image'>. 2) Don't use loading='lazy' on above-fold images as it
+            delays loading. 3) Minimize render-blocking CSS/JS in <head>. 4) Use
+            modern image formats (WebP/AVIF) for faster loading. 5) Consider using
+            fetchpriority='high' on the LCP image.
+
+    [!] lcp-preload: N likely-LCP images loaded without preload (4 pages)
+        -> /
+        -> /en
+        -> /en/work
+        -> /work
+        -> 3 likely-LCP images loaded without preload
+        -> 3 likely-LCP images loaded without preload
+        -> 2 likely-LCP images loaded without preload
+        -> 2 likely-LCP images loaded without preload
+
+  [warning] perf/ttfb - Time to First Byte
+  Description: Measures server response time (TTFB)
+  Solution: Time to First Byte (TTFB) measures how quickly your server responds.
+            Slow TTFB indicates server/backend issues. Thresholds (Core Web
+            Vitals): - Good: < 600ms - Needs improvement: 600-1000ms - Poor: >
+            1000ms Fixes for slow TTFB: - Enable server caching (Redis, Varnish,
+            CDN) - Optimize database queries - Use CDN for static assets - Upgrade
+            server resources - Reduce server-side processing - Enable HTTP/2 or
+            HTTP/3 - Use edge computing (Cloudflare Workers, Vercel Edge)
+
+    [!] ttfb: Slow server response (Nms) (4 pages)
+        -> /areas/appliance-repair-in-dammam
+        -> /en/contact
+        -> /en/faults/fridge-loud
+        -> /services/dryer-repair
+        -> Slow server response (709ms)
+        -> Slow server response (663ms)
+        -> Slow server response (618ms)
+        -> Slow server response (629ms)
+
+  [warning] perf/bad-caching - Weak Caching (site-wide)
+  Description: Flags sites where most pages lack caching freshness, validators, or compression
+  Solution: Set Cache-Control with an appropriate max-age on every response (short
+            for HTML, long + immutable for hashed static assets), expose an ETag
+            or Last-Modified for cheap revalidation, and enable gzip/Brotli for
+            text responses. Consistent caching across the whole site cuts
+            repeat-visit load times and origin/CDN cost.
+
+    [X] bad-caching-freshness: 70/70 pages lack a caching freshness lifetime (5 pages)
+        -> /
+        -> /about
+        -> /areas/appliance-repair-in-dammam
+        -> /blog
+        -> /blog/ac-repair-in-dammam
+
+  [warning] perf/critical-request-chains - Critical Request Chains
+  Description: Identifies chains of dependent resources that delay rendering
+  Solution: Critical request chains are sequences of dependent network requests
+            that must complete before the page can render. Reduce chain depth by:
+            1) Inlining critical CSS instead of linking external files. 2) Adding
+            async or defer to non-critical scripts. 3) Avoiding CSS @import — use
+            <link> tags instead. 4) Using <link rel='preload'> for critical
+            resources. 5) Reducing the number of render-blocking resources in
+            <head>.
+
+    [!] critical-request-chains: 1 critical request chain(s) found (70 pages)
+        -> /
+        -> /about
+        -> /areas/appliance-repair-in-dammam
+        -> /blog
+        -> /blog/ac-repair-in-dammam
+        -> /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /brands
+        -> /contact
+        -> /cookie-policy
+        -> /en
+        -> /en/about
+        -> /en/areas/appliance-repair-in-dammam
+        -> /en/blog
+        -> /en/blog/ac-repair-in-dammam
+        -> /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /en/blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /en/brands
+        -> /en/contact
+        -> /en/cookie-policy
+        -> /en/faults
+        -> /en/faults/ac-freezing-up
+        -> /en/faults/ac-leaking-water
+        -> /en/faults/ac-loud
+        -> /en/faults/ac-not-cooling
+        -> /en/faults/ac-not-turning-on
+        -> /en/faults/dryer-not-drying-well
+        -> /en/faults/dryer-not-heating
+        -> /en/faults/dryer-not-tumbling
+        -> /en/faults/fridge-leaking-water
+        -> /en/faults/fridge-loud
+        -> /en/faults/fridge-not-cooling
+        -> /en/faults/washer-error-code
+        -> /en/faults/washer-not-draining
+        -> /en/faults/washer-not-spinning
+        -> /en/faults/washer-shaking
+        -> /en/privacy-policy
+        -> /en/reviews
+        -> /en/services
+        -> /en/services/ac-repair
+        -> /en/services/dryer-repair
+        -> /en/services/refrigerator-repair
+        -> /en/services/washing-machine-repair
+        -> /en/terms-of-service
+        -> /en/work
+        -> /faults
+        -> /faults/ac-freezing-up
+        -> /faults/ac-leaking-water
+        -> /faults/ac-loud
+        -> /faults/ac-not-cooling
+        -> /faults/ac-not-turning-on
+        -> /faults/dryer-not-drying-well
+        -> /faults/dryer-not-heating
+        -> /faults/dryer-not-tumbling
+        -> /faults/fridge-leaking-water
+        -> /faults/fridge-loud
+        -> /faults/fridge-not-cooling
+        -> /faults/washer-error-code
+        -> /faults/washer-not-draining
+        -> /faults/washer-not-spinning
+        -> /faults/washer-shaking
+        -> /privacy-policy
+        -> /reviews
+        -> /services
+        -> /services/ac-repair
+        -> /services/dryer-repair
+        -> /services/refrigerator-repair
+        -> /services/washing-machine-repair
+        -> /terms-of-service
+        -> /work
+        -> CSS: /_astro/Base.nDA8S8u-.css
+
+  [warning] perf/lazy-above-fold - Lazy Loading Above Fold
+  Description: Detects lazy loading on likely above-fold images
+  Solution: Don't use loading='lazy' on images that appear above the fold (visible
+            without scrolling). Lazy loading these images delays LCP because the
+            browser waits for layout before fetching. For hero images and LCP
+            candidates: 1) Remove loading='lazy'. 2) Add fetchpriority='high'. 3)
+            Consider preloading with <link rel='preload' as='image'>. Only use
+            lazy loading for below-fold images.
+
+    [!] lazy-above-fold: N above-fold image(s) with lazy loading (6 pages)
+        -> /
+        -> /en
+        -> /en/services/ac-repair
+        -> /en/work
+        -> /services/ac-repair
+        -> /work
+        -> /images/compressor-closeup-2-287.webp
+        -> /images/compressor-install-287.webp
+        -> /images/compressor-pair-287.webp
+        -> /images/condensing-unit-wiring-287.webp
+        -> /images/fridge-640.webp
+        -> /images/split-ac-indoor-640.webp
+        -> /images/window-ac-640.webp
+
+[ACCESSIBILITY]
+
+  [warning] a11y/identical-links-same-purpose - Identical Links Same Purpose
+  Description: Checks that links with identical text go to the same destination
+  Solution: Links with the same visible text should go to the same URL. When
+            identical link text leads to different destinations, it confuses
+            screen reader users who navigate by listing links. Make link text
+            unique or more descriptive to differentiate destinations.
+
+    [!] identical-links-same-purpose: N link text(s) lead to different destinations (2 pages)
+        -> /
+        -> /en
+        -> "leaking water" → 2 different URLs
+        -> "loud" → 2 different URLs
+        -> "not cooling" → 2 different URLs
+        -> "will not start" → 4 different URLs
+        -> "ما تشتغل" → 3 different URLs
+
+  [warning] a11y/image-redundant-alt - Redundant Image Alt
+  Description: Checks that image alt text is not redundant with surrounding text
+  Solution: Image alt text should not start with 'image of', 'photo of', 'picture
+            of', etc. Screen readers already announce that it's an image. Alt text
+            should describe the content or function, not state the obvious. Also
+            avoid duplicating adjacent text in the alt.
+
+    [!] image-redundant-alt: N image(s) with redundant alt text (6 pages)
+        -> /
+        -> /en
+        -> /en/services/ac-repair
+        -> /en/work
+        -> /services/ac-repair
+        -> /work
+        -> "AC: changing the com..." duplicates figcaption
+        -> "AC: connecting the c..." duplicates figcaption
+        -> "AC: fitting a compre..." duplicates figcaption
+        -> "Outdoor unit: checki..." duplicates figcaption
+        -> "Rooftop AC: compress..." duplicates figcaption
+        -> "Rooftop AC: unit ope..." duplicates figcaption
+        -> "مكيف على السطح: تبدي..." duplicates figcaption
+        -> "مكيف على السطح: فتح ..." duplicates figcaption
+        -> "مكيف: تبديل الكمبروس..." duplicates figcaption
+        -> "مكيف: تركيب كمبروسر..." duplicates figcaption
+        -> "مكيف: توصيل الكمبروس..." duplicates figcaption
+        -> "وحدة خارجية: فحص الأ..." duplicates figcaption
+
+  [warning] a11y/input-types - Input Types
+  Description: Checks that fields use the right input type and keyboard hint, and that forms keep native validation
+  Solution: Use the input type that matches the data: type='email', type='tel',
+            type='url' and type='number' each summon the right mobile keyboard and
+            bring free browser validation with them, while type='text' gives users
+            the full QWERTY keyboard and no help at all. Never use type='number'
+            for a digit string such as a postal code, phone number or card number:
+            it strips leading zeros, adds a spinner, and silently discards
+            anything that is not a valid float. If you need a numeric keypad
+            without those side effects, keep type='text' and add
+            inputmode='numeric'. On forms with several fields, set
+            enterkeyhint='next' on each field and enterkeyhint='send' or 'done' on
+            the last one so the mobile return key says what it does. Only add
+            novalidate when your own JavaScript takes over validation: on a form
+            that still declares required or pattern and ships no replacement, it
+            removes the browser's error messages and hands users nothing back.
+
+    [!] enterkeyhint: 1 multi-field form(s) set no enterkeyhint (2 pages)
+        -> /contact
+        -> /en/contact
+        -> 5-field form, no field sets enterkeyhint
+           <form id="lead-form" novalidate="" class="flex max-w-prose flex-col gap-4" data-endpoint="/api/lead" data-thanks="/thanks" data-whatsapp="https://wa.me/966568022197" data-errors="{"required":"هذا الحقل مطلوب.","phone":"اكتب رقم جوال صحيح، …
+    [!] form-novalidate: 1 form(s) set novalidate but still rely on browser constraints (2 pages)
+        -> /contact
+        -> /en/contact
+        -> novalidate disables the browser's error messages, but the form still declares constraints and no custom validation
+           <form id="lead-form" novalidate="" class="flex max-w-prose flex-col gap-4" data-endpoint="/api/lead" data-thanks="/thanks" data-whatsapp="https://wa.me/966568022197" data-errors="{"required":"هذا الحقل مطلوب.","phone":"اكتب رقم جوال صحيح، …
+
+[E-E-A-T]
+
+  [warning] eeat/content-dates - Content Dates
+  Description: Checks for published and modified dates on content
+  Solution: Visible dates show content freshness and help users assess relevance.
+            Include datePublished and dateModified in Article schema. Show
+            human-readable dates on pages. Update dateModified when making
+            significant changes. Fresh content signals ongoing maintenance and
+            expertise. Stale dates may hurt rankings for time-sensitive topics.
+
+    [!] date-published: No content pages have datePublished
+
+[AGENT EXPERIENCE]
+
+  [warning] ax/token-weight - Token Weight
+  Description: Estimates the LLM token cost of a page's raw HTML and reports the text-to-HTML ratio — how much of that cost is actual content versus markup, scripts, and styles
+  Solution: Strip or externalize inline <script>/<style> blocks, avoid deeply
+            nested wrapper divs and long utility-class strings on content-bearing
+            elements, and serve lean server-rendered markup rather than a client
+            framework's verbose hydration output — especially on content pages.
+            Consider Markdown content negotiation, which sidesteps the ratio
+            problem by removing HTML markup from the response entirely.
+
+    [!] token-weight-ratio: Visible text is under 15% of the page HTML — agents pay token cost mostly for markup, scripts, and styles (70 pages)
+        -> /
+        -> /about
+        -> /areas/appliance-repair-in-dammam
+        -> /blog
+        -> /blog/ac-repair-in-dammam
+        -> /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /brands
+        -> /contact
+        -> /cookie-policy
+        -> /en
+        -> /en/about
+        -> /en/areas/appliance-repair-in-dammam
+        -> /en/blog
+        -> /en/blog/ac-repair-in-dammam
+        -> /en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide
+        -> /en/blog/washing-machine-maintenance-repair-services-in-dammam
+        -> /en/brands
+        -> /en/contact
+        -> /en/cookie-policy
+        -> /en/faults
+        -> /en/faults/ac-freezing-up
+        -> /en/faults/ac-leaking-water
+        -> /en/faults/ac-loud
+        -> /en/faults/ac-not-cooling
+        -> /en/faults/ac-not-turning-on
+        -> /en/faults/dryer-not-drying-well
+        -> /en/faults/dryer-not-heating
+        -> /en/faults/dryer-not-tumbling
+        -> /en/faults/fridge-leaking-water
+        -> /en/faults/fridge-loud
+        -> /en/faults/fridge-not-cooling
+        -> /en/faults/washer-error-code
+        -> /en/faults/washer-not-draining
+        -> /en/faults/washer-not-spinning
+        -> /en/faults/washer-shaking
+        -> /en/privacy-policy
+        -> /en/reviews
+        -> /en/services
+        -> /en/services/ac-repair
+        -> /en/services/dryer-repair
+        -> /en/services/refrigerator-repair
+        -> /en/services/washing-machine-repair
+        -> /en/terms-of-service
+        -> /en/work
+        -> /faults
+        -> /faults/ac-freezing-up
+        -> /faults/ac-leaking-water
+        -> /faults/ac-loud
+        -> /faults/ac-not-cooling
+        -> /faults/ac-not-turning-on
+        -> /faults/dryer-not-drying-well
+        -> /faults/dryer-not-heating
+        -> /faults/dryer-not-tumbling
+        -> /faults/fridge-leaking-water
+        -> /faults/fridge-loud
+        -> /faults/fridge-not-cooling
+        -> /faults/washer-error-code
+        -> /faults/washer-not-draining
+        -> /faults/washer-not-spinning
+        -> /faults/washer-shaking
+        -> /privacy-policy
+        -> /reviews
+        -> /services
+        -> /services/ac-repair
+        -> /services/dryer-repair
+        -> /services/refrigerator-repair
+        -> /services/washing-machine-repair
+        -> /terms-of-service
+        -> /work
+        -> ~3% of HTML is visible text (~28,693 est. tokens)
+        -> ~4% of HTML is visible text (~6,882 est. tokens)
+        -> ~3% of HTML is visible text (~7,481 est. tokens)
+        -> ~3% of HTML is visible text (~6,675 est. tokens)
+        -> ~3% of HTML is visible text (~7,277 est. tokens)
+        -> ~3% of HTML is visible text (~7,280 est. tokens)
+        -> ~3% of HTML is visible text (~7,326 est. tokens)
+        -> ~3% of HTML is visible text (~7,395 est. tokens)
+        -> ~3% of HTML is visible text (~8,375 est. tokens)
+        -> ~3% of HTML is visible text (~6,586 est. tokens)
+        -> ~4% of HTML is visible text (~27,844 est. tokens)
+        -> ~5% of HTML is visible text (~6,609 est. tokens)
+        -> ~3% of HTML is visible text (~7,175 est. tokens)
+        -> ~4% of HTML is visible text (~6,449 est. tokens)
+        -> ~4% of HTML is visible text (~7,002 est. tokens)
+        -> ~3% of HTML is visible text (~7,020 est. tokens)
+        -> ~3% of HTML is visible text (~7,053 est. tokens)
+        -> ~3% of HTML is visible text (~7,150 est. tokens)
+        -> ~4% of HTML is visible text (~8,075 est. tokens)
+        -> ~4% of HTML is visible text (~6,321 est. tokens)
+        -> ~4% of HTML is visible text (~7,084 est. tokens)
+        -> ~4% of HTML is visible text (~7,894 est. tokens)
+        -> ~4% of HTML is visible text (~7,900 est. tokens)
+        -> ~4% of HTML is visible text (~7,854 est. tokens)
+        -> ~5% of HTML is visible text (~7,920 est. tokens)
+        -> ~4% of HTML is visible text (~7,932 est. tokens)
+        -> ~4% of HTML is visible text (~7,911 est. tokens)
+        -> ~4% of HTML is visible text (~7,900 est. tokens)
+        -> ~4% of HTML is visible text (~7,905 est. tokens)
+        -> ~4% of HTML is visible text (~7,905 est. tokens)
+        -> ~4% of HTML is visible text (~7,892 est. tokens)
+        -> ~4% of HTML is visible text (~7,913 est. tokens)
+        -> ~4% of HTML is visible text (~7,929 est. tokens)
+        -> ~4% of HTML is visible text (~7,930 est. tokens)
+        -> ~4% of HTML is visible text (~7,931 est. tokens)
+        -> ~4% of HTML is visible text (~7,957 est. tokens)
+        -> ~5% of HTML is visible text (~6,546 est. tokens)
+        -> ~3% of HTML is visible text (~7,841 est. tokens)
+        -> ~4% of HTML is visible text (~6,420 est. tokens)
+        -> ~4% of HTML is visible text (~8,879 est. tokens)
+        -> ~4% of HTML is visible text (~7,744 est. tokens)
+        -> ~4% of HTML is visible text (~8,043 est. tokens)
+        -> ~5% of HTML is visible text (~8,179 est. tokens)
+        -> ~4% of HTML is visible text (~6,380 est. tokens)
+        -> ~3% of HTML is visible text (~7,243 est. tokens)
+        -> ~4% of HTML is visible text (~7,360 est. tokens)
+        -> ~4% of HTML is visible text (~8,240 est. tokens)
+        -> ~4% of HTML is visible text (~8,243 est. tokens)
+        -> ~4% of HTML is visible text (~8,204 est. tokens)
+        -> ~4% of HTML is visible text (~8,281 est. tokens)
+        -> ~4% of HTML is visible text (~8,260 est. tokens)
+        -> ~4% of HTML is visible text (~8,242 est. tokens)
+        -> ~4% of HTML is visible text (~8,211 est. tokens)
+        -> ~4% of HTML is visible text (~8,201 est. tokens)
+        -> ~4% of HTML is visible text (~8,249 est. tokens)
+        -> ~4% of HTML is visible text (~8,249 est. tokens)
+        -> ~4% of HTML is visible text (~8,275 est. tokens)
+        -> ~4% of HTML is visible text (~8,257 est. tokens)
+        -> ~4% of HTML is visible text (~8,263 est. tokens)
+        -> ~4% of HTML is visible text (~8,258 est. tokens)
+        -> ~4% of HTML is visible text (~8,279 est. tokens)
+        -> ~5% of HTML is visible text (~6,837 est. tokens)
+        -> ~3% of HTML is visible text (~8,089 est. tokens)
+        -> ~3% of HTML is visible text (~6,693 est. tokens)
+        -> ~4% of HTML is visible text (~9,276 est. tokens)
+        -> ~4% of HTML is visible text (~8,057 est. tokens)
+        -> ~4% of HTML is visible text (~8,390 est. tokens)
+        -> ~4% of HTML is visible text (~8,515 est. tokens)
+        -> ~4% of HTML is visible text (~6,636 est. tokens)
+        -> ~3% of HTML is visible text (~7,494 est. tokens)
+
+============================================================
+7185 passed, 491 warnings, 154 failed
+Generated by squirrelscan.com
