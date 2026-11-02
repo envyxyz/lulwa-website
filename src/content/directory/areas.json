@@ -7,8 +7,8 @@
     },
     "km": 70,
     "note": {
-      "ar": "محافظة تابعة للمنطقة الشرقية وتقع بين الدمام والأحساء.",
-      "en": "A governorate in the Eastern Province located between Dammam and Al-Ahsa."
+      "ar": "بقيق محافظة تابعة للمنطقة الشرقية وتقع بين الدمام والأحساء.",
+      "en": "Abqaiq is a governorate in the Eastern Province located between Dammam and Al-Ahsa."
     },
     "near": [
       "appliance-repair-in-dhahran",
@@ -24,8 +24,8 @@
     },
     "km": 125,
     "note": {
-      "ar": "محافظة بالمنطقة الشرقية تضم الهفوف والمبرز وتجاور بقيق من جهة الجنوب.",
-      "en": "A governorate in the Eastern Province that includes Al-Hofuf and Al-Mubarraz, situated south of Abqaiq."
+      "ar": "الأحساء محافظة بالمنطقة الشرقية تضم الهفوف والمبرز وتجاور بقيق من جهة الجنوب.",
+      "en": "Al-Ahsa is a governorate in the Eastern Province that includes Al-Hofuf and Al-Mubarraz, situated south of Abqaiq."
     },
     "near": [
       "appliance-repair-in-hofuf",
@@ -41,8 +41,8 @@
     },
     "km": 20,
     "note": {
-      "ar": "بلدة تتبع محافظة القطيف وتقع شمال مدينة القطيف مباشرة قرب صفوى.",
-      "en": "A town in the Qatif governorate located directly north of Qatif city near Safwa."
+      "ar": "العوامية بلدة تتبع محافظة القطيف وتقع شمال مدينة القطيف مباشرة قرب صفوى.",
+      "en": "Al-Awamiyah is a town in the Qatif governorate located directly north of Qatif city near Safwa."
     },
     "near": [
       "appliance-repair-in-al-qudaih",
@@ -58,8 +58,8 @@
     },
     "km": 10,
     "note": {
-      "ar": "بلدة تتبع محافظة القطيف وتقع جنوب غرب مدينة القطيف بالقرب من سيهات وعنك.",
-      "en": "A town in the Qatif governorate located southwest of Qatif city near Saihat and Anak."
+      "ar": "الجش بلدة تتبع محافظة القطيف وتقع جنوب غرب مدينة القطيف بالقرب من سيهات وعنك.",
+      "en": "Al-Jish is a town in the Qatif governorate located southwest of Qatif city near Saihat and Anak."
     },
     "near": [
       "appliance-repair-in-al-mallaha",
@@ -75,8 +75,8 @@
     },
     "km": 20,
     "note": {
-      "ar": "محافظة ساحلية على الخليج العربي بالمنطقة الشرقية وتجاور الدمام والظهران.",
-      "en": "A coastal governorate on the Arabian Gulf in the Eastern Province, bordering Dammam and Dhahran."
+      "ar": "الخبر محافظة ساحلية على الخليج العربي بالمنطقة الشرقية وتجاور الدمام والظهران.",
+      "en": "Al-Khobar is a coastal governorate on the Arabian Gulf in the Eastern Province, bordering Dammam and Dhahran."
     },
     "near": [
       "appliance-repair-in-dhahran",
@@ -92,8 +92,8 @@
     },
     "km": 10,
     "note": {
-      "ar": "بلدة تتبع محافظة القطيف. تقع غرب عنك وجنوب الجش.",
-      "en": "A town in the Qatif governorate. It sits west of Anak and south of Al-Jesh."
+      "ar": "الملاحة بلدة تتبع محافظة القطيف، قريبة من الجش.",
+      "en": "Al-Mallaha is a town in Qatif governorate, close to Al-Jish."
     },
     "near": [
       "appliance-repair-in-al-jish",
@@ -109,8 +109,8 @@
     },
     "km": 125,
     "note": {
-      "ar": "مدينة تتبع محافظة الأحساء. تقع شمال مدينة الهفوف مباشرة.",
-      "en": "A city in the Al-Ahsa governorate. It lies directly north of Al-Hofuf."
+      "ar": "المبرز مدينة تتبع محافظة الأحساء. تقع شمال مدينة الهفوف مباشرة.",
+      "en": "Al-Mubarraz is a city in the Al-Ahsa governorate. It lies directly north of Al-Hofuf."
     },
     "near": [
       "appliance-repair-in-al-ahsa",
@@ -126,8 +126,8 @@
     },
     "km": 20,
     "note": {
-      "ar": "بلدة تتبع محافظة القطيف. تقع شمال مدينة القطيف وغرب العوامية.",
-      "en": "A town in the Qatif governorate. It sits north of Qatif city and west of Al-Awamiyah."
+      "ar": "القديح بلدة تتبع محافظة القطيف، تقع شمال غرب مدينة القطيف قرب العوامية.",
+      "en": "Al-Qudaih is a town in Qatif governorate, north-west of Qatif city and near Al-Awamiyah."
     },
     "near": [
       "appliance-repair-in-al-awamiyah",
@@ -143,8 +143,8 @@
     },
     "km": null,
     "note": {
-      "ar": "اسم حي يتكرر في عدة مدن بالمنطقة الشرقية مثل الظهران وصفوى والأحساء. يقع في الظهران بجوار حي الجامعة.",
-      "en": "A district name shared across multiple cities in the Eastern Province including Dhahran, Safwa, and Al-Ahsa. In Dhahran it sits next to Al-Jameah district."
+      "ar": "الربوة اسم حي يتكرر في أكثر من مدينة بالمنطقة الشرقية.",
+      "en": "Al-Rabwah is a district name used in more than one city in the Eastern Province."
     },
     "near": [
       "appliance-repair-in-dhahran",
@@ -160,8 +160,8 @@
     },
     "km": 10,
     "note": {
-      "ar": "بلدة ساحلية تتبع محافظة القطيف. تقع في جنوب جزيرة تاروت على ساحل الخليج العربي.",
-      "en": "A coastal town in the Qatif governorate. It sits on the southern side of Tarout Island along the Arabian Gulf."
+      "ar": "دارين بلدة ساحلية تتبع محافظة القطيف. تقع في جنوب جزيرة تاروت على ساحل الخليج العربي.",
+      "en": "Darin is a coastal town in the Qatif governorate. It sits on the southern side of Tarout Island along the Arabian Gulf."
     },
     "near": [
       "appliance-repair-in-tarout",
@@ -177,8 +177,8 @@
     },
     "km": 15,
     "note": {
-      "ar": "الظهران تابعة إدارياً لمحافظة الخبر، وتقع جنوب الدمام وغرب مدينة الخبر.",
-      "en": "Dhahran belongs to Al-Khobar governorate, located south of Dammam and west of Al-Khobar."
+      "ar": "الظهران مدينة في المنطقة الشرقية، تقع جنوب الدمام وبجوار الخبر.",
+      "en": "Dhahran is a city in the Eastern Province, south of Dammam and next to Al-Khobar."
     },
     "near": [
       "appliance-repair-in-al-khobar",
@@ -211,13 +211,13 @@
     },
     "km": 75,
     "note": {
-      "ar": "الجبيل محافظة مستقلة على ساحل الخليج، وتقع شمال مدينة الدمام.",
-      "en": "Al-Jubail is a coastal governorate on the Arabian Gulf, located north of Dammam."
+      "ar": "الجبيل محافظة على ساحل الخليج العربي، تقع شمال الدمام.",
+      "en": "Al-Jubail is a governorate on the Arabian Gulf coast, north of Dammam."
     },
     "near": [
       "appliance-repair-in-umm-as-sahik",
       "appliance-repair-in-safwa",
-      "appliance-repair-in-ras-tanura"
+      "appliance-repair-in-al-awamiyah"
     ]
   },
   {
@@ -243,27 +243,27 @@
       "ar": "رأس تنورة",
       "en": "Ras Tanura"
     },
-    "km": 30,
+    "km": 25,
     "note": {
-      "ar": "رأس تنورة محافظة ساحلية تقع على شبه جزيرة شمال القطيف.",
-      "en": "Ras Tanura is a coastal governorate situated on a peninsula north of Al-Qatif."
+      "ar": "رأس تنورة محافظة ساحلية تقع على شبه جزيرة شمال شرق القطيف.",
+      "en": "Ras Tanura is a coastal governorate on a peninsula north-east of Al-Qatif."
     },
     "near": [
-      "appliance-repair-in-safwa",
       "appliance-repair-in-sanabes",
-      "appliance-repair-in-umm-as-sahik"
+      "appliance-repair-in-tarout",
+      "appliance-repair-in-darin"
     ]
   },
   {
     "slug": "appliance-repair-in-safwa",
     "name": {
       "ar": "صفوى",
-      "en": "Al-Safwa"
+      "en": "Safwa"
     },
     "km": 25,
     "note": {
-      "ar": "مدينة تتبع محافظة القطيف، تقع شمال مدينة القطيف وقرب ساحل الخليج العربي بجوار رأس تنورة.",
-      "en": "A city in Qatif Governorate located north of Qatif city near the Arabian Gulf coast and Ras Tanura."
+      "ar": "صفوى مدينة تتبع محافظة القطيف، تقع شمال مدينة القطيف وقرب ساحل الخليج العربي بجوار رأس تنورة.",
+      "en": "Safwa is a city in Qatif Governorate located north of Qatif city near the Arabian Gulf coast and Ras Tanura."
     },
     "near": [
       "appliance-repair-in-umm-as-sahik",
@@ -279,8 +279,8 @@
     },
     "km": 5,
     "note": {
-      "ar": "مدينة تتبع محافظة القطيف على ساحل الخليج العربي، وتقع مباشرة بين مدينة الدمام ومدينة القطيف.",
-      "en": "A coastal city in Qatif Governorate on the Arabian Gulf situated between Dammam and Qatif."
+      "ar": "سيهات مدينة تتبع محافظة القطيف على ساحل الخليج العربي، وتقع مباشرة بين مدينة الدمام ومدينة القطيف.",
+      "en": "Saihat is a coastal city in Qatif Governorate on the Arabian Gulf situated between Dammam and Qatif."
     },
     "near": [
       "appliance-repair-in-al-jish",
@@ -296,8 +296,8 @@
     },
     "km": 15,
     "note": {
-      "ar": "بلدة ساحلية تتبع محافظة القطيف، وتقع في الجهة الشرقية من جزيرة تاروت على الخليج العربي.",
-      "en": "A coastal town in Qatif Governorate located on the eastern side of Tarout Island along the Arabian Gulf."
+      "ar": "سنابس بلدة ساحلية تتبع محافظة القطيف، وتقع في الجهة الشرقية من جزيرة تاروت على الخليج العربي.",
+      "en": "Sanabes is a coastal town in Qatif Governorate located on the eastern side of Tarout Island along the Arabian Gulf."
     },
     "near": [
       "appliance-repair-in-tarout",
@@ -313,8 +313,8 @@
     },
     "km": 15,
     "note": {
-      "ar": "جزيرة ومدينة تتبع محافظة القطيف داخل مياه الخليج العربي، وترتبط بمدينة القطيف عبر جسور بحرية.",
-      "en": "An island and town in Qatif Governorate in the Arabian Gulf connected to Qatif city by causeways."
+      "ar": "تاروت جزيرة ومدينة تتبع محافظة القطيف في الخليج العربي، وتربطها بمدينة القطيف جسور.",
+      "en": "Tarout is an island and town in Qatif governorate in the Arabian Gulf, linked to Qatif city by causeway."
     },
     "near": [
       "appliance-repair-in-sanabes",
@@ -326,12 +326,12 @@
     "slug": "appliance-repair-in-umm-as-sahik",
     "name": {
       "ar": "أم الساهك",
-      "en": "Umm Al-Sahik"
+      "en": "Umm As-Sahik"
     },
     "km": 30,
     "note": {
-      "ar": "بلدة تتبع محافظة القطيف، تقع غرب مدينة صفوى بالقرب من طريق الظهران الجبيل السريع.",
-      "en": "A town in Qatif Governorate located west of Safwa near the Dhahran to Jubail Highway."
+      "ar": "أم الساهك بلدة تتبع محافظة القطيف، تقع غرب مدينة صفوى بالقرب من طريق الظهران الجبيل السريع.",
+      "en": "Umm As-Sahik is a town in Qatif Governorate located west of Safwa near the Dhahran to Jubail Highway."
     },
     "near": [
       "appliance-repair-in-safwa",

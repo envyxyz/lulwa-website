@@ -1,0 +1,522 @@
+[
+  {
+    "slug": "dishwasher-repair",
+    "name": {
+      "ar": "غسالات الصحون",
+      "en": "Dishwashers"
+    },
+    "title": {
+      "ar": "تصليح غسالات صحون في الدمام",
+      "en": "Dishwasher repair in Dammam"
+    },
+    "description": {
+      "ar": "غسالة الصحون جهاز كهربائي يتعامل مع ماء وحرارة، وأغلب مشاكله تجي من تجمع بقايا الأكل أو انسداد التصريف. تنظيف الفلتر واستخدام المنظف المناسب يقلل الأعطال.",
+      "en": "A dishwasher uses both electricity and hot water, and most issues stem from food buildup or drainage blockages. Keeping the filter clean and using suitable detergent prevents common troubles."
+    },
+    "problems": [
+      {
+        "name": {
+          "ar": "الماء متجمع في القاع",
+          "en": "Standing water in the basin"
+        },
+        "signs": {
+          "ar": "يبقى ماء راكد تحت بعد ما يخلص الغسيل، وأحيانًا تطلع ريحة مو حلوة.",
+          "en": "Water stays pooled at the bottom after the cycle ends, often with bad odors."
+        }
+      },
+      {
+        "name": {
+          "ar": "تسريب ماء على الأرض",
+          "en": "Water leaking onto the floor"
+        },
+        "signs": {
+          "ar": "ظهور بقع بلل حول الباب أو تجمع ماء تحت الغسالة أثناء التشغيل.",
+          "en": "Moisture around the door edge or water pooling underneath during operation."
+        }
+      },
+      {
+        "name": {
+          "ar": "الصحون تطلع غير نظيفة",
+          "en": "Dishes coming out dirty"
+        },
+        "signs": {
+          "ar": "بقايا الطعام والدهون باقية على الأواني أو وجود بقع وتكلسات واضحة.",
+          "en": "Food film remains on plates, glasses look cloudy, or residue stays behind."
+        }
+      },
+      {
+        "name": {
+          "ar": "الصابون ما يذوب",
+          "en": "Detergent tablet not dissolving"
+        },
+        "signs": {
+          "ar": "باب علبة الصابون يبقى مقفل، أو القرص يطيح تحت وما يذوب كامل.",
+          "en": "The dispenser door stays shut or the tablet drops down without fully dissolving."
+        }
+      }
+    ],
+    "checks": {
+      "ar": [
+        "افصل الغسالة، طلّع الفلتر السفلي واغسله بالماء من بقايا الأكل.",
+        "تأكد أن رشاشات الماء تدور بحرية وما تصطدم بالصحون أو القدور الطويلة.",
+        "إذا خرطوم التصريف ظاهر، تأكد أنه مو مثني ولا مضغوط."
+      ],
+      "en": [
+        "Unplug the machine, then take out the bottom filter and rinse off the trapped food.",
+        "Check that the spray arms spin freely without hitting tall dishes or cookware.",
+        "If the drain hose is in view, check that it is not bent or pinched."
+      ]
+    },
+    "stop": {
+      "ar": [
+        "إذا وصل الماء للأفياش أو الأسلاك أو انتشر تحت الغسالة، لا تلمس الغسالة ولا الفيش. افصل الكهرباء من القاطع فورًا وكلّم فني مختص.",
+        "إذا شميت ريحة حريق أو شفت شرار، وقّف الغسالة، افصل الكهرباء من القاطع، وكلّم فني مختص.",
+        "إذا طلع صوت طحن قوي من الداخل، وقّف الغسالة ولا تشغلها لين يفحصها فني مختص."
+      ],
+      "en": [
+        "If water reaches an outlet or wiring or spreads across the floor, do not touch the machine or the plug. Switch off the breaker at once and call a qualified technician.",
+        "If you notice a burning smell, smoke, or sparks, stop operation immediately, turn off power at the panel, and call a qualified technician.",
+        "If you hear severe grinding or metal banging noises, stop using the appliance and have a qualified technician inspect it."
+      ]
+    },
+    "faq": [
+      {
+        "q": {
+          "ar": "ليش يتجمع الماء في قاع الغسالة؟",
+          "en": "Why does water pool in the bottom of the dishwasher?"
+        },
+        "a": {
+          "ar": "غالبًا السبب انسداد الفلتر أو لي التصريف مثني.",
+          "en": "The most common cause is a clogged floor filter or a kinked drain hose."
+        }
+      },
+      {
+        "q": {
+          "ar": "ليش الصابون ما يذوب؟",
+          "en": "What causes detergent tablets to remain undissolved?"
+        },
+        "a": {
+          "ar": "غالبًا صحن كبير يمنع باب علبة الصابون من الفتح، أو الماء مو حار كفاية.",
+          "en": "Usually an oversized dish blocks the dispenser flap from opening or wash water is too cold."
+        }
+      }
+    ],
+    "image": "dishwasher"
+  },
+  {
+    "slug": "freezer-repair",
+    "name": {
+      "ar": "الفريزرات",
+      "en": "Freezers"
+    },
+    "title": {
+      "ar": "تصليح فريزرات في الدمام",
+      "en": "Freezer repair in Dammam"
+    },
+    "description": {
+      "ar": "أغلب مشاكل الفريزر تبدأ من تراكم الثلج أو ضعف التبريد بسبب دخول الهواء. والحرارة والغبار حول الجهاز يضعفون التجميد.",
+      "en": "Most freezer troubles start with frost buildup or cooling loss from warm air leaking inside. Dust and heat around the appliance directly impact freezing performance."
+    },
+    "problems": [
+      {
+        "name": {
+          "ar": "الفريزر ما يبرد زين",
+          "en": "Freezer warm inside"
+        },
+        "signs": {
+          "ar": "الأكل يبدأ يذوب والكمبروسر شغال بدون توقف.",
+          "en": "Food begins to soften while the compressor runs without stopping."
+        }
+      },
+      {
+        "name": {
+          "ar": "تجمع الثلج بكثرة",
+          "en": "Heavy frost buildup"
+        },
+        "signs": {
+          "ar": "طبقات ثلج سميكة على الجدران والرفوف، والأدراج ما تنفتح بسهولة.",
+          "en": "Thick frost covers inner walls and shelves making drawers hard to move."
+        }
+      },
+      {
+        "name": {
+          "ar": "تسريب ماء تحت الفريزر",
+          "en": "Water leaking around base"
+        },
+        "signs": {
+          "ar": "ماء متجمع تحت الجهاز أو في قاع الفريزر.",
+          "en": "Water pools on the floor beneath the cabinet or collects inside the bottom."
+        }
+      },
+      {
+        "name": {
+          "ar": "أصوات طقطقة أو أزيز عالي",
+          "en": "Loud buzzing or clicking"
+        },
+        "signs": {
+          "ar": "طقطقة متكررة وقت التشغيل، أو اهتزاز قوي من ورا.",
+          "en": "Repetitive clicking sounds during startup or harsh vibration from the rear."
+        }
+      }
+    ],
+    "checks": {
+      "ar": [
+        "تأكد أن ربل الباب نظيف وسليم، وأن الباب يقفل زين بدون فراغات.",
+        "تأكد أن سلك الكهرباء مشبوك زين في الفيش.",
+        "خل مسافة تهوية ورا الفريزر، وافصله قبل ما تنظف الغبار عن فتحات التهوية الخارجية."
+      ],
+      "en": [
+        "Inspect the door seal for gaps and wipe away dirt so it closes tight.",
+        "Check the electrical plug and wall socket to ensure a firm connection.",
+        "Leave space behind the cabinet, and unplug it before dusting the outer vents."
+      ]
+    },
+    "stop": {
+      "ar": [
+        "إذا شميت ريحة حريق، افصل الفريزر من الكهرباء فورًا وكلّم فني مختص.",
+        "إذا سمعت صوت تنفيس أو شفت أثر زيت من الأنابيب، لا تلمس مكان التسريب. افصل الفريزر من الكهرباء، افتح الشبابيك، وكلّم فني مختص لأن غاز التبريد خطر.",
+        "لا تكسر الثلج بسكين أو أداة حادة أبدًا، ممكن تثقب أنابيب التبريد. افصل الفريزر، وإذا كان التذويب الآلي معطل كلّم فني مختص."
+      ],
+      "en": [
+        "If you notice a burning odor, unplug the unit immediately, stop using it, and call a qualified technician.",
+        "If you hear hissing or see oily residue from the pipes, do not touch the leak. Unplug the freezer, open the windows and call a qualified technician, because refrigerant is dangerous.",
+        "Never chip ice with a knife or sharp tool, as it can pierce the cooling pipes. Unplug the freezer, and call a qualified technician if automatic defrost has failed."
+      ]
+    },
+    "faq": [
+      {
+        "q": {
+          "ar": "ليش يتجمع الثلج بسرعة داخل الفريزر؟",
+          "en": "Why does thick frost collect inside the compartment?"
+        },
+        "a": {
+          "ar": "الهواء الرطب يدخل من ربل تالف أو من كثرة فتح الباب، والرطوبة تتحول ثلج.",
+          "en": "Humid room air entering through a worn door gasket condenses and freezes against cold surfaces."
+        }
+      },
+      {
+        "q": {
+          "ar": "هل طبيعي تسخن جوانب الفريزر من برا؟",
+          "en": "Is warmth along the outer freezer sides normal?"
+        },
+        "a": {
+          "ar": "إيه، في أغلب الأجهزة أنابيب تطرد الحرارة تمر في الجوانب، فالحرارة الخفيفة طبيعية وقت التبريد.",
+          "en": "Yes. On most models, tubing in the outer walls gives off heat, so mild warmth is normal while it cools."
+        }
+      }
+    ],
+    "image": "freezer"
+  },
+  {
+    "slug": "microwave-repair",
+    "name": {
+      "ar": "الميكروويف",
+      "en": "Microwaves"
+    },
+    "title": {
+      "ar": "تصليح ميكروويف في الدمام",
+      "en": "Microwave repair in Dammam"
+    },
+    "description": {
+      "ar": "أشهر مشاكل الميكروويف: ما يسخّن زين، أو يطلع منه شرار، أو يسوي أصوات غريبة. وغالبًا السبب تراكم الدهون داخله أو تلف في أجزائه الداخلية.",
+      "en": "Common microwave issues include failure to heat, sparking inside, or unusual loud sounds. These faults often happen because of grease buildup or wear in internal heating components."
+    },
+    "problems": [
+      {
+        "name": {
+          "ar": "يشتغل لكن الأكل يبقى بارد",
+          "en": "Microwave runs but food stays cold"
+        },
+        "signs": {
+          "ar": "الصحن يدور واللمبة شغالة، لكن الأكل يطلع بارد.",
+          "en": "The turntable rotates and the light stays on, but the meal remains cold."
+        }
+      },
+      {
+        "name": {
+          "ar": "شرار ووميض داخل الجهاز",
+          "en": "Sparking and arcing inside the chamber"
+        },
+        "signs": {
+          "ar": "لمعات ضوء أو طقطقة قرب غطاء موجّه الموجات أو الجدران من الداخل.",
+          "en": "Flashes of light or crackling noises appear near the waveguide cover or inner walls."
+        }
+      },
+      {
+        "name": {
+          "ar": "الصحن ما يدور",
+          "en": "Turntable fails to turn"
+        },
+        "signs": {
+          "ar": "يسخّن لكن الصحن الزجاجي واقف، والأكل يسخن من جهة دون الثانية.",
+          "en": "Heating continues but the glass plate stays still, so the food heats unevenly."
+        }
+      },
+      {
+        "name": {
+          "ar": "الأزرار ما تستجيب",
+          "en": "Control panel buttons do not respond"
+        },
+        "signs": {
+          "ar": "الشاشة شغالة، لكن زر التشغيل أو الوقت ما يسوي شي.",
+          "en": "The display shows text, but pressing start or setting time gives no response."
+        }
+      }
+    ],
+    "checks": {
+      "ar": [
+        "تأكد أن الصحن الزجاجي والحلقة الدوارة في مكانهم فوق المحور، وما فيه شي يعيقهم.",
+        "افصل الجهاز، وبعدين امسح الجدران وغطاء موجّه الموجات من بقايا الأكل بقماشة ناعمة رطبة.",
+        "افصل القابس شوي ثم رجّعه، عشان تعيد ضبط لوحة التحكم."
+      ],
+      "en": [
+        "Ensure the glass tray and roller ring sit properly on the center coupler without food debris blocking movement.",
+        "Unplug it first, then wipe food splatter off the cavity walls and waveguide cover with a soft damp cloth.",
+        "Disconnect the power plug from the wall outlet for a short period and plug it back in to reset the controls."
+      ]
+    },
+    "stop": {
+      "ar": [
+        "لا تفتح غطاء الجهاز الخارجي أبدًا. المكثف اللي داخله يبقى يحمل شحنة كهربائية خطيرة حتى لو الجهاز مفصول. افصل القابس وكلّم فني مختص.",
+        "إذا طلع دخان أو استمر الشرار داخل الجهاز، وقّفه وافصله من الكهرباء وكلّم فني مختص.",
+        "إذا الباب مكسور، أو ما يقفل زين، أو الربل حوله تالف، لا تستخدم الجهاز. افصله من الكهرباء وكلّم فني مختص."
+      ],
+      "en": [
+        "Never remove the outer cover. The high-voltage capacitor inside holds a dangerous charge even when the microwave is unplugged. Unplug it and call a qualified technician.",
+        "If smoke appears or sparks keep coming inside the cavity, stop using it, unplug it and call a qualified technician.",
+        "If the door latch is broken, the glass is cracked or the door seal is damaged, stop using it, unplug it and call a qualified technician."
+      ]
+    },
+    "faq": [
+      {
+        "q": {
+          "ar": "هل بقايا الأكل والدهون داخل الميكروويف تسبب شرار؟",
+          "en": "Can food residue and grease inside a microwave cause sparks?"
+        },
+        "a": {
+          "ar": "إيه. بقايا الأكل والصلصة على الجدران وغطاء الموجّه ممكن تحترق مع الموجات وتسبب شرار.",
+          "en": "Splattered grease or dried sauce on the cavity walls or waveguide cover can carbonize under microwaves and create flashes."
+        }
+      },
+      {
+        "q": {
+          "ar": "ليش الصحن يدور والأكل ما يسخن؟",
+          "en": "Why does the tray rotate while the food fails to warm up?"
+        },
+        "a": {
+          "ar": "لأن محرك الصحن واللمبة يشتغلون منفصلين عن الأجزاء اللي تولّد الموجات وتسخّن الأكل.",
+          "en": "The turntable motor and interior lights operate on circuits separate from the primary microwave generation parts."
+        }
+      }
+    ],
+    "image": "microwave"
+  },
+  {
+    "slug": "oven-stove-repair",
+    "name": {
+      "ar": "الأفران والمواقد",
+      "en": "Ovens and stoves"
+    },
+    "title": {
+      "ar": "تصليح أفران ومواقد في الدمام",
+      "en": "Oven and stove repair in Dammam"
+    },
+    "description": {
+      "ar": "أعطال الأفران والمواقد غالبًا تبدأ من تراكم الدهون أو تلف مفاتيح التحكم، وهذا يسبب ضعف في التسخين أو مشاكل في إشعال العيون.",
+      "en": "Oven and stove issues usually stem from grease buildup or worn heating controls. This causes uneven heating or burner ignition failure."
+    },
+    "problems": [
+      {
+        "name": {
+          "ar": "ضعف أو انعدام التسخين",
+          "en": "No heat or weak heating"
+        },
+        "signs": {
+          "ar": "الطعام يأخذ وقت طويل وما يستوي أو الفرن يبقى بارد تماما.",
+          "en": "Food takes too long to cook or the oven stays completely cold."
+        }
+      },
+      {
+        "name": {
+          "ar": "مشاكل إشعال العيون",
+          "en": "Burner ignition problems"
+        },
+        "signs": {
+          "ar": "طقطقة مستمرة بدون ما تطلع نار، أو النار تنطفي بسرعة.",
+          "en": "Continuous clicking sounds without a flame or burners going out quickly."
+        }
+      },
+      {
+        "name": {
+          "ar": "حرارة الفرن مو مضبوطة",
+          "en": "Inaccurate baking temperature"
+        },
+        "signs": {
+          "ar": "الأكل يحترق من جهة ويبقى ني من الجهة الثانية.",
+          "en": "Food burns on one side while staying raw due to heat loss."
+        }
+      },
+      {
+        "name": {
+          "ar": "ربلة باب الفرن تالفة",
+          "en": "Loose oven door seal"
+        },
+        "signs": {
+          "ar": "حرارة طالعة من أطراف الباب، أو تلف واضح في الربلة.",
+          "en": "Heat leaking around the door edges or visible damage on the rubber gasket."
+        }
+      }
+    ],
+    "checks": {
+      "ar": [
+        "والموقد بارد والغاز مقفل، نظف عيون الغاز من الدهون وبقايا الطبخ.",
+        "تأكد أن سلك الكهرباء مشبوك زين في الفيش.",
+        "تأكد أن غطاء العين راكب في مكانه ومستوي."
+      ],
+      "en": [
+        "With the stove cold and the gas off, clean dried food and grease off the burner heads.",
+        "Check that the electrical power plug sits firmly and safely in the wall outlet.",
+        "Ensure each burner cap rests flat and centered in its proper place."
+      ]
+    },
+    "stop": {
+      "ar": [
+        "إذا شميت ريحة غاز: اقفل المحبس، افتح الشبابيك، لا تشعل نار ولا تلمس مفاتيح الكهرباء، اطلع من البيت، واتصل بالدفاع المدني أو شركة الغاز من برا.",
+        "إذا القاطع يفصل كل شوي أو شميت ريحة حريق كهرباء، افصل الفرن ولا تشغله، وكلّم فني مختص.",
+        "إذا العين ما اشتعلت، لا تكرر المحاولة. اقفل مفتاحها والغاز، وكلّم فني مختص."
+      ],
+      "en": [
+        "If you smell gas, shut the supply valve, open windows, do not touch switches or flames, leave, and call civil defence or the gas company from outside.",
+        "If the breaker keeps tripping or you smell burning wiring, stop using the oven, unplug it and call a qualified technician.",
+        "If a burner does not light, do not keep trying. Turn it off, close the gas and call a qualified technician."
+      ]
+    },
+    "faq": [
+      {
+        "q": {
+          "ar": "ليش نار الغاز صفراء بدل زرقاء؟",
+          "en": "Why is the gas flame yellow instead of blue?"
+        },
+        "a": {
+          "ar": "غالبًا فيه انسداد أو دهون تمنع الهواء عن النار. نظف العين وهي باردة، وإذا بقت النار صفراء لا تستخدم الموقد وكلّم فني مختص.",
+          "en": "Usually clogged burner ports or grease are blocking the air the flame needs. Clean the burner when cold. If the flame stays yellow, stop using the stove and call a qualified technician."
+        }
+      },
+      {
+        "q": {
+          "ar": "هل تلف ربلة الباب يأثر على الطبخ؟",
+          "en": "Does a worn oven door seal impact cooking?"
+        },
+        "a": {
+          "ar": "إيه. الربلة التالفة تهرّب الحرارة، فالفرن يستهلك طاقة أكثر والأكل ما يستوي بالتساوي.",
+          "en": "Yes, damaged seals allow hot air to escape, causing uneven baking and higher energy consumption."
+        }
+      }
+    ],
+    "image": "oven-stove"
+  },
+  {
+    "slug": "water-heater-repair",
+    "name": {
+      "ar": "سخانات الماء",
+      "en": "Water heaters"
+    },
+    "title": {
+      "ar": "تصليح سخانات ماء في الدمام",
+      "en": "Water heater repair in Dammam"
+    },
+    "description": {
+      "ar": "مع الوقت تتراكم الأملاح في السخان، وممكن يضعف التسخين أو يصير فيه تسريب. وهذا يقطع الماء الحار أو يغير حرارته فجأة.",
+      "en": "Water heaters often suffer from mineral buildup, heating failures, and leaks over time. These issues result in a total loss of hot water or unexpected temperature changes."
+    },
+    "problems": [
+      {
+        "name": {
+          "ar": "الماء ما يسخن",
+          "en": "No hot water"
+        },
+        "signs": {
+          "ar": "الماء ينزل بارد طول الوقت والمفتاح شغال.",
+          "en": "Water stays completely cold even when the power switch is active."
+        }
+      },
+      {
+        "name": {
+          "ar": "تسريب ماء حول السخان",
+          "en": "Water leaking around the tank"
+        },
+        "signs": {
+          "ar": "ماء متجمع تحت الخزان، أو تنقيط عند التوصيلات وصمام الأمان.",
+          "en": "Moisture pools beneath the unit or water drips from fittings and the safety valve."
+        }
+      },
+      {
+        "name": {
+          "ar": "حرارة الماء زايدة أو ناقصة",
+          "en": "Water too hot or only lukewarm"
+        },
+        "signs": {
+          "ar": "الماء يحرق فجأة، أو يطلع دافي بس وما يكفي للاستحمام.",
+          "en": "Water temperature fluctuates between scalding hot and barely warm."
+        }
+      },
+      {
+        "name": {
+          "ar": "أصوات طقطقة داخل الخزان",
+          "en": "Rumbling or popping sounds"
+        },
+        "signs": {
+          "ar": "صوت فرقعة وغليان قوي وقت التسخين.",
+          "en": "Loud popping or boiling noises come from the tank during heating cycles."
+        }
+      }
+    ],
+    "checks": {
+      "ar": [
+        "شوف قاطع السخان في الطبلون. إذا فصل ارفعه مرة وحدة بس، وإذا فصل مرة ثانية لا ترفعه وكلّم فني مختص.",
+        "تأكد أن محبس الماء البارد الداخل للسخان مفتوح.",
+        "شوف منظم الحرارة الخارجي واضبطه على درجة معتدلة."
+      ],
+      "en": [
+        "Check the heater breaker on your panel. If it tripped, reset it once only. If it trips again, leave it off and call a qualified technician.",
+        "Inspect the cold water shutoff valve to confirm it is fully open.",
+        "Look at the external temperature dial and verify it is set to a moderate level."
+      ]
+    },
+    "stop": {
+      "ar": [
+        "إذا شفت ماء قريب من الأسلاك أو المفتاح، لا تلمس السخان أبدًا. افصل القاطع من الطبلون فورًا وكلّم فني مختص.",
+        "إذا طلع صوت غليان قوي مع بخار، أو الخزان منتفخ، أو صمام الأمان يسرب، افصل القاطع فورًا وابعد عن السخان وكلّم فني مختص.",
+        "إذا السخان يشتغل بالغاز وشميت ريحة غاز: اقفل المحبس، لا تشعل نار ولا تلمس أي مفتاح، افتح الشبابيك، اطلع من البيت، وكلّم فني مختص من برا."
+      ],
+      "en": [
+        "If water touches wiring or electrical parts, never touch the unit, switch off the breaker immediately, and call a qualified technician.",
+        "If the tank bulges, rumbles loudly with steam, or the relief valve leaks, shut off the breaker right away, keep away from it and call a qualified technician.",
+        "If a gas heater smells of gas: shut the gas valve, light no flame, touch no switches, open the windows, leave the house and call a qualified technician from outside."
+      ]
+    },
+    "faq": [
+      {
+        "q": {
+          "ar": "ليش السخان يطلع أصوات طقطقة وغليان؟",
+          "en": "Why is the water heater making popping noises?"
+        },
+        "a": {
+          "ar": "الأملاح تتجمع في قاع الخزان مع الوقت، فينحبس تحتها ماء ويتبخر بصوت عالي.",
+          "en": "Minerals and sediment collect at the bottom over time, trapping water and causing steam pockets to pop."
+        }
+      },
+      {
+        "q": {
+          "ar": "هل تسريب صمام الأمان خطر؟",
+          "en": "Is a leak from the pressure relief valve dangerous?"
+        },
+        "a": {
+          "ar": "الصمام يخفف الضغط الزايد ويحمي الخزان. إذا استمر يسرب، فالضغط عالي أو الصمام تالف. لا تسده ولا تعطله أبدًا، وخل فني مختص يفحصه.",
+          "en": "The valve releases excess pressure and protects the tank. Constant dripping means high pressure or a worn valve. Never plug or disable it. Have a qualified technician check it."
+        }
+      }
+    ],
+    "image": "water-heater"
+  }
+]

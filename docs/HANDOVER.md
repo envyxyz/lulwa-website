@@ -55,3 +55,6 @@ Stopped safely. Status: `docs/HANDOVER-seo.md`. Reports a good build of 190 page
 
 ## Late report from the agy agent, final (unverified by the lead)
 Stopped. Status: `docs/HANDOVER-agy.md`. Arabic and safety reviews ran but nobody read them; read and apply `C:\Users\ameer\AppData\Local\Temp\claude\c--Users-ameer-Desktop-lulwa\02cd0664-272d-4f2e-b0c8-52095807be0f\scratchpad\agy\qa-*.out`. The SEO audit never ran. Some brand `services` lists are judgment calls and area coordinates were only spot-checked.
+
+## Late report from the Hostinger agent (unverified by the lead)
+All agents have stopped. Status and run steps: `docs/HANDOVER-hostinger.md`. Real Apache ran on an older partial build: 153 passed; the failures it reported were pages not yet in that build plus the old-file-names test. Rerun on a fresh build. **To do:** update `scripts/test-contract.mjs`; run `pnpm package` and list the zip; check the per-IP rate limit (20 an hour); fix `tests/analytics.spec.ts` (still mocks `/api/lead`) and `lighthouserc.cjs` (still reads `sitemap-0.xml`). Extra file: `public/error-en.php` serves the English 404. Hostinger needs PHP 8.1+ with `mbstring`; `mail()` can only be proven on the host.
