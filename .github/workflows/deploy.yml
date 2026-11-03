@@ -28,20 +28,17 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
-          cache-dependency-path: website/pnpm-lock.yaml
 
       - name: Install dependencies
-        working-directory: website
         run: pnpm install --frozen-lockfile
 
       - name: Build
-        working-directory: website
         run: pnpm build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: website/dist
+          path: dist
 
   deploy:
     needs: build
