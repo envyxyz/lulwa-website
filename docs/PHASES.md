@@ -137,3 +137,9 @@ Each phase appends a dated entry: what shipped, what is left, decisions made.
 - Tooling: dead GTM loader in `chrome.ts` and `@astrojs/sitemap` removed; Lighthouse, taste and test-contract read `sitemap-index.xml`; Lighthouse runs on Apache; portable Apache and PHP live in `.tools/` (git-ignored) so `pnpm test:e2e` needs no env; `scripts/images.mjs` knows the 5 new products. T17 baselines regenerated (bar removed on purpose).
 - Green: `pnpm build`, `pnpm lint`, `pnpm typecheck`, `pnpm test:e2e` 3309 of 3309 on real Apache and PHP (3 Edge crashes under load passed on `--last-failed`). The suite had stalled because the test Apache ran out of its 16 threads; `serve-apache.mjs` now starts 250. `pnpm package` zip checked: `.htaccess`, `logs/`, `contact-submit.php` at the root, every old public file at its old path except the three below.
 - Not done: `500.html` and `offline.html` from the old site are not rebuilt (never linked, not in the url map; Apache's own 500 page shows instead). Lighthouse not re-run this session.
+
+### 2026-11-04 · GitHub Pages preview and Hostinger zip in CI
+- Why Pages failed: pnpm 9 in the workflow could not read `pnpm-workspace.yaml`, Node 20 is under Astro 7's minimum, Pages was still on the legacy branch build, and every URL was root-relative while the project site lives under `/lulwa-website`.
+- Fixed: pnpm 11.9.0 through `packageManager`, Node 24, Pages source set to GitHub Actions. `scripts/pages-base.mjs` copies `dist` to `dist-pages` with prefixed URLs, noindex and no PHP or `.htaccess`, so the Hostinger build stays untouched. Tags do not load on `github.io`. Each run keeps `hostinger-upload.zip` for 30 days.
+- On Pages the lead form has no PHP, so it shows the WhatsApp fallback. Redirects and security headers are Hostinger only.
+- Hostinger itself was not touched. Edge's install on this machine has no `msedge.exe`, so this session's tests ran in Chrome.
