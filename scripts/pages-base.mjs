@@ -18,10 +18,15 @@ const attributes = (text) =>
   text
     .replace(/\b(href|src|content|data-endpoint|data-thanks)="(\/[^"]*)"/g, (_, name, url) => `${name}="${prefix(url)}"`)
     .replace(/\bsrcset="([^"]*)"/g, (_, list) => `srcset="${list.split(', ').map(prefix).join(', ')}"`);
+// Link previews fetch og:image and follow og:url, so on the preview they must name the preview itself, not lulwa.com.sa,
+// where the old site would answer with its own card. Canonicals, hreflang and schema keep the production address.
+const previewOrigin = 'https://envyxyz.github.io';
+const previewCard = (text) =>
+  text.replace(/(<meta (?:property="og:(?:url|image|image:secure_url)"|name="twitter:(?:url|image)") content=")https:\/\/lulwa\.com\.sa(\/[^"]*)?"/g, (_, head, path = '/') => `${head}${previewOrigin}${base}${path}"`);
 const noindex = (text) => text.replace(/<meta name="robots"[^>]*>/g, '').replace('</head>', '<meta name="robots" content="noindex"></head>');
 
 const rewrite = (file, text) => {
-  if (file.endsWith('.html')) return noindex(attributes(text));
+  if (file.endsWith('.html')) return noindex(previewCard(attributes(text)));
   if (file.endsWith('.css')) return text.replace(/url\(\/(?!\/)/g, `url(${base}/`);
   if (file.endsWith('browserconfig.xml')) return attributes(text);
   if (file.endsWith('manifest.json')) return text.replace(/"\/(?!\/)/g, `"${base}/`);
