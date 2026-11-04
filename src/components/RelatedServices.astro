@@ -1,0 +1,58 @@
+---
+import Button from './Button.astro';
+import Heading from './Heading.astro';
+import Icon from './Icon.astro';
+import Img from './Img.astro';
+import Section from './Section.astro';
+import { content, langFromUrl, localePath } from '../content';
+
+type Props = { slug: string };
+const lang = langFromUrl(Astro.url);
+const { services, actions } = content[lang];
+
+// Three nearest appliances per service, hand-picked. The heading is the neutral "other appliances" so no ask-first service reads as a promise.
+const related: Record<string, string[]> = {
+  'ac-repair': ['refrigerator-repair', 'freezer-repair', 'washing-machine-repair'],
+  'refrigerator-repair': ['freezer-repair', 'ac-repair', 'washing-machine-repair'],
+  'washing-machine-repair': ['dryer-repair', 'dishwasher-repair', 'refrigerator-repair'],
+  'dryer-repair': ['washing-machine-repair', 'refrigerator-repair', 'ac-repair'],
+  'dishwasher-repair': ['washing-machine-repair', 'oven-stove-repair', 'refrigerator-repair'],
+  'freezer-repair': ['refrigerator-repair', 'ac-repair', 'washing-machine-repair'],
+  'microwave-repair': ['oven-stove-repair', 'dishwasher-repair', 'refrigerator-repair'],
+  'oven-stove-repair': ['microwave-repair', 'dishwasher-repair', 'refrigerator-repair'],
+  'water-heater-repair': ['washing-machine-repair', 'ac-repair', 'dishwasher-repair'],
+};
+// Confirmed services carry no image field, so their product cutouts are named here.
+const confirmedImage: Record<string, string> = { 'ac-repair': 'split-ac-indoor', 'refrigerator-repair': 'fridge', 'washing-machine-repair': 'washer', 'dryer-repair': 'dryer' };
+
+const cards = (related[Astro.props.slug] ?? []).map((slug) => {
+  const confirmed = services.items.find((i) => i.slug === slug);
+  const asked = services.more.find((i) => i.slug === slug);
+  return { slug, name: (confirmed ?? asked)!.name, summary: confirmed?.summary, image: confirmed ? confirmedImage[slug] : asked?.image };
+});
+---
+
+<Section id="related">
+  <div class="flex flex-col gap-6">
+    <Heading level={2}>{services.moreHeading}</Heading>
+    <ul class="grid gap-4 md:grid-cols-3">
+      {cards.map((c) => (
+        <li>
+          <a href={localePath(lang, `/services/${c.slug}`)} class="flex h-full items-center gap-4 rounded-card bg-pearl-step p-4 transition hover:bg-pearl-hover active:scale-98 md:flex-col md:items-stretch md:gap-2">
+            <span class="flex grow flex-col gap-2">
+              <span class="font-display text-lead font-head">{c.name}</span>
+              {c.summary && <span class="text-small text-ink-soft">{c.summary}</span>}
+            </span>
+            {c.image && (
+              <span class="block w-24 shrink-0 md:w-auto md:p-2">
+                <Img name={c.image} widths={[320, 640]} width={640} height={478} alt="" sizes="(min-width: 48rem) 20rem, 6rem" />
+              </span>
+            )}
+            <span class="hidden justify-end text-teal md:flex"><Icon name="arrow-next" /></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div><Button variant="quiet" href={localePath(lang, '/services')}>{actions.allServices}</Button></div>
+  </div>
+</Section>

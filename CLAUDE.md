@@ -60,7 +60,7 @@ Keep this list in sync with `package.json`.
 - `pnpm dev`: dev server. Kitchen sink at `/dev/kitchen-sink` and `/en/dev/kitchen-sink`, dev only, never built.
 - `pnpm build`, `pnpm preview`, `pnpm typecheck`
 - `pnpm lint`: ESLint and stylelint. `pnpm test:lint-proof` proves each rule fires (T19).
-- `pnpm test:contract`: builds, runs T1 to T22, prints each against the phase that owes it. Add `--fast` to skip Lighthouse. About 20 minutes while pages are missing.
+- `pnpm test:contract`: builds, runs T1 to T23, prints each against the phase that owes it. Add `--fast` to skip Lighthouse. About 20 minutes while pages are missing.
 - `pnpm test:e2e`: Playwright only, on the built site served by real Apache and PHP on :4330, in installed Edge. `pnpm test:e2e tests/nap.spec.ts` for one. Apache and PHP are portable copies in `.tools/` (git-ignored); set `HTTPD_DIR` to use another.
 - `pnpm serve`: the built `dist/` on Apache, as Hostinger runs it. `pnpm package`: build, then `hostinger-upload.zip` to extract into `public_html`.
 - `pnpm pages`: after a build, copies `dist/` to `dist-pages/` for the GitHub Pages preview (prefixed URLs, noindex, no PHP). Every push to `main` deploys it through `.github/workflows/deploy.yml` and keeps the Hostinger zip as a run artifact.

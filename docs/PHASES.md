@@ -143,3 +143,9 @@ Each phase appends a dated entry: what shipped, what is left, decisions made.
 - Fixed: pnpm 11.9.0 through `packageManager`, Node 24, Pages source set to GitHub Actions. `scripts/pages-base.mjs` copies `dist` to `dist-pages` with prefixed URLs, noindex and no PHP or `.htaccess`, so the Hostinger build stays untouched. Tags do not load on `github.io`. Each run keeps `hostinger-upload.zip` for 30 days.
 - On Pages the lead form has no PHP, so it shows the WhatsApp fallback. Redirects and security headers are Hostinger only.
 - Hostinger itself was not touched. Edge's install on this machine has no `msedge.exe`, so this session's tests ran in Chrome.
+
+### 2026-11-04 · Related services on service pages
+- Shipped: `RelatedServices.astro`, the last section above the footer on all 9 service pages in both languages: three nearest appliances from a hand-kept map, plus the all-services link. It replaces the lone all-services section on ask-first service pages.
+- Decided: the heading reuses `services.moreHeading` ("Other appliances") and ask-first cards show only the name, because `docs/LAUNCH-PLAN.md` forbids "we repair X" on those services. No new copy.
+- Green: T23 (new, 18 pages), lint, typecheck, T22. Full e2e on Chrome, because this machine's Edge install has no `msedge.exe`: 3317 of 3327, then 5 load timeouts passed on `--last-failed`; 4 T17 AC page baselines refreshed after checking only the page end changed. Lighthouse not re-run.
+- Left red: T17 `/en` at 390 on Wednesdays. "Wednesday · Today" wraps and pushes every hours row onto two lines. Existing bug in the home hours table, not from this change; baseline left alone.

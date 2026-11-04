@@ -4,6 +4,7 @@ import Button from './Button.astro';
 import Faq from './Faq.astro';
 import Heading from './Heading.astro';
 import Img from './Img.astro';
+import RelatedServices from './RelatedServices.astro';
 import Section from './Section.astro';
 import ServiceDiagram from './ServiceDiagram.astro';
 import Text from './Text.astro';
@@ -160,4 +161,5 @@ const set = (name: string, ext: string) => [320, 640].map((n) => `/images/${name
       </div>
     </div>
   </div>
+  <RelatedServices slug={s.slug} />
 </Base>

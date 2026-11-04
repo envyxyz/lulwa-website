@@ -1,9 +1,9 @@
-// pnpm test:contract: builds, runs T1 to T22, prints one line per test against the phase that owes it.
+// pnpm test:contract: builds, runs T1 to T23, prints one line per test against the phase that owes it.
 // Pass --fast to skip Lighthouse (T18), which takes minutes. Exit 1 if anything is red.
 import { spawn, spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 
-const GREEN_BY = { T1: 6, T2: 8, T3: 8, T4: 8, T5: 8, T6: 2, T7: 3, T8: 9, T9: 7, T10: 6, T11: 6, T12: 3, T13: 3, T14: 4, T15: 7, T16: 7, T17: 9, T18: 9, T19: 1, T20: 9, T21: 2, T22: 4 };
+const GREEN_BY = { T1: 6, T2: 8, T3: 8, T4: 8, T5: 8, T6: 2, T7: 3, T8: 9, T9: 7, T10: 6, T11: 6, T12: 3, T13: 3, T14: 4, T15: 7, T16: 7, T17: 9, T18: 9, T19: 1, T20: 9, T21: 2, T22: 4, T23: 9 };
 const run = (command) => spawnSync(command, { shell: true, stdio: 'inherit' }).status === 0;
 const quiet = (command) => spawnSync(command, { shell: true, stdio: 'ignore' }).status === 0;
 

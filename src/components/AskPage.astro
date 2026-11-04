@@ -2,6 +2,7 @@
 import Button from './Button.astro';
 import Faq from './Faq.astro';
 import Heading from './Heading.astro';
+import RelatedServices from './RelatedServices.astro';
 import Section from './Section.astro';
 import Text from './Text.astro';
 import Base from '../layouts/Base.astro';
@@ -117,11 +118,14 @@ const list = 'flex flex-col gap-2 ps-card list-disc';
     </Section>
   )}
 
-  <Section>
-    <div class="flex flex-col items-start gap-4">
-      {brand && <Text soft>{brand.disclaimer}</Text>}
-      {area && <Text soft>{c.areas.pending}</Text>}
-      <Button variant="quiet" href={localePath(lang, area ? '/areas' : brand ? '/brands' : '/services')}>{area ? c.areas.h1 : brand ? c.brands.h1 : actions.allServices}</Button>
-    </div>
-  </Section>
+  {!more && (
+    <Section>
+      <div class="flex flex-col items-start gap-4">
+        {brand && <Text soft>{brand.disclaimer}</Text>}
+        {area && <Text soft>{c.areas.pending}</Text>}
+        <Button variant="quiet" href={localePath(lang, area ? '/areas' : '/brands')}>{area ? c.areas.h1 : c.brands.h1}</Button>
+      </div>
+    </Section>
+  )}
+  {more && <RelatedServices slug={more.slug} />}
 </Base>

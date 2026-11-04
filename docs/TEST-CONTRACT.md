@@ -26,6 +26,7 @@ Written before the code. Phase 1 commits every test below, red, with a `test:con
 | T20 | `inspect.mjs` and `lint.mjs` from `design-taste-frontend` | Any FAIL on built pages | 9 |
 | T21 | `tests/copy-parity.spec.ts` | Arabic and English content files differ in shape, or a page has fewer English sections than Arabic | 2 |
 | T22 | `scripts/check-photos.mjs` | A photo renders larger than its source width, or lacks a provenance entry | 4 |
+| T23 | `tests/related-services.spec.ts` | A service page lacks the related section as the last thing above the footer, shows other than 3 cards, links to itself or crosses languages | 9 |
 
 Reference update, 1 Nov 2026: rounded tone-step cards pass T19 and T20. Generated product images pass T22 when listed as `kind: generated`.
 
