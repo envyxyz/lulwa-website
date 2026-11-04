@@ -2,10 +2,10 @@
 
 ## Launch: what only you can do (2 Nov 2026)
 
-The code side is done and tested (build, lint, typecheck, Playwright on real Apache and PHP). Nothing is deployed. Do these in order.
+The code side is done and tested (build, lint, typecheck, Playwright on real Apache and PHP). Nothing is on Hostinger yet; GitHub Pages only carries a noindex preview. Do these in order.
 
 1. **Back up `public_html` on Hostinger** (File Manager, compress, download). Keep `config/`, `includes/`, `database/`, `admin/` and the database itself untouched: the new site does not use them.
-2. **Upload:** `pnpm package` in this folder makes `hostinger-upload.zip`. Extract it into `public_html` over the old files. It carries `.htaccess`, `contact-submit.php` and `logs/` at the root. Hostinger needs PHP 8.1 or newer with `mbstring` (hPanel, PHP Configuration).
+2. **Upload:** `pnpm package` in this folder makes `hostinger-upload.zip`; the latest GitHub Actions run also offers it for download for 30 days. Extract it into `public_html` over the old files. It carries `.htaccess`, `contact-submit.php` and `logs/` at the root. Hostinger needs PHP 8.1 or newer with `mbstring` (hPanel, PHP Configuration).
 3. **Mailbox:** leads go to `lulwadammam@gmail.com`, sent from `no-reply@lulwa.com.sa`, as on the live form. Make sure that sender is allowed for `mail()` on Hostinger, then **send one real test lead** from `/contact` on a phone and check it arrives. Leads are also saved to `logs/contact-submissions.log`, which the web cannot read.
 4. **Check after upload:** a few old URLs open at the same address (home, `/services/ac-repair`, one brand, one area, `/blog/rss.xml`, `/sitemap.xml`, `/favicon.ico`), a real call and a real WhatsApp tap from a phone.
 5. **Search Console:** the same verification tag is on every page, so the property keeps working. Resubmit `sitemap-index.xml` and inspect the home page. GA4 `G-XYKP3DY4X7`, GTM `GTM-TVK4BRTS` and Clarity `yf0k43euob` are the old IDs; confirm GTM is yours or the shop's.

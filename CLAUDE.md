@@ -63,6 +63,7 @@ Keep this list in sync with `package.json`.
 - `pnpm test:contract`: builds, runs T1 to T22, prints each against the phase that owes it. Add `--fast` to skip Lighthouse. About 20 minutes while pages are missing.
 - `pnpm test:e2e`: Playwright only, on the built site served by real Apache and PHP on :4330, in installed Edge. `pnpm test:e2e tests/nap.spec.ts` for one. Apache and PHP are portable copies in `.tools/` (git-ignored); set `HTTPD_DIR` to use another.
 - `pnpm serve`: the built `dist/` on Apache, as Hostinger runs it. `pnpm package`: build, then `hostinger-upload.zip` to extract into `public_html`.
+- `pnpm pages`: after a build, copies `dist/` to `dist-pages/` for the GitHub Pages preview (prefixed URLs, noindex, no PHP). Every push to `main` deploys it through `.github/workflows/deploy.yml` and keeps the Hostinger zip as a run artifact.
 - `pnpm test:photos` (T22), `pnpm test:taste` (T20), `pnpm test:lighthouse` (T18)
 - `node scripts/images.mjs`: exports photos and product images to `public/images`, rewrites `src/images/provenance.json`. `python scripts/gen-products.py [names]`: product images with agy.
 - `python scripts/subset-fonts.py <raw font dir>`: rebuilds `public/fonts`. `node scripts/sink-shots.mjs`: kitchen sink screenshots. `node scripts/phase-shots.mjs <n> [routes]`: screenshots in light and dark to `docs/shots/phase-<n>/`, after `pnpm build` (in Git Bash set `MSYS_NO_PATHCONV=1` when passing routes).

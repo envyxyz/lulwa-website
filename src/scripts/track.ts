@@ -26,7 +26,8 @@ const load = (src: string) => {
 const wake = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
 let started = false;
 const start = () => {
-  if (started) return;
+  // The GitHub Pages preview must not count in the shop's analytics.
+  if (started || location.hostname.endsWith('.github.io')) return;
   started = true;
   for (const type of wake) removeEventListener(type, start);
   layer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });

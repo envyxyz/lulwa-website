@@ -55,7 +55,7 @@ const lulwa = {
 };
 
 export default [
-  { ignores: ['.claude', 'dist', '.wrangler', '.astro', 'node_modules', 'playwright-report', 'test-results', '.lighthouseci', 'docs', 'design', 'scripts', 'public', '*.cjs', '*.mjs'] },
+  { ignores: ['.claude', 'dist', 'dist-pages', '.wrangler', '.astro', 'node_modules', 'playwright-report', 'test-results', '.lighthouseci', 'docs', 'design', 'scripts', 'public', '*.cjs', '*.mjs'] },
   ...tseslint.configs.recommended,
   ...astro.configs.recommended,
   {

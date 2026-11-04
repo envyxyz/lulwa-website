@@ -3,6 +3,7 @@
   "type": "module",
   "private": true,
   "version": "0.0.1",
+  "packageManager": "pnpm@11.9.0",
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.4.4",
@@ -39,6 +40,7 @@
     "test:e2e": "playwright test",
     "test:contract": "node scripts/test-contract.mjs",
     "package": "pnpm build && node scripts/package-hostinger.mjs",
+    "pages": "node scripts/pages-base.mjs",
     "serve": "node scripts/serve-apache.mjs dist"
   }
 }
