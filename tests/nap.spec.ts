@@ -71,8 +71,8 @@ for (const path of builtRoutes()) {
       expect(s.legalName).toBe(site.legal.name);
       expect(s.telephone).toBe(site.phone.e164);
       expect(s.email).toBe(site.email);
-      expect(s.address).toEqual({ '@type': 'PostalAddress', streetAddress: a.streetAddress, addressLocality: a.city, addressRegion: a.region, addressCountry: 'SA' });
-      expect(`${s.address.streetAddress}${lang === 'ar' ? '، ' : ', '}${s.address.addressLocality}`, 'schema address equals the page address').toBe(a.full);
+      expect(s.address).toEqual({ '@type': 'PostalAddress', streetAddress: a.streetAddress, postalCode: site.postalCode, addressLocality: a.city, addressRegion: a.region, addressCountry: 'SA' });
+      expect(`${s.address.streetAddress}${lang === 'ar' ? '، ' : ', '}${s.address.addressLocality} ${s.address.postalCode}`, 'schema address equals the page address').toBe(a.full);
       expect(s.geo).toEqual({ '@type': 'GeoCoordinates', latitude: site.geo.latitude, longitude: site.geo.longitude });
       expect(s.hasMap).toBe(site.maps.listing);
       expect(s.contactPoint.telephone).toBe(site.phone.e164);
@@ -98,6 +98,6 @@ test('T7 the schema business node is identical on every page that carries it', a
   }
 });
 
-test('T7 the map embed is the shop coordinates', () => {
-  expect(site.maps.embed).toContain(`${site.geo.latitude},${site.geo.longitude}`);
+test('T7 the map embed names the Business Profile', () => {
+  expect(site.maps.embed).toContain(encodeURIComponent('Lulwa AC & Refrigeration'));
 });

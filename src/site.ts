@@ -40,8 +40,8 @@ export const site = {
   geo,
   postalCode,
   maps: {
-    // The shop's Google Business Profile (Ameer, 5 Nov 2026): directions, reviews and the map all open it.
-    listing: 'https://share.google/I7CmptLrunZysfAU2',
+    // The shop's Google Business Profile (Ameer, 5 Nov 2026), by its place id: directions and reviews open it in Google Maps.
+    listing: 'https://www.google.com/maps?cid=11979123383184648733',
     // By the profile's exact name, so the map shows the business card and not a bare pin.
     embed: `https://www.google.com/maps?q=${encodeURIComponent('Lulwa AC & Refrigeration | لولوه')}&output=embed`,
   },

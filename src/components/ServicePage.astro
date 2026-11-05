@@ -1,4 +1,5 @@
 ---
+import { site } from '../site';
 import { Plus } from 'lucide-static';
 import Button from './Button.astro';
 import Faq from './Faq.astro';
@@ -34,6 +35,8 @@ const products: Record<string, { name: string; x: number; y: number; w: number }
 const shown = products[s.slug] ?? [];
 const sizes = (w: number) => `(min-width: 64rem) ${((28 * w) / 100).toFixed(1)}rem, (min-width: 48rem) ${((36 * w) / 100).toFixed(1)}rem, ${Math.round((90 * w) / 100)}vw`;
 const set = (name: string, ext: string) => [320, 640].map((n) => `/images/${name}-${n}.${ext} ${n}w`).join(', ');
+// Digits in Arabic text keep their order only inside <bdi>.
+const bdi = (t: string) => t.replaceAll(site.phone.display, `<bdi dir="ltr">${site.phone.display}</bdi>`);
 ---
 
 <Base title={s.seo.title} description={s.seo.description} ld={[service(s.name, s.seo.description, lang), faqPage(s.faq)]}>
@@ -43,7 +46,7 @@ const set = (name: string, ext: string) => [320, 640].map((n) => `/images/${name
         <div class="flex flex-col gap-3">
           <Heading level={1} size="statement">{s.h1}</Heading>
           <Text size="lead">{s.lead}</Text>
-          <Text>{s.intro}</Text>
+          <Text><Fragment set:html={bdi(s.intro)} /></Text>
         </div>
         <div class="flex flex-wrap gap-3"><Button variant="whatsapp">{actions.whatsapp}</Button><Button variant="call">{actions.call}</Button></div>
         <Button variant="quiet" href={localePath(lang, '/services')}>{actions.allServices}</Button>
@@ -153,7 +156,7 @@ const set = (name: string, ext: string) => [320, 640].map((n) => `/images/${name
     <div data-tone="teal" class="mx-auto flex max-w-page flex-col gap-4 rounded-panel bg-teal p-card text-pearl md:flex-row md:items-center md:justify-between">
       <div>
         <h2 class="w-fit font-display text-head font-head">{s.close.h}</h2>
-        <p>{s.close.text}</p>
+        <p><Fragment set:html={bdi(s.close.text)} /></p>
       </div>
       <div class="flex flex-wrap gap-3 *:grow md:*:grow-0">
         <Button variant="whatsapp">{actions.whatsapp}</Button>

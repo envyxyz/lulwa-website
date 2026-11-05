@@ -35,7 +35,7 @@ Source: `../growth/Notes/Project Brief.md` and the live Google listing, 1 Nov 20
 - Google listing, 1 Nov 2026: 5.0 from 8 reviews.
 - Reviews read signed out on Google Maps, 1 Nov 2026, 5 of 8 visible: Jafar Sapra, Shahbaz Ahmad, Sohail Jamil, Usama Ch, Asad Amjad, copied in `src/content/` exactly with Google's relative dates.
 - Home page and service copy may say the shop is registered, is in Al-Jalawiyah, takes photos and video on WhatsApp, and repairs split and window ACs, fridges with gas refilling, automatic washers and dryers (1 Nov 2026).
-- Google Business Profile, 5 Nov 2026 (Ameer): Lulwa AC & Refrigeration | لولوه, Al Jalawiyah, Dammam 32246, +966 56 802 2197, pin 26.4356733, 50.0744529, link https://share.google/I7CmptLrunZysfAU2. Replaces the older pin below.
+- Google Business Profile, 5 Nov 2026 (Ameer): Lulwa AC & Refrigeration | لولوه, Al Jalawiyah, Dammam 32246, +966 56 802 2197, pin 26.4356733, 50.0744529, link https://share.google/I7CmptLrunZysfAU2, place id 11979123383184648733. Replaces the older pin below.
 - Email lulwadammam@gmail.com, owner-approved per the live contact form, 31 Oct 2026. Coordinates 26.435556, 50.079611 from the live schema, 2 Nov 2026.
 - Old URLs stay (Ameer, 2 Nov 2026). Pages for areas, brands and appliances not confirmed below keep their old URL and old search wording in the title, and the body asks first: send the device and district on WhatsApp and the shop replies whether it can take the job. That wording is allowed. A promise of coverage is not.
 - Fault pages are indexed from launch at Ameer's request, 2 Nov 2026, ahead of the technician read in `docs/TECH-REVIEW.md`.
