@@ -12,7 +12,7 @@ try {
     if (await fetch(`http://localhost:${port}/`).then(() => true, () => false)) break;
     await new Promise((done) => setTimeout(done, 500));
   }
-  const browser = await chromium.launch({ channel: 'msedge' });
+  const browser = await chromium.launch({ channel: process.env.PW_CHANNEL ?? 'msedge' });
   for (const scheme of ['light', 'dark']) for (const width of [1440, 390]) {
     for (const route of process.argv.length > 3 ? process.argv.slice(3) : ['/']) for (const [lang, path] of [['ar', route], ['en', route === '/' ? '/en' : `/en${route}`]]) {
       const page = await browser.newPage({ colorScheme: scheme, reducedMotion: 'reduce', viewport: { width, height: width > 500 ? 900 : 844 } });

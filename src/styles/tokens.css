@@ -19,6 +19,7 @@
   --color-whatsapp: #0b7a46; /* WhatsApp buttons only, with white text: 5.4:1. Brand #25d366 fails AA under white. Same in both themes */
   --color-whatsapp-active: #096b3b; /* 6.6:1 */
   --color-error: #b4442e;
+  --color-scrim: rgb(11 31 42); /* the neutral veil over a photo so text stays readable: ink, same in both themes */
 
   --font-*: initial;
   --font-display: 'Beiruti', 'Beiruti Fallback', sans-serif;
@@ -61,11 +62,13 @@
   --spacing-card: clamp(1.5rem, 3vw, 2.25rem);
   --spacing-button: 3.25rem; /* 52 px on phones, 56 px from md */
   --spacing-button-md: 3.5rem;
-  --spacing-target: 2.75rem; /* 44 px minimum tap target */
+  --spacing-target: max(2.75rem, 44px); /* 44 px minimum tap target, also at the 90% desktop scale */
   --spacing-icon: 1.25em;
   --spacing-icon-sm: 1em; /* an icon that sits beside a line of text, never taller than the line */
   --spacing-pearl: 0.28em; /* the pearl scales with the type it ends */
   --spacing-bar: 4.5rem; /* top bar */
+  --spacing-hero-clear: 42vw; /* below lg, how much of the hero photo stays clear above the text */
+  --spacing-float: max(3.25rem, 48px); /* the floating Call and WhatsApp buttons, 48 px at the 90% desktop scale too */
   --spacing-logo: 2.75rem;
   --spacing-tile: 17rem; /* hero product tile */
   --spacing-node: 4rem; /* step node in the how-it-works diagram */
@@ -94,6 +97,13 @@
   --duration-rise: 500ms;
   --duration-open: 260ms; /* menu, FAQ, anything that opens */
   --duration-fade: 320ms; /* images arriving, page changes */
+  --duration-slide: 1200ms; /* hero pictures crossfading */
+  --hero-focus: 22%; /* where the people sit in a hero picture, as an object-position: left in the Arabic pictures, right in the English */
+  /* The only gradients: a neutral ink veil over a hero picture. Phones rise from the block end; from lg it runs from the inline start (the component flips it in RTL). */
+  --scrim-fade: 5rem; /* how far the phone scrim feathers out above the hero text */
+  --scrim-ground: linear-gradient(to top, var(--color-scrim) 0%, color-mix(in srgb, var(--color-scrim) 70%, transparent) 35%, color-mix(in srgb, var(--color-scrim) 30%, transparent) 65%, transparent 100%); /* taste-skill-ignore: neutral photo scrim, rule 6 */
+  --scrim-rise: linear-gradient(to top, color-mix(in srgb, var(--color-scrim) 86%, transparent) calc(100% - var(--scrim-fade)), color-mix(in srgb, var(--color-scrim) 70%, transparent) calc(100% - var(--scrim-fade) * 0.75), color-mix(in srgb, var(--color-scrim) 40%, transparent) calc(100% - var(--scrim-fade) * 0.45), color-mix(in srgb, var(--color-scrim) 14%, transparent) calc(100% - var(--scrim-fade) * 0.18), transparent 100%); /* taste-skill-ignore: neutral photo scrim, rule 6 */
+  --scrim-start: linear-gradient(to right, color-mix(in srgb, var(--color-scrim) 86%, transparent) 0%, color-mix(in srgb, var(--color-scrim) 86%, transparent) 58%, color-mix(in srgb, var(--color-scrim) 78%, transparent) 66%, color-mix(in srgb, var(--color-scrim) 58%, transparent) 75%, color-mix(in srgb, var(--color-scrim) 32%, transparent) 84%, color-mix(in srgb, var(--color-scrim) 12%, transparent) 93%, transparent 100%); /* taste-skill-ignore: neutral photo scrim, rule 6; eased so no edge shows */
   --nudge: 0.25rem; /* arrows on hover */
   --picker-near-scale: 0.58; /* picker neighbours, as if further away */
   --picker-near-opacity: 0.55;
@@ -105,6 +115,7 @@
 
 :lang(en) {
   --font-display: 'Schibsted Grotesk', 'Schibsted Fallback', sans-serif;
+  --hero-focus: 78%;
   /* Plex only fetches where Arabic appears: the legal name and the language link. */
   --font-body: 'Schibsted Grotesk', 'Schibsted Fallback', 'IBM Plex Sans Arabic', sans-serif;
   --text-statement: clamp(1.75rem, 1rem + 4vw, 3.5rem);

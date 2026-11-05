@@ -55,6 +55,14 @@
     scrollbar-color: var(--color-teal) var(--color-pearl);
   }
 
+  /* Ameer, 5 Nov 2026: the desktop site should look the way it does at 90% browser zoom. Every size is in rem, so this one rule scales it.
+     Phones stay at 100%: Arabic body text and tap targets need the room there. */
+  @media (min-width: 64rem) {
+    html {
+      font-size: 90%;
+    }
+  }
+
   body {
     font-size: var(--text-body);
     line-height: var(--text-body--line-height);

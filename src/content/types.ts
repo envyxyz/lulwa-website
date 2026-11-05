@@ -34,6 +34,8 @@ export type Fault = Intro & {
   art: string;
   spot: number;
   name: string;
+  /** One or two short sentences for its card on the services page. */
+  summary: string;
   part: string;
   check: string[];
   technician: string[];
@@ -68,12 +70,12 @@ export type Content = {
     menu: string;
     /** The other language's name, shown as the language link. */
     language: string;
-    nav: { services: string; faults: string; reviews: string; work: string; contact: string };
+    nav: { services: string; reviews: string; work: string; contact: string };
     /** The giant name across the hero and the end of the footer. */
     word: string;
   };
   footer: { line: string; services: string; company: string; hours: string };
-  actions: { whatsapp: string; /** The header and hero button word, where the icon says the rest. */ whatsappShort: string; call: string; directions: string; allServices: string };
+  actions: { whatsapp: string; /** The header and hero button word, where the icon says the rest. */ whatsappShort: string; call: string; directions: string; allServices: string; learnMore: string };
   icons: { next: string };
   home: {
     seo: Seo;
@@ -87,6 +89,9 @@ export type Content = {
       homeVisitLine: string;
       /** Beside the address and hours in the hero. The rating repeats the Google listing. */
       facts: { registered: string; rating: string };
+      /** Names of the carousel's pause and play button. */
+      pause: string;
+      play: string;
     };
     picker: {
       heading: string;
@@ -122,7 +127,7 @@ export type Content = {
     steps: { heading: string; items: { before: string; link: string; after: string }[] };
     reviews: { heading: string; quiet: string; link: string };
     work: { heading: string; quiet: string; lead: string; statement: string; items: { photo: string; caption: string }[] };
-    shop: { heading: string; addressLabel: string; address: string; hoursLabel: string; hours: string; hoursRange: string; today: string; days: string[]; mapLoad: string; mapLoading: string; legalLabel: string; crLabel: string };
+    shop: { heading: string; addressLabel: string; address: string; hoursLabel: string; hours: string; hoursRange: string; today: string; days: string[]; mapTitle: string; legalLabel: string; crLabel: string };
     faq: { heading: string; quiet: string; lead: string; cta: string; items: Faq[] };
     close: { heading: string; text: string };
   };
@@ -131,7 +136,8 @@ export type Content = {
     more: MoreService[];
     moreHeading: string;
     moreLead: string;
-    notListed: string;
+    /** The sentence under the cards; link goes to WhatsApp. */
+    notListed: { before: string; link: string; after: string };
     labels: { units: string; faults: string; faq: string; art: string };
   };
   faults: Intro & {

@@ -41,7 +41,7 @@ export const business = (lang: Lang) => {
     image: abs(site.images.og),
     telephone: site.phone.e164,
     email: site.email,
-    address: { '@type': 'PostalAddress', streetAddress: a.streetAddress, addressLocality: a.city, addressRegion: a.region, addressCountry: site.address.countryCode },
+    address: { '@type': 'PostalAddress', streetAddress: a.streetAddress, postalCode: site.postalCode, addressLocality: a.city, addressRegion: a.region, addressCountry: site.address.countryCode },
     geo: { '@type': 'GeoCoordinates', latitude: site.geo.latitude, longitude: site.geo.longitude },
     hasMap: site.maps.listing,
     openingHoursSpecification: {
@@ -141,8 +141,10 @@ export const breadcrumbs = (lang: Lang, pathname: string, title: string) => {
   const c = content[lang] as unknown as Record<string, { h1?: string } | undefined>;
   const trail: { name: string; path: string }[] = [{ name: businessName(lang), path: localePath(lang, '/') }];
   if (parts.length > 1) {
-    const hub = c[parts[0]!]?.h1;
-    if (hub) trail.push({ name: hub, path: localePath(lang, `/${parts[0]}`) });
+    // /faults is not a page any more (it redirects to /services), so a fault's trail runs through the services page.
+    const section = parts[0] === 'faults' ? 'services' : parts[0]!;
+    const hub = c[section]?.h1;
+    if (hub) trail.push({ name: hub, path: localePath(lang, `/${section}`) });
   }
   trail.push({ name: parts.length > 1 ? crumbName(lang, parts[0]!, parts[1]!, title) : title, path: localePath(lang, arPath) });
   return {

@@ -1,12 +1,14 @@
 ---
 import Button from './Button.astro';
 import Heading from './Heading.astro';
+import Img from './Img.astro';
 import LeadForm from './LeadForm.astro';
 import Reviews from './Reviews.astro';
 import Section from './Section.astro';
+import ShopMap from './ShopMap.astro';
 import Text from './Text.astro';
-import WorkCarousel from './WorkCarousel.astro';
 import Base from '../layouts/Base.astro';
+import provenance from '../images/provenance.json';
 import { site } from '../site';
 import { content, langFromUrl, localePath } from '../content';
 import { article } from '../seo';
@@ -32,6 +34,8 @@ const intro: Intro = doc ?? (c as unknown as Record<string, Intro>)[kind]!;
 const sections = doc?.sections ?? (kind === 'about' ? c.about.sections : []);
 
 const photos = home.work.items;
+// Every real job photo, none hidden. A photo never renders past its source width (rule 15; Img caps it): portraits are 287 wide, landscapes 680.
+const sizeOf = (name: string) => (provenance as Record<string, { sourceWidth: number }>)[name]!.sourceWidth;
 const rows = [
   [home.shop.addressLabel, home.shop.address],
   [home.shop.hoursLabel, home.shop.hours],
@@ -109,6 +113,7 @@ const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
         <LeadForm />
         <dl class="flex flex-col gap-4">{rows.map(([l, v]) => <div><dt class="text-small text-ink-soft">{l}</dt><dd><bdi>{v}</bdi></dd></div>)}</dl>
         <div><Button variant="quiet" href={site.maps.listing} data-action="directions">{actions.directions}</Button></div>
+        <ShopMap />
       </div>
     </Section>
   )}
@@ -117,7 +122,22 @@ const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
 
   {kind === 'work' && photos.length === 0 && <Section><Text>{c.work.empty}</Text></Section>}
 
-  {kind === 'work' && photos.length > 0 && <Section><WorkCarousel /></Section>}
+  {kind === 'work' && photos.length > 0 && (
+    <Section>
+      <ul class="grid grid-cols-2 gap-4 lg:grid-cols-12 lg:gap-8">
+        {photos.map((p) => {
+          const w = sizeOf(p.photo);
+          const wide = w > 400;
+          return (
+            <li class:list={['flex flex-col items-center gap-2 *:w-full', wide ? 'col-span-2 lg:col-span-6' : 'lg:col-span-3']}>
+              <Img name={p.photo} widths={wide ? [340, w] : [w]} width={w} height={wide ? 382 : 510} alt={p.caption} sizes="(min-width: 64rem) 40vw, 50vw" rounded job />
+              <p class="text-center text-small text-balance">{p.caption}</p>
+            </li>
+          );
+        })}
+      </ul>
+    </Section>
+  )}
 
   {kind === 'blog' && (
     <Section>

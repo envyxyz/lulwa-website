@@ -7,6 +7,7 @@ import Img from './Img.astro';
 import Picker from './Picker.astro';
 import Reviews from './Reviews.astro';
 import Section from './Section.astro';
+import ShopMap from './ShopMap.astro';
 import Text from './Text.astro';
 import { art } from './appliance-art';
 import provenance from '../images/provenance.json';
@@ -154,15 +155,13 @@ const wall = [
       <tbody>
         {shop.days.map((day, i) => (
           <tr data-day={i}>
-            <th scope="row" class="py-1 pe-4 text-start font-regular">{day} <span data-today hidden class="font-medium text-teal">· {shop.today}</span></th>
-            <td class="py-1 text-small"><bdi>{shop.hoursRange}</bdi></td>
+            <th scope="row" class="whitespace-nowrap py-1 pe-4 text-start font-regular">{day}<span data-today hidden class="sr-only font-medium sm:not-sr-only"> · {shop.today}</span></th>
+            <td class="whitespace-nowrap py-1 text-small"><bdi>{shop.hoursRange}</bdi></td>
           </tr>
         ))}
       </tbody>
     </table>
-    <a href={site.maps.listing} data-map={site.maps.embed} data-loading={shop.mapLoading} class="flex min-h-section items-center justify-center gap-2 rounded-card bg-pearl font-medium text-teal transition hover:bg-pearl-hover md:col-span-2">
-      <Icon name="map-pin" />{shop.mapLoad}
-    </a>
+    <ShopMap />
   </div>
 </Section>
 
@@ -198,33 +197,11 @@ const wall = [
     document.getElementById('pick')?.scrollIntoView({ behavior: calm ? 'auto' : 'smooth' });
   });
 
-  // Today in the shop's time zone, and the map only on request: no Google request until the tap.
+  // Today in the shop's time zone.
   const today = new Date(Date.now() + 3 * 3600_000).getUTCDay();
   const row = document.querySelector<HTMLElement>(`[data-day="${today}"]`);
   row?.setAttribute('aria-current', 'date');
   row?.querySelector<HTMLElement>('[data-today]')?.removeAttribute('hidden');
-
-  const map = document.querySelector<HTMLAnchorElement>('[data-map]')!;
-  map.addEventListener('click', (event) => {
-    event.preventDefault();
-    // Same box as the finished map, so nothing moves when it arrives.
-    const box = document.createElement('div');
-    box.className = 'relative aspect-video md:col-span-2';
-    const wait = document.createElement('div');
-    wait.className = 'skeleton absolute inset-0 flex items-center justify-center rounded-card font-medium text-teal';
-    wait.setAttribute('role', 'status');
-    wait.textContent = map.dataset.loading!;
-    const frame = document.createElement('iframe');
-    frame.title = map.innerText;
-    frame.className = 'absolute inset-0 size-full rounded-card opacity-0 transition-opacity duration-(--duration-fade)';
-    frame.onload = () => {
-      frame.classList.remove('opacity-0');
-      wait.remove();
-    };
-    frame.src = map.dataset.map!;
-    box.append(wait, frame);
-    map.replaceWith(box);
-  });
 
   // Service row arrows: one card per press, the ends disable themselves. scrollLeft is negative in RTL.
   const track = document.querySelector<HTMLElement>('[data-row]')!;
@@ -247,6 +224,11 @@ const wall = [
 </script>
 
 <style>
+  /* Today's row in the opening hours (the script sets aria-current): teal and medium, whether or not the "Today" word shows. */
+  [data-day][aria-current] > * {
+    color: var(--color-teal);
+    font-weight: var(--font-weight-medium);
+  }
   /* The connector between step nodes: a track with a teal fill that draws in as the diagram scrolls into view.
      Fully drawn by default, so nothing is hidden when scroll-driven animation is missing or reduced motion is on. */
   .rail {

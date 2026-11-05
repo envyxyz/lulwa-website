@@ -1,43 +1,56 @@
 ---
-import Button from './Button.astro';
 import Heading from './Heading.astro';
+import HubCard from './HubCard.astro';
+import Icon from './Icon.astro';
 import Section from './Section.astro';
 import Text from './Text.astro';
 import Base from '../layouts/Base.astro';
+import { site } from '../site';
 import { content, langFromUrl, localePath } from '../content';
 
-type Props = { kind: 'services' | 'faults' };
+// The one services page: the four core services with their faults as cards, then the appliances nobody has confirmed.
 const lang = langFromUrl(Astro.url);
 const c = content[lang];
-const { actions } = c;
-const { kind } = Astro.props;
-const page = c[kind];
-const card = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card font-display text-lead font-head transition hover:bg-pearl-hover active:scale-98';
+const { actions, services, faults } = c;
+const link = 'inline-flex min-h-target items-center gap-2 font-medium text-teal transition hover:text-teal-quiet';
+const underlined = 'underline decoration-2 underline-offset-4';
+
+const faultCards = (service: string) => faults.items.filter((f) => f.service === service);
 ---
 
-<Base title={page.seo.title} description={page.seo.description}>
+<Base title={services.seo.title} description={services.seo.description}>
   <Section>
-    <div class="flex flex-col gap-8">
-      <div class="flex flex-col gap-4"><Heading level={1} size="statement">{page.h1}</Heading><Text size="lead">{page.lead}</Text></div>
-      {kind === 'services' ? (
-        <>
-          <ul class="grid gap-4 md:grid-cols-2">{c.services.items.map((s) => <li><a href={localePath(lang, `/services/${s.slug}`)} class={card}>{s.name}<span class="text-small font-regular text-ink-soft">{s.summary}</span></a></li>)}</ul>
-          <Text soft>{c.services.notListed}</Text>
-          <div class="flex flex-col gap-4">
-            <Heading level={2}>{c.services.moreHeading}</Heading>
-            <Text>{c.services.moreLead}</Text>
-            <ul class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">{c.services.more.map((s) => <li><a href={localePath(lang, `/services/${s.slug}`)} class={card}>{s.name}</a></li>)}</ul>
+    <div class="flex flex-col gap-16">
+      <div class="flex flex-col gap-4"><Heading level={1} size="statement">{services.h1}</Heading><Text size="lead">{services.lead}</Text></div>
+
+      {services.items.map((s) => (
+        <div data-hub-service={s.slug} class="flex flex-col gap-8">
+          <div class="flex flex-wrap items-center justify-between gap-x-8 gap-y-2">
+            <div id={`hub-${s.slug}`}><Heading level={2}>{s.name}</Heading></div>
+            <a href={localePath(lang, `/services/${s.slug}`)} id={`hub-${s.slug}-link`} aria-labelledby={`hub-${s.slug}-link hub-${s.slug}`} class={link}>
+              <span class={underlined}>{actions.learnMore}</span><Icon name="arrow-next" small />
+            </a>
           </div>
-        </>
-      ) : (
-        c.services.items.map((s) => (
-          <div class="flex flex-col gap-4">
-            <Heading level={2}>{s.name}</Heading>
-            <ul class="grid gap-4 md:grid-cols-3">{c.faults.items.filter((f) => f.service === s.slug).map((f) => <li><a href={localePath(lang, `/faults/${f.slug}`)} class={card}>{f.name}</a></li>)}</ul>
-          </div>
-        ))
-      )}
-      <div><Button variant="quiet" href={localePath(lang, kind === 'services' ? '/faults' : '/services')}>{kind === 'services' ? c.chrome.nav.faults : actions.allServices}</Button></div>
+          <ul class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+            {faultCards(s.slug).map((f) => (
+              <li><HubCard href={localePath(lang, `/faults/${f.slug}`)} title={f.name} text={f.summary} image={`fault-${f.slug}`} /></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-4">
+          <Heading level={2}>{services.moreHeading}</Heading>
+          <Text>{services.moreLead}</Text>
+        </div>
+        <ul class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {services.more.map((s) => (
+            <li><HubCard href={localePath(lang, `/services/${s.slug}`)} title={s.name} text={s.seo.description} image={s.image} tile /></li>
+          ))}
+        </ul>
+        <Text soft>{services.notListed.before}<a href={site.phone.whatsapp} data-action="whatsapp" class="text-teal underline decoration-2 underline-offset-4 transition hover:text-teal-quiet">{services.notListed.link}</a>{services.notListed.after}</Text>
+      </div>
     </div>
   </Section>
 </Base>

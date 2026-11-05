@@ -1,6 +1,6 @@
 // Image pipeline: node scripts/images.mjs. Writes public/images/<name>-<width>.avif|webp and src/images/provenance.json.
 // Real photos are read from the retouched set, but never exported wider than the WhatsApp original.
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'node:fs';
 import sharp from 'sharp';
 
 const EDITED = '../growth/Photos/Edited/2026-10-19_';
@@ -48,6 +48,28 @@ for (const name of cutaways) {
   const { width: sourceWidth } = await sharp(source).metadata();
   await exportAll(source, `internals-${name}`, [320, 640]);
   provenance[`internals-${name}`] = { kind: 'generated', source, sourceWidth, note: `AI-generated cutaway illustration, agy, 2 Nov 2026${source === cut ? ', background removed' : ''}. Shows typical internal parts, not this customer's unit.` };
+}
+
+// Staged hero scenes, one per language so the people sit away from the text: a mirrored photo would flip the logo on the shirt. Reviewed by eye, never a job photo.
+for (const file of readdirSync('design/generated/hero').filter((f) => f.endsWith('.png'))) {
+  const source = `design/generated/hero/${file}`;
+  const { width: sourceWidth } = await sharp(source).metadata();
+  const name = `hero-${file.replace('.png', '')}`;
+  await exportAll(source, name, [640, 960, sourceWidth]);
+  provenance[name] = { kind: 'generated', source, sourceWidth, note: 'AI-generated staged scene, agy, 5 Nov 2026, at Ameer\'s request. Not a real job, staff member or customer.' };
+}
+
+// Fault cards: stock-style pictures of the symptom, cut to the card's 4:3.
+for (const file of existsSync('design/generated/faults') ? readdirSync('design/generated/faults').filter((f) => f.endsWith('.png')) : []) {
+  const source = `design/generated/faults/${file}`;
+  const { width: sourceWidth } = await sharp(source).metadata();
+  const name = `fault-${file.replace('.png', '')}`;
+  for (const width of [320, 640]) {
+    const resized = sharp(source).resize({ width, height: (width * 3) / 4, fit: 'cover' });
+    await resized.clone().avif({ quality: 55 }).toFile(`public/images/${name}-${width}.avif`);
+    await resized.clone().webp({ quality: 72 }).toFile(`public/images/${name}-${width}.webp`);
+  }
+  provenance[name] = { kind: 'generated', source, sourceWidth, note: 'AI-generated picture of the symptom, agy, 5 Nov 2026. Unbranded, not a customer\'s appliance.' };
 }
 
 writeFileSync('src/images/provenance.json', `${JSON.stringify(provenance, null, 2)}\n`);

@@ -13,6 +13,6 @@ export default defineConfig({
   reporter: [['list'], ['json', { outputFile: 'test-results/contract.json' }]],
   updateSnapshots: 'none',
   expect: { toHaveScreenshot: { maxDiffPixelRatio: 0.01 } },
-  use: { baseURL: `http://localhost:${port}`, channel: 'msedge', actionTimeout: 5_000, contextOptions: { reducedMotion: 'reduce' } },
+  use: { baseURL: `http://localhost:${port}`, channel: process.env.PW_CHANNEL ?? 'msedge', actionTimeout: 5_000, contextOptions: { reducedMotion: 'reduce' } },
   webServer: { command: `node scripts/serve-apache.mjs "${docroot}" --port ${port}`, url: `http://localhost:${port}/`, reuseExistingServer: true, timeout: 30_000 },
 });

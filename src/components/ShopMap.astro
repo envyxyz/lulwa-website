@@ -1,0 +1,9 @@
+---
+import { site } from '../site';
+import { content, langFromUrl } from '../content';
+
+// The Google Business Profile map. Below the fold on every page that has it, so the browser fetches it only as it comes near.
+const lang = langFromUrl(Astro.url);
+---
+
+<iframe src={`${site.maps.embed}&hl=${lang}`} title={content[lang].home.shop.mapTitle} loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-shop-map class="aspect-square w-full rounded-card bg-pearl md:col-span-2 md:aspect-video"></iframe>

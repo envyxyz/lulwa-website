@@ -44,7 +44,7 @@ export const urlMap = () =>
     });
 
 // Pages that must exist in the finished site: every url-map row (all are `keep`, none is retired) plus the pages added since.
-export const REQUIRED = [...urlMap().map((row) => row.old_path), '/faults', '/reviews', '/work'];
+export const REQUIRED = [...urlMap().map((row) => row.old_path), '/reviews', '/work'];
 
 /** Paths in the built sitemaps, read through sitemap-index.xml (pages, services, areas, brands, blog): the pages that are real right now. */
 export const builtRoutes = () => {

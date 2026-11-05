@@ -1,6 +1,8 @@
 // Single source for every fact about the shop: name, address, phone, hours, tags. Pages, schema, llms and tests all read from here.
 const phoneE164 = '+966568022197';
-const geo = { latitude: 26.435556, longitude: 50.079611 } as const;
+// The pin of the shop's Google Business Profile, read from its map card on 5 Nov 2026.
+const geo = { latitude: 26.4356733, longitude: 50.0744529 } as const;
+const postalCode = '32246';
 
 const address = {
   ar: { number: '8951', street: 'شارع الأمير عبدالمحسن بن جلوي', district: 'حي الجلوية', city: 'الدمام', region: 'المنطقة الشرقية', country: 'المملكة العربية السعودية' },
@@ -9,7 +11,7 @@ const address = {
 const comma = { ar: '، ', en: ', ' } as const;
 const line = (lang: 'ar' | 'en') => {
   const a = address[lang];
-  return { streetLine: `${a.number} ${a.street}`, streetAddress: `${a.number} ${a.street}${comma[lang]}${a.district}`, full: `${a.number} ${a.street}${comma[lang]}${a.district}${comma[lang]}${a.city}` };
+  return { streetLine: `${a.number} ${a.street}`, streetAddress: `${a.number} ${a.street}${comma[lang]}${a.district}`, full: `${a.number} ${a.street}${comma[lang]}${a.district}${comma[lang]}${a.city} ${postalCode}` };
 };
 
 export const site = {
@@ -36,10 +38,12 @@ export const site = {
     regionCode: 'SA-04',
   },
   geo,
+  postalCode,
   maps: {
-    listing: 'https://maps.app.goo.gl/6iLsTdG3y7FAq7jP9',
-    // The shop's own pin, by coordinates.
-    embed: `https://www.google.com/maps?q=${geo.latitude},${geo.longitude}&output=embed`,
+    // The shop's Google Business Profile (Ameer, 5 Nov 2026): directions, reviews and the map all open it.
+    listing: 'https://share.google/I7CmptLrunZysfAU2',
+    // By the profile's exact name, so the map shows the business card and not a bare pin.
+    embed: `https://www.google.com/maps?q=${encodeURIComponent('Lulwa AC & Refrigeration | لولوه')}&output=embed`,
   },
   // Hours as the page says them, per language, and as schema writes them.
   hours: {

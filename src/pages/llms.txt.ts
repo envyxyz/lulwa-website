@@ -19,7 +19,6 @@ export const GET = () => {
     lines.push(ar ? '### الخدمات' : '### Services', '', link(lang, '/services', c.services.h1, c.services.seo.description));
     for (const s of c.services.items) lines.push(link(lang, `/services/${s.slug}`, s.name, s.seo.description));
     for (const s of c.services.more) lines.push(link(lang, `/services/${s.slug}`, s.name, s.seo.description));
-    lines.push('', ar ? '### الأعطال' : '### Faults', '', link(lang, '/faults', c.faults.h1, c.faults.seo.description));
     for (const f of c.faults.items.filter((i) => reviewed.includes(i.slug))) lines.push(link(lang, `/faults/${f.slug}`, f.name, f.seo.description));
     lines.push('', ar ? '### المناطق' : '### Areas', '', link(lang, '/areas', c.areas.h1, c.areas.seo.description));
     for (const a of c.areas.items) lines.push(link(lang, `/areas/${a.slug}`, a.h1, a.seo.description));

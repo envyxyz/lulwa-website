@@ -1,9 +1,9 @@
 ---
-import { ArrowRight, BadgeCheck, Camera, ChevronRight, CircleCheck, Clock, MapPin, Menu, MousePointerClick, Phone, Star, X } from 'lucide-static';
+import { ArrowRight, BadgeCheck, Camera, ChevronRight, CircleCheck, Clock, MapPin, Menu, MousePointerClick, Pause, Phone, Play, Star, X } from 'lucide-static';
 import { siWhatsapp } from 'simple-icons';
 
 export type IconName = keyof typeof lucide | 'whatsapp';
-const lucide = { 'arrow-next': ArrowRight, 'chevron-next': ChevronRight, 'badge-check': BadgeCheck, camera: Camera, 'circle-check': CircleCheck, clock: Clock, pointer: MousePointerClick, star: Star, 'map-pin': MapPin, menu: Menu, phone: Phone, close: X };
+const lucide = { 'arrow-next': ArrowRight, 'chevron-next': ChevronRight, 'badge-check': BadgeCheck, camera: Camera, 'circle-check': CircleCheck, clock: Clock, pointer: MousePointerClick, star: Star, 'map-pin': MapPin, menu: Menu, pause: Pause, phone: Phone, play: Play, close: X };
 // Only these flip in RTL. Logo, phone and WhatsApp glyphs never do.
 const directional = new Set<string>(['arrow-next', 'chevron-next']);
 

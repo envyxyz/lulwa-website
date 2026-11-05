@@ -1,0 +1,41 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../site';
+import { content, langFromUrl } from '../content';
+
+// Call and WhatsApp, floating at the block-end inline-end corner of every page. Not a bar.
+// On the home pages they wait until the hero is out of view; everywhere else they are there from the start. They leave once the footer, which has its own Call and WhatsApp, comes into view (chrome.ts toggles data-hidden).
+type Props = { home?: boolean };
+const { home = false } = Astro.props;
+const { actions } = content[langFromUrl(Astro.url)];
+const button = 'inline-flex size-float items-center justify-center rounded-dot shadow-bar transition active:scale-95';
+---
+
+<div data-float data-hidden={home ? '' : undefined} class="float fixed end-gutter bottom-gutter z-10 flex flex-col gap-2">
+  <a href={site.phone.tel} data-action="call" aria-label={actions.call} class:list={[button, 'bg-teal text-pearl hover:bg-teal-active active:bg-teal-active']}><Icon name="phone" /></a>
+  <a href={site.phone.whatsapp} data-action="whatsapp" aria-label={actions.whatsapp} class:list={[button, 'bg-whatsapp text-white hover:bg-whatsapp-active active:bg-whatsapp-active']}><Icon name="whatsapp" /></a>
+</div>
+
+<style>
+  .float {
+    transition: opacity var(--duration-open) var(--ease-out), translate var(--duration-open) var(--ease-out), visibility var(--duration-open);
+  }
+  /* Hidden means gone: no focus, no screen reader, no taps. Without scripting nothing would ever reveal them, so they show. */
+  .float[data-hidden] {
+    visibility: hidden;
+    opacity: 0;
+    translate: 0 var(--rise);
+  }
+  @media (scripting: none) {
+    .float[data-hidden] {
+      visibility: visible;
+      opacity: 1;
+      translate: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .float {
+      transition: none;
+    }
+  }
+</style>

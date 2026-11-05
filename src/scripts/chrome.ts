@@ -33,6 +33,17 @@ if (bar) {
   addEventListener('scroll', () => queued || ((queued = true), requestAnimationFrame(update)), { passive: true });
 }
 
+// Floating Call and WhatsApp: gone while the hero or the footer is on screen, since both hold the same two buttons.
+const float = document.querySelector('[data-float]');
+if (float) {
+  const inView = new Set<Element>();
+  const watch = new IntersectionObserver((entries) => {
+    for (const { target, isIntersecting } of entries) inView[isIntersecting ? 'add' : 'delete'](target);
+    float.toggleAttribute('data-hidden', inView.size > 0);
+  });
+  for (const el of document.querySelectorAll('[data-hero], body > footer')) watch.observe(el);
+}
+
 // Smooth scroll and reveals load on the first touch too, and not at all under reduced motion.
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const types = ['pointermove', 'pointerdown', 'wheel', 'keydown', 'scroll'];

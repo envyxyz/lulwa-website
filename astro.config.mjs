@@ -20,7 +20,7 @@ const kitchenSink = {
 
 // Sitemaps under the old file names, written after the build: sitemap-index.xml and sitemap.xml (same content),
 // then sitemap-pages, -services, -areas, -brands, -blog. Every URL has lastmod and ar-SA, en-SA and x-default alternates.
-// thanks and 404 stay out. A fault page is listed once a technician has checked it (src/reviewed-faults.ts).
+// thanks, 404 and the /faults redirect stay out. A fault page is listed once a technician has checked it (src/reviewed-faults.ts).
 const sitemaps = {
   name: 'lulwa-sitemaps',
   hooks: {
@@ -30,7 +30,7 @@ const sitemaps = {
       const paths = new Set(
         pages
           .map((p) => `/${p.pathname}`.replace(/\.html$/, '').replace(/\/+$/, '') || '/')
-          .filter((p) => !/^\/(en\/)?(thanks|404|dev(\/|$))/.test(p) && p !== '/en/404')
+          .filter((p) => !/^\/(en\/)?(thanks|404|faults$|dev(\/|$))/.test(p) && p !== '/en/404')
           .filter((p) => !/^\/(en\/)?faults\/[^/]+$/.test(p) || reviewed.includes(p.split('/').pop()))
           .map((p) => (p === '/en/' ? '/en' : p)),
       );

@@ -1,63 +1,184 @@
 ---
 import Button from './Button.astro';
 import Icon from './Icon.astro';
+import provenance from '../images/provenance.json';
 import { site } from '../site';
-import { content, langFromUrl, localePath } from '../content';
+import { content, langFromUrl } from '../content';
 
 const lang = langFromUrl(Astro.url);
 const { actions, home } = content[lang];
 const { hero, shop } = home;
 
-// The facts, all from the Google listing and the shop's own details.
-const facts = [
-  ['map-pin', shop.address],
-  ['clock', shop.hours],
-] as const;
-
-// "We fix all of these": a fixed 5:4 box, each cutout placed by percentage so nothing moves while images load.
-// Offsets are in percent of the box; the fridge sits at the back, the washer and dryer on the floor in front.
-// Only the largest image is fetched with priority. The cutouts are decorative.
-const cluster = [
-  { name: 'fridge', x: 0, y: 1.5, w: 100, z: 1, priority: true },
-  { name: 'window-ac', x: -2, y: 5, w: 52, z: 2 },
-  { name: 'split-ac-indoor', x: 42, y: 0, w: 58, z: 2 },
-  { name: 'washer', x: 0, y: 42, w: 62, z: 3 },
-  { name: 'dryer', x: 40, y: 44, w: 60, z: 3 },
-];
-const sizes = (w: number) => `(min-width: 80rem) ${((30 * w) / 100).toFixed(1)}rem, (min-width: 48rem) ${((40 * w) / 100).toFixed(1)}rem, ${Math.round((80 * w) / 100)}vw`;
-const set = (name: string, ext: string) => [320, 640].map((n) => `/images/${name}-${n}.${ext} ${n}w`).join(', ');
+// The background: generated pictures of the work, each with its people on the side away from the text
+// (hero-<scene>-en, hero-<scene>-ar). Only the ones that exist show. With none, the panel is plain teal.
+const widths = [640, 960, 1376];
+const slides = ['ac', 'fridge', 'washer', 'rooftop'].map((scene) => `hero-${scene}-${lang}`).filter((name) => name in provenance);
+const set = (name: string, ext: string) => widths.map((w) => `/images/${name}-${w}.${ext} ${w}w`).join(', ');
+const fallback = (name: string) => `/images/${name}-960.webp`;
 ---
 
-<section data-tone="teal" class="px-gutter">
-  <div class="@container relative flex min-h-hero flex-col justify-center overflow-clip rounded-panel bg-teal text-pearl">
-    <div class="grid items-center gap-8 p-card xl:grid-cols-2 md:py-section">
-      <div class="flex max-w-text flex-col items-start gap-6">
-        <div class="flex flex-col gap-3">
-          <p class="flex items-center gap-2 text-body font-medium"><Icon name="badge-check" small />{hero.facts.registered}</p>
-          <h1 class="font-display text-statement font-statement tracking-statement">{hero.question}<br />{hero.service}</h1>
-          <p class="text-lead">{hero.support}</p>
-          <!-- homeVisitLine replaces the answer once the client confirms home visits. -->
-          <p class="text-lead font-medium">{hero.homeVisitLine || hero.answer}<span class="ms-1 inline-block size-pearl rounded-dot bg-copper" aria-hidden="true"></span></p>
-          <p class="flex items-center gap-2 text-body"><Icon name="star" small />{hero.facts.rating}</p>
-        </div>
-        <div class="flex gap-3 self-stretch *:first:grow md:self-auto md:*:first:grow-0">
-          <Button variant="call" light>{actions.call}</Button>
-          <a href={site.phone.whatsapp} data-action="whatsapp" aria-label={actions.whatsapp} class="inline-flex size-button shrink-0 items-center justify-center rounded-button bg-whatsapp text-white transition hover:bg-whatsapp-active active:scale-98 active:bg-whatsapp-active md:size-button-md"><Icon name="whatsapp" /></a>
-        </div>
-        <ul class="flex flex-col gap-3 text-body">
-          {facts.map(([icon, text]) => <li class="flex items-center gap-2 md:whitespace-nowrap"><Icon name={icon} small /><span>{text}</span></li>)}
-        </ul>
-        <Button variant="quiet" href={localePath(lang, '/services')}>{actions.allServices}</Button>
-      </div>
-      <div aria-hidden="true" class="relative w-full max-w-text justify-self-center" style="aspect-ratio:5/4">
-        {cluster.map(({ name, x, y, w, z, priority }) => (
-          <picture class="absolute" style={`inset-inline-start:${x}%;inset-block-start:${y}%;inline-size:${w}%;z-index:${z}`}>
-            <source type="image/avif" srcset={set(name, 'avif')} sizes={sizes(w)} />
-            <source type="image/webp" srcset={set(name, 'webp')} sizes={sizes(w)} />
-            <img src={`/images/${name}-640.webp`} width="640" height="478" alt="" loading="eager" fetchpriority={priority ? 'high' : undefined} decoding="async" class="block h-auto w-full" />
+<section data-tone="teal" data-hero class="px-gutter">
+  <div class="@container relative flex min-h-hero flex-col justify-end overflow-clip rounded-panel bg-scrim text-pearl lg:justify-center lg:bg-teal">
+    {slides.length > 0 && (
+      <div aria-hidden="true" class="photos absolute inset-x-0 top-0 isolate aspect-square lg:inset-0 lg:aspect-auto">
+        {slides.map((name, i) => (
+          <picture class="slide absolute inset-0" data-slide data-active={i === 0 ? '' : undefined}>
+            {(['avif', 'webp'] as const).map((ext) => i === 0
+              ? <source type={`image/${ext}`} srcset={set(name, ext)} sizes="(min-width: 64rem) 100vw, 178vw" />
+              : <source type={`image/${ext}`} data-srcset={set(name, ext)} sizes="(min-width: 64rem) 100vw, 178vw" />)}
+            <img src={i === 0 ? fallback(name) : undefined} data-src={i === 0 ? undefined : fallback(name)} width="1376" height="768" alt="" loading="eager" fetchpriority={i === 0 ? 'high' : undefined} decoding="async" class="block size-full object-cover" />
           </picture>
         ))}
+        <div class="scrim absolute inset-y-0 start-0 rtl:-scale-x-100"></div>
       </div>
+    )}
+    <div class="copy relative mt-hero-clear lg:mt-0">
+      <div class="relative flex max-w-text flex-col items-start gap-6 p-card pb-16 md:py-section">
+      <div class="flex flex-col gap-3">
+        <p class="flex items-center gap-2 text-body font-medium"><Icon name="badge-check" small />{hero.facts.registered}</p>
+        <h1 class="font-display text-statement font-statement tracking-statement">{hero.question}<br />{hero.service}</h1>
+        <p class="text-lead">{hero.support}</p>
+        <!-- homeVisitLine replaces the answer once the client confirms home visits. -->
+        <p class="text-lead font-medium">{hero.homeVisitLine || hero.answer}<span class="ms-1 inline-block size-pearl rounded-dot bg-copper" aria-hidden="true"></span></p>
+      </div>
+      <div class="flex gap-3 self-stretch *:first:grow md:self-auto md:*:first:grow-0">
+        <Button variant="call" light>{actions.call}</Button>
+        <a href={site.phone.whatsapp} data-action="whatsapp" aria-label={actions.whatsapp} class="inline-flex size-button shrink-0 items-center justify-center rounded-button bg-whatsapp text-white transition hover:bg-whatsapp-active active:scale-98 active:bg-whatsapp-active md:size-button-md"><Icon name="whatsapp" /></a>
+      </div>
+      <ul class="flex flex-wrap gap-x-6 gap-y-1 text-small">
+        <li class="flex items-center gap-2"><Icon name="star" small />{hero.facts.rating}</li>
+        <li class="hidden items-center gap-2 md:flex"><Icon name="map-pin" small /><bdi>{shop.address}</bdi></li>
+      </ul>
     </div>
+    </div>
+    {slides.length > 1 && (
+      <button type="button" hidden data-hero-toggle aria-label={hero.pause} data-pause={hero.pause} data-play={hero.play} class="toggle absolute bottom-3 end-3 size-target cursor-pointer items-center justify-center rounded-dot bg-scrim text-pearl transition hover:bg-ink-step active:scale-90">
+        <Icon name="pause" />
+        <Icon name="play" />
+      </button>
+    )}
   </div>
 </section>
+
+<script>
+  // Pictures after the first load once the page is done, never under reduced motion, and a picture shows only once it has decoded.
+  const hero = document.querySelector<HTMLElement>('[data-hero]');
+  const all = [...(hero?.querySelectorAll<HTMLElement>('[data-slide]') ?? [])];
+  const button = hero?.querySelector<HTMLButtonElement>('[data-hero-toggle]');
+  if (button && all.length > 1 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const live = [...all];
+    const loads = new Map<HTMLElement, Promise<void>>();
+    let current = live[0]!;
+    let previous: HTMLElement | undefined;
+    let paused = false;
+    let timer = 0;
+
+    const load = (slide: HTMLElement) => {
+      let done = loads.get(slide);
+      if (!done) {
+        const img = slide.querySelector('img')!;
+        for (const source of slide.querySelectorAll<HTMLSourceElement>('source')) source.srcset = source.dataset.srcset!;
+        img.src = img.dataset.src!;
+        done = img.decode();
+        loads.set(slide, done);
+      }
+      return done;
+    };
+    const arm = () => {
+      clearTimeout(timer);
+      if (!paused && !document.hidden && live.length > 1) timer = window.setTimeout(step, 6000);
+    };
+    const step = async () => {
+      const next = live[(live.indexOf(current) + 1) % live.length]!;
+      try {
+        await load(next);
+      } catch {
+        live.splice(live.indexOf(next), 1);
+        return arm();
+      }
+      if (!paused) {
+        // The picture on screen stays fully opaque while the next fades in over it, so the panel never shows through.
+        previous?.removeAttribute('data-active');
+        current.removeAttribute('data-entering');
+        previous = current;
+        current = next;
+        current.setAttribute('data-active', '');
+        current.setAttribute('data-entering', '');
+      }
+      arm();
+    };
+
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      paused = !paused;
+      button.toggleAttribute('data-paused', paused);
+      button.setAttribute('aria-label', button.dataset[paused ? 'play' : 'pause']!);
+      arm();
+    });
+    document.addEventListener('visibilitychange', arm);
+    const start = () => setTimeout(() => (void load(live[1]!).catch(() => {}), arm()), 1500);
+    if (document.readyState === 'complete') start();
+    else addEventListener('load', start, { once: true });
+  }
+</script>
+
+<style>
+  .slide {
+    opacity: 0;
+  }
+  .slide[data-active] {
+    opacity: 1;
+  }
+  .slide[data-entering] {
+    z-index: 1;
+    transition: opacity var(--duration-slide) ease-in-out;
+  }
+  .slide img {
+    object-position: var(--hero-focus) 50%;
+  }
+  /* Phones and tablets: the photo sits at the top, so the whole scene shows at a sharp size, and melts into the ground under the text.
+     From lg it fills the panel with a side veil. */
+  .photos::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0;
+    z-index: 2;
+    block-size: var(--scrim-fade);
+    background: var(--scrim-ground);
+  }
+  .scrim {
+    display: none;
+    z-index: 2;
+  }
+  .copy {
+    isolation: isolate;
+  }
+  .copy::before {
+    content: '';
+    position: absolute;
+    inset: calc(var(--scrim-fade) * -1) 0 0;
+    z-index: -1;
+    background: var(--scrim-rise);
+  }
+  .toggle:not([hidden]) {
+    display: flex;
+  }
+  .toggle :global([data-icon='play']),
+  .toggle[data-paused] :global([data-icon='pause']) {
+    display: none;
+  }
+  .toggle[data-paused] :global([data-icon='play']) {
+    display: inline-block;
+  }
+  @media (min-width: 64rem) {
+    .scrim {
+      display: block;
+      inline-size: 70%;
+      background: var(--scrim-start);
+    }
+    .copy::before,
+    .photos::after {
+      content: none;
+    }
+  }
+</style>

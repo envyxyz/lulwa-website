@@ -1,0 +1,25 @@
+---
+import Icon from './Icon.astro';
+import Img from './Img.astro';
+import { content, langFromUrl } from '../content';
+
+// One card of the services page: picture, title, description, then an always-underlined "Learn more". The whole card is one link.
+// tile: a product cutout on the white tile, for appliances with no fault pictures. Otherwise the picture fills the 4:3 area.
+type Props = { href: string; title: string; text: string; image?: string | undefined; tile?: boolean };
+const { href, title, text, image, tile = false } = Astro.props;
+const { actions } = content[langFromUrl(Astro.url)];
+const sizes = '(min-width: 64rem) 28rem, (min-width: 48rem) 45vw, 90vw';
+---
+
+<a href={href} data-hub-card class="flex h-full flex-col overflow-hidden rounded-card bg-pearl-step transition hover:bg-pearl-hover active:scale-98">
+  {image && (
+    <div class:list={['*:w-full', tile && 'flex aspect-4/3 items-center justify-center bg-white p-4']}>
+      <Img name={image} widths={[320, 640]} width={640} height={tile ? 478 : 480} alt="" sizes={sizes} />
+    </div>
+  )}
+  <div class="flex grow flex-col gap-2 p-card">
+    <h3 class="font-display text-lead font-head">{title}</h3>
+    <p class="text-small text-ink-soft lg:text-body">{text}</p>
+    <span class="mt-auto inline-flex items-center gap-2 pt-4 font-medium text-teal"><span data-learn-more class="underline decoration-2 underline-offset-4">{actions.learnMore}</span><Icon name="arrow-next" small /></span>
+  </div>
+</a>

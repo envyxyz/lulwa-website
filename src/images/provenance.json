@@ -65,6 +65,36 @@
     "sourceWidth": 1200,
     "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026, background removed. Never a job photo."
   },
+  "dishwasher": {
+    "kind": "generated",
+    "source": "design/generated/cutout/dishwasher.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026, background removed. Never a job photo."
+  },
+  "freezer": {
+    "kind": "generated",
+    "source": "design/generated/cutout/freezer.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026, background removed. Never a job photo."
+  },
+  "microwave": {
+    "kind": "generated",
+    "source": "design/generated/cutout/microwave.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026, background removed. Never a job photo."
+  },
+  "oven-stove": {
+    "kind": "generated",
+    "source": "design/generated/cutout/oven-stove.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026, background removed. Never a job photo."
+  },
+  "water-heater": {
+    "kind": "generated",
+    "source": "design/generated/cutout/water-heater.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated unbranded product illustration, agy, 1 Nov 2026, background removed. Never a job photo."
+  },
   "internals-split-ac-indoor": {
     "kind": "generated",
     "source": "design/generated/internals/cutout/split-ac-indoor.png",
@@ -95,34 +125,142 @@
     "sourceWidth": 1200,
     "note": "AI-generated cutaway illustration, agy, 2 Nov 2026, background removed. Shows typical internal parts, not this customer's unit."
   },
-  "dishwasher": {
+  "hero-ac-ar": {
     "kind": "generated",
-    "source": "design/generated/cutout/dishwasher.png",
-    "sourceWidth": 1200,
-    "note": "AI-generated unbranded product illustration, agy, 2 Nov 2026, background removed. Never a job photo."
+    "source": "design/generated/hero/ac-ar.png",
+    "sourceWidth": 1376,
+    "note": "AI-generated staged scene, agy, 5 Nov 2026, at Ameer's request. Not a real job, staff member or customer."
   },
-  "freezer": {
+  "hero-ac-en": {
     "kind": "generated",
-    "source": "design/generated/cutout/freezer.png",
-    "sourceWidth": 1200,
-    "note": "AI-generated unbranded product illustration, agy, 2 Nov 2026, background removed. Never a job photo."
+    "source": "design/generated/hero/ac-en.png",
+    "sourceWidth": 1376,
+    "note": "AI-generated staged scene, agy, 5 Nov 2026, at Ameer's request. Not a real job, staff member or customer."
   },
-  "microwave": {
+  "hero-fridge-ar": {
     "kind": "generated",
-    "source": "design/generated/cutout/microwave.png",
-    "sourceWidth": 1200,
-    "note": "AI-generated unbranded product illustration, agy, 2 Nov 2026, background removed. Never a job photo."
+    "source": "design/generated/hero/fridge-ar.png",
+    "sourceWidth": 1376,
+    "note": "AI-generated staged scene, agy, 5 Nov 2026, at Ameer's request. Not a real job, staff member or customer."
   },
-  "oven-stove": {
+  "hero-fridge-en": {
     "kind": "generated",
-    "source": "design/generated/cutout/oven-stove.png",
-    "sourceWidth": 1200,
-    "note": "AI-generated unbranded product illustration, agy, 2 Nov 2026, background removed. Never a job photo."
+    "source": "design/generated/hero/fridge-en.png",
+    "sourceWidth": 1376,
+    "note": "AI-generated staged scene, agy, 5 Nov 2026, at Ameer's request. Not a real job, staff member or customer."
   },
-  "water-heater": {
+  "hero-rooftop-ar": {
     "kind": "generated",
-    "source": "design/generated/cutout/water-heater.png",
+    "source": "design/generated/hero/rooftop-ar.png",
+    "sourceWidth": 1376,
+    "note": "AI-generated staged scene, agy, 5 Nov 2026, at Ameer's request. Not a real job, staff member or customer."
+  },
+  "hero-rooftop-en": {
+    "kind": "generated",
+    "source": "design/generated/hero/rooftop-en.png",
+    "sourceWidth": 1376,
+    "note": "AI-generated staged scene, agy, 5 Nov 2026, at Ameer's request. Not a real job, staff member or customer."
+  },
+  "hero-washer-ar": {
+    "kind": "generated",
+    "source": "design/generated/hero/washer-ar.png",
+    "sourceWidth": 1376,
+    "note": "AI-generated staged scene, agy, 5 Nov 2026, at Ameer's request. Not a real job, staff member or customer."
+  },
+  "hero-washer-en": {
+    "kind": "generated",
+    "source": "design/generated/hero/washer-en.png",
+    "sourceWidth": 1376,
+    "note": "AI-generated staged scene, agy, 5 Nov 2026, at Ameer's request. Not a real job, staff member or customer."
+  },
+  "fault-ac-freezing-up": {
+    "kind": "generated",
+    "source": "design/generated/faults/ac-freezing-up.png",
     "sourceWidth": 1200,
-    "note": "AI-generated unbranded product illustration, agy, 2 Nov 2026, background removed. Never a job photo."
+    "note": "AI-generated picture of the symptom, agy, 5 Nov 2026. Unbranded, not a customer's appliance."
+  },
+  "fault-ac-leaking-water": {
+    "kind": "generated",
+    "source": "design/generated/faults/ac-leaking-water.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated picture of the symptom, agy, 5 Nov 2026. Unbranded, not a customer's appliance."
+  },
+  "fault-ac-loud": {
+    "kind": "generated",
+    "source": "design/generated/faults/ac-loud.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated picture of the symptom, agy, 5 Nov 2026. Unbranded, not a customer's appliance."
+  },
+  "fault-ac-not-cooling": {
+    "kind": "generated",
+    "source": "design/generated/faults/ac-not-cooling.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated picture of the symptom, agy, 5 Nov 2026. Unbranded, not a customer's appliance."
+  },
+  "fault-ac-not-turning-on": {
+    "kind": "generated",
+    "source": "design/generated/faults/ac-not-turning-on.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated picture of the symptom, agy, 5 Nov 2026. Unbranded, not a customer's appliance."
+  },
+  "fault-dryer-not-drying-well": {
+    "kind": "generated",
+    "source": "design/generated/faults/dryer-not-drying-well.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated picture of the symptom, agy, 5 Nov 2026. Unbranded, not a customer's appliance."
+  },
+  "fault-dryer-not-heating": {
+    "kind": "generated",
+    "source": "design/generated/faults/dryer-not-heating.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated picture of the symptom, agy, 5 Nov 2026. Unbranded, not a customer's appliance."
+  },
+  "fault-dryer-not-tumbling": {
+    "kind": "generated",
+    "source": "design/generated/faults/dryer-not-tumbling.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated picture of the symptom, agy, 5 Nov 2026. Unbranded, not a customer's appliance."
+  },
+  "fault-fridge-leaking-water": {
+    "kind": "generated",
+    "source": "design/generated/faults/fridge-leaking-water.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated picture of the symptom, agy, 5 Nov 2026. Unbranded, not a customer's appliance."
+  },
+  "fault-fridge-loud": {
+    "kind": "generated",
+    "source": "design/generated/faults/fridge-loud.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated picture of the symptom, agy, 5 Nov 2026. Unbranded, not a customer's appliance."
+  },
+  "fault-fridge-not-cooling": {
+    "kind": "generated",
+    "source": "design/generated/faults/fridge-not-cooling.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated picture of the symptom, agy, 5 Nov 2026. Unbranded, not a customer's appliance."
+  },
+  "fault-washer-error-code": {
+    "kind": "generated",
+    "source": "design/generated/faults/washer-error-code.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated picture of the symptom, agy, 5 Nov 2026. Unbranded, not a customer's appliance."
+  },
+  "fault-washer-not-draining": {
+    "kind": "generated",
+    "source": "design/generated/faults/washer-not-draining.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated picture of the symptom, agy, 5 Nov 2026. Unbranded, not a customer's appliance."
+  },
+  "fault-washer-not-spinning": {
+    "kind": "generated",
+    "source": "design/generated/faults/washer-not-spinning.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated picture of the symptom, agy, 5 Nov 2026. Unbranded, not a customer's appliance."
+  },
+  "fault-washer-shaking": {
+    "kind": "generated",
+    "source": "design/generated/faults/washer-shaking.png",
+    "sourceWidth": 1200,
+    "note": "AI-generated picture of the symptom, agy, 5 Nov 2026. Unbranded, not a customer's appliance."
   }
 }

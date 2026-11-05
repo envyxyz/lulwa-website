@@ -17,6 +17,7 @@ const prefix = (url) => url.replace(/^\/(?!\/)/, `${base}/`);
 const attributes = (text) =>
   text
     .replace(/\b(href|src|content|data-endpoint|data-thanks)="(\/[^"]*)"/g, (_, name, url) => `${name}="${prefix(url)}"`)
+    .replace(/(http-equiv="refresh" content="0;url=)(\/[^"]*)"/g, (_, head, url) => `${head}${prefix(url)}"`)
     .replace(/\bsrcset="([^"]*)"/g, (_, list) => `srcset="${list.split(', ').map(prefix).join(', ')}"`);
 // Link previews fetch og:image and follow og:url, so on the preview they must name the preview itself, not lulwa.com.sa,
 // where the old site would answer with its own card. Canonicals, hreflang and schema keep the production address.

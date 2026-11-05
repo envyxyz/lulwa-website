@@ -32,8 +32,11 @@ const allowFor = (path) => {
 };
 // TASTE_PORT: inspect a preview that is already running. Astro allows one preview per project, so a second one would exit.
 const port = process.env.TASTE_PORT ?? 4323;
+// TASTE_DIST: the built folder whose sitemaps list the pages (default dist). TASTE_PATHS: only these paths, comma separated, for a quick run.
+const dist = process.env.TASTE_DIST ?? 'dist';
 const locs = (file) => [...readFileSync(file, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]).pathname);
-const paths = locs('dist/sitemap-index.xml').flatMap((sitemap) => locs(`dist${sitemap}`));
+// The 404 pages are noindex and so never in a sitemap, but they are pages people see: they are inspected with the text-page allowances (allowFor maps /en/404 to /404 like any other).
+const paths = process.env.TASTE_PATHS?.split(',') ?? [...locs(`${dist}/sitemap-index.xml`).flatMap((sitemap) => locs(`${dist}${sitemap}`)), '/404', '/en/404'];
 
 let failed = spawnSync('node', [join(skill, 'lint.mjs'), 'src'], { stdio: 'inherit' }).status !== 0;
 

@@ -7,7 +7,7 @@ Ameer's instructions today. These win over every older doc (CLAUDE.md, PRD, AUTO
 2. **Slugs and file names never change.** Every URL in `docs/url-map.csv` is a real 200 page at its original path. Old physical file names stay too: `about.html`, `services/index.html`, `services/ac-repair.html`, `areas/index.html`, `brands/index.html`, `contact-submit.php`, `favicon.ico`, `favicon.svg`, `apple-touch-icon.png`, `manifest.json`, `browserconfig.xml`, `robots.txt`, `llms.txt`, `ai.txt`, `sitemap.xml`, `sitemap-index.xml`, `sitemap-pages.xml`, `sitemap-services.xml`, `sitemap-areas.xml`, `sitemap-brands.xml`, `sitemap-blog.xml`, `blog/rss.xml`, `images/og-default.png`, `images/brand/lulwa-logo.png`, `images/icons/*`, and every old image under `images/`, `assets/img/`, `uploads/`, `blog/images/`.
 3. **Old site** in `../website_old` is the live site and its SEO works. Take its tags. Never copy `config/`, `includes/`, `database/`, `admin/`, `logs/`; `config/database.php` holds live credentials, never print or commit it.
 4. **Button words:** just `WhatsApp` / `واتساب` and `Call` / `اتصال`. No "WhatsApp us", no "Call us".
-5. **No sticky call and WhatsApp bar on phones.**
+5. **No sticky call and WhatsApp bar on phones.** Ameer, 5 Nov 2026: two floating buttons in the corner replace the header ones. Not a full-width bar.
 6. **Favicon** shows in Google and everywhere. **No NAP inconsistency.** Ready for search engines and LLMs.
 7. Production ready. Nothing left on the code side.
 
