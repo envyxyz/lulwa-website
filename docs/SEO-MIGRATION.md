@@ -39,5 +39,5 @@ Ameer's top priority: the new site must keep the rankings and domain age lulwa.c
 
 ## Launch, 9 Nov 2026
 - Live on Hostinger through `.github/workflows/deploy.yml` (push to main, checks first, `HOSTINGER_DEPLOY=on`). Rollback: run the workflow by hand with `rollback` = `latest` or `pre-launch`.
-- Ameer's call: the two English posts (`ac-repair-installation-maintenance-in-dammam-the-complete-guide`, `washing-machine-maintenance-repair-services-in-dammam`) stay English at their root URL with the live title phrase; their `/en/` twin is a one-hop 301 to it (`src/english-root.json`). Sitemap: 148 URLs.
+- Ameer's call, 9 Nov 2026 (replaces the earlier one): the two English posts (`ac-repair-installation-maintenance-in-dammam-the-complete-guide`, `washing-machine-maintenance-repair-services-in-dammam`) are Arabic at their root URL like every other page, with a normal `/en/` twin. `src/english-root.json` is now empty. Sitemap: 150 URLs.
 - Post-launch check: `docs/qa/post-launch.json` (148/148 answer 200, canonicals unchanged against `docs/qa/pre-launch.json`). Open: `http://www.` takes two hops because Hostinger forces HTTPS before `.htaccess` runs.

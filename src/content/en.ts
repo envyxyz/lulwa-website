@@ -2,7 +2,7 @@ import type { Area, Brand, Content, MoreService, Service } from './types';
 import brandData from './directory/brands.json' with { type: 'json' };
 import areaData from './directory/areas.json' with { type: 'json' };
 import moreData from './directory/services.json' with { type: 'json' };
-import { site } from '../site';
+import { servedAreas, site } from '../site';
 import { postItems } from './posts';
 
 const phone = site.phone.display;
@@ -224,9 +224,9 @@ const brandItems: Brand[] = brandData.map((b) => ({
   name: b.name.en,
   note: b.note.en,
   services: b.services,
-  seo: { title: `${b.titleName.en} appliance repair in Dammam | ${site.brand.latin}`, description: `Have a ${b.titleName.en} appliance in Dammam? Send a photo of it and its label on WhatsApp, ${phone}, and we will tell you if we can repair it.` },
+  seo: { title: `${b.titleName.en} appliance repair in Dammam | ${site.brand.latin}`, description: `Have a ${b.titleName.en} appliance in Dammam? Send a photo of it and its label on WhatsApp, ${phone}, and we will reply.` },
   h1: `${b.titleName.en} appliance repair`,
-  lead: 'Send a photo of the appliance and its model label on WhatsApp, and we will tell you if we can repair it.',
+  lead: `We repair ${b.titleName.en} appliances in Dammam, Al-Khobar and Qatif. Send a photo of the appliance and its model label on WhatsApp and we will reply.`,
   disclaimer: `${name} is an independent repair shop, not an agent of ${b.titleName.en}.`,
 }));
 
@@ -240,7 +240,9 @@ const areaItems: Area[] = areaData.map((a) => {
     near: a.near,
     seo: { title: `Appliance repair in ${a.name.en} | ${site.brand.latin}`, description: `In ${a.name.en}? Our shop is in Al-Jalawiyah, Dammam. Send your district and a photo of the fault on WhatsApp, ${phone}, and we will say if we can take it.` },
     h1: `Appliance repair in ${a.name.en}`,
-    lead: `Our shop is in Al-Jalawiyah, Dammam${a.km ? `, about ${a.km} km from ${a.name.en}` : ''}. Send your district and a photo of the fault on WhatsApp, and we will tell you if we can take the job.`,
+    lead: servedAreas.includes(a.slug)
+      ? `We repair home appliances in ${a.name.en} and come to you. Our shop is in Al-Jalawiyah, Dammam. Send your district and a photo of the fault on WhatsApp.`
+      : `Our shop is in Al-Jalawiyah, Dammam${a.km ? `, about ${a.km} km from ${a.name.en}` : ''}. Send your district and a photo of the fault on WhatsApp, and we will tell you if we can take the job.`,
   };
 });
 
@@ -263,9 +265,9 @@ export const en: Content = {
   status: 'final',
   meta: { title: name, description: `${name}, in Al-Jalawiyah, Dammam. Repair of air conditioners, fridges, automatic washing machines and dryers.` },
   chrome: { skipLink: 'Skip to content', homeLabel: `${name}, home`, navLabel: 'Main menu', menu: 'Menu', language: 'العربية', nav: { services: 'Services', areas: 'Areas', brands: 'Brands', about: 'About', contact: 'Contact' }, word: site.brand.latin.toUpperCase() },
-  footer: { line: 'Air conditioner, fridge, washing machine and dryer repair in Al-Jalawiyah, Dammam.', services: 'Services', company: 'Company', hours: 'Hours and area', areas: 'Areas in the Eastern Province', brands: 'Appliance brands' },
+  footer: { line: 'Air conditioner, fridge, washing machine and dryer repair in Al-Jalawiyah, Dammam.', services: 'Services', company: 'Company', hours: 'Hours and area', areas: 'Areas in the Eastern Province', brands: 'Appliance brands', follow: 'Follow us' },
   actions: { whatsapp: 'WhatsApp', whatsappShort: 'WhatsApp', call: 'Call', directions: 'Directions', allServices: 'All services', learnMore: 'Learn more' },
-  ask: { how: 'How to start', steps: ['Photograph the appliance and the fault.', 'Send it on WhatsApp with your district.', 'We reply whether we can take the job, and how to start.'], services: 'Services', near: 'Nearby areas', problems: 'Common faults', checks: 'Check before you send', stop: 'Stop and call', faq: 'Common questions', shop: 'The shop' },
+  ask: { how: 'How to start', steps: ['Photograph the appliance and the fault.', 'Send it on WhatsApp with your district.', 'We reply and tell you how to start.'], services: 'Services', near: 'Nearby areas', problems: 'Common faults', checks: 'Check before you send', stop: 'Stop and call', faq: 'Common questions', shop: 'The shop' },
   icons: { next: 'Next' },
   home: {
     seo: { title: `AC, fridge and washing machine repair in Dammam | ${site.brand.latin}`, description: 'A registered repair shop in Al-Jalawiyah, Dammam: air conditioners, fridges, automatic washing machines and dryers. Send a photo of the fault on WhatsApp.' },
@@ -273,8 +275,8 @@ export const en: Content = {
       question: 'Not working?',
       service: 'Dammam repair',
       answer: 'Photograph the fault and send it on WhatsApp',
-      support: 'Appliance repair in Al-Jalawiyah, Dammam: air conditioners (split and window), refrigerators, washing machines and dryers.',
-      homeVisitLine: '',
+      support: 'Appliance repair in Dammam, Eastern Province: air conditioners (split and window), refrigerators, washing machines and dryers.',
+      homeVisitLine: 'We come to you',
       facts: { registered: 'A registered repair shop', rating: '5.0 on Google Maps' },
       pause: 'Pause the pictures',
       play: 'Play the pictures',
@@ -380,8 +382,8 @@ export const en: Content = {
   areas: {
     seo: { title: `Appliance repair across the Eastern Province | ${site.brand.latin}`, description: 'Dammam, Al-Khobar, Dhahran, Qatif, Jubail, Al-Ahsa and more: our shop is in Al-Jalawiyah, Dammam. Send your district and appliance on WhatsApp and we will tell you if we can take the job.' },
     h1: 'Areas',
-    lead: 'Our shop is in Al-Jalawiyah, Dammam. Outside Dammam, send your district on WhatsApp and we will tell you if we can take the job.',
-    pending: 'Outside Dammam we confirm each district case by case.',
+    lead: 'Our shop is in Al-Jalawiyah, Dammam, and we serve Dammam, Al-Khobar and Qatif at your home. Elsewhere, send your district on WhatsApp and we will tell you if we can take the job.',
+    pending: 'Outside Dammam, Al-Khobar and Qatif we confirm each district case by case.',
     servicesLabel: 'What we repair here',
     items: [
       {
@@ -397,7 +399,7 @@ export const en: Content = {
   brands: {
     seo: { title: `AC and appliance brands: repair in Dammam | ${site.brand.latin}`, description: 'LG, Samsung, Gree, Carrier, Zamil, White Westinghouse and more: send your brand and the model label on WhatsApp and we will tell you whether we can repair it. Independent shop in Al-Jalawiyah, Dammam.' },
     h1: 'Appliance brands',
-    lead: 'Send your appliance brand and unit label on WhatsApp and we will tell you whether we can repair it.',
+    lead: 'We repair all brands in Dammam, Al-Khobar and Qatif. Send your appliance brand and unit label on WhatsApp and we will reply.',
     disclaimer: `${name} is an independent repair shop, not an agent of any brand named here.`,
     items: brandItems,
   },

@@ -42,8 +42,8 @@ export const site = {
   maps: {
     // The shop's Google Business Profile (Ameer, 5 Nov 2026), by its place id: directions and reviews open it in Google Maps.
     listing: 'https://www.google.com/maps?cid=11979123383184648733',
-    // By the profile's exact name, so the map shows the business card and not a bare pin.
-    embed: `https://www.google.com/maps?q=${encodeURIComponent('Lulwa AC & Refrigeration | لولوه')}&output=embed`,
+    // The same place id, so the map opens on the profile's exact pin (Ameer's link of 9 Nov 2026 resolves to it).
+    embed: 'https://www.google.com/maps?cid=11979123383184648733&output=embed',
   },
   // Hours as the page says them, per language, and as schema writes them.
   hours: {
@@ -69,6 +69,14 @@ export const site = {
     'https://www.threads.com/@lulwadammam',
     'https://linktr.ee/lulwadammam',
     'https://www.openstreetmap.org/node/14335255741',
+  ],
+  // The profiles shown as icons in the footer: the ones Saudi customers use. TikTok is banned pending appeal (9 Nov 2026), so it is out until it is back.
+  socials: [
+    { name: 'Instagram', icon: 'instagram', url: 'https://www.instagram.com/lulwadammam/' },
+    { name: 'Snapchat', icon: 'snapchat', url: 'https://www.snapchat.com/@lulwadammam' },
+    { name: 'X', icon: 'x', url: 'https://x.com/lulwadammam' },
+    { name: 'Facebook', icon: 'facebook', url: 'https://www.facebook.com/profile.php?id=61596078749614' },
+    { name: 'YouTube', icon: 'youtube', url: 'https://www.youtube.com/@lulwadammam' },
   ],
   // Date the pages last changed, for sitemaps. Bump it when copy changes.
   updated: '2026-11-02',
@@ -97,3 +105,6 @@ export const factLines = (lang: 'ar' | 'en') => {
     `${ar ? 'الخريطة' : 'Map'}: ${site.maps.listing} (${site.geo.latitude}, ${site.geo.longitude})`,
   ];
 };
+
+// Areas the shop confirmed it serves at the customer's home (client, 9 Nov 2026): Dammam, Al-Khobar, Qatif. Any other area asks first.
+export const servedAreas = ['appliance-repair-in-dammam', 'appliance-repair-in-al-khobar', 'appliance-repair-in-qatif'];

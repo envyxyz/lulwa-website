@@ -8,7 +8,7 @@ export const content = { ar, en };
 /** A site path in the page's language: Arabic at the root, English under /en. */
 export const localePath = (lang: Lang, path: string) => (lang === 'ar' || isEnglishRoot(path) ? path : path === '/' ? '/en' : `/en${path}`);
 /** Two live English posts rank at their root URL, so they are served in English there and have no Arabic or /en twin (Ameer, 9 Nov 2026). */
-export const isEnglishRoot = (pathname: string) => englishRoot.includes(pathname.replace(/(\/index)?\.html$/, '').replace(/\/$/, ''));
+export const isEnglishRoot = (pathname: string) => (englishRoot as string[]).includes(pathname.replace(/(\/index)?\.html$/, '').replace(/\/$/, ''));
 /** A request path as the files are named: Arabic slugs arrive percent-encoded from Astro.url. */
 export const decodePath = (pathname: string) => { try { return decodeURI(pathname); } catch { return pathname; } };
 /** The slug of an Arabic-only post at this Arabic path, else undefined. */

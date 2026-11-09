@@ -99,5 +99,5 @@ test('T7 the schema business node is identical on every page that carries it', a
 });
 
 test('T7 the map embed names the Business Profile', () => {
-  expect(site.maps.embed).toContain(encodeURIComponent('Lulwa AC & Refrigeration'));
+  expect(site.maps.embed).toContain(new URL(site.maps.listing).searchParams.get('cid'));
 });

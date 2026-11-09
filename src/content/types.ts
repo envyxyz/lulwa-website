@@ -76,7 +76,7 @@ export type Content = {
     /** The giant name across the hero and the end of the footer. */
     word: string;
   };
-  footer: { line: string; services: string; company: string; hours: string; areas: string; brands: string };
+  footer: { line: string; services: string; company: string; hours: string; areas: string; brands: string; follow: string };
   actions: { whatsapp: string; /** The header and hero button word, where the icon says the rest. */ whatsappShort: string; call: string; directions: string; allServices: string; learnMore: string };
   icons: { next: string };
   home: {

@@ -39,11 +39,12 @@ Source: `../growth/Notes/Project Brief.md` and the live Google listing, 1 Nov 20
 - Email lulwadammam@gmail.com, owner-approved per the live contact form, 31 Oct 2026. Coordinates 26.435556, 50.079611 from the live schema, 2 Nov 2026.
 - Old URLs stay (Ameer, 2 Nov 2026). Pages for areas, brands and appliances not confirmed below keep their old URL and old search wording in the title, and the body asks first: send the device and district on WhatsApp and the shop replies whether it can take the job. That wording is allowed. A promise of coverage is not.
 - Fault pages are indexed from launch at Ameer's request, 2 Nov 2026, ahead of the technician read in `docs/TECH-REVIEW.md`.
+- Client answers, relayed by Ameer 9 Nov 2026: the shop serves **all brands**; locations served are **Dammam, Al-Khobar and Qatif**; **home visits are confirmed**; main appliances are refrigerator, dryer, AC, washing machine and electric stove; the map pin is the Google Business Profile pin. Every other area, and the dishwasher, freezer, microwave and water-heater pages, still ask first.
 - Analytics already in use: GA4 `G-XYKP3DY4X7`, GTM `GTM-TVK4BRTS`, Clarity `yf0k43euob`. Ownership unconfirmed.
 
 ## Not confirmed: never publish until a dated line appears above
 
-Central AC, ovens and stoves, dishwashers, microwaves, water heaters · every area beyond Dammam · home visits as a standing promise · same-day service · arrival times · inspection fee and any price · warranty terms · parts origin · years in business · number of jobs or customers · technician count, names, training or certification · payment methods · VAT number and Saudi Business Center QR · the social profiles listed on the old site.
+Central AC, dishwashers, microwaves, water heaters · every area beyond Dammam, Al-Khobar and Qatif · same-day service · arrival times · inspection fee and any price · warranty terms · parts origin · years in business · number of jobs or customers · technician count, names, training or certification · payment methods · VAT number and Saudi Business Center QR · the social profiles listed on the old site.
 
 The old site states many of these: 5,000+ customers, 10+ years, 98% success, 4.9/5, certified technicians, original parts only, same-day visits, 30 to 60 minute arrival, inspection from SAR 150, repairs SAR 180 to 850. None has a source. They do not migrate.
 

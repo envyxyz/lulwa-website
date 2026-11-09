@@ -44,6 +44,22 @@ const head = 'mb-2 font-medium';
       </div>
       <address class="not-italic"><bdi>{shop.address}</bdi></address>
       <a href={site.maps.listing} data-action="directions" target="_blank" rel="noopener" class={`${strong} gap-2`}><Icon name="map-pin" />{c.actions.directions}</a>
+      <h2 class={`${head} mt-2`}>{footer.follow}</h2>
+      <ul class="flex flex-wrap gap-2">
+        {site.socials.map((s) => (
+          <li>
+            <a
+              href={s.url}
+              target="_blank"
+              rel="noopener me"
+              data-action="social"
+              class="inline-flex min-h-target min-w-target items-center justify-center opacity-75 transition hover:opacity-100 active:opacity-100"
+            >
+              <Icon name={s.icon} label={s.name} />
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
     <nav aria-label={footer.services}>
       <h2 class={head}>{footer.services}</h2>

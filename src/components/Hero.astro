@@ -7,7 +7,7 @@ import { content, langFromUrl } from '../content';
 
 const lang = langFromUrl(Astro.url);
 const { actions, home } = content[lang];
-const { hero, shop } = home;
+const { hero } = home;
 
 // The background: generated pictures of the work, each with its people on the side away from the text
 // (hero-<scene>-en, hero-<scene>-ar). Only the ones that exist show. With none, the panel is plain teal.
@@ -47,7 +47,7 @@ const fallback = (name: string) => `/images/${name}-960.webp`;
       </div>
       <ul class="flex flex-wrap gap-x-6 gap-y-1 text-small">
         <li class="flex items-center gap-2"><Icon name="star" small />{hero.facts.rating}</li>
-        <li class="hidden items-center gap-2 md:flex"><Icon name="map-pin" small /><bdi>{shop.address}</bdi></li>
+        <li class="hidden md:flex"><a href={site.maps.listing} data-action="directions" target="_blank" rel="noopener" class="inline-flex items-center gap-2 transition hover:opacity-70 active:opacity-60"><Icon name="map-pin" small /><bdi>{`${site.address[lang].city}${lang === 'ar' ? '، ' : ', '}${site.address[lang].region}`}</bdi></a></li>
       </ul>
     </div>
     </div>
