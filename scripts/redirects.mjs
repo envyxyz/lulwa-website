@@ -4,6 +4,9 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { parseCsv } from './csv.mjs';
 
+// Two English posts rank at their root URL; their /en twin is a one-hop 301 back (src/english-root.json).
+const englishRoot = JSON.parse(readFileSync('src/english-root.json', 'utf8'));
+
 const HOST = 'lulwa.com.sa';
 const rows = parseCsv(readFileSync('docs/url-map.csv', 'utf8')).map(([old_path = '', action = '', target = '']) => ({ old_path, action, target }));
 
@@ -160,6 +163,7 @@ ${caseFix.map((l) => `  ${l}`).join('\n')}
   ###########################################
   RewriteRule ^(en/)?blog/(?:category|tag)(?:/.*)?$ /$1blog [R=301,L,NE]
   RewriteRule ^(en/)?blog/search/?$ /$1blog [R=301,L,NE]
+${englishRoot.map((p) => `  RewriteRule ^en/${esc(p)}(?:[.]html)?/?$ ${p} [R=301,L,NE]`).join('\n')}
   RewriteRule ^(?:offline|500)(?:\\.html)?/?$ / [R=301,L,NE]
 ${mapped.map((l) => `  ${l}`).join('\n')}
 

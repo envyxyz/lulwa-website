@@ -25,7 +25,9 @@ const load = (src: string) => {
 };
 const wake = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
 let started = false;
-const start = () => {
+const start = (event?: Event) => {
+  // The load-time scroll Chrome fires on the Arabic page on phones is not a visit (see chrome.ts).
+  if (event?.type === 'scroll' && scrollY < 1) return;
   // The GitHub Pages preview must not count in the shop's analytics.
   if (started || location.hostname.endsWith('.github.io')) return;
   started = true;

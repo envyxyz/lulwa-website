@@ -3,7 +3,7 @@ import Button from './Button.astro';
 import Icon from './Icon.astro';
 import Logo from './Logo.astro';
 import { site } from '../site';
-import { content, langFromUrl, localePath, twinPath } from '../content';
+import { content, isEnglishRoot, langFromUrl, localePath, twinPath } from '../content';
 
 const lang = langFromUrl(Astro.url);
 const c = content[lang];
@@ -73,7 +73,7 @@ const head = 'mb-2 font-medium';
     <div class="mx-auto flex max-w-page flex-col gap-x-8 gap-y-1 px-gutter py-4 text-small md:flex-row lg:text-body md:flex-wrap md:items-center">
       <p class="me-auto">© {new Date().getFullYear()} <bdi>{site.legal.name}</bdi> · {shop.crLabel} <bdi dir="ltr">{site.legal.cr}</bdi></p>
       <ul class="flex flex-wrap gap-x-6">{legal.map(([href, label]) => <li><a href={href} class={link}>{label}</a></li>)}</ul>
-      <a href={twinPath(Astro.url.pathname)} lang={lang === 'ar' ? 'en' : 'ar'} class={link}>{chrome.language}</a>
+      <a href={isEnglishRoot(Astro.url.pathname) ? '/blog' : twinPath(Astro.url.pathname)} lang={lang === 'ar' ? 'en' : 'ar'} class={link}>{chrome.language}</a>
     </div>
   </div>
 </footer>

@@ -35,11 +35,11 @@
        "p": "تناسب هذه السعة الغرف بمساحة تصل إلى 18 مترا مربعا مع سقف بارتفاع طبيعي. وتمنحك برودة مريحة إذا كانت جدران الغرفة معزولة ونوافذها مظللة."
       },
       {
-       "h": "سعة طنان (24000 وحدة)",
+       "h": "سعة طنين (24000 وحدة)",
        "p": "تلائم هذه الفئة غرف النوم الرئيسية وصالات المعيشة التي تتراوح مساحتها بين 18 و25 مترا مربعا. وتستطيع الحفاظ على برودة مستقرة داخل الغرفة حتى في أشد ساعات الصيف حرارة."
       },
       {
-       "h": "سعة طنان ونصف (30000 وحدة)",
+       "h": "سعة طنين ونصف (30000 وحدة)",
        "p": "تصلح هذه السعة للصالات الواسعة والمجالس التي تزيد مساحتها على 26 مترا مربعا. وتساعد في تبريد المكان بكفاءة عند وجود ضيوف أو تشغيل أجهزة كهربائية متعددة."
       }
      ]
@@ -139,7 +139,7 @@
      "p": [
       "يحتاج الانتقال إلى منزل جديد إلى معرفة كيفية فك ونقل وتركيب المكيفات بطريقة صحيحة لحماية الأجهزة وتجنب فقدان الغاز. يؤدي الفك المتعجل إلى تسرب شحنة الفريون ودخول الغبار والرطوبة إلى المواسير مما يسبب أعطالا لاحقة. وتتطلب هذه العملية خطوات فنية محددة وأدوات خاصة للحفاظ على سلامة التوصيلات.",
       "تعتمد طريقة الفك الصحيحة على جمع غاز الفريون داخل الوحدة الخارجية بتشغيل المكيف في وضع التبريد ثم إغلاق محبس الطرد الصغير. يسحب الضاغط الغاز المتبقي في المواسير والوحدة الداخلية، وعند وصول الضغط إلى الصفر يغلق محبس السحب الكبير ويفصل التيار الكهربائي فورا. تحبس هذه الخطوة الغاز بالكامل داخل المكثف الخارجي حتى لا يضيع أثناء النقل.",
-      "افصل الأسلاك الكهربائية وأنابيب النحاس بعد قطع التيار، وأغلق فتحات المحابس بسدادات محكمة لمنع دخول الأتربة ورطوبة البحر. انقل الوحدة الخارجية دائما في وضع رأسي حتى لا يخرج زيت التزييت من الضاغط إلى مواسير التبريد. وعند إعادة التركيب في المكان الجديد، تأكد من وزن القواعد بميزان مائي وافرغ الهواء بمضخة الفاكيوم قبل فتح الصمامات."
+      "افصل الأسلاك الكهربائية وأنابيب النحاس بعد قطع التيار، وأغلق فتحات المحابس بسدادات محكمة لمنع دخول الأتربة ورطوبة البحر. انقل الوحدة الخارجية دائما في وضع رأسي حتى لا يخرج زيت التزييت من الضاغط إلى مواسير التبريد. وعند إعادة التركيب في المكان الجديد، تأكد من وزن القواعد بميزان مائي وأفرغ الهواء بمضخة الفاكيوم قبل فتح الصمامات."
      ]
     },
     {
@@ -149,11 +149,32 @@
       "يقارن أصحاب المنازل بين تصليح المكيف القديم أو شراء مكيف جديد عند تكرار الأعطال. يعتمد القرار على عمر الجهاز ومدى تأثر زعانف التبريد بالرطوبة والصدأ البحري في المنطقة الشرقية. فإذا تجاوز عمر المكيف ثماني سنوات وتآكلت زعانف الألمنيوم مع توقف الضاغط، يصبح الاستبدال أوفر لك، أما إذا كان الجهاز حديثا ومواسيره سليمة فالإصلاح هو الخيار الأنسب.",
       "يحتاج شراء مكيف مستعمل إلى فحص بصري للتأكد من خلو الوحدة الخارجية من الصدأ وعدم وجود آثار لحام قديمة على مواسير النحاس. واحرص على تجربة تشغيل المكيف للتأكد من صوت الضاغط وخلوه من الاهتزاز أو الطنين المرتفع. وتستقبل ورشتنا استفسارات أهالي الدمام لفحص أعطال مكيفات السبليت والشباك وتوضيح خيارات الإصلاح المناسبة عبر واتساب."
      ]
+    },
+    {
+     "h": "معايير الحماية الكهربائية والقواطع الجدارية لمكيفات السبليت",
+     "p": [
+      "تتطلب التركيبات الكهربائية لمكيفات الهواء في منازل الدمام عناية فائقة بسعة القواطع الجدارية ومقاطع الأسلاك النحاسية المغذية للوحدات الخارجية والداخلية. يجب أن يتطابق قاطع التيار في لوحة التوزيع الفرعية مع تيار بدء تشغيل الضاغط (LRA) المسجل على لوحة بيانات الجهاز لتجنب الفصل المتكرر للقاطع عند إقلاع المحرك. يؤدي استخدام قاطع ذي سعة غير ملائمة أو أسلاك نحاسية رفيعة إلى سخونة التوصيلات واحتراق المفاتيح الجدارية نتيجة سحب تيار كهربائي مرتفع أثناء ساعات الظهيرة الحارة بالشرقية.",
+      "يشمل الفحص الهندسي السليم فحص نقاط تلامس الكونتاكتور المغناطيسي في الوحدة الخارجية والتأكد من خلوها من قشور التفحم الناتجة عن الشرارات الكهربائية المتكررة. تسبب هذه القشور هبوطا في الجهد الواصل لملفات الضاغط، مما يؤدي إلى طنين المحرك وتوقفه عن العمل فجأة. ننصح أصحاب المساكن باختيار مفاتيح عزل جدارية مقاومة للرطوبة وتركيب منظمات حماية من تقلبات الجهد لحماية الكروت الإلكترونية من التلف عند حدوث اضطراب في التيار بالشبكة المنزلية وتفادي توقف التبريد."
+     ]
+    },
+    {
+     "h": "تصميم مجاري تصريف المياه ومنع الارتداد في المناخ الرطب",
+     "p": [
+      "يمثل تصريف مياه التكثيف في مكيفات السبليت عنصرا هندسيا جوهريا في المناطق الساحلية عالية الرطوبة مثل مدينة الدمام. تسحب الوحدة الداخلية كميات كبيرة من رطوبة الهواء يوميا، مما يفرض تركيب أنابيب التصريف بميلان انحداري لا يقل عن سنتيمتر واحد لكل متر طولي باتجاه مخرج الجدار. يؤدي غياب هذا الميلان إلى ركود المياه داخل الحوض البلاستيكي وتجمع الفطريات والرواسب الطينية التي تسد فتحة الخرطوم، مسببة فيضان الماء داخل الغرفة وتلف الدهانات والأثاث المنزلي.",
+      "يقدم دليل صيانة وتركيب المكيفات الشامل بالدمام إرشادات لعمل مصيدة مائية (سيفون) في مسار أنبوب التصريف الخارجي لمنع ارتداد الروائح الكريهة ودخول الهواء الحار إلى مجرى التكييف. كما يساعد عزل أنبوب الصرف الداخلي برغوة عازلة في منع تكثف قطرات الندى على جداره الخارجي داخل تجاويف الجبس. يضمن هذا التصميم الهيدروليكي السليم انسياب مياه التكثيف بسلاسة إلى نقاط الصرف المخصصة، ويبقي هواء الغرفة نقيا وخاليا من الروائح المكتومة طوال فصل الصيف."
+     ]
+    },
+    {
+     "h": "محددات اختيار موقع الوحدة الخارجية وتأمين التهوية الكافية",
+     "p": [
+      "يحدد موقع تثبيت الوحدة الخارجية لمكيف السبليت كفاءة طرد الحرارة وطول العمر التشغيلي للضاغط ومروحة المكثف في بيئة المنطقة الشرقية. يجب ترك مسافة خلوص هوائي لا تقل عن خمسين سنتيمتر خلف زعانف المكثف ومتر ونصف أمام مروحة الطرد لتأكيد سحب الهواء وتفريغه بحرية تامة دون ارتداد هوائي خانق. يؤدي حشر الوحدات الخارجية في ممرات ضيقة أو بين حوائط متقاربة إلى إعادة سحب الهواء الساخن المطرود، مما يرفع ضغط الضاغط ويخفض التبريد.",
+      "يراعى عند تثبيت الحوامل المعدنية على جدران السطح أو الواجهات استخدام قواعد مطاطية سميكة لامتصاص الاهتزازات الميكانيكية ومنع انتقال الضوضاء إلى الغرف السفلية بالمبنى السكني. كما يفضل تظليل الوحدات الخارجية بمظلات معدنية مفتوحة الجوانب لحمايتها من أشعة الشمس المباشرة دون إعاقة مجرى تدفق الهواء الطبيعي. تساعد هذه التدابير الهندسية في خفض درجة حرارة التشغيل للضاغط، وتمنع فصل مفاتيح الحماية الحرارية، وتحافظ على كفاءة استهلاك الطاقة خلال ساعات القيظ الصيفية الشديدة دون انقطاع."
+     ]
     }
    ],
    "faq": [
     {
-     "q": "كيف تحافظ على كفاءة مكيفات السبليت في اجواء رطوبة وحرارة الدمام؟",
+     "q": "كيف تحافظ على كفاءة مكيفات السبليت في أجواء رطوبة وحرارة الدمام؟",
      "a": "اغسل فلاتر الهواء في بيتك كل أسبوعين، وتأكد من نظافة مجرى خرطوم التصريف حتى لا تتجمع الرطوبة والروائح. واضبط منظم الحرارة على 24 درجة مئوية مع تظليل الوحدة الخارجية عن شمس الظهيرة المباشرة لتقليل إجهاد الضاغط وتوفير الكهرباء."
     },
     {
@@ -171,6 +192,14 @@
     {
      "q": "ما هي العوامل التي تحدد تكلفة صيانة وإصلاح المكيف المنزلي؟",
      "a": "تتحدد التكلفة بناء على نوع القطعة المتعطلة في الدائرة الكهربائية أو الميكانيكية، وما إذا كان الجهاز يحتاج إلى معالجة تسريب وتعبئة فريون، بجانب موقع الوحدة الخارجية. وتوضح ورشتنا في حي الجلوية كلفة الإصلاح المطلوبة بعد فحص المكيف أو مراجعة صورة لوحة الموديل وفيديو العطل عبر واتساب."
+    },
+    {
+     "q": "لماذا يعد توفير مسافة تهوية كافية حول الوحدة الخارجية للمكيف ضروريا بالدمام؟",
+     "a": "تحتاج مروحة المكثف إلى سحب الهواء وتمريره عبر زعانف التبريد لطرد الحرارة المتراكمة بكفاءة. إذا كانت المساحة ضيقة، يرتد الهواء الساخن إلى الوحدة ويرتفع ضغط الضاغط ويفصل قاطع الحماية، مما يوقف التبريد ويرفع استهلاك الطاقة الكهربائية في المنزل بشكل ملحوظ."
+    },
+    {
+     "q": "ما سبب تكرار فصل القاطع الكهربائي الفرعي فور بدء تشغيل مكيف السبليت؟",
+     "a": "يرجع ذلك عادة إلى سحب تيار بدء هائل ناتج عن تلف مكثف التشغيل أو التصاق ميكانيكي في صمامات الضاغط. كما قد يشير إلى تماس كهربائي مباشر في ملفات المحرك وتلامسها مع الهيكل المعدني، مما يتطلب فحصا كهربائيا متخصصا قبل التشغيل."
     }
    ]
   },
@@ -323,6 +352,27 @@
       "Homeowners often weigh repairing an older air conditioner against buying a replacement when breakdowns become frequent. The decision depends on how old the unit is and whether coastal humidity has corroded the cooling fins. If the unit is over eight years old with crumbling aluminum fins and a seized compressor, replacement makes more sense, but newer units with sound coils are usually worth fixing.",
       "Buying a used air conditioner calls for a careful look to ensure the outdoor unit has no deep rust or sloppy solder repairs along the copper lines. Always run the unit before buying to confirm that the compressor operates smoothly without grinding noises or heavy vibration. Our workshop welcomes inquiries from Dammam residents to diagnose split and window AC issues and discuss practical repair options on WhatsApp."
      ]
+    },
+    {
+     "h": "Electrical protection standards and breaker sizing for split units",
+     "p": [
+      "Electrical installations for air conditioners in Dammam residences require careful attention to circuit breaker capacities and copper conductor cross-sections feeding outdoor and indoor units. The branch circuit breaker in the distribution panel must match the compressor locked rotor amperage (LRA) indicated on the nameplate to avoid tripping during motor startup. Using an undersized breaker or thin wiring causes terminal overheating and wall switch failure from high current draw during scorching Eastern Province afternoon hours.",
+      "Proper engineering evaluation covers inspecting magnetic contactor points in the outdoor unit to ensure they are free from carbon pitting caused by repeated electrical arcing. Carbon buildup drops voltage reaching compressor motor windings, causing motor humming and startup failure. We advise property owners to install moisture-resistant wall isolators and voltage monitors to protect electronic control boards against line voltage fluctuations in the household electrical grid, avoiding cooling stoppages."
+     ]
+    },
+    {
+     "h": "Condensate drainage design and backflow prevention in humid weather",
+     "p": [
+      "Condensate drainage design in split air conditioners serves as a critical engineering factor in high-humidity coastal climates like Dammam. The indoor evaporator extracts large quantities of atmospheric moisture daily, requiring drain lines installed with a downward slope of at least one centimeter per meter toward the wall exit. Lacking this gradient causes water to pool inside the plastic collection pan, fostering algae and slime that clog the hose, leading to indoor overflowing and water damage to walls and furnishings.",
+      "Our complete AC maintenance and installation guide in Dammam provides instructions for incorporating an external water trap (p-trap) along the drain line to prevent sewer gas backflow and warm outdoor air infiltration into air handler channels. Insulating indoor drain piping with closed-cell elastomeric foam prevents condensation beads on outer pipe walls inside gypsum ceiling voids. This hydraulic layout allows condensate to drain smoothly to exterior gullies, keeping indoor air fresh and free from stagnant odors throughout summer."
+     ]
+    },
+    {
+     "h": "Outdoor condenser placement factors and airflow clearance",
+     "p": [
+      "Positioning outdoor split condenser units dictates heat rejection efficiency and operating life for both the compressor and condenser fan in the Eastern Province. Maintaining a minimum clearance of fifty centimeters behind the coil fins and one and a half meters in front of the discharge fan ensures free air intake and exhaust without thermal recirculation. Wedging condensing units into narrow lightwells or between adjacent boundary walls traps discharged hot air, driving up compressor discharge pressures and impairing cooling.",
+      "Mounting steel wall brackets on rooftop parapets requires heavy-duty rubber vibration dampening pads to isolate mechanical vibration and prevent humming noise from transmitting into rooms below. Shading outdoor units with louvered metal canopies open on all sides protects casings from blazing direct sun without choking natural airflow paths. These engineering arrangements lower compressor operating temperatures, stop thermal overload cutouts, and maintain efficient energy consumption during intense summer peak heat without interruptions."
+     ]
     }
    ],
    "faq": [
@@ -345,6 +395,14 @@
     {
      "q": "What factors determine the cost of home air conditioner repair?",
      "a": "Servicing cost depends on which electrical or mechanical component has failed, whether piping needs leak repair and gas refilling, and how easy the outdoor unit is to reach. Our workshop in Al-Jalawiyah explains the expected repair steps after examining the unit or checking your model plate photo and fault video on WhatsApp."
+    },
+    {
+     "q": "Why is adequate airflow clearance around outdoor AC condensers essential in Dammam?",
+     "a": "The condenser fan requires unimpeded airflow across cooling fins to reject absorbed indoor heat effectively. Tight spaces cause hot discharged air to recirculate back through the coil, raising head pressure, tripping thermal overloads, halting cooling, and driving up electricity usage in the home."
+    },
+    {
+     "q": "What causes the branch circuit breaker to trip repeatedly when starting a split AC?",
+     "a": "This usually stems from excessive starting current caused by a weakened run capacitor or mechanical binding in compressor internal valves. It may also indicate a direct short circuit in motor windings grounding against the chassis, requiring technician testing before resetting."
     }
    ]
   },
@@ -480,7 +538,7 @@
      "items": [
       {
        "h": "صوت طنين مستمر مع عجز المحرك عن الدوران",
-       "p": "يصدر الضاغط صوت زنين لثوان ثم ينقطع دون بدء ضخ وسيط التبريد. يرتبط هذا العطل غالبا بضعف كابستور الإقلاع أو التصاق ميكانيكي، ويمكن فحص الكابستور للتأكد من سلامة الدائرة."
+       "p": "يصدر الضاغط صوت طنين لثوان ثم ينقطع دون بدء ضخ وسيط التبريد. يرتبط هذا العطل غالبا بضعف كابستور الإقلاع أو التصاق ميكانيكي، ويمكن فحص الكابستور للتأكد من سلامة الدائرة."
       },
       {
        "h": "قفز قاطع الكهرباء عند تشغيل المكيف",
@@ -507,6 +565,27 @@
       "يمكنك تصوير العطل أو تسجيل مقطع فيديو لصوت المكيف أو تسريب الماء وإرساله عبر واتساب على الرقم 056 802 2197. صور لوحة بيانات الجهاز المعدنية الملصقة على الهيكل واذكر اسم حيك السكني في الدمام لمساعدتنا في تقييم الحالة. نرد عليك بتوضيح طبيعة المشكلة والخطوة التالية قبل بدء أي فحص.",
       "نحرص في ورشتنا على تقديم فحص واقعي يوضح أسباب المشكلة وما إذا كان تصليح المكيف مجديا مقارنة بحالته. نوضح متطلبات المعالجة بعد معاينة مقطع الفيديو أو فحص الجهاز في الورشة لتتخذ قرارك باطمئنان. يساعدك هذا التقييم في اتخاذ القرار السليم واستعادة برودة مسكنك خلال حرارة الصيف."
      ]
+    },
+    {
+     "h": "تشخيص ضعف اندفاع الهواء واختلال توازن مروحة البلاور",
+     "p": [
+      "يعاني أصحاب مكيفات السبليت في كثير من الأحيان من تراجع ملحوظ في قوة دفع الهواء البارد داخل الغرفة، على الرغم من سماع صوت دوران المحرك بوضوح تام. يرجع هذا الخلل في الغالب إلى تراكم طبقات كثيفة من الأتربة الرطبة على شفرات المروحة الأسطوانية (البلاور) الداخلية، مما يغير من انحناء الشفرات ويقلل من قدرتها على سحب الهواء ودفعه. يؤدي هذا التراكم غير المتساوي للأوساخ إلى فقدان الاتزان الحركي للمروحة وصدور صوت ارتجاج خفيف أو طنين دوري مزعج.",
+      "يتطلب علاج هذه المشكلة فك مروحة التوزيع بحذر وتنظيفها في ورشتنا باستخدام مضخات مائية مخصصة تزيل الرواسب دون كسر شفرات البلاستيك الحساسة. كما يفحص الفني جلبة التثبيت المطاطية ومحمل الدوران للتأكد من خلوه من التآكل الميكانيكي وتزييته بشحوم مقاومة للحرارة العالية. يعيد هذا الإجراء الفني تدفق الهواء إلى سرعته الطبيعية ويخفض صوت التشغيل الداخلي، مما يكفل وصول البرودة إلى كافة أركان الغرفة بالتساوي وتخفيف الحمل عن محرك دفع الهواء الداخلي في الأيام الحارة."
+     ]
+    },
+    {
+     "h": "معالجة التشققات الدقيقة في صواميل الربط النحاسية ومواضع اللحام",
+     "p": [
+      "تتعرض وصلات أنابيب النحاس التي تربط الوحدة الداخلية بالخارجية لإجهادات ميكانيكية متواصلة تنتج عن اهتزازات دوران الضاغط وتغيرات درجات الحرارة بين الليل والنهار. يؤدي الشد الزائد لصواميل الفلير النحاسية أثناء التركيبات غير الدقيقة إلى حدوث شروخ شعرية دقيقة عند حواف التشفيه، مما يسبب تسريبا بطيئا لوسيط التبريد لا يظهر إلا بعد أشهر من التشغيل. يلاحظ صاحب المكيف حينها تراجعا تدريجيا في برودة الهواء وتكون قطرات زيتية داكنة حول صمامات الخدمة.",
+      "تتطلب عمليات تصليح مكيفات في الدمام اتباع أسلوب هندسي يبدأ بقص الجزء المتشقق وإعادة تشفيه حافة أنبوب النحاس باستخدام أدوات توسيع دقيقة تحقق زاوية إحكام مثالية. نستخدم مفاتيح العزم المعايرة لربط الصواميل بالقوة الهندسية المحددة في كتيبات التصنيع لمنع تكرار التصدع. بعد ذلك، نختبر الوصلات برغوة كشف التسريب تحت ضغط غاز النيتروجين الجاف قبل تفريغ الدائرة وإعادة شحن وسيط التبريد لتأكيد إحكام المنظومة واستقرار ضغوط التشغيل لفترات طويلة دون تسريب."
+     ]
+    },
+    {
+     "h": "معايرة حساسات الحرارة ومعالجة ظاهرة التوقف السريع للضاغط",
+     "p": [
+      "تعتمد كفاءة تبريد مكيف السبليت على دقة القراءات المرسلة من حساس حرارة الغرفة (الثرمستور) وحساس لفائف النحاس الداخلية إلى لوحة التحكم الرئيسية. قد يطرأ انحراف في المقاومة الأومية لهذه الحساسات بفعل الرطوبة الجوية أو التقادم الإلكتروني، مما يجعل اللوحة تقرأ درجات حرارة غير صحيحة. ينتج عن ذلك ظاهرة التوقف السريع، حيث يفصل الضاغط بعد دقائق قليلة من تشغيله معتقدا أن الغرفة بلغت البرودة المطلوبة، ليعود للعمل مجددا بعد وقت قصير مسببا إجهادا للمحرك.",
+      "يقيس الفني في ورشتنا مقاومة الحساس عند درجات حرارة مختلفة باستخدام جهاز قياس رقمي ومقارنتها بمنحنى المقاومة والحرارة المحدد في المواصفات الهندسية للموديل بدقة واضحة. إذا تبين وجود خلل في استجابة الحساس، نقوم باستبداله بقطعة إلكترونية متوافقة ومطابقة في القيمة الأومية لتحقيق قراءة واقعية لحرارة الغرفة. يعيد هذا الضبط الدقيق للمكيف نمط تشغيله المتوازن، ويحمي ملفات الضاغط من التلف الناتج عن التوقف المتكرر، ويحفظ ثبات درجات الحرارة المطلوبة طوال ساعات اليوم بكفاءة تامة."
+     ]
     }
    ],
    "faq": [
@@ -515,20 +594,28 @@
      "a": "يرجع ذلك غالبا لانسداد الفلاتر بالغبار أو اتساخ المكثف أو نقص غاز التبريد بسبب تهريب بالتوصيلات. ابدأ بغسل الفلاتر وفحص الريموت، وإذا استمر الهواء دافئا أرسل فيديو للمكيف عبر واتساب لتحديد الخلل."
     },
     {
-     "q": "ما سبب تساقط وتسييل الماء من الوحدة الداخلية للمكيف سبليت؟",
+     "q": "ما سبب تساقط وتسييل الماء من الوحدة الداخلية لمكيف السبليت؟",
      "a": "يحدث تساقط الماء في الغالب لانسداد خرطوم التصريف بالأتربة أو لغياب الميلان المناسب للوحدة على الجدار. كما قد يسبب نقص وسيط التبريد تجمد المبخر ثم ذوبانه بكميات تفيض عن حوض الصرف الداخلي."
     },
     {
-     "q": "كيف اعرف ان كمبروسر المكيف محترق او خربان؟",
+     "q": "كيف أعرف أن كمبروسر المكيف محترق أو تالف؟",
      "a": "تظهر علامات تعطل الضاغط بصدور طنين مستمر دون دوران، أو قفز قاطع الكهرباء مباشرة عند بدء التبريد. كما يدل ارتفاع حرارة الهيكل مع توقف المحرك على تلف الملفات أو عطل ميكانيكي داخلي."
     },
     {
-     "q": "ما هي اعراض نقص غاز الفريون في مكيف السبليت؟",
+     "q": "ما هي أعراض نقص غاز الفريون في مكيف السبليت؟",
      "a": "تشمل الأعراض تكون صقيع أبيض على ماسورة النحاس الرفيعة وتراجع برودة الهواء مع دوران مستمر للضاغط. ولأن وسيط التبريد يدور في شبكة مغلقة، فإن نقصه يؤكد وجود تسريب يتطلب معالجته قبل إعادة التعبئة."
     },
     {
      "q": "متى يكون تصليح مكيف الهواء مجديا مقارنة بشراء جهاز جديد؟",
      "a": "يعتمد ذلك على طبيعة العطل وعمر المكيف؛ فإذا كان الخلل في كابستور أو انسداد تصريف، فإن الإصلاح خيار عملي واقتصادي. أما إذا تآكلت زعانف المكيف وتلف الضاغط، فإن الفني بالورشة يوضح لك جدوى المعالجة بعد المعاينة."
+    },
+    {
+     "q": "كيف يكتشف الفني التسريبات الدقيقة لغاز الفريون في مكيف السبليت؟",
+     "a": "يستخدم الفني أجهزة كشف إلكترونية حساسة تستشعر ذرات وسيط التبريد في الهواء المحيط بالمواسير، إلى جانب ضغط الدائرة بغاز النيتروجين الجاف واستخدام سوائل الرغوة المتخصصة عند نقاط الربط واللحام لتحديد موضع التنفيس بدقة ومعالجته بالورشة في حي الجلوية وإعادة الشحن بالوزن المقبول."
+    },
+    {
+     "q": "ما سبب صدور صوت طقطقة أو اهتزاز دوري من الوحدة الداخلية للمكيف؟",
+     "a": "ينتج ذلك غالبا عن عدم توازن مروحة البلاور الأسطوانية بسبب تراكم الغبار غير المتساوي على زعانفها، أو عن تآكل الجلبة البلاستيكية الحاملة لمحور المروحة. كما قد يسببه تمدد وتقلص أجزاء الهيكل البلاستيكي بتغير درجات الحرارة داخل الغرفة أثناء التبريد المستمر."
     }
    ]
   },
@@ -682,6 +769,27 @@
       "You can photograph the fault or record a short video clip showing abnormal sounds or water leaks and send it via WhatsApp to 056 802 2197. Include a clear photo of the metal unit rating plate on the cabinet and mention your residential district in Dammam to help us evaluate the case. We reply with an explanation of the fault and the recommended next step before any inspection begins.",
       "Our workshop provides realistic technical evaluations detailing what caused the breakdown and whether repair is sensible compared to the unit's condition. We explain repair requirements after reviewing your video clip or examining the equipment at our workshop so you can decide comfortably. This clear diagnostic guidance helps restore indoor cooling throughout the summer heat."
      ]
+    },
+    {
+     "h": "Weak airflow diagnosis and blower wheel dynamic balancing",
+     "p": [
+      "Split air conditioner owners often experience a noticeable reduction in cooling airflow inside the room despite hearing the drive motor spinning clearly. This problem usually stems from dense layers of moist airborne dust coating the curved blades of the internal cylindrical blower wheel, altering blade curvature and reducing air throw capacity. This uneven dirt accumulation throws the blower wheel out of rotational dynamic balance, generating subtle vibration or rhythmic cabin humming during operation.",
+      "Correcting this issue requires careful removal of the blower wheel for washing at our workshop using specialized water pressure washers that strip away grime without snapping fragile plastic fins. Our technician also inspects the rubber mounting bushing and sleeve bearing for mechanical wear, lubricating them with high-temperature grease. This technical restoration returns airflow velocity to normal, quiets indoor sound levels, delivers even cooling across the room, and relieves mechanical strain from the indoor blower motor on hot days."
+     ]
+    },
+    {
+     "h": "Repairing micro-cracks in copper flare connections and brazed joints",
+     "p": [
+      "Copper line sets linking indoor and outdoor split AC units endure continuous mechanical stress from compressor vibration and cyclic temperature swings between day and night. Overtightening brass flare nuts during installation creates microscopic hairline fractures along flare cones, causing slow refrigerant leaks that only become apparent after months of running. The homeowner gradually notices weakening cold airflow and dark oily stains settling around outdoor brass service valves.",
+      "Air conditioner repair in Dammam requires an engineering approach that begins with cutting away the cracked copper end and refacing the flare cone using flaring tools that form an ideal seating angle. We use calibrated torque wrenches to tighten brass flare nuts to manufacturer engineering specifications, preventing recurrent stress fractures. Joints are then leak-tested using bubble solution under dry nitrogen pressure before evacuating the system and recharging refrigerant, ensuring long-term pressure integrity without ongoing leaks."
+     ]
+    },
+    {
+     "h": "Thermostat sensor calibration and fixing compressor short-cycling",
+     "p": [
+      "Cooling efficiency in split air conditioners depends on precise resistance readings transmitted by the ambient room thermistor and indoor copper coil sensor to the main control board. Ambient humidity or component aging can shift sensor ohmic resistance values, leading the control board to read room temperatures incorrectly. This produces rapid short-cycling, where the compressor shuts down after running for just a few minutes under the false impression that target cooling was met, restarting quickly and stressing the motor.",
+      "Our workshop technician measures thermistor resistance across temperature steps using a digital multimeter, benchmarking readings against model specification resistance curves with clear precision. If sensor response deviates, we replace it with a compatible thermistor matching factory ohmic curves to restore realistic temperature readings. This careful calibration restores balanced run cycles, prevents compressor motor burnout from continuous restarts, and maintains steady, comfortable indoor room temperatures throughout the day with thorough efficiency."
+     ]
     }
    ],
    "faq": [
@@ -704,6 +812,14 @@
     {
      "q": "When is repairing an air conditioner worth it compared to buying a new unit?",
      "a": "The choice depends on the specific fault and overall unit age; if the issue is a failed capacitor, a blocked drain, or a minor leak, repair is practical and cost-effective. If coil fins on an older unit are heavily corroded and the compressor fails, workshop technicians evaluate feasibility after inspection."
+    },
+    {
+     "q": "How does a technician detect microscopic refrigerant leaks in split AC piping?",
+     "a": "Technicians use sensitive electronic halogen leak sniffers that detect refrigerant particles escaping into surrounding air, along with pressurizing the line set using dry nitrogen and applying bubbling solutions over flare connections and brazed joints to pinpoint and seal the leak at our Al-Jalawiyah workshop before recharging by weight."
+    },
+    {
+     "q": "What causes a clicking or rhythmic vibration sound from the indoor AC unit?",
+     "a": "This typically occurs due to blower wheel imbalance caused by uneven dust accumulation along plastic blades, or wear in the rubber sleeve bearing supporting the drive axle. It can also stem from plastic casing components expanding and contracting with temperature changes during continuous cooling."
     }
    ]
   },
@@ -719,10 +835,10 @@
   "ar": {
    "sections": [
     {
-     "h": "دليل تشخيص واصلاح اعطال الغسالات الاوتوماتيك بالدمام",
+     "h": "دليل تشخيص وإصلاح أعطال الغسالات الأوتوماتيك بالدمام",
      "p": [
-      "يوفر هذا الدليل إرشادات عملية لفهم أعطال الغسالات الأوتوماتيكية وطرق التعامل معها. يقدم دليل تشخيص واصلاح اعطال الغسالات الاوتوماتيك بالدمام حلولا للعناية بالغسالة ومواجهة رطوبة المنطقة الشرقية وملوحة مياهها. ويساعدك فهم طريقة عمل الغسالة على تجنب المشكلات وحماية المحرك من الإجهاد.",
-      "تختلف غسالات الملابس في تصميمها الميكانيكي وطريقة دوران الحوض. ويحدد نوع الغسالة طريقة العناية بها والأعطال الشائعة مع كثرة الاستخدام. كما يساعدك معرفة هذا الفرق في اختيار البرنامج المناسب والتعامل مع أي توقف مفاجئ."
+      "يوفر هذا الدليل إرشادات عملية لفهم أعطال الغسالات الأوتوماتيكية وطرق التعامل معها. يقدم دليل تشخيص وإصلاح أعطال الغسالات الأوتوماتيك بالدمام حلولا للعناية بالغسالة ومواجهة رطوبة المنطقة الشرقية وملوحة مياهها. ويساعدك فهم طريقة عمل الغسالة على تجنب المشكلات وحماية المحرك من الإجهاد.",
+      "تختلف غسالات الملابس في تصميمها الميكانيكي وطريقة دوران الحوض. ويحدد نوع الغسالة طريقة العناية بها والأعطال الشائعة مع كثرة الاستخدام. كما تساعدك معرفة هذا الفرق في اختيار البرنامج المناسب والتعامل مع أي توقف مفاجئ."
      ],
      "items": [
       {
@@ -897,19 +1013,19 @@
    ],
    "faq": [
     {
-     "q": "ما هو حل مشكلة الغسالة الاتوماتيك لا تصرف الماء وتبقى الملابس مبللة؟",
-     "a": "افصل قابس الكهرباء أولا وتأكد من أن خرطوم الصرف غير ملتو أو مسدود. ثم افتح الباب السفلي ونظف فلتر مضخة التصريف من الشوائب والعملات المعدنية العالقة. وإذا استمرت المشكلة وأصدرت المضخة صوت طنين دون خروج الماء، فهذا يعني أن المضخة تحتاج إلى فحص وتغيير بواسطة فني."
+     "q": "ما هو حل مشكلة الغسالة الأوتوماتيك التي لا تصرف الماء وتبقى الملابس مبللة؟",
+     "a": "افصل قابس الكهرباء أولا وتأكد من أن خرطوم الصرف غير ملتوٍ أو مسدود. ثم افتح الباب السفلي ونظف فلتر مضخة التصريف من الشوائب والعملات المعدنية العالقة. وإذا استمرت المشكلة وأصدرت المضخة صوت طنين دون خروج الماء، فهذا يعني أن المضخة تحتاج إلى فحص وتغيير بواسطة فني."
     },
     {
      "q": "لماذا تتحرك وتهتز الغسالة بقوة وتصدر صوتا مزعجا عند التنشيف؟",
      "a": "يعود الاهتزاز غالبا إلى تجمع الملابس في جانب واحد من الحوض أو عدم استواء الأرجل على أرضية ثابتة. وفي الغسالات الجديدة، يحدث ذلك عند نسيان فك مسامير الشحن الخلفية. أما في الغسالات القديمة، فقد يدل الصوت القوي على اهتراء المساعدات السفلية أو تلف رولمان البلي."
     },
     {
-     "q": "كيف انظف فلتر طلمبة تصريف الغسالة الاتوماتيك بنفسي؟",
+     "q": "كيف انظف فلتر طلمبة تصريف الغسالة الأوتوماتيك بنفسي؟",
      "a": "افصل قابس الكهرباء وضع وعاء مسطحا ومنشفة أسفل الفتحة الأمامية لاستقبال الماء المتبقي. اسحب الخرطوم الصغير المخصص للتصريف لتفريغ الماء، ثم أدر الفلتر عكس عقارب الساعة وأخرجه برفق. واغسل الفلتر بالماء بفرشاة ناعمة وتأكد من خلو مروحة المضخة من الخيوط قبل إعادته وربطه بإحكام."
     },
     {
-     "q": "ما سبب صدور رائحة عفن من حلة الغسالة الاوتوماتيك وكيف اعالجها؟",
+     "q": "ما سبب صدور رائحة عفن من حلة الغسالة الأوتوماتيك وكيف أعالجها؟",
      "a": "تنتج الرائحة عن نمو العفن وبقايا الصابون داخل ثنايا إطار الباب المطاطي بسبب رطوبة الجو وإغلاق الباب دائما. ولعلاجها، امسح إطار الباب بقطعة قماش مبللة بماء دافئ، وشغل دورة تنظيف ساخنة للحوض على حرارة 60 درجة مئوية. واحرص دائما على ترك الباب ودرج المسحوق مواربين بعد كل غسلة للتهوية."
     },
     {

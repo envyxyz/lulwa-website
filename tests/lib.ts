@@ -7,7 +7,9 @@ export const WIDTHS = [320, 360, 390, 768, 1024, 1440, 1920];
 /** Built folder the tests read and Apache serves. Set PW_DOCROOT to test a build made with a custom --outDir. */
 export const DOCROOT = process.env.PW_DOCROOT ?? 'dist';
 
-export const enTwin = (path: string) => (path === '/' ? '/en' : `/en${path}`);
+/** Two live English posts rank at their root URL and have no /en twin (Ameer, 9 Nov 2026). */
+export const ENGLISH_ROOT: string[] = JSON.parse(readFileSync('src/english-root.json', 'utf8'));
+export const enTwin = (path: string) => (ENGLISH_ROOT.includes(path) ? path : path === '/' ? '/en' : `/en${path}`);
 
 // docs/url-map.csv has quoted notes, so cells are read with a small quote-aware split.
 const cells = (line: string) => {

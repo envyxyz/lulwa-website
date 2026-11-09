@@ -6,7 +6,8 @@ const built = locs('dist/sitemap-index.xml').flatMap((sitemap) => locs(`dist${si
 // Also every page the finished site owes (same list as tests/lib.ts), so a missing page is red, not skipped.
 const required = readFileSync('docs/url-map.csv', 'utf8').split(/\r?\n/).filter((line) => line.split(',')[1] === 'keep').map((line) => line.split(',')[0]);
 const owed = required;
-const paths = [...new Set([...built, ...owed, ...owed.map((path) => (path === '/' ? '/en' : `/en${path}`))])];
+const english = JSON.parse(readFileSync('src/english-root.json', 'utf8'));
+const paths = [...new Set([...built, ...owed, ...owed.filter((path) => !english.includes(path)).map((path) => (path === '/' ? '/en' : `/en${path}`))])];
 const assertions = {
   'categories:performance': ['error', { minScore: 0.95 }],
   'categories:accessibility': ['error', { minScore: 0.95 }],

@@ -516,7 +516,7 @@ export const en: Content = {
       },
       {
         slug: 'ac-repair-installation-maintenance-in-dammam-the-complete-guide',
-        seo: { title: 'AC Repair, Installation & Maintenance in Dammam: The Complete Guide', description: 'The complete guide to air conditioners in Dammam: AC types, choosing the tonnage, inverter vs non-inverter, brands in the Saudi market, common faults, maintenance and good installation.' },
+        seo: { title: `AC Repair, Installation & Maintenance in Dammam | ${site.brand.latin}`, description: 'The complete guide to air conditioners in Dammam: AC types, choosing the tonnage, inverter vs non-inverter, brands in the Saudi market, common faults, maintenance and good installation.' },
         h1: 'The complete AC guide for Dammam',
         lead: 'Everything you need to know about your AC in Dammam weather, from choosing and installing it to maintenance and faults.',
         updated: postDate,
@@ -524,7 +524,7 @@ export const en: Content = {
       },
       {
         slug: 'washing-machine-maintenance-repair-services-in-dammam',
-        seo: { title: `Washing Machine Repair Dammam: Faults and Maintenance | ${site.brand.latin}`, description: 'Washing machine repair and maintenance in Dammam: not spinning or draining, shaking, error codes, cleaning the filter, smells in humid weather, and when to call a technician.' },
+        seo: { title: `Washing Machine Repair Dammam | Faults and Maintenance | ${site.brand.latin}`, description: 'Washing machine repair and maintenance in Dammam: not spinning or draining, shaking, error codes, cleaning the filter, smells in humid weather, and when to call a technician.' },
         h1: 'Washing machine repair in Dammam',
         lead: 'How to read your automatic washer’s faults, what you can safely do yourself, and when to send it to us.',
         updated: postDate,

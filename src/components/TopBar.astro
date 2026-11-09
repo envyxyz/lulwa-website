@@ -2,7 +2,7 @@
 import Button from './Button.astro';
 import Icon from './Icon.astro';
 import Logo from './Logo.astro';
-import { content, langFromUrl, localePath, twinPath } from '../content';
+import { content, isEnglishRoot, langFromUrl, localePath, twinPath } from '../content';
 
 const lang = langFromUrl(Astro.url);
 const { chrome, actions, services } = content[lang];
@@ -20,7 +20,7 @@ const current = (path: string) => {
 };
 const target = 'min-h-target items-center transition';
 const serviceHref = (slug: string) => localePath(lang, `/services/${slug}`);
-const twin = { href: twinPath(Astro.url.pathname), lang: lang === 'ar' ? 'en' : 'ar' };
+const twin = { href: isEnglishRoot(Astro.url.pathname) ? '/blog' : twinPath(Astro.url.pathname), lang: lang === 'ar' ? 'en' : 'ar' };
 ---
 
 <header data-bar class="bar group sticky top-0 z-20 px-gutter py-2">

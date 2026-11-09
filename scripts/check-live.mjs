@@ -11,7 +11,8 @@ const VERIFY = 'NhugWL1gVcIPJCf6bi0eTNAXzZ2v7ZZvIHHS-Neh2E4';
 const paths = readFileSync('docs/url-map.csv', 'utf8').trim().split(/\r?\n/).slice(1).map((l) => l.split(','))
   .filter((c) => c[1] === 'keep').map((c) => c[0]);
 const before = Object.fromEntries(JSON.parse(readFileSync('docs/qa/pre-launch.json', 'utf8')).pages.map((p) => [p.path, p]));
-const twin = (p) => (p === '/' ? '/en' : `/en${p}`);
+const ENGLISH_ROOT = JSON.parse(readFileSync('src/english-root.json', 'utf8')); // English at the root, no /en twin
+const twin = (p) => (ENGLISH_ROOT.includes(p) ? p : p === '/' ? '/en' : `/en${p}`);
 const SITE = 'https://lulwa.com.sa'; // canonical and hreflang always name the real site
 const abs = (p) => `${base}${p}`;
 const canon = (p) => `${SITE}${p}`;
@@ -33,6 +34,10 @@ const page = async (path, arPath) => {
   if (/noindex/i.test(`${row.robots} ${row.xrobots}`)) fail(`${path}: noindex`);
   if (!html.includes(`content="${VERIFY}"`)) fail(`${path}: no Search Console tag`);
   const ar = link(html, 'alternate', ' hreflang="ar-SA"'), en = link(html, 'alternate', ' hreflang="en-SA"'), xd = link(html, 'alternate', ' hreflang="x-default"');
+  if (ENGLISH_ROOT.includes(path)) {
+    if (ar !== null || en !== canon(path) || xd !== canon(path) || !/<html lang="en"/.test(html)) fail(`${path}: English-root hreflang ar=${ar} en=${en} x=${xd}`);
+    return row;
+  }
   if (ar !== canon(arPath) || en !== canon(twin(arPath)) || xd !== canon(arPath)) fail(`${path}: hreflang ar=${ar} en=${en} x=${xd}`);
   return row;
 };
@@ -40,7 +45,7 @@ const page = async (path, arPath) => {
 const pages = [];
 for (let i = 0; i < paths.length; i += 6) {
   const chunk = paths.slice(i, i + 6);
-  pages.push(...(await Promise.all(chunk.flatMap((p) => [page(p, p), page(twin(p), p)]))));
+  pages.push(...(await Promise.all(chunk.flatMap((p) => (twin(p) === p ? [page(p, p)] : [page(p, p), page(twin(p), p)])))));
 }
 
 // One hop: a single 301 straight to a URL that answers 200.

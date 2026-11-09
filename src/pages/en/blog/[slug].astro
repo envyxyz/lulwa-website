@@ -1,8 +1,9 @@
 ---
 import Page from '../../../components/Page.astro';
 import { ar } from '../../../content/ar';
+import { isEnglishRoot } from '../../../content';
 
-export const getStaticPaths = () => ar.blog.items.map((i) => ({ params: { slug: i.slug } }));
+export const getStaticPaths = () => ar.blog.items.filter((i) => !isEnglishRoot(`/blog/${i.slug}`)).map((i) => ({ params: { slug: i.slug } }));
 const { slug } = Astro.params;
 ---
 

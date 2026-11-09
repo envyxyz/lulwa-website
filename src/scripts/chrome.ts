@@ -47,7 +47,9 @@ if (float) {
 // Smooth scroll and reveals load on the first touch too, and not at all under reduced motion.
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const types = ['pointermove', 'pointerdown', 'wheel', 'keydown', 'scroll'];
-  const load = () => {
+  // Chrome fires a scroll on the Arabic page at load on phones (RTL viewport), with the page still at the top: not a visitor.
+  const load = (event: Event) => {
+    if (event.type === 'scroll' && scrollY < 1) return;
     for (const type of types) removeEventListener(type, load);
     void import('./motion');
   };

@@ -171,3 +171,11 @@ img.loading {
     filter: brightness(0.9);
   }
 }
+
+/* Below-the-fold blocks skip style and layout until scrolled near. Arabic shaping made the home page's long guide and the
+   footer's 53 links cost 1.3 to 3.7 s of layout on a throttled phone (Lighthouse, 9 Nov 2026). */
+[data-guide] > section,
+footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 40rem;
+}

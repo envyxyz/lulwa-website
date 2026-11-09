@@ -18,7 +18,7 @@ const bdi = (t: string) => t.replaceAll(site.phone.display, `<bdi dir="ltr">${si
 
 {guide && guide.sections.length > 0 && (
   <Section>
-    <article class="flex max-w-prose flex-col gap-10">
+    <article data-guide class="flex max-w-prose flex-col gap-10">
       {guide.sections.map((s) => (
         <section class="flex flex-col gap-3">
           <Heading level={2} size="lead">{s.h}</Heading>

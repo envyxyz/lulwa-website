@@ -113,6 +113,8 @@ ErrorDocument 404 /404.html
   ###########################################
   RewriteRule ^(en/)?blog/(?:category|tag)(?:/.*)?$ /$1blog [R=301,L,NE]
   RewriteRule ^(en/)?blog/search/?$ /$1blog [R=301,L,NE]
+  RewriteRule ^en/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide(?:[.]html)?/?$ /blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide [R=301,L,NE]
+  RewriteRule ^en/blog/washing-machine-maintenance-repair-services-in-dammam(?:[.]html)?/?$ /blog/washing-machine-maintenance-repair-services-in-dammam [R=301,L,NE]
   RewriteRule ^(?:offline|500)(?:\.html)?/?$ / [R=301,L,NE]
 
 

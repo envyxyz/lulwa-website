@@ -20,8 +20,9 @@ test('T1 sitemap has no dev or noindex pages', () => {
   expect(builtRoutes().filter((p) => /\/dev\/|\/thanks/.test(p))).toEqual([]);
 });
 
-// Same pages as the live site, no more (Ameer, 8 Nov 2026): the sitemap is exactly the 75 old URLs and their 75 English twins.
+// Same pages as the live site, no more (Ameer, 8 Nov 2026): the sitemap is exactly the 75 old URLs and 73 English twins (the two English posts have none).
 test('T1 sitemap lists exactly the live URLs and their English twins', () => {
-  const expected = [...REQUIRED, ...REQUIRED.map(enTwin)].sort();
+  const expected = [...new Set([...REQUIRED, ...REQUIRED.map(enTwin)])].sort();
+  expect(expected.length, '75 live URLs + 73 /en twins').toBe(148);
   expect(builtRoutes().sort()).toEqual(expected);
 });
