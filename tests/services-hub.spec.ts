@@ -77,14 +77,14 @@ for (const path of HUBS) {
     expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
   });
 
-  test(`${path} links to the 15 fault pages and never to the /faults hub`, async ({ page }) => {
+  test(`${path} links each of the 15 faults to its answer on the service page, never to /faults`, async ({ page }) => {
     await visit(page, path);
-    await expect(page.locator('a[href$="/faults"]')).toHaveCount(0);
-    await expect(page.locator('main a[href*="/faults/"]')).toHaveCount(15);
+    await expect(page.locator('a[href*="/faults"]')).toHaveCount(0);
+    await expect(page.locator('main a[href*="/services/"][href*="#"]')).toHaveCount(15);
   });
 }
 
-test('/faults and /en/faults go to the services page in one hop, and every fault page stays', async ({ request }) => {
+test('/faults, /en/faults and the preview-only fault URLs go to the services page in one hop', async ({ request }) => {
   const cases: [string, string][] = [
     ['/faults', '/services'],
     ['/faults/', '/services'],
@@ -93,6 +93,8 @@ test('/faults and /en/faults go to the services page in one hop, and every fault
     ['/en/faults', '/en/services'],
     ['/en/faults/', '/en/services'],
     ['/en/faults.html', '/en/services'],
+    ['/faults/ac-not-cooling', '/services'],
+    ['/en/faults/ac-not-cooling', '/en/services'],
   ];
   for (const [from, to] of cases) {
     const response = await request.get(from, { maxRedirects: 0 });
@@ -100,7 +102,6 @@ test('/faults and /en/faults go to the services page in one hop, and every fault
     expect(new URL(response.headers()['location']!, 'http://x').pathname, `${from} target`).toBe(to);
     expect((await request.get(to, { maxRedirects: 0 })).status(), `${to} is 200`).toBe(200);
   }
-  for (const page of ['/faults/ac-not-cooling', '/en/faults/ac-not-cooling']) expect((await request.get(page, { maxRedirects: 0 })).status(), page).toBe(200);
 });
 
 // Opening hours: the day and the hours never wrap, whatever day it is and whichever language.

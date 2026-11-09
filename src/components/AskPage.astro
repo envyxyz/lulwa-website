@@ -1,6 +1,7 @@
 ---
 import Button from './Button.astro';
 import Faq from './Faq.astro';
+import Guide from './Guide.astro';
 import Heading from './Heading.astro';
 import RelatedServices from './RelatedServices.astro';
 import Section from './Section.astro';
@@ -9,6 +10,7 @@ import Base from '../layouts/Base.astro';
 import { site } from '../site';
 import { content, langFromUrl, localePath } from '../content';
 import { faqPage } from '../seo';
+import { guide } from '../content/guides';
 
 // Brands, areas and appliances nobody has confirmed keep their old URLs. These pages ask first and promise nothing (docs/LAUNCH-PLAN.md).
 type Props = { kind: 'brand' | 'area' | 'service'; slug: string };
@@ -21,6 +23,8 @@ const brand = kind === 'brand' ? c.brands.items.find((i) => i.slug === slug)! : 
 const more = kind === 'service' ? c.services.more.find((i) => i.slug === slug)! : undefined;
 const page = (area ?? brand ?? more)!;
 const note = area?.note ?? brand?.note;
+const g = guide(kind, slug, lang);
+const faqs = [...(more?.faq ?? []), ...(g?.faq ?? [])];
 const serviceLinks = c.services.items.filter((s) => (brand ? brand.services.includes(s.slug) : Boolean(area)));
 const near = (area?.near ?? []).map((s) => c.areas.items.find((i) => i.slug === s)!).filter(Boolean);
 const rows = [
@@ -32,7 +36,7 @@ const card = 'flex min-h-target flex-col justify-center gap-1 rounded-card bg-pe
 const list = 'flex flex-col gap-2 ps-card list-disc';
 ---
 
-<Base title={page.seo.title} description={page.seo.description} ld={more ? [faqPage(more.faq)] : []}>
+<Base title={page.seo.title} description={page.seo.description} ld={faqs.length ? [faqPage(faqs)] : []}>
   <Section>
     <div class="grid gap-8 lg:grid-cols-12 lg:items-center">
       <div class:list={['flex flex-col items-start gap-4', more?.image ? 'lg:col-span-7' : 'lg:col-span-9']}>
@@ -91,6 +95,8 @@ const list = 'flex flex-col gap-2 ps-card list-disc';
     </div>
   </Section>
 
+  <Guide guide={g && (more ? { ...g, faq: [] } : g)} />
+
   {serviceLinks.length > 0 && (
     <Section>
       <div class="flex flex-col gap-6">
@@ -104,7 +110,7 @@ const list = 'flex flex-col gap-2 ps-card list-disc';
     <Section>
       <div class="flex flex-col gap-6">
         <Heading level={2}>{ask.faq}</Heading>
-        <Faq items={more.faq} />
+        <Faq items={faqs} />
       </div>
     </Section>
   )}

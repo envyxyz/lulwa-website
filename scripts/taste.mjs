@@ -13,22 +13,19 @@ const skill = process.env.TASTE_SKILL ?? join(homedir(), '.claude/skills/design-
 const ALLOW = 'card-rows,radius-mix,still-page,covered-text';
 // Home only: the picker's step labels are form labels, and the Reference update's sideways service row runs past the edge.
 // Also home: two real Google reviews contain emoji and are shown as written (Ameer, 1 Nov 2026), and the type cap from his 1 Nov feedback means the picker, not a 60 px headline, leads the first screen.
-const HOME = ',eyebrow,edge-text,emoji,focal-point,icon-cards'; // icon-cards: the three-step line is a process with a connector, not a row of cards
+const HOME = ',eyebrow,edge-text,emoji,focal-point,icon-cards,gradient'; // gradient: the hero's neutral photo scrim (CLAUDE.md rule 6). icon-cards: the three-step line is a process with a connector, not a row of cards
 // Photos are real or absent, and the shop has only 6 usable ones, so text pages cannot honestly hold 4 pictures.
 const TEXT_PAGE = ',few-pictures,focal-point';
 // Text pages: the prose is capped to a reading measure, so it ends short of the right edge in English and the Arabic sentences end before the line does. That is not an off-centre frame.
 const MEASURE = ',off-centre';
-// /work: the gallery is the page and its photos are 287 to 680 px wide at most (rule 15), so no picture can fill a third of the screen, and Ameer's type cap keeps the headline small.
-const WORK = ',focal-point';
-// /reviews: two real Google reviews contain emoji and are shown as written.
-const REVIEWS = ',emoji';
 // Service pages: a short list of faults or questions is all PRODUCT.md confirms. Padding it would invent claims.
 const SERVICE = ',lopsided';
+// Related-services and hub cards carry a 96 px product photo on phones, which the inspector reads as an icon. They are pictures, not icons.
+const PRODUCT_TILES = ',icon-cards';
 const allowFor = (path) => {
   const p = path.replace(/^\/en(?=\/|$)/, '') || '/';
   if (p === '/') return ALLOW + HOME;
-  if (p === '/work') return ALLOW + WORK;
-  return ALLOW + TEXT_PAGE + MEASURE + (p === '/reviews' ? REVIEWS : '') + (p.startsWith('/services/') ? SERVICE : '');
+  return ALLOW + TEXT_PAGE + MEASURE + PRODUCT_TILES + (p.startsWith('/services/') ? SERVICE : '');
 };
 // TASTE_PORT: inspect a preview that is already running. Astro allows one preview per project, so a second one would exit.
 const port = process.env.TASTE_PORT ?? 4323;

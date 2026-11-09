@@ -1,0 +1,693 @@
+{
+ "base": "https://lulwa.com.sa",
+ "recorded": "2026-11-09T12:46:30.018Z",
+ "robots": {
+  "status": 200,
+  "body": "# robots.txt for Lulwa static multilingual site\r\n# Canonical host matches current .htaccess + sitemap configuration:\r\n# https://lulwa.com.sa\r\n#\r\n# Public SEO pages are allowed:\r\n# /, /about, /contact, /services, /areas, /brands, and their clean subpages.\r\n#\r\n# Internal delivery/build/config paths are restricted below.\r\n\r\n#############################################\r\n# 1) Default policy for traditional search engines\r\n#############################################\r\nUser-agent: *\r\nDisallow: /admin/\r\nDisallow: /staging/\r\nDisallow: /preview/\r\nDisallow: /build/\r\nDisallow: /dist/\r\nDisallow: /tmp/\r\nDisallow: /.git/\r\nDisallow: /.vscode/\r\nDisallow: /.qodo/\r\nAllow: /assets/css/\r\nAllow: /assets/icons/\r\nAllow: /images/\r\nAllow: /components/\nAllow: /uploads/\n\r\n#############################################\r\n# 2) AI / LLM crawler policy - OPEN VERSION (ACTIVE)\r\n# This version allows live search / retrieval bots that can surface your\r\n# content in AI answers, while blocking pure training-oriented crawlers.\r\n#############################################\r\n\r\n# GPTBot: OpenAI training crawler used for model training data collection.\r\nUser-agent: GPTBot\r\nDisallow: /\r\n\r\n# ChatGPT-User: user-triggered live retrieval / browsing for ChatGPT.\r\nUser-agent: ChatGPT-User\r\nDisallow: /admin/\r\nDisallow: /staging/\r\nDisallow: /preview/\r\nDisallow: /build/\r\nDisallow: /dist/\r\nDisallow: /tmp/\r\nDisallow: /.git/\r\nDisallow: /.vscode/\r\nDisallow: /.qodo/\r\nAllow: /assets/css/\r\nAllow: /assets/icons/\r\nAllow: /images/\r\nAllow: /components/\nAllow: /uploads/\n\r\n# OAI-SearchBot: OpenAI search indexing / answer-generation retrieval bot.\r\nUser-agent: OAI-SearchBot\r\nDisallow: /admin/\r\nDisallow: /staging/\r\nDisallow: /preview/\r\nDisallow: /build/\r\nDisallow: /dist/\r\nDisallow: /tmp/\r\nDisallow: /.git/\r\nDisallow: /.vscode/\r\nDisallow: /.qodo/\r\nAllow: /assets/css/\r\nAllow: /assets/icons/\r\nAllow: /images/\r\nAllow: /components/\nAllow: /uploads/\n\r\n# ClaudeBot: Anthropic crawler commonly associated with model training / collection.\r\nUser-agent: ClaudeBot\r\nDisallow: /\r\n\r\n# anthropic-ai: Anthropic crawler token used for training / collection controls.\r\nUser-agent: anthropic-ai\r\nDisallow: /\r\n\r\n# Claude-Web: live web retrieval / browsing agent for Anthropic products.\r\nUser-agent: Claude-Web\r\nDisallow: /admin/\r\nDisallow: /staging/\r\nDisallow: /preview/\r\nDisallow: /build/\r\nDisallow: /dist/\r\nDisallow: /tmp/\r\nDisallow: /.git/\r\nDisallow: /.vscode/\r\nDisallow: /.qodo/\r\nAllow: /assets/css/\r\nAllow: /assets/icons/\r\nAllow: /images/\r\nAllow: /components/\nAllow: /uploads/\n\r\n# Google-Extended: Google opt-out token for Gemini / AI training and generative use.\r\nUser-agent: Google-Extended\r\nDisallow: /\r\n\r\n# CCBot: Common Crawl crawler, widely reused as training data by many AI systems.\r\nUser-agent: CCBot\r\nDisallow: /\r\n\r\n# PerplexityBot: Perplexity search-answer retrieval crawler.\r\nUser-agent: PerplexityBot\r\nDisallow: /admin/\r\nDisallow: /staging/\r\nDisallow: /preview/\r\nDisallow: /build/\r\nDisallow: /dist/\r\nDisallow: /tmp/\r\nDisallow: /.git/\r\nDisallow: /.vscode/\r\nDisallow: /.qodo/\r\nAllow: /assets/css/\r\nAllow: /assets/icons/\r\nAllow: /images/\r\nAllow: /components/\nAllow: /uploads/\n\r\n# Bytespider: ByteDance / TikTok crawler, often used for large-scale scraping / AI ingestion.\r\nUser-agent: Bytespider\r\nDisallow: /\r\n\r\n# Amazonbot: Amazon crawler used for search / assistant surfaces.\r\nUser-agent: Amazonbot\r\nDisallow: /admin/\r\nDisallow: /staging/\r\nDisallow: /preview/\r\nDisallow: /build/\r\nDisallow: /dist/\r\nDisallow: /tmp/\r\nDisallow: /.git/\r\nDisallow: /.vscode/\r\nDisallow: /.qodo/\r\nAllow: /assets/css/\r\nAllow: /assets/icons/\r\nAllow: /images/\r\nAllow: /components/\nAllow: /uploads/\n\r\n# Applebot-Extended: Apple opt-out token for Apple Intelligence / model training.\r\nUser-agent: Applebot-Extended\r\nDisallow: /\r\n\r\n# Meta-ExternalAgent: Meta AI crawler for retrieval / assistant / generative use.\r\nUser-agent: Meta-ExternalAgent\r\nDisallow: /\r\n\r\n# FacebookBot: Meta crawler for page fetch / preview / assistant-adjacent retrieval.\r\nUser-agent: FacebookBot\r\nDisallow: /admin/\r\nDisallow: /staging/\r\nDisallow: /preview/\r\nDisallow: /build/\r\nDisallow: /dist/\r\nDisallow: /tmp/\r\nDisallow: /.git/\r\nDisallow: /.vscode/\r\nDisallow: /.qodo/\r\nAllow: /assets/css/\r\nAllow: /assets/icons/\r\nAllow: /images/\r\nAllow: /components/\nAllow: /uploads/\n\r\n# Diffbot: structured web extraction crawler often used for knowledge ingestion.\r\nUser-agent: Diffbot\r\nDisallow: /\r\n\r\n# Omgili: discussion / forum aggregation crawler, often used downstream in AI/search systems.\r\nUser-agent: Omgili\r\nDisallow: /\r\n\r\n# Omgilibot: alternate Omgili crawler token.\r\nUser-agent: Omgilibot\r\nDisallow: /\r\n\r\n#############################################\r\n# 3) AI / LLM crawler policy - LOCKED-DOWN VERSION (COMMENTED ALTERNATIVE)\r\n# To use this version, comment out the ACTIVE AI section above and\r\n# uncomment the block below.\r\n#############################################\r\n\r\n# User-agent: GPTBot\r\n# Disallow: /\r\n#\r\n# User-agent: ChatGPT-User\r\n# Disallow: /\r\n#\r\n# User-agent: OAI-SearchBot\r\n# Disallow: /\r\n#\r\n# User-agent: ClaudeBot\r\n# Disallow: /\r\n#\r\n# User-agent: anthropic-ai\r\n# Disallow: /\r\n#\r\n# User-agent: Claude-Web\r\n# Disallow: /\r\n#\r\n# User-agent: Google-Extended\r\n# Disallow: /\r\n#\r\n# User-agent: CCBot\r\n# Disallow: /\r\n#\r\n# User-agent: PerplexityBot\r\n# Disallow: /\r\n#\r\n# User-agent: Bytespider\r\n# Disallow: /\r\n#\r\n# User-agent: Amazonbot\r\n# Disallow: /\r\n#\r\n# User-agent: Applebot-Extended\r\n# Disallow: /\r\n#\r\n# User-agent: Meta-ExternalAgent\r\n# Disallow: /\r\n#\r\n# User-agent: FacebookBot\r\n# Disallow: /\r\n#\r\n# User-agent: Diffbot\r\n# Disallow: /\r\n#\r\n# User-agent: Omgili\r\n# Disallow: /\r\n#\r\n# User-agent: Omgilibot\r\n# Disallow: /\r\n\r\n#############################################\r\n# 4) Optional high-load scraper throttling / blocking\r\n# Uncomment only if you want to reduce server load from SEO crawlers.\r\n# These are advisory here; determined scrapers may ignore robots.txt.\r\n#############################################\r\n\r\n# User-agent: AhrefsBot\r\n# Disallow: /\r\n#\r\n# User-agent: SemrushBot\r\n# Disallow: /\r\n#\r\n# User-agent: MJ12bot\r\n# Disallow: /\r\n\r\n#############################################\r\n# 5) Crawl-delay notes\r\n# - Googlebot ignores Crawl-delay.\r\n# - Google-Extended is an opt-out token, not a traditional crawler control.\r\n# - Bing support has varied; do not rely on Crawl-delay for Bing.\r\n# - Yandex historically honors Crawl-delay.\r\n# - Many AI crawlers ignore Crawl-delay entirely.\r\n#\r\n# If you need true enforcement, use server or firewall rate limiting.\r\n#############################################\r\n\r\n#############################################\r\n# 6) Host directive\r\n# Omitted intentionally. Host is non-standard and mainly relevant to\r\n# Yandex; canonical host should already be enforced at the server level.\r\n#############################################\r\n\r\nSitemap: https://lulwa.com.sa/sitemap-index.xml\r\n# Legacy single-file sitemap remains available at:\r\n# Sitemap: https://lulwa.com.sa/sitemap.xml"
+ },
+ "sitemap": {
+  "status": 200,
+  "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <sitemap>\n    <loc>https://lulwa.com.sa/sitemap-pages.xml</loc>\n    <lastmod>2026-10-31</lastmod>\n  </sitemap>\n  <sitemap>\n    <loc>https://lulwa.com.sa/sitemap-services.xml</loc>\n    <lastmod>2026-10-31</lastmod>\n  </sitemap>\n  <sitemap>\n    <loc>https://lulwa.com.sa/sitemap-areas.xml</loc>\n    <lastmod>2026-10-31</lastmod>\n  </sitemap>\n  <sitemap>\n    <loc>https://lulwa.com.sa/sitemap-brands.xml</loc>\n    <lastmod>2026-10-31</lastmod>\n  </sitemap>\n  <sitemap>\n    <loc>https://lulwa.com.sa/sitemap-blog.xml</loc>\n    <lastmod>2026-10-31</lastmod>\n  </sitemap>\n</sitemapindex>\n"
+ },
+ "sitemapIndex": {
+  "status": 200,
+  "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <sitemap>\n    <loc>https://lulwa.com.sa/sitemap-pages.xml</loc>\n    <lastmod>2026-10-31</lastmod>\n  </sitemap>\n  <sitemap>\n    <loc>https://lulwa.com.sa/sitemap-services.xml</loc>\n    <lastmod>2026-10-31</lastmod>\n  </sitemap>\n  <sitemap>\n    <loc>https://lulwa.com.sa/sitemap-areas.xml</loc>\n    <lastmod>2026-10-31</lastmod>\n  </sitemap>\n  <sitemap>\n    <loc>https://lulwa.com.sa/sitemap-brands.xml</loc>\n    <lastmod>2026-10-31</lastmod>\n  </sitemap>\n  <sitemap>\n    <loc>https://lulwa.com.sa/sitemap-blog.xml</loc>\n    <lastmod>2026-10-31</lastmod>\n  </sitemap>\n</sitemapindex>\n"
+ },
+ "pages": [
+  {
+   "path": "/",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية والمكيفات في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/about",
+   "status": 200,
+   "location": null,
+   "title": "من نحن | لولوه للتكييف والتبريد في الدمام",
+   "canonical": "https://lulwa.com.sa/about",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas",
+   "status": 200,
+   "location": null,
+   "title": "المناطق التي نخدمها في المنطقة الشرقية | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-abqaiq",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في بقيق | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-abqaiq",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-al-ahsa",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في الأحساء | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-al-ahsa",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-al-awamiyah",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في العوامية | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-al-awamiyah",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-al-jish",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في الجش | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-al-jish",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-al-khobar",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في الخبر | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-al-khobar",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-al-mallaha",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في الملاحة | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-al-mallaha",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-al-mubarraz",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في المبرز | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-al-mubarraz",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-al-qudaih",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في القديح | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-al-qudaih",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-al-rabwah",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في الربوة | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-al-rabwah",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-dammam",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-dammam",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-darin",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في دارين | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-darin",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-dhahran",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في الظهران | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-dhahran",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-hofuf",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في الهفوف | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-hofuf",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-jubail",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في الجبيل | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-jubail",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-qatif",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في القطيف | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-qatif",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-ras-tanura",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في رأس تنورة | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-ras-tanura",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-safwa",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في صفوى | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-safwa",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-saihat",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في سيهات | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-saihat",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-sanabes",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في سنابس | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-sanabes",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-tarout",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في تاروت | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-tarout",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/areas/appliance-repair-in-umm-as-sahik",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية في أم الساهك | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-umm-as-sahik",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/blog",
+   "status": 200,
+   "location": null,
+   "title": "مدونة صيانة الأجهزة والمكيفات في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/blog",
+   "robots": "index,follow",
+   "lang": "ar"
+  },
+  {
+   "path": "/blog/ac-repair-in-dammam",
+   "status": 200,
+   "location": null,
+   "title": "تصليح مكيفات الدمام | خدمات الصيانة والإصلاح",
+   "canonical": "https://lulwa.com.sa/blog/ac-repair-in-dammam",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide",
+   "status": 200,
+   "location": null,
+   "title": "AC Repair, Installation &amp; Maintenance in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide",
+   "robots": "index,follow",
+   "lang": "en"
+  },
+  {
+   "path": "/blog/washing-machine-maintenance-repair-services-in-dammam",
+   "status": 200,
+   "location": null,
+   "title": "Washing Machine Repair Dammam | Expert Repair Service",
+   "canonical": "https://lulwa.com.sa/blog/washing-machine-maintenance-repair-services-in-dammam",
+   "robots": "index,follow",
+   "lang": "en"
+  },
+  {
+   "path": "/brands",
+   "status": 200,
+   "location": null,
+   "title": "ماركات الأجهزة التي نصلحها في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/alessa-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة العيسى في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/alessa-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/amana-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة أمانا في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/amana-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/bosch-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة بوش في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/bosch-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/carrier-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة كاريير في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/carrier-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/chigo-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح مكيفات وأجهزة تشيغو في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/chigo-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/daewoo-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة دايو في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/daewoo-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/daikin-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح مكيفات وأجهزة دايكين في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/daikin-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/electrolux-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة إلكترولوكس في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/electrolux-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/frigidaire-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة فريجيدير في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/frigidaire-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/fujitsu-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح مكيفات وأجهزة فوجيتسو في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/fujitsu-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/ge-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة جي إي في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/ge-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/gree-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح مكيفات وأجهزة جري في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/gree-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/haier-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة هاير في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/haier-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/hitachi-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة هيتاشي في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/hitachi-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/kenmore-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة كينمور في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/kenmore-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/lg-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة LG في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/lg-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/maytag-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة مايتاج في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/maytag-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/midea-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة ميديا في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/midea-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/nikai-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة نيكاي في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/nikai-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/o-general-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح مكيفات وأجهزة اوجنرال في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/o-general-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/panasonic-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة باناسونيك في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/panasonic-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/samsung-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة سامسونج في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/samsung-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/sanyo-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح مكيفات وأجهزة سانيو في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/sanyo-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/sharp-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة شارب في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/sharp-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/siemens-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة سيمنز في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/siemens-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/super-general-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة سوبر جنرال في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/super-general-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/tcl-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة تي سي إل في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/tcl-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/toshiba-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة توشيبا في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/toshiba-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/whirlpool-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة ويرلبول في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/whirlpool-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/white-westinghouse-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة وايت وستنجهاوس في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/white-westinghouse-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/york-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أجهزة يورك في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/york-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/brands/zamil-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح مكيفات زامل في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/zamil-appliance-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/contact",
+   "status": 200,
+   "location": null,
+   "title": "اتصل بنا | لولوه للتكييف والتبريد – الدمام",
+   "canonical": "https://lulwa.com.sa/contact",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/cookie-policy",
+   "status": 200,
+   "location": null,
+   "title": "سياسة ملفات تعريف الارتباط | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/cookie-policy",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/privacy-policy",
+   "status": 200,
+   "location": null,
+   "title": "سياسة الخصوصية | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/privacy-policy",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/services",
+   "status": 200,
+   "location": null,
+   "title": "خدمات تصليح الأجهزة المنزلية في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/services/ac-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح مكيفات في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/ac-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/services/dishwasher-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح غسالات صحون في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/dishwasher-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/services/dryer-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح نشافات في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/dryer-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/services/freezer-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح فريزرات في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/freezer-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/services/microwave-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح ميكروويف في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/microwave-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/services/oven-stove-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح أفران ومواقد في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/oven-stove-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/services/refrigerator-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح ثلاجات في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/refrigerator-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/services/washing-machine-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة غسالات في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/washing-machine-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/services/water-heater-repair",
+   "status": 200,
+   "location": null,
+   "title": "تصليح سخانات ماء في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/water-heater-repair",
+   "robots": null,
+   "lang": "ar"
+  },
+  {
+   "path": "/terms-of-service",
+   "status": 200,
+   "location": null,
+   "title": "شروط الخدمة | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/terms-of-service",
+   "robots": null,
+   "lang": "ar"
+  }
+ ]
+}

@@ -143,10 +143,10 @@ ${[...arabic, ...arabicChildren].map((l) => `  ${l}`).join('\n')}
 ${caseFix.map((l) => `  ${l}`).join('\n')}
 
   ###########################################
-  # 5b) /faults was a hub page for a day and is now part of /services. Fault pages (/faults/<slug>) keep their URLs.
+  # 5b) /faults and /faults/<slug> were preview-only pages; their answers are sections of the service pages now.
   #     Placed before 6) so /faults/index.html is also one hop.
   ###########################################
-  RewriteRule ^(en/)?faults(?:/index)?(?:\\.html)?/?$ /$1services [R=301,L,NE]
+  RewriteRule ^(en/)?faults(?:\\.html|/.*)?$ /$1services [R=301,L,NE]
 
   ###########################################
   # 6) index and index.html to the folder URL.

@@ -1,21 +1,27 @@
-name: Deploy to GitHub Pages
+name: Build, check and deploy
 
+# Every push: build and the checks. Push to main: GitHub Pages preview (noindex), then Hostinger, only when every check passed
+# and the repo variable HOSTINGER_DEPLOY is "on" (the kill switch). Run by hand with "rollback" set to restore a server backup.
 on:
   push:
-    branches: [main]
+    branches: ['**']
   workflow_dispatch:
+    inputs:
+      rollback:
+        description: 'Rollback instead of deploying: "latest" (state before the last deploy), "pre-launch", or a file name in ~/backups without .tgz. Leave empty to build and deploy.'
+        required: false
+        default: ''
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: true
+env:
+  # Never written, never deleted on the server.
+  PROTECT: --exclude=/config/ --exclude=/database/ --exclude=/admin/ --exclude=/includes/ --exclude=/logs/
 
 jobs:
-  build:
+  check:
+    if: github.event_name != 'workflow_dispatch' || inputs.rollback == ''
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -31,11 +37,37 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # The SEO specs run against real Apache and PHP, as Hostinger serves the site (scripts/serve-apache.mjs).
+      - name: Install Apache, PHP and Chromium
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q apache2 libapache2-mod-php php-mbstring
+          pnpm exec playwright install --with-deps chromium
+
       - name: Build the Hostinger site and its zip
         run: pnpm package
 
-      - name: Make the GitHub Pages copy
-        run: pnpm pages
+      - name: Guides
+        run: pnpm test:guides
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: SEO tests (routes, NAP, claims, headlines)
+        run: pnpm exec playwright test tests/routes.spec.ts tests/nap.spec.ts tests/claims.spec.ts tests/headlines.spec.ts
+        env:
+          PW_CHANNEL: chromium
+
+      - name: Keep the built site for the deploy job
+        uses: actions/upload-artifact@v7
+        with:
+          name: site
+          path: dist/
+          include-hidden-files: true
+          retention-days: 30
 
       - name: Keep the Hostinger zip
         uses: actions/upload-artifact@v7
@@ -44,14 +76,26 @@ jobs:
           archive: false
           retention-days: 30
 
+      - name: Make the GitHub Pages copy
+        if: github.ref == 'refs/heads/main'
+        run: pnpm pages
+
       - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v5
         with:
           path: dist-pages
 
-  deploy:
-    needs: build
+  pages:
+    needs: check
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: true
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -59,3 +103,94 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  hostinger:
+    needs: check
+    if: github.ref == 'refs/heads/main' && vars.HOSTINGER_DEPLOY == 'on'
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://lulwa.com.sa
+    # Never cancel a deploy halfway through an upload.
+    concurrency:
+      group: hostinger
+      cancel-in-progress: false
+    steps:
+      - uses: actions/download-artifact@v7
+        with:
+          name: site
+          path: dist
+
+      - name: SSH key
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "${{ secrets.HOSTINGER_SSH_KEY }}" > ~/.ssh/id_ed25519 && chmod 600 ~/.ssh/id_ed25519
+          printf '%s\n' "${{ secrets.HOSTINGER_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          printf 'Host hostinger\n  HostName %s\n  Port %s\n  User %s\n  IdentityFile ~/.ssh/id_ed25519\n' \
+            "${{ secrets.HOSTINGER_SSH_HOST }}" "${{ secrets.HOSTINGER_SSH_PORT }}" "${{ secrets.HOSTINGER_SSH_USER }}" > ~/.ssh/config
+
+      # A server-side snapshot before every deploy, outside public_html. Keeps the newest 5 plus pre-launch.tgz.
+      - name: Snapshot public_html on the server
+        run: |
+          ssh hostinger "P='${{ secrets.HOSTINGER_PUBLIC_HTML }}'; set -e; cd \"\$(dirname \"\$P\")\"; mkdir -p ~/backups
+            tar -czf ~/backups/public_html-\$(date -u +%Y%m%dT%H%M%SZ)-${GITHUB_SHA::7}.tgz \"\$(basename \"\$P\")\"
+            ls -1t ~/backups/public_html-*.tgz | tail -n +6 | xargs -r rm --"
+
+      # Overwrites and adds files; never deletes, never touches the protected folders.
+      - name: Upload dist/ to public_html
+        run: rsync -rlz --chmod=D755,F644 $PROTECT dist/ "hostinger:${{ secrets.HOSTINGER_PUBLIC_HTML }}/"
+
+      # LiteSpeed cache and the Hostinger CDN are on; without a purge they keep serving the old pages.
+      - name: Purge cache and CDN
+        env:
+          TOKEN: ${{ secrets.HOSTINGER_API_TOKEN }}
+        run: |
+          B="https://developers.hostinger.com/api/hosting/v1/accounts/${{ secrets.HOSTINGER_SSH_USER }}/websites/lulwa.com.sa"
+          # Clears the server cache and the CDN edge together.
+          curl -sf -X DELETE -H "Authorization: Bearer $TOKEN" "$B/cache/clear" && echo 'cache and cdn cleared'
+          sleep 20
+
+      - name: Smoke check, restore the snapshot if it fails
+        run: |
+          ok=1
+          for p in / /en /about /services/ac-repair /areas/appliance-repair-in-dammam /sitemap.xml /robots.txt /favicon.ico; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "https://lulwa.com.sa$p")
+            echo "$p $code"; [ "$code" = 200 ] || ok=0
+          done
+          [ "$(curl -s -o /dev/null -w '%{http_code}' https://lulwa.com.sa/about/)" = 301 ] || { echo '/about/ is not a 301'; ok=0; }
+          if [ $ok = 0 ]; then
+            echo 'Smoke check failed: restoring the snapshot taken before this deploy.'
+            ssh hostinger "P='${{ secrets.HOSTINGER_PUBLIC_HTML }}'; set -e; f=\$(ls -1t ~/backups/public_html-*.tgz | head -1); t=\$(mktemp -d); tar -C \"\$t\" -xzf \"\$f\"; rsync -a --delete $PROTECT \"\$t/\$(basename \"\$P\")/\" \"\$P/\"; rm -rf \"\$t\"; echo restored \$f"
+            exit 1
+          fi
+
+  rollback:
+    if: github.event_name == 'workflow_dispatch' && inputs.rollback != ''
+    runs-on: ubuntu-latest
+    environment: production
+    concurrency:
+      group: hostinger
+      cancel-in-progress: false
+    steps:
+      - name: SSH key
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "${{ secrets.HOSTINGER_SSH_KEY }}" > ~/.ssh/id_ed25519 && chmod 600 ~/.ssh/id_ed25519
+          printf '%s\n' "${{ secrets.HOSTINGER_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          printf 'Host hostinger\n  HostName %s\n  Port %s\n  User %s\n  IdentityFile ~/.ssh/id_ed25519\n' \
+            "${{ secrets.HOSTINGER_SSH_HOST }}" "${{ secrets.HOSTINGER_SSH_PORT }}" "${{ secrets.HOSTINGER_SSH_USER }}" > ~/.ssh/config
+
+      # Restores the backup exactly (files the new site added are removed), except the protected folders, which stay as they are.
+      # The current state is saved first as before-rollback-<time>.tgz, so a rollback can itself be undone.
+      - name: Restore ${{ inputs.rollback }}
+        env:
+          NAME: ${{ inputs.rollback }}
+        run: |
+          case "$NAME" in *[!A-Za-z0-9._-]*) echo "Bad backup name"; exit 1;; esac
+          ssh hostinger "P='${{ secrets.HOSTINGER_PUBLIC_HTML }}'; N='$NAME'; set -e
+            if [ \"\$N\" = latest ]; then f=\$(ls -1t ~/backups/public_html-*.tgz | head -1); else f=~/backups/\$N.tgz; fi
+            test -f \"\$f\" || { echo \"No backup \$f\"; ls -1 ~/backups; exit 1; }
+            cd \"\$(dirname \"\$P\")\"; tar -czf ~/backups/before-rollback-\$(date -u +%Y%m%dT%H%M%SZ).tgz \"\$(basename \"\$P\")\"
+            t=\$(mktemp -d); tar -C \"\$t\" -xzf \"\$f\"
+            rsync -a --delete $PROTECT \"\$t/\$(basename \"\$P\")/\" \"\$P/\"; rm -rf \"\$t\"; echo restored \$f"
+          curl -s -o /dev/null -w 'home %{http_code}\n' https://lulwa.com.sa/

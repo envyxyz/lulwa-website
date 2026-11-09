@@ -1,6 +1,5 @@
 import { site, factLines } from '../site';
 import { content, localePath, type Lang } from '../content';
-import { reviewed } from '../reviewed-faults';
 
 const ask = {
   en: 'Appliances, areas and brands beyond the four core services are confirmed case by case on WhatsApp: send the device and your district, and the shop replies whether it can take the job.',
@@ -19,13 +18,13 @@ export const GET = () => {
     lines.push(ar ? '### الخدمات' : '### Services', '', link(lang, '/services', c.services.h1, c.services.seo.description));
     for (const s of c.services.items) lines.push(link(lang, `/services/${s.slug}`, s.name, s.seo.description));
     for (const s of c.services.more) lines.push(link(lang, `/services/${s.slug}`, s.name, s.seo.description));
-    for (const f of c.faults.items.filter((i) => reviewed.includes(i.slug))) lines.push(link(lang, `/faults/${f.slug}`, f.name, f.seo.description));
+    for (const f of c.faults.items) lines.push(link(lang, `/services/${f.service}#${f.slug}`, f.name, f.seo.description));
     lines.push('', ar ? '### المناطق' : '### Areas', '', link(lang, '/areas', c.areas.h1, c.areas.seo.description));
     for (const a of c.areas.items) lines.push(link(lang, `/areas/${a.slug}`, a.h1, a.seo.description));
     lines.push('', ar ? '### الماركات' : '### Brands', '', link(lang, '/brands', c.brands.h1, c.brands.seo.description));
     for (const b of c.brands.items) lines.push(link(lang, `/brands/${b.slug}`, b.h1, b.seo.description));
     lines.push('', ar ? '### الشركة' : '### Company', '');
-    for (const [path, page] of [['/about', c.about], ['/contact', c.contact], ['/reviews', c.reviews], ['/work', c.work], ['/blog', c.blog]] as const) lines.push(link(lang, path, page.h1, page.seo.description));
+    for (const [path, page] of [['/about', c.about], ['/contact', c.contact], ['/blog', c.blog]] as const) lines.push(link(lang, path, page.h1, page.seo.description));
     for (const p of c.blog.items) lines.push(link(lang, `/blog/${p.slug}`, p.h1, p.seo.description));
     for (const [path, page] of [['/privacy-policy', c.legal.privacy], ['/terms-of-service', c.legal.terms], ['/cookie-policy', c.legal.cookies]] as const) lines.push(link(lang, path, page.h1, page.seo.description));
     lines.push('');

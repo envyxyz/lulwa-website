@@ -141,8 +141,7 @@ export const breadcrumbs = (lang: Lang, pathname: string, title: string) => {
   const c = content[lang] as unknown as Record<string, { h1?: string } | undefined>;
   const trail: { name: string; path: string }[] = [{ name: businessName(lang), path: localePath(lang, '/') }];
   if (parts.length > 1) {
-    // /faults is not a page any more (it redirects to /services), so a fault's trail runs through the services page.
-    const section = parts[0] === 'faults' ? 'services' : parts[0]!;
+    const section = parts[0]!;
     const hub = c[section]?.h1;
     if (hub) trail.push({ name: hub, path: localePath(lang, `/${section}`) });
   }

@@ -10,17 +10,18 @@ const c = content[lang];
 const { chrome, footer, home } = c;
 const { shop } = home;
 const path = (p: string) => localePath(lang, p);
-const services = c.services.items.map((s) => [path(`/services/${s.slug}`), s.name] as const);
+const services = [...c.services.items, ...c.services.more].map((s) => [path(`/services/${s.slug}`), s.name] as const);
 const company = [
   ['/about', c.about.h1],
-  ['/work', c.work.h1],
-  ['/reviews', chrome.nav.reviews],
   ['/blog', c.blog.h1],
   ['/brands', c.brands.h1],
   ['/areas', c.areas.h1],
   ['/contact', chrome.nav.contact],
 ].map(([p, label]) => [path(p!), label!] as const);
 const area = c.areas.items[0]!;
+// Every area and brand page linked from every page, as on the live site: these pages rank on internal links (8 Nov 2026 audit).
+const areas = c.areas.items.map((a) => [path(`/areas/${a.slug}`), a.name] as const);
+const brands = c.brands.items.map((b) => [path(`/brands/${b.slug}`), b.name] as const);
 const legal = [
   ['/privacy-policy', c.legal.privacy.h1],
   ['/terms-of-service', c.legal.terms.h1],
@@ -45,18 +46,28 @@ const head = 'mb-2 font-medium';
       <a href={site.maps.listing} data-action="directions" target="_blank" rel="noopener" class={`${strong} gap-2`}><Icon name="map-pin" />{c.actions.directions}</a>
     </div>
     <nav aria-label={footer.services}>
-      <p class={head}>{footer.services}</p>
+      <h2 class={head}>{footer.services}</h2>
       <ul>{services.map(([href, label]) => <li><a href={href} class={link}>{label}</a></li>)}</ul>
     </nav>
     <nav aria-label={footer.company}>
-      <p class={head}>{footer.company}</p>
+      <h2 class={head}>{footer.company}</h2>
       <ul>{company.map(([href, label]) => <li><a href={href} class={link}>{label}</a></li>)}</ul>
     </nav>
     <div class="col-span-2 lg:col-span-1">
-      <p class={head}>{footer.hours}</p>
+      <h2 class={head}>{footer.hours}</h2>
       <p class="opacity-75"><bdi>{shop.hours}</bdi></p>
       <a href={path(`/areas/${area.slug}`)} class={`${link} mt-2`}>{area.name}</a>
     </div>
+  </div>
+  <div class="mx-auto grid max-w-page gap-8 px-gutter pb-section text-small md:grid-cols-2">
+    <nav aria-label={footer.areas}>
+      <h2 class={head}>{footer.areas}</h2>
+      <ul class="flex flex-wrap gap-x-4">{areas.map(([href, label]) => <li><a href={href} class={link}>{label}</a></li>)}</ul>
+    </nav>
+    <nav aria-label={footer.brands}>
+      <h2 class={head}>{footer.brands}</h2>
+      <ul class="flex flex-wrap gap-x-4">{brands.map(([href, label]) => <li><a href={href} class={link}>{label}</a></li>)}</ul>
+    </nav>
   </div>
   <div class="bg-ink-step">
     <div class="mx-auto flex max-w-page flex-col gap-x-8 gap-y-1 px-gutter py-4 text-small md:flex-row lg:text-body md:flex-wrap md:items-center">

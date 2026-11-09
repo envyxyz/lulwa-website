@@ -16,6 +16,7 @@ Arabic-first, English-second marketing and lead site for لولوه للتكيي
 | `docs/AGENTS.md` | How to split a phase across Opus, Sonnet and agy |
 | `docs/PHASES.md` | Plan link and dated log |
 | `design/reference/roofguard-inspiration.webp` | Layout inspiration, see "Reference update" in `docs/DESIGN-DIRECTION.md`. It replaces `design/mock/hero.html` as the hero target |
+| `docs/SEO-MIGRATION.md` | Ameer's top priority (8 Nov 2026): keep the live site's rankings. Same 75 URLs, Arabic meta, content depth, no doorway pages. **Wins over every other doc** |
 | `docs/LAUNCH-PLAN.md` | Ameer's launch rules of 2 Nov 2026. **Wins over everything below where they conflict** |
 | `docs/AUTORUN.md` | Rules for unattended runs. **Wins over this file while it exists** |
 | `docs/PHASE-PROMPTS.md` | The prompt for each phase |
@@ -43,7 +44,7 @@ Check current docs with context7 before using any library API. No dependency for
 8. **Phone** is written `056 802 2197`, dialled `tel:+966568022197`, WhatsApp `https://wa.me/966568022197`, from `site.ts` only. Wrap Latin and digits in Arabic text in `<bdi>`.
 9. **Never invent claims.** Years, counts, percentages, prices, warranty terms, response times, "certified", "original parts", "24 hours", "same day", ratings. Each needs a dated line in `PRODUCT.md` first. `tests/claims.spec.ts` fails the build if one appears.
 10. **Reviews are real or absent.** Copied from the Google listing with date and name as shown. No `AggregateRating` markup.
-0. **Slugs and file names never change** (Ameer, 2 Nov 2026, critical). Every URL in `docs/url-map.csv` stays a real page at its original path.
+0. **Slugs and file names never change** (Ameer, 2 Nov 2026, critical). Every URL in `docs/url-map.csv` stays a real page at its original path. No indexable page beyond those 75 and their `/en/` twins (Ameer, 8 Nov 2026). Long-form copy goes in `src/content/guides/*.json` and passes `node scripts/check-guides.mjs`.
 11. **JavaScript budget:** content pages ship 0 KB of our own JS except the fault picker island, the mobile menu, the hero carousel, the floating buttons' show-on-scroll and the header's hide-on-scroll script (about 0.3 KB, Ameer's request of 1 Nov 2026), under 6 KB gzip together. Analytics load after first interaction. So do Lenis and Motion (`src/scripts/motion.ts`), Ameer's request of 1 Nov 2026, outside the 6 KB because they arrive after first load and never under reduced motion.
 12. **Performance budget:** Lighthouse mobile 95+ in all four categories on every route in both languages, LCP under 2.0 s, TBT under 100 ms, CLS under 0.05, page weight under 250 KB on first load excluding analytics, fonts under 110 KB.
 13. **Accessibility:** WCAG 2.2 AA, 44 px targets, visible focus, keyboard complete, `prefers-reduced-motion` respected.
@@ -64,6 +65,7 @@ Keep this list in sync with `package.json`.
 - `pnpm test:e2e`: Playwright only, on the built site served by real Apache and PHP on :4330, in installed Edge. `pnpm test:e2e tests/nap.spec.ts` for one. Apache and PHP are portable copies in `.tools/` (git-ignored); set `HTTPD_DIR` to use another.
 - `pnpm serve`: the built `dist/` on Apache, as Hostinger runs it. `pnpm package`: build, then `hostinger-upload.zip` to extract into `public_html`.
 - `pnpm pages`: after a build, copies `dist/` to `dist-pages/` for the GitHub Pages preview (prefixed URLs, noindex, no PHP). Every push to `main` deploys it through `.github/workflows/deploy.yml` and keeps the Hostinger zip as a run artifact.
+- `pnpm test:guides`: checks `src/content/guides/*.json` (banned claims, ar/en parity, phone format, near-duplicates within a kind). Run after any copy change.
 - `pnpm test:photos` (T22), `pnpm test:taste` (T20), `pnpm test:lighthouse` (T18)
 - `node scripts/images.mjs`: exports photos and product images to `public/images`, rewrites `src/images/provenance.json`. `python scripts/gen-products.py [names]`: product images with agy.
 - `python scripts/subset-fonts.py <raw font dir>`: rebuilds `public/fonts`. `node scripts/sink-shots.mjs`: kitchen sink screenshots. `node scripts/phase-shots.mjs <n> [routes]`: screenshots in light and dark to `docs/shots/phase-<n>/`, after `pnpm build` (in Git Bash set `MSYS_NO_PATHCONV=1` when passing routes).

@@ -3,6 +3,7 @@ import { site } from '../site';
 import { Plus } from 'lucide-static';
 import Button from './Button.astro';
 import Faq from './Faq.astro';
+import Guide from './Guide.astro';
 import Heading from './Heading.astro';
 import Img from './Img.astro';
 import RelatedServices from './RelatedServices.astro';
@@ -12,12 +13,14 @@ import Text from './Text.astro';
 import Base from '../layouts/Base.astro';
 import { content, langFromUrl, localePath } from '../content';
 import { faqPage, service } from '../seo';
+import { guide } from '../content/guides';
 
 type Props = { slug: string };
 const lang = langFromUrl(Astro.url);
 const { services, faults, actions, home } = content[lang];
 const s = services.items.find((i) => i.slug === Astro.props.slug)!;
 const related = faults.items.filter((f) => f.service === s.slug);
+const g = guide('service', s.slug, lang);
 const plus = Plus.replace(/stroke-width="[^"]*"/, 'stroke-width="1.75"');
 const list = 'flex flex-col gap-2 ps-card list-disc marker:text-pearl';
 // Real job photos exist for AC work only. The other services show none rather than a borrowed one.
@@ -39,7 +42,7 @@ const set = (name: string, ext: string) => [320, 640].map((n) => `/images/${name
 const bdi = (t: string) => t.replaceAll(site.phone.display, `<bdi dir="ltr">${site.phone.display}</bdi>`);
 ---
 
-<Base title={s.seo.title} description={s.seo.description} ld={[service(s.name, s.seo.description, lang), faqPage(s.faq)]}>
+<Base title={s.seo.title} description={s.seo.description} ld={[service(s.name, s.seo.description, lang), faqPage([...s.faq, ...(g?.faq ?? [])])]}>
   <Section class="lg:flex lg:min-h-first-screen lg:flex-col lg:justify-center">
     <div class="grid gap-8 lg:grid-cols-12 lg:items-center">
       <div class="flex flex-col items-start gap-6 lg:col-span-7">
@@ -140,16 +143,29 @@ const bdi = (t: string) => t.replaceAll(site.phone.display, `<bdi dir="ltr">${si
   )}
   {related.length > 0 && (
     <Section>
-      <div class="flex flex-col gap-4">
+      <!-- The fault answers live on their service page (Ameer, 8 Nov 2026: same pages as the live site). Each keeps its slug as an anchor. -->
+      <div class="flex flex-col gap-8">
         <Heading>{services.labels.faults}</Heading>
-        <ul class="flex flex-wrap gap-3">{related.map((f) => <li><a href={localePath(lang, `/faults/${f.slug}`)} class="inline-flex min-h-target items-center rounded-button bg-pearl-step px-card font-medium transition hover:bg-pearl-hover active:scale-98">{f.name}</a></li>)}</ul>
+        <div class="grid gap-6 lg:grid-cols-2">
+          {related.map((f) => (
+            <article id={f.slug} class="flex flex-col gap-3 rounded-card bg-pearl-step p-card">
+              <h3 class="font-display text-lead font-head">{f.h1}</h3>
+              <p class="text-body">{f.lead}</p>
+              <p class="font-medium">{faults.labels.check}</p>
+              <ul class={list.replace('marker:text-pearl', 'marker:text-teal')}>{f.check.map((t) => <li>{t}</li>)}</ul>
+              <p class="font-medium">{faults.labels.technician}</p>
+              <ul class={list.replace('marker:text-pearl', 'marker:text-teal')}>{f.technician.map((t) => <li>{t}</li>)}</ul>
+            </article>
+          ))}
+        </div>
       </div>
     </Section>
   )}
+  <Guide guide={g && { ...g, faq: [] }} />
   <Section>
     <div class="grid gap-8 lg:grid-cols-12">
       <div class="lg:col-span-4"><Heading>{services.labels.faq}</Heading></div>
-      <div class="lg:col-span-7"><Faq items={s.faq} /></div>
+      <div class="lg:col-span-7"><Faq items={[...s.faq, ...(g?.faq ?? [])]} /></div>
     </div>
   </Section>
   <div class="px-gutter pb-section">

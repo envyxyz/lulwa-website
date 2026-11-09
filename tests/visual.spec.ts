@@ -2,7 +2,7 @@
 import { expect, test } from '@playwright/test';
 import { enTwin, visit } from './lib';
 
-const PAGES = ['/', '/services/ac-repair', '/faults/ac-not-cooling'];
+const PAGES = ['/', '/services/ac-repair', '/brands/lg-appliance-repair'];
 
 for (const width of [1440, 390]) {
   for (const path of PAGES.flatMap((p) => [p, enTwin(p)])) {

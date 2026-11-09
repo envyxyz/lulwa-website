@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "worker", "runtimeExecutable": "pnpm", "runtimeArgs": ["worker:dev"], "port": 8788 }
+    { "name": "apache", "runtimeExecutable": "pnpm", "runtimeArgs": ["serve"], "port": 4330 }
   ]
 }

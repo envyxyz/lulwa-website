@@ -1,6 +1,7 @@
 ---
 import Button from './Button.astro';
 import Faq from './Faq.astro';
+import Guide from './Guide.astro';
 import Heading from './Heading.astro';
 import Icon from './Icon.astro';
 import Img from './Img.astro';
@@ -13,10 +14,12 @@ import { art } from './appliance-art';
 import provenance from '../images/provenance.json';
 import { site } from '../site';
 import { content, langFromUrl, localePath } from '../content';
+import { guide } from '../content/guides';
 
 const lang = langFromUrl(Astro.url);
 const { actions, home, reviews, services } = content[lang];
 const { repair, statement, steps, work, shop, faq, close } = home;
+const g = guide('page', '/', lang);
 
 // Generated image when it exists, line drawing until then. scripts/images.mjs adds it to provenance.
 const cardArt: Record<string, { image: string; drawing: string }> = {
@@ -165,6 +168,8 @@ const wall = [
   </div>
 </Section>
 
+<Guide guide={g && { ...g, faq: [] }} />
+
 <Section>
   <div class="grid gap-8 lg:grid-cols-12">
     <div class="flex flex-col items-start gap-4 lg:col-span-4">
@@ -172,7 +177,7 @@ const wall = [
       <Text>{faq.lead}</Text>
       <Button variant="whatsapp">{faq.cta}</Button>
     </div>
-    <div class="lg:col-span-8"><Faq items={faq.items} /></div>
+    <div class="lg:col-span-8"><Faq items={[...faq.items, ...(g?.faq ?? [])]} /></div>
   </div>
 </Section>
 

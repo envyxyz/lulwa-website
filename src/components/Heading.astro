@@ -1,11 +1,13 @@
 ---
 // Two-tone heads: the default slot is the first line, `quiet` the quieter second line.
-type Props = { level?: 1 | 2 | 3; size?: 'statement' | 'head'; tone?: 'teal' | 'pearl' };
+type Props = { level?: 1 | 2 | 3; size?: 'statement' | 'head' | 'lead'; tone?: 'teal' | 'pearl' };
 const { level = 2, size = 'head', tone = 'teal' } = Astro.props;
 const Tag = `h${level}`;
 const sizes = {
   statement: 'text-statement font-statement tracking-statement',
   head: 'text-head font-head',
+  // Article headings inside long-form copy: long, so smaller, and two lines at 320 px (T11).
+  lead: 'text-lead font-head',
 };
 const quiet = { teal: 'text-teal-quiet', pearl: 'text-pearl' };
 ---

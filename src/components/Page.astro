@@ -1,5 +1,6 @@
 ---
 import Button from './Button.astro';
+import Guide from './Guide.astro';
 import Heading from './Heading.astro';
 import Img from './Img.astro';
 import LeadForm from './LeadForm.astro';
@@ -11,7 +12,8 @@ import Base from '../layouts/Base.astro';
 import provenance from '../images/provenance.json';
 import { site } from '../site';
 import { content, langFromUrl, localePath } from '../content';
-import { article } from '../seo';
+import { article, faqPage } from '../seo';
+import { guide } from '../content/guides';
 import type { Intro, Section as Block } from '../content/types';
 
 // One template for the plain pages: intro, then the body for its kind.
@@ -33,6 +35,7 @@ const doc: (Intro & { sections?: Block[]; updated?: string }) | undefined =
 const intro: Intro = doc ?? (c as unknown as Record<string, Intro>)[kind]!;
 const sections = doc?.sections ?? (kind === 'about' ? c.about.sections : []);
 
+const g = kind === 'area' || kind === 'post' ? guide(kind, slug!, lang) : guide('page', `/${kind === 'about' ? 'about' : kind}`, lang);
 const photos = home.work.items;
 // Every real job photo, none hidden. A photo never renders past its source width (rule 15; Img caps it): portraits are 287 wide, landscapes 680.
 const sizeOf = (name: string) => (provenance as Record<string, { sourceWidth: number }>)[name]!.sourceWidth;
@@ -48,7 +51,7 @@ const chip = 'flex h-full min-h-target flex-col justify-center gap-1 rounded-car
 const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card font-display text-lead font-head transition hover:bg-pearl-hover active:scale-98';
 ---
 
-<Base title={intro.seo.title} description={intro.seo.description} noindex={kind === 'thanks'} ld={kind === 'post' ? [article(intro.h1, intro.seo.description, doc?.updated ?? '', lang)] : []}>
+<Base title={intro.seo.title} description={intro.seo.description} noindex={kind === 'thanks'} ld={[...(kind === 'post' ? [article(intro.h1, intro.seo.description, doc?.updated ?? '', lang)] : []), ...(g?.faq.length ? [faqPage(g.faq)] : [])]}>
   <Section>
     <div class="flex flex-col items-start gap-4">
       <Heading level={1} size={long ? 'head' : 'statement'}>{intro.h1}</Heading>
@@ -122,7 +125,7 @@ const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
 
   {kind === 'work' && photos.length === 0 && <Section><Text>{c.work.empty}</Text></Section>}
 
-  {kind === 'work' && photos.length > 0 && (
+  {(kind === 'work' || kind === 'about') && photos.length > 0 && (
     <Section>
       <ul class="grid grid-cols-2 gap-4 lg:grid-cols-12 lg:gap-8">
         {photos.map((p) => {
@@ -144,6 +147,8 @@ const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
       <ul class="grid gap-4 md:grid-cols-2">{c.blog.items.map((p) => <li><a href={localePath(lang, `/blog/${p.slug}`)} class={tile}>{p.h1}<span class="text-small font-regular text-ink-soft">{p.lead}</span></a></li>)}</ul>
     </Section>
   )}
+
+  <Guide guide={g} />
 
   {kind === 'post' && (
     <Section>

@@ -8,8 +8,9 @@ const lang = langFromUrl(Astro.url);
 const { chrome, actions, services } = content[lang];
 const links = [
   ['/services', chrome.nav.services],
-  ['/work', chrome.nav.work],
-  ['/reviews', chrome.nav.reviews],
+  ['/areas', chrome.nav.areas],
+  ['/brands', chrome.nav.brands],
+  ['/about', chrome.nav.about],
   ['/contact', chrome.nav.contact],
 ] as const;
 const here = Astro.url.pathname.replace(/(\/index)?\.html$/, '').replace(/\/$/, '') || '/';
@@ -36,7 +37,7 @@ const twin = { href: twinPath(Astro.url.pathname), lang: lang === 'ar' ? 'en' : 
           </button>
           <div id="services-menu" popover data-testid="services-menu" class="drop rounded-card bg-pearl-step p-2 shadow-menu">
             <ul class="flex flex-col">
-              {services.items.map((s) => <li><a href={serviceHref(s.slug)} aria-current={current(`/services/${s.slug}`) ? 'page' : undefined} class:list={['flex min-h-target flex-col justify-center rounded-button px-3 py-2 transition', current(`/services/${s.slug}`) ? 'bg-pearl text-teal' : 'hover:bg-pearl-hover active:bg-pearl-hover']}><span class="font-medium">{s.name}</span><span class="text-small text-ink-soft">{s.summary}</span></a></li>)}
+              {[...services.items, ...services.more].map((s) => <li><a href={serviceHref(s.slug)} aria-current={current(`/services/${s.slug}`) ? 'page' : undefined} class:list={['flex min-h-target flex-col justify-center rounded-button px-3 py-2 transition', current(`/services/${s.slug}`) ? 'bg-pearl text-teal' : 'hover:bg-pearl-hover active:bg-pearl-hover']}><span class="font-medium">{s.name}</span>{'summary' in s && <span class="text-small text-ink-soft">{s.summary}</span>}</a></li>)}
               <li><a href={localePath(lang, '/services')} class="group/all flex min-h-target items-center gap-2 rounded-button px-3 font-medium text-teal transition hover:bg-pearl-hover active:bg-pearl-hover">{actions.allServices}<Icon name="arrow-next" small /></a></li>
             </ul>
           </div>
@@ -58,7 +59,7 @@ const twin = { href: twinPath(Astro.url.pathname), lang: lang === 'ar' ? 'en' : 
           <a href={localePath(lang, path)} aria-current={current(path) ? 'page' : undefined} class:list={[target, 'inline-flex w-full rounded-button px-3 text-lead font-medium', current(path) ? 'bg-pearl text-teal' : 'hover:bg-pearl-hover active:bg-pearl-hover']}>{label}</a>
           {path === '/services' && (
             <ul class="flex flex-col ps-4">
-              {services.items.map((s) => <li><a href={serviceHref(s.slug)} aria-current={current(`/services/${s.slug}`) ? 'page' : undefined} class:list={[target, 'inline-flex w-full rounded-button px-3 text-body', current(`/services/${s.slug}`) ? 'bg-pearl text-teal' : 'hover:bg-pearl-hover active:bg-pearl-hover']}>{s.name}</a></li>)}
+              {[...services.items, ...services.more].map((s) => <li><a href={serviceHref(s.slug)} aria-current={current(`/services/${s.slug}`) ? 'page' : undefined} class:list={[target, 'inline-flex w-full rounded-button px-3 text-body', current(`/services/${s.slug}`) ? 'bg-pearl text-teal' : 'hover:bg-pearl-hover active:bg-pearl-hover']}>{s.name}</a></li>)}
             </ul>
           )}
         </>

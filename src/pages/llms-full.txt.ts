@@ -1,6 +1,6 @@
 import { site, factLines } from '../site';
 import { content, localePath } from '../content';
-import { reviewed } from '../reviewed-faults';
+import { guide } from '../content/guides';
 
 const ask = {
   en: 'Appliances, areas and brands beyond the four core services are confirmed case by case on WhatsApp: send the device and your district, and the shop replies whether it can take the job.',
@@ -31,8 +31,8 @@ export const GET = () => {
       out.push(`### ${c.ask.checks}`, '', ...list(s.checks), '', `### ${c.ask.stop}`, '', ...list(s.stop), '');
       out.push(`### ${c.ask.faq}`, '', ...s.faq.flatMap((f) => [`**${f.q}**`, f.a, '']));
     }
-    for (const f of c.faults.items.filter((i) => reviewed.includes(i.slug))) {
-      out.push(`## ${f.h1}`, '', `URL: ${url(`/faults/${f.slug}`)}`, '', f.lead, '', `${c.faults.labels.check}:`, ...list(f.check), '', `${c.faults.labels.technician}:`, ...list(f.technician), '');
+    for (const f of c.faults.items) {
+      out.push(`## ${f.h1}`, '', `URL: ${url(`/services/${f.service}#${f.slug}`)}`, '', f.lead, '', `${c.faults.labels.check}:`, ...list(f.check), '', `${c.faults.labels.technician}:`, ...list(f.technician), '');
     }
     out.push(`## ${c.areas.h1}`, '', `URL: ${url('/areas')}`, '', c.areas.lead, '');
     for (const a of c.areas.items) out.push(`### ${a.h1}`, '', `URL: ${url(`/areas/${a.slug}`)}`, '', a.lead, ...(a.note ? ['', a.note] : []), '');
@@ -42,6 +42,19 @@ export const GET = () => {
     out.push(`## ${c.about.h1}`, '', `URL: ${url('/about')}`, '', c.about.lead, '', ...c.about.sections.flatMap((s) => [`### ${s.h}`, s.body, '']));
     out.push(`## ${c.contact.h1}`, '', `URL: ${url('/contact')}`, '', c.contact.lead, '');
     for (const p of c.blog.items) out.push(`## ${p.h1}`, '', `URL: ${url(`/blog/${p.slug}`)}`, '', p.lead, '', ...p.sections.flatMap((s) => [`### ${s.h}`, s.body, '']));
+    // The long-form guide of every ranking page, as on the page.
+    const pages: [Parameters<typeof guide>[0], string, string, string][] = [
+      ...([['/', c.home.seo.title], ['/about', c.about.h1], ['/services', c.services.h1], ['/areas', c.areas.h1], ['/brands', c.brands.h1], ['/blog', c.blog.h1]] as const).map(([p, h]) => ['page', p, p, h] as [Parameters<typeof guide>[0], string, string, string]),
+      ...[...c.services.items, ...c.services.more].map((i) => ['service', i.slug, `/services/${i.slug}`, i.h1] as [Parameters<typeof guide>[0], string, string, string]),
+      ...c.areas.items.map((i) => ['area', i.slug, `/areas/${i.slug}`, i.h1] as [Parameters<typeof guide>[0], string, string, string]),
+      ...c.brands.items.map((i) => ['brand', i.slug, `/brands/${i.slug}`, i.h1] as [Parameters<typeof guide>[0], string, string, string]),
+      ...c.blog.items.map((i) => ['post', i.slug, `/blog/${i.slug}`, i.h1] as [Parameters<typeof guide>[0], string, string, string]),
+    ];
+    for (const [kind, key, path, h] of pages) {
+      const g = guide(kind, key, lang);
+      if (!g) continue;
+      out.push(`## ${h}`, '', `URL: ${url(path)}`, '', ...g.sections.flatMap((s) => [`### ${s.h}`, '', ...s.p, '', ...(s.items ?? []).flatMap((i) => [`#### ${i.h}`, i.p, ''])]), ...g.faq.flatMap((f) => [`**${f.q}**`, f.a, '']));
+    }
   }
   return new Response(`${out.join('\n')}\n`, { headers: { 'content-type': 'text/plain; charset=utf-8' } });
 };

@@ -24,7 +24,7 @@ const set = (name: string, ext: string) => [320, 640].map((n) => `/images/${name
 // A fault chip goes to the fault page that points at the same spot; no such page, it goes to the service.
 const href = (service: string, i: number) => {
   const fault = faults.items.find((f) => f.service === service && f.spot === i);
-  return localePath(lang, fault ? `/faults/${fault.slug}` : `/services/${service}`);
+  return localePath(lang, fault ? `/services/${service}#${fault.slug}` : `/services/${service}`);
 };
 const pill = 'inline-flex min-h-target items-center rounded-button bg-pearl-step px-4 font-medium transition hover:bg-pearl-hover active:scale-98 aria-pressed:bg-teal aria-pressed:text-pearl';
 ---

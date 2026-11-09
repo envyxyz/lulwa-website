@@ -4,6 +4,7 @@ import Hero from '../../components/Hero.astro';
 import Home from '../../components/Home.astro';
 import { en } from '../../content/en';
 import { faqPage } from '../../seo';
+import { guide } from '../../content/guides';
 ---
 
-<Base title={en.home.seo.title} description={en.home.seo.description} ld={[faqPage(en.home.faq.items)]}><Hero /><Home /></Base>
+<Base title={en.home.seo.title} description={en.home.seo.description} ld={[faqPage([...en.home.faq.items, ...(guide('page', '/', 'en')?.faq ?? [])])]}><Hero /><Home /></Base>

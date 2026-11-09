@@ -4,6 +4,8 @@ export type Seo = { title: string; description: string };
 export type Faq = { q: string; a: string };
 export type Section = { h: string; body: string };
 export type Intro = { seo: Seo; h1: string; lead: string };
+/** Long-form body of a ranking page, from src/content/guides/*.json: h2 sections with paragraphs and optional h3 items, then FAQs. */
+export type Guide = { sections: { h: string; p: string[]; items?: { h: string; p: string }[] }[]; faq: Faq[] };
 
 export type Service = Intro & {
   slug: string;
@@ -70,11 +72,11 @@ export type Content = {
     menu: string;
     /** The other language's name, shown as the language link. */
     language: string;
-    nav: { services: string; reviews: string; work: string; contact: string };
+    nav: { services: string; areas: string; brands: string; about: string; contact: string };
     /** The giant name across the hero and the end of the footer. */
     word: string;
   };
-  footer: { line: string; services: string; company: string; hours: string };
+  footer: { line: string; services: string; company: string; hours: string; areas: string; brands: string };
   actions: { whatsapp: string; /** The header and hero button word, where the icon says the rest. */ whatsappShort: string; call: string; directions: string; allServices: string; learnMore: string };
   icons: { next: string };
   home: {
