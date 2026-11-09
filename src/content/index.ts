@@ -1,6 +1,6 @@
 import { ar } from './ar';
 import { en } from './en';
-import englishRoot from '../english-root.json';
+import englishRoot from '../english-root.json' with { type: 'json' };
 
 export type Lang = 'ar' | 'en';
 export const content = { ar, en };
