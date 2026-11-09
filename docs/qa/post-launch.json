@@ -1,0 +1,1408 @@
+{
+ "base": "https://lulwa.com.sa",
+ "recorded": "2026-11-09T14:02:17.293Z",
+ "fails": [
+  "redirect http://www.lulwa.com.sa/about: 301 -> https://www.lulwa.com.sa/about (want 301 -> https://lulwa.com.sa/about)"
+ ],
+ "diff": [
+  "/areas title: المناطق التي نخدمها في المنطقة الشرقية | لولوه للتكييف والتبريد -> صيانة الأجهزة المنزلية في المنطقة الشرقية | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-abqaiq title: تصليح الأجهزة المنزلية في بقيق | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في بقيق | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-al-ahsa title: تصليح الأجهزة المنزلية في الأحساء | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في الأحساء | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-al-awamiyah title: تصليح الأجهزة المنزلية في العوامية | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في العوامية | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-al-jish title: تصليح الأجهزة المنزلية في الجش | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في الجش | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-al-khobar title: تصليح الأجهزة المنزلية في الخبر | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في الخبر | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-al-mallaha title: تصليح الأجهزة المنزلية في الملاحة | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في الملاحة | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-al-mubarraz title: تصليح الأجهزة المنزلية في المبرز | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في المبرز | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-al-qudaih title: تصليح الأجهزة المنزلية في القديح | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في القديح | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-al-rabwah title: تصليح الأجهزة المنزلية في الربوة | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في الربوة | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-dammam title: تصليح الأجهزة المنزلية في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في الدمام | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-darin title: تصليح الأجهزة المنزلية في دارين | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في دارين | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-dhahran title: تصليح الأجهزة المنزلية في الظهران | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في الظهران | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-hofuf title: تصليح الأجهزة المنزلية في الهفوف | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في الهفوف | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-jubail title: تصليح الأجهزة المنزلية في الجبيل | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في الجبيل | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-qatif title: تصليح الأجهزة المنزلية في القطيف | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في القطيف | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-ras-tanura title: تصليح الأجهزة المنزلية في رأس تنورة | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في رأس تنورة | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-safwa title: تصليح الأجهزة المنزلية في صفوى | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في صفوى | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-saihat title: تصليح الأجهزة المنزلية في سيهات | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في سيهات | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-sanabes title: تصليح الأجهزة المنزلية في سنابس | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في سنابس | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-tarout title: تصليح الأجهزة المنزلية في تاروت | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في تاروت | لولوه للتكييف والتبريد",
+  "/areas/appliance-repair-in-umm-as-sahik title: تصليح الأجهزة المنزلية في أم الساهك | لولوه للتكييف والتبريد -> صيانة وتصليح الأجهزة المنزلية في أم الساهك | لولوه للتكييف والتبريد",
+  "/blog/ac-repair-in-dammam title: تصليح مكيفات الدمام | خدمات الصيانة والإصلاح -> تصليح مكيفات الدمام: الأعطال الشائعة وأسبابها | لولوه للتكييف والتبريد",
+  "/blog/washing-machine-maintenance-repair-services-in-dammam title: Washing Machine Repair Dammam | Expert Repair Service -> Washing Machine Repair Dammam | Faults and Maintenance | Lulwa",
+  "/brands title: ماركات الأجهزة التي نصلحها في الدمام | لولوه للتكييف والتبريد -> صيانة ماركات المكيفات والأجهزة في الدمام | لولوه للتكييف والتبريد",
+  "/brands/alessa-appliance-repair title: تصليح أجهزة العيسى في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة العيسى في الدمام | لولوه للتكييف والتبريد",
+  "/brands/amana-appliance-repair title: تصليح أجهزة أمانا في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة أمانا في الدمام | لولوه للتكييف والتبريد",
+  "/brands/bosch-appliance-repair title: تصليح أجهزة بوش في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة بوش في الدمام | لولوه للتكييف والتبريد",
+  "/brands/carrier-appliance-repair title: تصليح أجهزة كاريير في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة كاريير في الدمام | لولوه للتكييف والتبريد",
+  "/brands/chigo-appliance-repair title: تصليح مكيفات وأجهزة تشيغو في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح مكيفات وأجهزة تشيغو في الدمام | لولوه للتكييف والتبريد",
+  "/brands/daewoo-appliance-repair title: تصليح أجهزة دايو في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة دايو في الدمام | لولوه للتكييف والتبريد",
+  "/brands/daikin-appliance-repair title: تصليح مكيفات وأجهزة دايكين في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح مكيفات وأجهزة دايكين في الدمام | لولوه للتكييف والتبريد",
+  "/brands/electrolux-appliance-repair title: تصليح أجهزة إلكترولوكس في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة إلكترولوكس في الدمام | لولوه للتكييف والتبريد",
+  "/brands/frigidaire-appliance-repair title: تصليح أجهزة فريجيدير في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة فريجيدير في الدمام | لولوه للتكييف والتبريد",
+  "/brands/fujitsu-appliance-repair title: تصليح مكيفات وأجهزة فوجيتسو في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح مكيفات وأجهزة فوجيتسو في الدمام | لولوه للتكييف والتبريد",
+  "/brands/ge-appliance-repair title: تصليح أجهزة جي إي في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة جي إي في الدمام | لولوه للتكييف والتبريد",
+  "/brands/gree-appliance-repair title: تصليح مكيفات وأجهزة جري في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح مكيفات وأجهزة جري في الدمام | لولوه للتكييف والتبريد",
+  "/brands/haier-appliance-repair title: تصليح أجهزة هاير في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة هاير في الدمام | لولوه للتكييف والتبريد",
+  "/brands/hitachi-appliance-repair title: تصليح أجهزة هيتاشي في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة هيتاشي في الدمام | لولوه للتكييف والتبريد",
+  "/brands/kenmore-appliance-repair title: تصليح أجهزة كينمور في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة كينمور في الدمام | لولوه للتكييف والتبريد",
+  "/brands/lg-appliance-repair title: تصليح أجهزة LG في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة LG في الدمام | لولوه للتكييف والتبريد",
+  "/brands/maytag-appliance-repair title: تصليح أجهزة مايتاج في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة مايتاج في الدمام | لولوه للتكييف والتبريد",
+  "/brands/midea-appliance-repair title: تصليح أجهزة ميديا في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة ميديا في الدمام | لولوه للتكييف والتبريد",
+  "/brands/nikai-appliance-repair title: تصليح أجهزة نيكاي في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة نيكاي في الدمام | لولوه للتكييف والتبريد",
+  "/brands/o-general-appliance-repair title: تصليح مكيفات وأجهزة اوجنرال في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح مكيفات وأجهزة اوجنرال في الدمام | لولوه للتكييف والتبريد",
+  "/brands/panasonic-appliance-repair title: تصليح أجهزة باناسونيك في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة باناسونيك في الدمام | لولوه للتكييف والتبريد",
+  "/brands/samsung-appliance-repair title: تصليح أجهزة سامسونج في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة سامسونج في الدمام | لولوه للتكييف والتبريد",
+  "/brands/sanyo-appliance-repair title: تصليح مكيفات وأجهزة سانيو في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح مكيفات وأجهزة سانيو في الدمام | لولوه للتكييف والتبريد",
+  "/brands/sharp-appliance-repair title: تصليح أجهزة شارب في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة شارب في الدمام | لولوه للتكييف والتبريد",
+  "/brands/siemens-appliance-repair title: تصليح أجهزة سيمنز في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة سيمنز في الدمام | لولوه للتكييف والتبريد",
+  "/brands/super-general-appliance-repair title: تصليح أجهزة سوبر جنرال في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة سوبر جنرال في الدمام | لولوه للتكييف والتبريد",
+  "/brands/tcl-appliance-repair title: تصليح أجهزة تي سي إل في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة تي سي إل في الدمام | لولوه للتكييف والتبريد",
+  "/brands/toshiba-appliance-repair title: تصليح أجهزة توشيبا في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة توشيبا في الدمام | لولوه للتكييف والتبريد",
+  "/brands/whirlpool-appliance-repair title: تصليح أجهزة ويرلبول في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة ويرلبول في الدمام | لولوه للتكييف والتبريد",
+  "/brands/white-westinghouse-appliance-repair title: تصليح أجهزة وايت وستنجهاوس في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة وايت وستنجهاوس في الدمام | لولوه للتكييف والتبريد",
+  "/brands/york-appliance-repair title: تصليح أجهزة يورك في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أجهزة يورك في الدمام | لولوه للتكييف والتبريد",
+  "/brands/zamil-appliance-repair title: تصليح مكيفات زامل في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح مكيفات زامل في الدمام | لولوه للتكييف والتبريد",
+  "/services/ac-repair title: تصليح مكيفات في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح مكيفات في الدمام | لولوه للتكييف والتبريد",
+  "/services/dishwasher-repair title: تصليح غسالات صحون في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح غسالات صحون في الدمام | لولوه للتكييف والتبريد",
+  "/services/dryer-repair title: تصليح نشافات في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح نشافات في الدمام | لولوه للتكييف والتبريد",
+  "/services/freezer-repair title: تصليح فريزرات في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح فريزرات في الدمام | لولوه للتكييف والتبريد",
+  "/services/microwave-repair title: تصليح ميكروويف في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح ميكروويف في الدمام | لولوه للتكييف والتبريد",
+  "/services/oven-stove-repair title: تصليح أفران ومواقد في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح أفران ومواقد في الدمام | لولوه للتكييف والتبريد",
+  "/services/refrigerator-repair title: تصليح ثلاجات في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح ثلاجات في الدمام | لولوه للتكييف والتبريد",
+  "/services/water-heater-repair title: تصليح سخانات ماء في الدمام | لولوه للتكييف والتبريد -> صيانة وتصليح سخانات ماء في الدمام | لولوه للتكييف والتبريد"
+ ],
+ "pages": [
+  {
+   "path": "/",
+   "status": 200,
+   "location": null,
+   "title": "تصليح الأجهزة المنزلية والمكيفات في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en",
+   "status": 200,
+   "location": null,
+   "title": "AC, fridge and washing machine repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/about",
+   "status": 200,
+   "location": null,
+   "title": "من نحن | لولوه للتكييف والتبريد في الدمام",
+   "canonical": "https://lulwa.com.sa/about",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/about",
+   "status": 200,
+   "location": null,
+   "title": "About our Dammam repair shop | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/about",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas",
+   "status": 200,
+   "location": null,
+   "title": "صيانة الأجهزة المنزلية في المنطقة الشرقية | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair across the Eastern Province | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-abqaiq",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في بقيق | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-abqaiq",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-abqaiq",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Abqaiq | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-abqaiq",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-al-ahsa",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في الأحساء | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-al-ahsa",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-al-ahsa",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Al-Ahsa | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-al-ahsa",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-al-awamiyah",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في العوامية | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-al-awamiyah",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-al-awamiyah",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Al-Awamiyah | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-al-awamiyah",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-al-jish",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في الجش | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-al-jish",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-al-jish",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Al-Jish | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-al-jish",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-al-khobar",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في الخبر | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-al-khobar",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-al-khobar",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Al-Khobar | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-al-khobar",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-al-mallaha",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في الملاحة | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-al-mallaha",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-al-mallaha",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Al-Mallaha | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-al-mallaha",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-al-mubarraz",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في المبرز | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-al-mubarraz",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-al-mubarraz",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Al-Mubarraz | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-al-mubarraz",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-al-qudaih",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في القديح | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-al-qudaih",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-al-qudaih",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Al-Qudaih | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-al-qudaih",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-al-rabwah",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في الربوة | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-al-rabwah",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-al-rabwah",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Al-Rabwah | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-al-rabwah",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-dammam",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-dammam",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-dammam",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-dammam",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-darin",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في دارين | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-darin",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-darin",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Darin | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-darin",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-dhahran",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في الظهران | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-dhahran",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-dhahran",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Dhahran | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-dhahran",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-hofuf",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في الهفوف | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-hofuf",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-hofuf",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Al-Hofuf | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-hofuf",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-jubail",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في الجبيل | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-jubail",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-jubail",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Al-Jubail | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-jubail",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-qatif",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في القطيف | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-qatif",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-qatif",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Al-Qatif | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-qatif",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-ras-tanura",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في رأس تنورة | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-ras-tanura",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-ras-tanura",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Ras Tanura | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-ras-tanura",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-safwa",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في صفوى | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-safwa",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-safwa",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Safwa | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-safwa",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-saihat",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في سيهات | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-saihat",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-saihat",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Saihat | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-saihat",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-sanabes",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في سنابس | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-sanabes",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-sanabes",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Sanabes | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-sanabes",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-tarout",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في تاروت | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-tarout",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-tarout",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Tarout | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-tarout",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/areas/appliance-repair-in-umm-as-sahik",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح الأجهزة المنزلية في أم الساهك | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/areas/appliance-repair-in-umm-as-sahik",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/areas/appliance-repair-in-umm-as-sahik",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair in Umm As-Sahik | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/areas/appliance-repair-in-umm-as-sahik",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/blog",
+   "status": 200,
+   "location": null,
+   "title": "مدونة صيانة الأجهزة والمكيفات في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/blog",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/blog",
+   "status": 200,
+   "location": null,
+   "title": "AC and appliance repair guides for Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/blog",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/blog/ac-repair-in-dammam",
+   "status": 200,
+   "location": null,
+   "title": "تصليح مكيفات الدمام: الأعطال الشائعة وأسبابها | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/blog/ac-repair-in-dammam",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/blog/ac-repair-in-dammam",
+   "status": 200,
+   "location": null,
+   "title": "AC Repair in Dammam: Common Faults and Causes | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/blog/ac-repair-in-dammam",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide",
+   "status": 200,
+   "location": null,
+   "title": "AC Repair, Installation &amp; Maintenance in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/blog/ac-repair-installation-maintenance-in-dammam-the-complete-guide",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/blog/washing-machine-maintenance-repair-services-in-dammam",
+   "status": 200,
+   "location": null,
+   "title": "Washing Machine Repair Dammam | Faults and Maintenance | Lulwa",
+   "canonical": "https://lulwa.com.sa/blog/washing-machine-maintenance-repair-services-in-dammam",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands",
+   "status": 200,
+   "location": null,
+   "title": "صيانة ماركات المكيفات والأجهزة في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands",
+   "status": 200,
+   "location": null,
+   "title": "AC and appliance brands: repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/alessa-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة العيسى في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/alessa-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/alessa-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Alessa appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/alessa-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/amana-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة أمانا في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/amana-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/amana-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Amana appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/amana-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/bosch-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة بوش في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/bosch-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/bosch-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Bosch appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/bosch-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/carrier-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة كاريير في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/carrier-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/carrier-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Carrier appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/carrier-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/chigo-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح مكيفات وأجهزة تشيغو في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/chigo-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/chigo-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Chigo appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/chigo-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/daewoo-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة دايو في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/daewoo-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/daewoo-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Daewoo appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/daewoo-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/daikin-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح مكيفات وأجهزة دايكين في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/daikin-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/daikin-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Daikin appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/daikin-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/electrolux-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة إلكترولوكس في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/electrolux-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/electrolux-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Electrolux appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/electrolux-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/frigidaire-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة فريجيدير في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/frigidaire-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/frigidaire-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Frigidaire appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/frigidaire-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/fujitsu-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح مكيفات وأجهزة فوجيتسو في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/fujitsu-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/fujitsu-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Fujitsu appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/fujitsu-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/ge-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة جي إي في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/ge-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/ge-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "GE appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/ge-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/gree-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح مكيفات وأجهزة جري في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/gree-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/gree-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Gree appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/gree-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/haier-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة هاير في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/haier-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/haier-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Haier appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/haier-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/hitachi-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة هيتاشي في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/hitachi-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/hitachi-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Hitachi appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/hitachi-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/kenmore-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة كينمور في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/kenmore-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/kenmore-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Kenmore appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/kenmore-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/lg-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة LG في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/lg-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/lg-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "LG appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/lg-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/maytag-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة مايتاج في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/maytag-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/maytag-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Maytag appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/maytag-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/midea-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة ميديا في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/midea-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/midea-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Midea appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/midea-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/nikai-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة نيكاي في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/nikai-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/nikai-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Nikai appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/nikai-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/o-general-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح مكيفات وأجهزة اوجنرال في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/o-general-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/o-general-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "O General appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/o-general-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/panasonic-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة باناسونيك في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/panasonic-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/panasonic-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Panasonic appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/panasonic-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/samsung-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة سامسونج في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/samsung-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/samsung-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Samsung appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/samsung-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/sanyo-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح مكيفات وأجهزة سانيو في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/sanyo-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/sanyo-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Sanyo appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/sanyo-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/sharp-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة شارب في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/sharp-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/sharp-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Sharp appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/sharp-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/siemens-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة سيمنز في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/siemens-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/siemens-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Siemens appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/siemens-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/super-general-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة سوبر جنرال في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/super-general-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/super-general-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Super General appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/super-general-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/tcl-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة تي سي إل في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/tcl-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/tcl-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "TCL appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/tcl-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/toshiba-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة توشيبا في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/toshiba-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/toshiba-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Toshiba appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/toshiba-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/whirlpool-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة ويرلبول في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/whirlpool-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/whirlpool-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Whirlpool appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/whirlpool-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/white-westinghouse-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة وايت وستنجهاوس في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/white-westinghouse-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/white-westinghouse-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "White-Westinghouse appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/white-westinghouse-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/york-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أجهزة يورك في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/york-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/york-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "York appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/york-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/brands/zamil-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح مكيفات زامل في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/brands/zamil-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/brands/zamil-appliance-repair",
+   "status": 200,
+   "location": null,
+   "title": "Zamil appliance repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/brands/zamil-appliance-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/contact",
+   "status": 200,
+   "location": null,
+   "title": "اتصل بنا | لولوه للتكييف والتبريد – الدمام",
+   "canonical": "https://lulwa.com.sa/contact",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/contact",
+   "status": 200,
+   "location": null,
+   "title": "Contact our Dammam repair shop | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/contact",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/cookie-policy",
+   "status": 200,
+   "location": null,
+   "title": "سياسة ملفات تعريف الارتباط | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/cookie-policy",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/cookie-policy",
+   "status": 200,
+   "location": null,
+   "title": "Cookie policy | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/cookie-policy",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/privacy-policy",
+   "status": 200,
+   "location": null,
+   "title": "سياسة الخصوصية | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/privacy-policy",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/privacy-policy",
+   "status": 200,
+   "location": null,
+   "title": "Privacy policy | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/privacy-policy",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/services",
+   "status": 200,
+   "location": null,
+   "title": "خدمات تصليح الأجهزة المنزلية في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/services",
+   "status": 200,
+   "location": null,
+   "title": "Appliance repair services in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/services",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/services/ac-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح مكيفات في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/ac-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/services/ac-repair",
+   "status": 200,
+   "location": null,
+   "title": "AC Repair Dammam: Split and Window ACs | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/services/ac-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/services/dishwasher-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح غسالات صحون في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/dishwasher-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/services/dishwasher-repair",
+   "status": 200,
+   "location": null,
+   "title": "Dishwasher repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/services/dishwasher-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/services/dryer-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح نشافات في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/dryer-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/services/dryer-repair",
+   "status": 200,
+   "location": null,
+   "title": "Dryer Repair Dammam: Not Heating or Drying | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/services/dryer-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/services/freezer-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح فريزرات في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/freezer-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/services/freezer-repair",
+   "status": 200,
+   "location": null,
+   "title": "Freezer repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/services/freezer-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/services/microwave-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح ميكروويف في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/microwave-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/services/microwave-repair",
+   "status": 200,
+   "location": null,
+   "title": "Microwave repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/services/microwave-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/services/oven-stove-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح أفران ومواقد في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/oven-stove-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/services/oven-stove-repair",
+   "status": 200,
+   "location": null,
+   "title": "Oven and stove repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/services/oven-stove-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/services/refrigerator-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح ثلاجات في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/refrigerator-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/services/refrigerator-repair",
+   "status": 200,
+   "location": null,
+   "title": "Fridge Repair Dammam and Gas Refilling | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/services/refrigerator-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/services/washing-machine-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة غسالات في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/washing-machine-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/services/washing-machine-repair",
+   "status": 200,
+   "location": null,
+   "title": "Washing Machine Repair Dammam: Automatic | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/services/washing-machine-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/services/water-heater-repair",
+   "status": 200,
+   "location": null,
+   "title": "صيانة وتصليح سخانات ماء في الدمام | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/services/water-heater-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/services/water-heater-repair",
+   "status": 200,
+   "location": null,
+   "title": "Water heater repair in Dammam | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/services/water-heater-repair",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/terms-of-service",
+   "status": 200,
+   "location": null,
+   "title": "شروط الخدمة | لولوه للتكييف والتبريد",
+   "canonical": "https://lulwa.com.sa/terms-of-service",
+   "robots": null,
+   "xrobots": null
+  },
+  {
+   "path": "/en/terms-of-service",
+   "status": 200,
+   "location": null,
+   "title": "Terms of use | Lulwa",
+   "canonical": "https://lulwa.com.sa/en/terms-of-service",
+   "robots": null,
+   "xrobots": null
+  }
+ ]
+}

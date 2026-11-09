@@ -86,7 +86,7 @@ for (const sm of [...(await index.text()).matchAll(/<loc>([^<]+)<\/loc>/g)].map(
   if (r.status !== 200) fail(`${sm} ${r.status}`);
   locs += [...(await r.text()).matchAll(/<url>/g)].length;
 }
-if (locs !== paths.length * 2) fail(`sitemaps list ${locs} URLs, want ${paths.length * 2}`);
+if (locs !== paths.length * 2 - ENGLISH_ROOT.length) fail(`sitemaps list ${locs} URLs, want ${paths.length * 2 - ENGLISH_ROOT.length}`);
 for (const f of ['/sitemap.xml', '/favicon.ico', '/favicon.svg', '/apple-touch-icon.png', '/manifest.json', '/blog/rss.xml']) {
   const r = await get(abs(f));
   if (r.status !== 200) fail(`${f} ${r.status}`);

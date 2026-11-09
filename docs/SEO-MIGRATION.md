@@ -36,3 +36,8 @@ Ameer's top priority: the new site must keep the rankings and domain age lulwa.c
 2. `curl -I` five old URLs, `http://www.lulwa.com.sa/about`, `/about/`, `/about.html`: 200 or a single 301.
 3. Search Console (verification tag already in the head): resubmit `sitemap.xml`; URL Inspection, Request indexing for `/`, `/services/ac-repair`, `/services/washing-machine-repair`, `/areas/appliance-repair-in-dammam`, the three posts.
 4. Watch Page indexing and Performance daily for two weeks. Compare clicks per URL with the four weeks before launch.
+
+## Launch, 9 Nov 2026
+- Live on Hostinger through `.github/workflows/deploy.yml` (push to main, checks first, `HOSTINGER_DEPLOY=on`). Rollback: run the workflow by hand with `rollback` = `latest` or `pre-launch`.
+- Ameer's call: the two English posts (`ac-repair-installation-maintenance-in-dammam-the-complete-guide`, `washing-machine-maintenance-repair-services-in-dammam`) stay English at their root URL with the live title phrase; their `/en/` twin is a one-hop 301 to it (`src/english-root.json`). Sitemap: 148 URLs.
+- Post-launch check: `docs/qa/post-launch.json` (148/148 answer 200, canonicals unchanged against `docs/qa/pre-launch.json`). Open: `http://www.` takes two hops because Hostinger forces HTTPS before `.htaccess` runs.
