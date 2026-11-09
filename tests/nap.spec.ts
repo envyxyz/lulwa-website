@@ -1,7 +1,7 @@
 // T7. Name, address, phone: one spelling everywhere, read from src/site.ts. Runs on every page that exists.
 import { expect, test, type Page } from '@playwright/test';
 import { site } from '../src/site';
-import { builtRoutes, visit } from './lib';
+import { builtRoutes, ENGLISH_ROOT, visit } from './lib';
 
 const RETIRED = ['0551922197', '0544006384', '0501356459'];
 // Other spellings of the name that have appeared in drafts. None may be on a page.
@@ -13,7 +13,7 @@ const jsonLd = async (page: Page) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- parsed JSON-LD, checked field by field below
   return blocks.flatMap((b) => b['@graph'] ?? [b]) as Record<string, any>[];
 };
-const langOf = (path: string) => (path === '/en' || path.startsWith('/en/') ? 'en' : 'ar') as 'ar' | 'en';
+const langOf = (path: string) => (path === '/en' || path.startsWith('/en/') || ENGLISH_ROOT.includes(path) ? 'en' : 'ar') as 'ar' | 'en';
 // Pages that carry the full business node, so their text must show the same address as the schema.
 const carriesBusiness = (path: string) => ['/', '/en', '/contact', '/en/contact', '/about', '/en/about', '/areas/appliance-repair-in-dammam', '/en/areas/appliance-repair-in-dammam'].includes(path);
 
