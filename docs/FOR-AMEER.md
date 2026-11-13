@@ -12,7 +12,8 @@ The editor is live at `https://lulwa.com.sa/cms` (token sign-in only until the s
 5. **DNS** is at Dnet (`ns10/ns11.dnetns.com`), not Hostinger: add an `A` record `cms` to the Hostinger server IP, then issue SSL for the subdomain in hPanel.
 6. **Switch over:** sign in once at cms.lulwa.com.sa, then set `CMS_MOVED = true` in `scripts/redirects.mjs` and push; `/cms` then 301s to the subdomain.
 7. Until then, a writer can sign in with a fine-grained token (repo `envyxyz/lulwa-website`, Contents read and write) made from their own GitHub account.
-8. Scheduled posts: `publish-due.yml` runs daily at 06:10 Riyadh and starts a deploy only when a post is due. Make sure the `production` environment has no required reviewers, or scheduled posts wait for you.
+8. **First live test, not done yet:** sign in, save a draft post, switch Draft off, wait about 10 minutes, open `/blog/<slug>` and `/en/blog/<slug>`, then switch Draft back on and check both pages are gone after the next deploy. If a post does not appear, the run in GitHub Actions says which check stopped it.
+9. Scheduled posts: `publish-due.yml` runs daily at 06:10 Riyadh and starts a deploy only when a post is due. Make sure the `production` environment has no required reviewers, or scheduled posts wait for you.
 
 ## Launch: what only you can do (2 Nov 2026)
 
