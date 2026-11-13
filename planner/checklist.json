@@ -1,0 +1,14 @@
+{
+  "items": [
+    { "done": false, "task": "اقرأ نصائح الكتابة مرة واحدة قبل أول مقال · Read Writing tips once before the first post" },
+    { "done": false, "task": "اختر الفكرة التالية من خطة المحتوى وغير حالتها إلى قيد الكتابة · Pick the next idea in the Content plan and set it to Writing" },
+    { "done": false, "task": "اكتب المقال بالعربي أولا ثم الإنجليزي واتركه مسودة · Write the Arabic first, then the English, and keep it a draft" },
+    { "done": false, "task": "عنوان جوجل من 30 إلى 60 حرف، والوصف من 120 إلى 160، في اللغتين · Google title 30 to 60 characters, description 120 to 160, in both languages" },
+    { "done": false, "task": "صورة حقيقية من عمل لولوه مع وصف للصورة · A real Lulwa job photo with an image description" },
+    { "done": false, "task": "3 أسئلة شائعة على الأقل، ورابط لصفحة الخدمة المناسبة داخل النص · At least 3 FAQs, and the matching service page mentioned in the text" },
+    { "done": false, "task": "لا ادعاءات: لا أسعار ولا ضمان ولا 24 ساعة ولا الأفضل · No claims: no prices, warranty, 24 hours or the best" },
+    { "done": false, "task": "حدد تاريخ النشر ثم أطفئ خيار المسودة · Set the publish date, then switch Draft off" },
+    { "done": false, "task": "بعد النشر: افتح المقال في الموقع باللغتين وغير حالة الفكرة إلى منشور · After it is live: open the post in both languages and set the idea to Published" },
+    { "done": false, "task": "مقال واحد كل أسبوعين حسب مواعيد خطة المحتوى · One post every two weeks, on the Content plan dates" }
+  ]
+}

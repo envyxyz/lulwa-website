@@ -186,7 +186,9 @@ ${rootSlug.map((l) => `  ${l}`).join('\n')}
 
   ###########################################
   # 10) Trailing slash off, except the root
+  #     and except /cms/: LiteSpeed adds the slash to that folder itself (it has its own .htaccess), so stripping it looped.
   ###########################################
+  RewriteRule ^cms/?$ cms/index.html [L]
   RewriteCond %{REQUEST_URI} !^/$
   RewriteRule ^(.+)/$ /$1 [R=301,L,NE]
 

@@ -10,18 +10,18 @@
   <body>
     <!-- Sveltia CMS, pinned version. Served at https://lulwa.com.sa/cms and https://cms.lulwa.com.sa/, so no relative or /cms/ paths. Config is inline below; headers in .htaccess beside this file. -->
     <script>window.CMS_MANUAL_INIT = true;</script>
-    <script src="https://unpkg.com/@sveltia/cms@0.256.1/dist/sveltia-cms.js"></script>
+    <script src="https://unpkg.com/@sveltia/cms@0.256.1/dist/sveltia-cms.js" integrity="sha384-LPT86oZkLhmoF84O1jKZBSaFJOVvKv8sjXDKap1SOaSwzbC8F6HH7rTJWekmAzG9" crossorigin="anonymous"></script>
     <script>
       // Sveltia CMS for the blog (client request, 13 Nov 2026). Docs: https://sveltiacms.app/en/docs
       // Writes one file per post to src/content/blog/<slug>.json on main; the push runs deploy.yml, which checks and deploys.
       // Sign-in: GitHub OAuth through https://cms.lulwa.com.sa/auth.php (only the GitHub users listed on the server can sign in) or a GitHub token.
 
-      // The site's checks (scripts/check-guides.mjs, tests/claims.spec.ts) fail the deploy on these; the editor stops them first.
-      const banned = /24\s?ساعة|على مدار الساعة|24\/7|نفس اليوم|same[- ]day|معتمد|certified|أصلية|original parts|genuine|ضمان|warrant|ريال|\bSAR\b|خلال ساعة|زيارة منزلية|home visit|we come to you|الأفضل|أفضل ورشة|أفضل فني|\bthe best\b|فوري|5,?000|10\+|98\s?%|4\.9|!|\*\*|<[a-z]/i;
+      // Same list as BANNED in scripts/check-guides.mjs, which fails the deploy on these; the editor stops them first. Change both together.
+      const banned = /24\s?ساعة|على مدار الساعة|24\/7|نفس اليوم|same[- ]day|معتمد|certified|أصلية|original parts|genuine|ضمان|warrant|ريال|\bSAR\b|خلال ساعة|زيارة منزلية|home visit|we come to you|الأفضل|أفضل ورشة|أفضل فني|\bthe best\b|فوري|5,?000|10\+|98\s?%|4\.9|!|\*\*|<[a-z]|لولوه (?:تصلح|تقدم|توفر|تخدم|ترد)|نخدم (?!عملاء)|نغطي|we serve\b|we cover\b|service report|تقرير خدمة|غير المؤكد|المؤكدة|unconfirmed|confirmed|بعض المواقع|مواقع أخرى|شركات أخرى|other shops|some websites|للمنازل والمنشآت|نأتي إليك|في موقعك|[\uD83C-\uD83E][\uDC00-\uDFFF]|(?<!\d)(?!056 802 2197(?!\d))0?5\d(?:\s?\d){7,8}(?!\d)/i;
       const clean = {
         pattern: [
           new RegExp(`^(?![\\s\\S]*(?:${banned.source}))[\\s\\S]*$`, 'i'),
-          'كلمة ممنوعة: لا ادعاءات (24 ساعة، نفس اليوم، ضمان، معتمد، قطع أصلية، الأفضل، أسعار) ولا علامة تعجب · Not allowed: claims such as 24 hours, same day, warranty, certified, original parts, the best, prices, or "!"',
+          'كلمة ممنوعة: لا ادعاءات (24 ساعة، نفس اليوم، ضمان، معتمد، قطع أصلية، الأفضل، أسعار) ولا علامة تعجب · Not allowed: claims such as 24 hours, same day, warranty, certified, original parts, the best, prices, or "!" · رقم الجوال يكتب هكذا فقط: 056 802 2197 · The phone number is written only as 056 802 2197',
         ],
       };
       // Same value in both languages, edited on the Arabic side.
@@ -48,8 +48,8 @@
           site_url: 'https://lulwa.com.sa',
           media_folder: 'public/images/blog',
           public_folder: '/images/blog',
-          // Every upload becomes a WebP no larger than 1600 px, so a phone photo does not slow the page.
-          media_libraries: { default: { config: { max_file_size: 15000000, transformations: { raster_image: { format: 'webp', quality: 80, width: 1600, height: 1600 } } } } },
+          // Every upload becomes a WebP no larger than 1200 px, so a phone photo does not slow the page.
+          media_libraries: { default: { config: { max_file_size: 15000000, transformations: { raster_image: { format: 'webp', quality: 75, width: 1200, height: 1200 } } } } },
           i18n: { structure: 'single_file', locales: ['ar', 'en'], default_locale: 'ar' },
           collections: [
             {
@@ -77,14 +77,15 @@
               ],
               preview_path: '/blog/{{slug}}',
               fields: [
-                { name: 'slug', label: 'عنوان الصفحة (slug)', widget: 'string', ...shared, required: true, minlength: 10, maxlength: 60, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'حروف إنجليزية صغيرة وأرقام وشرطات فقط · Lowercase English letters, digits and hyphens only'], hint: 'عنوان الصفحة بالإنجليزي: حروف صغيرة وشرطات، مثل ac-not-cooling-in-summer، من 10 إلى 60 حرف. يثبت بعد أول حفظ ولا يتغير. · The page address in English: lowercase letters and hyphens, e.g. ac-not-cooling-in-summer, 10 to 60 characters. Fixed after the first save.' },
-                { name: 'draft', label: 'مسودة (مخفي من الموقع) · Draft (hidden)', widget: 'boolean', ...shared, default: true, hint: 'اتركها مفعلة حتى يجهز المقال باللغتين. · Keep on until both languages are ready.' },
+                { name: 'slug', label: 'عنوان الصفحة (slug)', widget: 'string', ...shared, required: true, minlength: 10, maxlength: 60, pattern: ['^(?!(?:ac-repair-in-dammam|ac-repair-installation-maintenance-in-dammam-the-complete-guide|washing-machine-maintenance-repair-services-in-dammam)$)[a-z0-9]+(?:-[a-z0-9]+)*$', 'حروف إنجليزية صغيرة وأرقام وشرطات فقط · Lowercase English letters, digits and hyphens only'], hint: 'عنوان الصفحة بالإنجليزي: حروف صغيرة وشرطات، مثل ac-not-cooling-in-summer، من 10 إلى 60 حرف. يثبت بعد أول حفظ ولا يتغير. · The page address in English: lowercase letters and hyphens, e.g. ac-not-cooling-in-summer, 10 to 60 characters. Fixed after the first save.' },
+                { name: 'draft', label: 'مسودة (مخفي من الموقع) · Draft (hidden)', widget: 'boolean', ...shared, default: true, hint: 'اتركها مفعلة حتى يجهز المقال باللغتين. · Keep on until both languages are ready. لإخفاء مقال منشور فعلها مرة أخرى. · Switch it back on to take a published post off the site.' },
                 { name: 'date', label: 'تاريخ النشر · Publish date', widget: 'datetime', ...shared, time_format: false, format: 'YYYY-MM-DD', default: '{{now}}', hint: 'تاريخ في المستقبل = نشر مجدول، يظهر صباح ذلك اليوم. · A future date schedules the post; it goes live that morning.' },
                 { name: 'image', label: 'الصورة الرئيسية · Featured image', widget: 'image', ...shared, required: false, hint: 'صورة حقيقية من عمل لولوه، بالعرض. لا صور ذكاء اصطناعي للورشة أو الفنيين. · A real Lulwa job photo, landscape. No AI images of the shop or technicians.' },
                 text('image_alt', 'وصف الصورة · Image description (alt)', { required: false, maxlength: 125, hint: 'جملة تصف ما في الصورة لمن لا يراها، حتى 125 حرف. · One sentence describing what the photo shows, up to 125 characters.' }),
-                text('title', 'عنوان جوجل (SEO title)', { minlength: 30, maxlength: 60, hint: 'يظهر في نتائج البحث، من 30 إلى 60 حرف، والكلمة المهمة أولا. · Shown in Google results, 30 to 60 characters, main keyword first.' }),
+                // Heading limits come from tests/headlines.spec.ts (T11): two lines at 320 px, measured 13 Nov 2026 (English H1 37, H2 47, H3 41 characters).
+                text('title','عنوان جوجل (SEO title)', { minlength: 30, maxlength: 60, hint: 'يظهر في نتائج البحث، من 30 إلى 60 حرف، والكلمة المهمة أولا. · Shown in Google results, 30 to 60 characters, main keyword first.' }),
                 { name: 'description', label: 'وصف جوجل (meta description)', widget: 'text', i18n: true, ...clean, minlength: 120, maxlength: 160, hint: 'يجيب عن سؤال الباحث في سطرين، من 120 إلى 160 حرف. · Answers the searcher\'s question in a line or two, 120 to 160 characters.' },
-                text('h1', 'العنوان في الصفحة (H1) · Headline', { minlength: 15, maxlength: 70, hint: 'صياغته تختلف قليلا عن عنوان جوجل، من 15 إلى 70 حرف. · Worded a little differently from the Google title, 15 to 70 characters.' }),
+                text('h1', 'العنوان في الصفحة (H1) · Headline', { minlength: 15, maxlength: 36, hint: 'صياغته تختلف قليلا عن عنوان جوجل، من 15 إلى 36 حرف. · Worded a little differently from the Google title, 15 to 36 characters.' }),
                 { name: 'lead', label: 'المقدمة · Intro line', widget: 'text', i18n: true, ...clean, minlength: 50, maxlength: 200 },
                 {
                   name: 'sections',
@@ -96,7 +97,7 @@
                   summary: '{{h}}',
                   hint: 'أضف الأقسام في العربي، وتظهر نفسها في الإنجليزي لتكتب ترجمتها. · Add sections on the Arabic side; they appear on the English side for the translation.',
                   fields: [
-                    text('h', 'عنوان القسم (H2) · Section heading', { maxlength: 70 }),
+                    text('h', 'عنوان القسم (H2) · Section heading', { maxlength: 45, hint: 'حتى 45 حرف. · Up to 45 characters.' }),
                     { name: 'p', label: 'النص · Text', widget: 'text', i18n: true, ...clean, hint: 'افصل بين الفقرات بسطر فارغ. · Leave an empty line between paragraphs.' },
                     {
                       name: 'items',
@@ -106,7 +107,7 @@
                       i18n: 'duplicate',
                       required: false,
                       summary: '{{h}}',
-                      fields: [text('h', 'عنوان النقطة (H3) · Point heading', { maxlength: 70 }), { name: 'p', label: 'النص · Text', widget: 'text', i18n: true, ...clean }],
+                      fields: [text('h', 'عنوان النقطة (H3) · Point heading', { maxlength: 40, hint: 'حتى 40 حرف. · Up to 40 characters.' }), { name: 'p', label: 'النص · Text', widget: 'text', i18n: true, ...clean }],
                     },
                   ],
                 },
@@ -152,6 +153,26 @@
             },
           ],
           singletons: [
+            {
+              name: 'checklist',
+              label: 'قائمة المهام · Checklist',
+              file: 'planner/checklist.json',
+              format: 'json',
+              fields: [
+                {
+                  name: 'items',
+                  label: 'المهام · Tasks',
+                  label_singular: 'مهمة · Task',
+                  widget: 'list',
+                  summary: "{{done | ternary('✓', '○')}} {{task}}",
+                  hint: 'علم على ما انتهى، وأضف أو احذف أو رتب المهام كما تريد. لا يظهر شيء منها في الموقع. · Tick what is done; add, remove or reorder tasks as you like. None of it appears on the website.',
+                  fields: [
+                    { name: 'done', label: 'تم · Done', widget: 'boolean', default: false },
+                    { name: 'task', label: 'المهمة · Task', widget: 'string' },
+                  ],
+                },
+              ],
+            },
             {
               name: 'tips',
               label: 'نصائح الكتابة · Writing tips',

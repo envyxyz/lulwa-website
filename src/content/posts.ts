@@ -59,8 +59,13 @@ const posts = published();
 const imageOf = (p: (typeof posts)[number], lang: Lang): Post['image'] => {
   const src = p.ar.image;
   if (!src) return undefined;
-  const { width, height } = webpSize(readFileSync(`public${src}`));
-  return { src, width, height, alt: p[lang].image_alt || p.ar.image_alt || p[lang].h1 };
+  // The editor turns photos into WebP. Anything else (SVG, GIF, a missing file) shows no image instead of failing the build.
+  try {
+    const { width, height } = webpSize(readFileSync(`public${src}`));
+    return { src, width, height, alt: p[lang].image_alt || p.ar.image_alt || p[lang].h1 };
+  } catch {
+    return undefined;
+  }
 };
 
 /** The blog list in ar.ts and en.ts. */

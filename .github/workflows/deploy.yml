@@ -16,6 +16,11 @@ on:
 permissions:
   contents: read
 
+# One run at a time per branch, in push order, so a slower older run cannot upload after a newer one. Rollbacks never wait.
+concurrency:
+  group: ${{ (github.event_name == 'workflow_dispatch' && inputs.rollback != '') && format('rollback-{0}', github.run_id) || format('deploy-{0}', github.ref) }}
+  cancel-in-progress: false
+
 env:
   # Never written, never deleted on the server.
   PROTECT: --exclude=/config/ --exclude=/database/ --exclude=/admin/ --exclude=/includes/ --exclude=/logs/
@@ -57,8 +62,8 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
-      - name: SEO tests (routes, NAP, claims, headlines)
-        run: pnpm exec playwright test tests/routes.spec.ts tests/nap.spec.ts tests/claims.spec.ts tests/headlines.spec.ts
+      - name: SEO tests (routes, NAP, claims, headlines, posts)
+        run: pnpm exec playwright test tests/routes.spec.ts tests/nap.spec.ts tests/claims.spec.ts tests/headlines.spec.ts tests/posts.spec.ts
         env:
           PW_CHANNEL: chromium
 
@@ -137,9 +142,17 @@ jobs:
             tar -czf ~/backups/public_html-\$(date -u +%Y%m%dT%H%M%SZ)-${GITHUB_SHA::7}.tgz \"\$(basename \"\$P\")\"
             ls -1t ~/backups/public_html-*.tgz | tail -n +6 | xargs -r rm --"
 
-      # Overwrites and adds files; never deletes, never touches the protected folders.
+      # Overwrites and adds files; never deletes (the next step is the one exception), never touches the protected folders.
       - name: Upload dist/ to public_html
         run: rsync -rlz --chmod=D755,F644 $PROTECT dist/ "hostinger:${{ secrets.HOSTINGER_PUBLIC_HTML }}/"
+
+      # A post set back to draft leaves the build, so its two pages must leave the server too.
+      # Only .html files directly inside blog/ and en/blog/ can be deleted; everything else stays never-delete.
+      - name: Remove unpublished blog pages
+        run: |
+          for d in blog en/blog; do
+            rsync -rlz --delete --include='*.html' --exclude='*' "dist/$d/" "hostinger:${{ secrets.HOSTINGER_PUBLIC_HTML }}/$d/"
+          done
 
       # LiteSpeed cache and the Hostinger CDN are on; without a purge they keep serving the old pages.
       - name: Purge cache and CDN

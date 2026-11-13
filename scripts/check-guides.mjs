@@ -3,12 +3,13 @@
 import { readFileSync, readdirSync } from 'node:fs';
 
 const files = process.argv.slice(2).length ? process.argv.slice(2) : [...readdirSync('src/content/guides').map((f) => `src/content/guides/${f}`), 'src/content/blog'];
-// Blog posts are one CMS file per post ({ ar, en }, paragraphs in one text box): read them as one guide file keyed by slug.
+// Blog posts are one CMS file per post ({ ar, en }, paragraphs in one text box): read them as one guide file keyed by slug. Drafts are skipped: they are not on the site, and an unfinished one must not block the deploy.
 // Their paragraph counts may differ between languages; sections and FAQs are mirrored by the CMS.
-const blogDir = (dir) => Object.fromEntries(readdirSync(dir).filter((f) => f.endsWith('.json')).map((f) => {
+const blogDir = (dir) => Object.fromEntries(readdirSync(dir).filter((f) => f.endsWith('.json')).flatMap((f) => {
   const post = JSON.parse(readFileSync(`${dir}/${f}`, 'utf8'));
+  if (post.ar?.draft) return [];
   const g = (l) => post[l] && { ...post[l], meta: [post[l].title, post[l].description, post[l].h1, post[l].lead, post[l].image_alt ?? ''].join(' '), sections: (post[l].sections ?? []).map((s) => ({ ...s, p: String(s.p ?? '').split(/\n\s*\n/).filter((t) => t.trim()) })), faq: post[l].faq ?? [] };
-  return [f.slice(0, -5), { ar: g('ar'), en: g('en'), blog: true }];
+  return [[f.slice(0, -5), { ar: g('ar'), en: g('en'), blog: true }]];
 }));
 // Same list as tests/claims.spec.ts plus the launch-plan bans (docs/LAUNCH-PLAN.md).
 const BANNED = [/5,000/, /5000/, /10\+/, /98\s?%/, /4\.9/, /معتمد/, /certified/i, /24\s?ساعة/, /على مدار الساعة/, /24\/7/, /نفس اليوم/, /same[- ]day/i, /أصلية/, /خلال ساعة/, /ريال/, /\bSAR\b/,
