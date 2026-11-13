@@ -8,7 +8,7 @@ Ameer's top priority: the new site must keep the rankings and domain age lulwa.c
 - Live pages have about 1,300 to 2,600 words of body each, and every page links to all 9 services, 21 areas and 32 brands.
 
 ## Must
-1. **Same URLs, same count.** The sitemap is exactly the 75 live URLs plus their 75 `/en/` twins (`tests/routes.spec.ts`). No new indexable pages. Never change an Arabic slug. Old physical file names stay (`docs/LAUNCH-PLAN.md`).
+1. **Same URLs, same count.** The sitemap is exactly the 75 live URLs plus their 75 `/en/` twins (`tests/routes.spec.ts`). No new indexable pages, except blog posts published from the CMS (13 Nov 2026), each with its `/en/` twin. Never change an Arabic slug. Old physical file names stay (`docs/LAUNCH-PLAN.md`).
 2. **Arabic meta on Arabic pages.** Title and description in Arabic. Keep the live title's ranking phrase word for word inside the new title (for example `تصليح مكيفات في الدمام` sits inside `صيانة وتصليح مكيفات في الدمام`). Under 70 characters, no tashkeel. Descriptions 120 to 160 characters with the page's main phrase and a WhatsApp prompt.
 3. **Keep content depth.** A ranking page never gets shorter than the topics it ranked for. Long-form copy lives in `src/content/guides/*.json` and must pass `node scripts/check-guides.mjs` (banned claims, ar/en parity, near-duplicates).
 4. **No doorway pages.** Area and brand pages must differ in substance, not just the name. `check-guides.mjs` fails two pages of one kind sharing more than 20% of their 5-word runs. https://developers.google.com/search/docs/essentials/spam-policies#doorways

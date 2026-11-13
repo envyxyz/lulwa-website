@@ -1,5 +1,19 @@
 # For Ameer
 
+## Blog CMS: what only you can do (13 Nov 2026)
+
+The editor is live at `https://lulwa.com.sa/cms` (token sign-in only until the subdomain exists). Client guide: `../growth/Documents/Lulwa Blog Guide - English.md` and `- Arabic.md`.
+
+1. **GitHub OAuth App** (github.com/settings/developers, account envyxyz): homepage `https://lulwa.com.sa`, callback `https://cms.lulwa.com.sa/auth.php`.
+2. **`lulwa-cms.ini` beside `public_html`** (hPanel File Manager, one folder above it), never in the repo:
+   `client_id = "..."`, `client_secret = "..."`, `allowed_users = "github-login-1,github-login-2"`.
+3. **Team:** add each writer's GitHub account as a collaborator with write access on `envyxyz/lulwa-website`, and to `allowed_users`.
+4. **Subdomain:** hPanel, Domains, Subdomains, create `cms` with the default folder `public_html/cms`. Before DNS, test with `curl -skI --resolve cms.lulwa.com.sa:443:<server IP> https://cms.lulwa.com.sa/`; it must be 200, not 301.
+5. **DNS** is at Dnet (`ns10/ns11.dnetns.com`), not Hostinger: add an `A` record `cms` to the Hostinger server IP, then issue SSL for the subdomain in hPanel.
+6. **Switch over:** sign in once at cms.lulwa.com.sa, then set `CMS_MOVED = true` in `scripts/redirects.mjs` and push; `/cms` then 301s to the subdomain.
+7. Until then, a writer can sign in with a fine-grained token (repo `envyxyz/lulwa-website`, Contents read and write) made from their own GitHub account.
+8. Scheduled posts: `publish-due.yml` runs daily at 06:10 Riyadh and starts a deploy only when a post is due. Make sure the `production` environment has no required reviewers, or scheduled posts wait for you.
+
 ## Launch: what only you can do (2 Nov 2026)
 
 The code side is done and tested (build, lint, typecheck, Playwright on real Apache and PHP). Nothing is on Hostinger yet; GitHub Pages only carries a noindex preview. Do these in order.

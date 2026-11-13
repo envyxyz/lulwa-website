@@ -1,6 +1,7 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "apache", "runtimeExecutable": "pnpm", "runtimeArgs": ["serve"], "port": 4330 }
+    { "name": "apache", "runtimeExecutable": "pnpm", "runtimeArgs": ["serve"], "port": 4330 },
+    { "name": "dev", "runtimeExecutable": "npx", "runtimeArgs": ["pnpm@11.9.0", "dev", "--port", "4321"], "port": 4321 }
   ]
 }
