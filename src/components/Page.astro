@@ -14,7 +14,7 @@ import { site } from '../site';
 import { content, langFromUrl, localePath } from '../content';
 import { article, faqPage } from '../seo';
 import { guide } from '../content/guides';
-import type { Intro, Section as Block } from '../content/types';
+import type { Intro, Post, Section as Block } from '../content/types';
 
 // One template for the plain pages: intro, then the body for its kind.
 type Props = {
@@ -27,7 +27,7 @@ const { actions, home } = c;
 const { kind, slug } = Astro.props;
 
 const legal = { privacy: c.legal.privacy, terms: c.legal.terms, cookies: c.legal.cookies };
-const doc: (Intro & { sections?: Block[]; updated?: string }) | undefined =
+const doc: (Intro & { sections?: Block[]; updated?: string; image?: Post['image'] }) | undefined =
   kind === 'area' ? c.areas.items.find((i) => i.slug === slug)
   : kind === 'post' ? c.blog.items.find((i) => i.slug === slug)
   : kind === 'privacy' || kind === 'terms' || kind === 'cookies' ? legal[kind]
@@ -51,7 +51,7 @@ const chip = 'flex h-full min-h-target flex-col justify-center gap-1 rounded-car
 const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card font-display text-lead font-head transition hover:bg-pearl-hover active:scale-98';
 ---
 
-<Base title={intro.seo.title} description={intro.seo.description} noindex={kind === 'thanks'} ld={[...(kind === 'post' ? [article(intro.h1, intro.seo.description, doc?.updated ?? '', lang)] : []), ...(g?.faq.length ? [faqPage(g.faq)] : [])]}>
+<Base title={intro.seo.title} description={intro.seo.description} image={doc?.image} noindex={kind === 'thanks'} ld={[...(kind === 'post' ? [article(intro.h1, intro.seo.description, doc?.updated ?? '', lang, doc?.image?.src)] : []), ...(g?.faq.length ? [faqPage(g.faq)] : [])]}>
   <Section>
     <div class="flex flex-col items-start gap-4">
       <Heading level={1} size={long ? 'head' : 'statement'}>{intro.h1}</Heading>
@@ -65,6 +65,12 @@ const tile = 'flex min-h-target flex-col gap-2 rounded-card bg-pearl-step p-card
       {doc?.updated && <Text soft>{c.blog.updated}: {doc.updated}</Text>}
     </div>
   </Section>
+
+  {doc?.image && (
+    <Section>
+      <img src={doc.image.src} width={doc.image.width} height={doc.image.height} alt={doc.image.alt} fetchpriority="high" decoding="async" class="h-auto w-full rounded-card" style={`max-inline-size:${doc.image.width}px`} />
+    </Section>
+  )}
 
   {sections.length > 0 && (
     <Section>

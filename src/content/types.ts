@@ -58,7 +58,7 @@ export type MoreService = Intro & {
 
 export type Review = { name: string; text: string; when: string };
 
-export type Post = Intro & { slug: string; updated: string; sections: Section[] };
+export type Post = Intro & { slug: string; updated: string; sections: Section[]; image?: { src: string; width: number; height: number; alt: string } | undefined };
 
 export type Policy = Intro & { updated: string; sections: Section[] };
 

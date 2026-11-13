@@ -2,7 +2,14 @@
 // usage: node scripts/check-guides.mjs [file.json ...]   (default: every src/content/guides/*.json). Exit 1 on any FAIL.
 import { readFileSync, readdirSync } from 'node:fs';
 
-const files = process.argv.slice(2).length ? process.argv.slice(2) : readdirSync('src/content/guides').map((f) => `src/content/guides/${f}`);
+const files = process.argv.slice(2).length ? process.argv.slice(2) : [...readdirSync('src/content/guides').map((f) => `src/content/guides/${f}`), 'src/content/blog'];
+// Blog posts are one CMS file per post ({ ar, en }, paragraphs in one text box): read them as one guide file keyed by slug.
+// Their paragraph counts may differ between languages; sections and FAQs are mirrored by the CMS.
+const blogDir = (dir) => Object.fromEntries(readdirSync(dir).filter((f) => f.endsWith('.json')).map((f) => {
+  const post = JSON.parse(readFileSync(`${dir}/${f}`, 'utf8'));
+  const g = (l) => post[l] && { ...post[l], meta: [post[l].title, post[l].description, post[l].h1, post[l].lead, post[l].image_alt ?? ''].join(' '), sections: (post[l].sections ?? []).map((s) => ({ ...s, p: String(s.p ?? '').split(/\n\s*\n/).filter((t) => t.trim()) })), faq: post[l].faq ?? [] };
+  return [f.slice(0, -5), { ar: g('ar'), en: g('en'), blog: true }];
+}));
 // Same list as tests/claims.spec.ts plus the launch-plan bans (docs/LAUNCH-PLAN.md).
 const BANNED = [/5,000/, /5000/, /10\+/, /98\s?%/, /4\.9/, /معتمد/, /certified/i, /24\s?ساعة/, /على مدار الساعة/, /24\/7/, /نفس اليوم/, /same[- ]day/i, /أصلية/, /خلال ساعة/, /ريال/, /\bSAR\b/,
   /ضمان/, /warrant/i, /زيارة منزلية/, /home visit/i, /we come to you/i, /الأفضل|أفضل ورشة|أفضل فني/, /\bthe best\b/i, /فوري/, /original parts/i, /genuine/i, /!/, /[\u{1F300}-\u{1FAFF}]/u, /<[a-z]/i, /\*\*/,
@@ -12,16 +19,16 @@ const BANNED = [/5,000/, /5000/, /10\+/, /98\s?%/, /4\.9/, /معتمد/, /certif
   // Any phone number other than 056 802 2197 written exactly so (rule 8).
   /(?<!\d)(?!056 802 2197(?!\d))0?5\d(?:\s?\d){7,8}(?!\d)/];
 const words = (t) => t.split(/\s+/).filter(Boolean).length;
-const text = (g) => [...g.sections.flatMap((s) => [s.h, ...s.p, ...(s.items ?? []).flatMap((i) => [i.h, i.p])]), ...g.faq.flatMap((f) => [f.q, f.a])].join(' ');
+const text = (g) => [g.meta ?? '', ...g.sections.flatMap((s) => [s.h, ...s.p, ...(s.items ?? []).flatMap((i) => [i.h, i.p])]), ...g.faq.flatMap((f) => [f.q, f.a])].join(' ');
 const shingles = (t) => { const w = t.split(/\s+/).filter(Boolean); const s = new Set(); for (let i = 0; i + 5 <= w.length; i++) s.add(w.slice(i, i + 5).join(' ')); return s; };
 const jac = (a, b) => { let i = 0; for (const x of a) if (b.has(x)) i++; return i / (a.size + b.size - i || 1); };
-const counts = (g) => JSON.stringify([g.sections.map((s) => [s.p.length, (s.items ?? []).length]), g.faq.length]);
+const counts = (g, blog) => JSON.stringify([g.sections.map((s) => [blog ? 0 : s.p.length, (s.items ?? []).length]), g.faq.length]);
 
 let fail = 0;
 const out = (level, msg) => { if (level === 'FAIL') fail++; console.log(`${level} ${msg}`); };
 for (const file of files) {
   let data;
-  try { data = JSON.parse(readFileSync(file, 'utf8')); } catch (e) { out('FAIL', `${file}: not JSON (${e.message})`); continue; }
+  try { data = file === 'src/content/blog' ? blogDir(file) : JSON.parse(readFileSync(file, 'utf8')); } catch (e) { out('FAIL', `${file}: not JSON (${e.message})`); continue; }
   const entries = Object.entries(data);
   const sh = [];
   for (const [key, e] of entries) {
@@ -32,7 +39,7 @@ for (const file of files) {
       for (const s of g.sections) if (s.h.length > 80) out('WARN', `${file} ${key}.${lang}: long heading "${s.h}"`);
     }
     if (!e?.ar || !e?.en) continue;
-    if (counts(e.ar) !== counts(e.en)) out('FAIL', `${file} ${key}: ar/en counts differ ${counts(e.ar)} vs ${counts(e.en)}`);
+    if (counts(e.ar, e.blog) !== counts(e.en, e.blog)) out('FAIL', `${file} ${key}: ar/en counts differ ${counts(e.ar, e.blog)} vs ${counts(e.en, e.blog)}`);
     const w = words(text(e.ar));
     out('INFO', `${file} ${key}: ar ${w} words, en ${words(text(e.en))}, ${e.ar.sections.length} sections, ${e.ar.faq.length} faq, ${(e.sources ?? []).length} sources`);
     sh.push([key, shingles(text(e.ar))]);

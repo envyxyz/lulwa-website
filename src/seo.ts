@@ -110,7 +110,7 @@ export const isoDate = (text: string): string | undefined => {
   return m && month ? `${m[3]}-${String(month).padStart(2, '0')}-${m[1]!.padStart(2, '0')}` : undefined;
 };
 
-export const article = (headline: string, description: string, updated: string, lang: Lang) => {
+export const article = (headline: string, description: string, updated: string, lang: Lang, image: string = site.images.og) => {
   const date = isoDate(updated);
   return {
     '@type': 'Article',
@@ -119,7 +119,7 @@ export const article = (headline: string, description: string, updated: string, 
     inLanguage: locale(lang),
     // The posts were rewritten for this site, so this text was first published on the date it was last changed.
     ...(date ? { datePublished: date, dateModified: date } : {}),
-    image: abs(site.images.og),
+    image: abs(image),
     author: { '@type': 'Organization', '@id': ids.business, name: businessName(lang) },
     publisher: { '@type': 'Organization', name: businessName(lang), logo: { '@type': 'ImageObject', url: abs(site.images.logo) } },
   };

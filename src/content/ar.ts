@@ -3,6 +3,7 @@ import brandData from './directory/brands.json' with { type: 'json' };
 import areaData from './directory/areas.json' with { type: 'json' };
 import moreData from './directory/services.json' with { type: 'json' };
 import { site } from '../site';
+import { postItems } from './posts';
 
 const phone = site.phone.display;
 const name = site.brand.arabic;
@@ -271,7 +272,6 @@ const moreServices: MoreService[] = moreData.map((m) => ({
   faq: m.faq.map((f) => ({ q: f.q.ar, a: f.a.ar })),
 }));
 
-const postDate = '8 نوفمبر 2026';
 const policyDate = '1 نوفمبر 2026';
 
 export const ar: Content = {
@@ -520,32 +520,7 @@ export const ar: Content = {
     h1: 'المدونة',
     lead: 'نصائح قصيرة للعناية بأجهزتك.',
     updated: 'آخر تحديث',
-    items: [
-      {
-        slug: 'ac-repair-in-dammam',
-        seo: { title: `تصليح مكيفات الدمام: الأعطال الشائعة وأسبابها | ${name}`, description: 'دليل تصليح مكيفات الدمام: ليش المكيف ما يبرد أو يسرّب ماء أو يطلع صوت، وش تفحصه بنفسك بأمان، ومتى تحتاج فني تكييف.' },
-        h1: 'تصليح مكيفات الدمام: الأعطال الشائعة وأسبابها',
-        lead: 'أكثر أعطال المكيفات في بيوت الدمام، وش معناها، وش تفحصه بنفسك قبل ما تتصل.',
-        updated: postDate,
-        sections: [],
-      },
-      {
-        slug: 'ac-repair-installation-maintenance-in-dammam-the-complete-guide',
-        seo: { title: 'تصليح وتركيب وصيانة المكيفات في الدمام: الدليل الشامل', description: 'الدليل الشامل للمكيفات في الدمام: أنواع المكيفات، اختيار الطن، الإنفرتر، الماركات في السوق السعودي، الأعطال الشائعة، الصيانة الدورية والتركيب الصحيح.' },
-        h1: 'دليل صيانة وتركيب المكيفات في الدمام',
-        lead: 'كل ما تحتاج تعرفه عن مكيفك في أجواء الدمام، من الاختيار والتركيب إلى الصيانة والأعطال.',
-        updated: postDate,
-        sections: [],
-      },
-      {
-        slug: 'washing-machine-maintenance-repair-services-in-dammam',
-        seo: { title: `صيانة وتصليح الغسالات في الدمام: دليل الأعطال | ${name}`, description: 'دليل صيانة الغسالات الأوتوماتيك في الدمام: الغسالة ما تعصر أو ما تصرّف، الاهتزاز، رموز الأخطاء، تنظيف الفلتر والروائح في الجو الرطب، ومتى تحتاج فني.' },
-        h1: 'دليل صيانة وتصليح الغسالات في الدمام',
-        lead: 'كيف تقرأ أعطال غسالتك الأوتوماتيك، وش تسوي بنفسك بأمان، ومتى ترسل لنا.',
-        updated: postDate,
-        sections: [],
-      },
-    ],
+    items: postItems('ar'),
   },
   notFound: {
     seo: { title: `الصفحة غير موجودة | ${name}`, description: 'هذه الصفحة غير موجودة.' },

@@ -7,8 +7,8 @@ import { site } from '../site';
 import { content, isEnglishRoot, langFromUrl } from '../content';
 import { alternates, breadcrumbs, business, carriesBusiness, isoDate, pageNodes } from '../seo';
 
-type Props = { title: string; description: string; noindex?: boolean; ld?: object[] };
-const { title, description, noindex = false, ld = [] } = Astro.props;
+type Props = { title: string; description: string; noindex?: boolean; ld?: object[]; image?: { src: string; width: number; height: number; alt: string } | undefined };
+const { title, description, noindex = false, ld = [], image } = Astro.props;
 const lang = langFromUrl(Astro.url);
 const dir = lang === 'ar' ? 'rtl' : 'ltr';
 const alt = alternates(Astro.url.pathname);
@@ -22,8 +22,9 @@ const arPath = alt.ar.slice(site.url.length);
 const postSlug = arPath.startsWith('/blog/') ? arPath.slice(6) : undefined;
 const post = postSlug ? content[lang].blog.items.find((p) => p.slug === postSlug) : undefined;
 const modified = post && isoDate(post.updated);
-const ogImage = `${site.url}${site.images.og}`;
-const ogAlt = lang === 'ar' ? `شعار ${site.brand.arabic}` : `${site.brand.english} logo`;
+// A post's featured image is its share image; every other page shares the logo card.
+const ogImage = `${site.url}${image?.src ?? site.images.og}`;
+const ogAlt = image?.alt ?? (lang === 'ar' ? `شعار ${site.brand.arabic}` : `${site.brand.english} logo`);
 const businessName = lang === 'ar' ? site.brand.arabic : site.brand.english;
 const rss = lang === 'ar' ? '/blog/rss.xml' : '/en/blog/rss.xml';
 // Everything the first paint needs, so no font waits for the stylesheet to be parsed.
@@ -62,9 +63,9 @@ const preloadFonts = lang === 'ar' ? ['beiruti-800-900', 'plex-arabic-400', 'ple
     {!englishOnly && <meta property="og:locale:alternate" content={lang === 'ar' ? 'en_US' : 'ar_SA'} />}
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:secure_url" content={ogImage} />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content={image ? 'image/webp' : 'image/png'} />
+    <meta property="og:image:width" content={String(image?.width ?? 1200)} />
+    <meta property="og:image:height" content={String(image?.height ?? 630)} />
     <meta property="og:image:alt" content={ogAlt} />
     {modified && <meta property="article:modified_time" content={modified} />}
     {modified && <meta property="article:published_time" content={modified} />}

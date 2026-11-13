@@ -1,6 +1,7 @@
 // T1
 import { expect, test } from '@playwright/test';
 import { allRoutes, builtRoutes, enTwin, REQUIRED } from './lib';
+import { published } from '../src/content/posts';
 
 for (const path of allRoutes()) {
   test(`T1 ${path} is 200`, async ({ request }) => {
@@ -21,8 +22,10 @@ test('T1 sitemap has no dev or noindex pages', () => {
 });
 
 // Same pages as the live site, no more (Ameer, 8 Nov 2026): the sitemap is exactly the 75 old URLs and 73 English twins (the two English posts have none).
-test('T1 sitemap lists exactly the live URLs and their English twins', () => {
-  const expected = [...new Set([...REQUIRED, ...REQUIRED.map(enTwin)])].sort();
-  expect(expected.length, '75 live URLs + 73 /en twins').toBe(148);
-  expect(builtRoutes().sort()).toEqual(expected);
+// The one exception is new blog posts the client publishes from the CMS (client request, 13 Nov 2026), each with its /en twin.
+test('T1 sitemap lists exactly the live URLs, their English twins and new CMS posts', () => {
+  const live = [...new Set([...REQUIRED, ...REQUIRED.map(enTwin)])];
+  expect(live.length, '75 live URLs + 73 /en twins').toBe(148);
+  const posts = published().map((p) => `/blog/${p.slug}`).filter((p) => !REQUIRED.includes(p));
+  expect(builtRoutes().sort()).toEqual([...new Set([...live, ...posts, ...posts.map(enTwin)])].sort());
 });

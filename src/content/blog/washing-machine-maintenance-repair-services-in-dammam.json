@@ -1,0 +1,364 @@
+{
+  "ar": {
+    "slug": "washing-machine-maintenance-repair-services-in-dammam",
+    "date": "2026-11-08",
+    "draft": false,
+    "title": "صيانة وتصليح الغسالات في الدمام: دليل الأعطال | لولوه للتكييف والتبريد",
+    "description": "دليل صيانة الغسالات الأوتوماتيك في الدمام: الغسالة ما تعصر أو ما تصرّف، الاهتزاز، رموز الأخطاء، تنظيف الفلتر والروائح في الجو الرطب، ومتى تحتاج فني.",
+    "h1": "دليل صيانة وتصليح الغسالات في الدمام",
+    "lead": "كيف تقرأ أعطال غسالتك الأوتوماتيك، وش تسوي بنفسك بأمان، ومتى ترسل لنا.",
+    "sections": [
+      {
+        "h": "تشخيص أعطال الغسالات الأوتوماتيك بالدمام",
+        "p": "يوفر هذا الدليل إرشادات عملية لفهم أعطال الغسالات الأوتوماتيكية وطرق التعامل معها. يقدم دليل تشخيص وإصلاح أعطال الغسالات الأوتوماتيك بالدمام حلولا للعناية بالغسالة ومواجهة رطوبة المنطقة الشرقية وملوحة مياهها. ويساعدك فهم طريقة عمل الغسالة على تجنب المشكلات وحماية المحرك من الإجهاد.\n\nتختلف غسالات الملابس في تصميمها الميكانيكي وطريقة دوران الحوض. ويحدد نوع الغسالة طريقة العناية بها والأعطال الشائعة مع كثرة الاستخدام. كما تساعدك معرفة هذا الفرق في اختيار البرنامج المناسب والتعامل مع أي توقف مفاجئ.",
+        "items": [
+          {
+            "h": "غسالات التعبئة الأمامية",
+            "p": "تدور الحلة أفقيا وتعتمد على سقوط الملابس لتنظيفها، وتوفر في استهلاك الماء والكهرباء مع سرعة تنشيف عالية. وتحتاج هذه الغسالات إلى تجفيف إطار الباب المطاطي باستمرار وضبط استواء الأرجل لمنع الاهتزاز."
+          },
+          {
+            "h": "غسالات التعبئة العلوية",
+            "p": "تستخدم مروحة سفلية لتدوير الغسيل، وتتيح لك إضافة الملابس بعد بدء الدورة بسهولة. ولا تتجمع فيها الروائح غالبا، كما يسهل تنظيف فلتر الوبر الداخلي فيها، لكنها تستهلك كمية ماء أكبر."
+          },
+          {
+            "h": "محركات الدفع المباشر والإنفرتر",
+            "p": "يتصل المحرك بالحوض مباشرة دون سيور، مما يقلل الاحتكاك والصوت أثناء التشغيل. وتحتاج هذه المحركات إلى كهرباء مستقرة لحماية اللوحة الإلكترونية الحساسة من تقلبات الجهد."
+          }
+        ]
+      },
+      {
+        "h": "رموز الأخطاء في الغسالات الأوتوماتيك",
+        "p": "تعرض شاشات الغسالات الحديثة رموزا عند حدوث أي خلل في التشغيل. وتساعدك معرفة رموز أعطال الغسالات الأوتوماتيك ومعانيها على فهم سبب توقف الدورة دون ارتباك. وتبين هذه الرموز مكان العطل سواء في سحب الماء أو تصريفه أو توازن الملابس داخل الحوض.\n\nتختلف معاني الحروف بين الماركات، لكن طريقة كشف الأعطال متقاربة. ترسل الحساسات إشارة إلى لوحة التحكم لإيقاف الدورة فورا وحماية المضخة والمحرك. ويساعدك الرجوع إلى كتيب الغسالة على معرفة دلالة الكود وتحديد ما إذا كان الحل بسيطا.",
+        "items": [
+          {
+            "h": "رموز مشاكل تصريف المياه",
+            "p": "يظهر الرمز OE في غسالات إل جي والكود 5C في بعض موديلات سامسونج ورمز E18 في بوش عند تعثر تفريغ الحوض. ويشير ذلك في بعض الموديلات إلى انسداد فلتر المضخة أو التواء خرطوم التصريف."
+          },
+          {
+            "h": "رموز اختلال توازن الغسيل",
+            "p": "يظهر الرمز UE في غسالات إل جي والكود UB في سامسونج عند تجمع الملابس في جانب واحد من الحوض. ويوقف هذا الخلل دورة التنشيف السريع تلقائيا لحماية المساعدات ومحور الدوران."
+          },
+          {
+            "h": "رموز إمداد المياه وباب الغسالة",
+            "p": "يرمز الكود IE أو 4C في بعض الموديلات لضعف تدفق ماء التغذية بسبب انسداد مصفاة الخرطوم، بينما يشير رمز dE أو dC إلى عدم إغلاق الباب بإحكام. وتتطلب هذه الحالات فحص محابس الجدار ومفتاح قفل الباب."
+          }
+        ]
+      },
+      {
+        "h": "أسباب تعطل تصريف المياه ودوران التنشيف",
+        "p": "يعد توقف الغسالة وبقاء الملابس غارقة في الماء من أكثر المشكلات إزعاجا في البيت. ويتطلب حل مشكلة الغسالة التي لا تصرف الماء ولا تعصر فحص مسار التصريف بالكامل بدءا من الفلتر وحتى أنبوب الجدار. فاللوحة الإلكترونية تمنع دوران الحوض بسرعة عالية ما دام الماء محبوسا في الداخل.\n\nتتوقف دورة العصر كذلك إذا لم تصل إشارة إغلاق الباب من المفتاح الآمن. وفي بعض الموديلات يؤدي ارتخاء سير الحركة إلى عجز الحوض عن الدوران السريع. ويساعدك الفحص الظاهري على تمييز الانسداد السهل عن الأعطال الكهربائية التي تحتاج إلى فني.",
+        "items": [
+          {
+            "h": "انسداد والتواء خرطوم الصرف الخلفي",
+            "p": "قد يلتوي خرطوم التصريف خلف الغسالة إذا اقتربت كثيرا من الجدار، أو ينسد بتراكم الشوائب. ويساعد تعديل مسار الخرطوم وتنظيفه بالماء في استعادة تدفق الصرف بسلاسة."
+          },
+          {
+            "h": "احتجاز عوالق في مضخة الطرد",
+            "p": "قد تسقط العملات المعدنية والمناديل من الجيوب وتستقر داخل تجويف مضخة التصريف. يمنع هذا العائق دوران ريش المضخة ويصدر صوت طنين منخفض، مما يستدعي فتح الفلتر وتنظيفه."
+          },
+          {
+            "h": "خلل مفتاح الباب وسير الدوران",
+            "p": "يمنع قفل الباب التالف بدء مرحلة التنشيف حرصا على عدم فتح الغسالة أثناء الدوران السريع. كما يسبب انزلاق السير دوران المحرك بمفرده دون أن يدور حوض الغسيل."
+          }
+        ]
+      },
+      {
+        "h": "معالجة ارتجاج الغسالة وضبط توازن الحلة",
+        "p": "يولد دوران الحوض بسرعة عالية قوى طرد مركزية تحتاج إلى ثبات كامل للغسالة على الأرض. وترجع أسباب اهتزاز الغسالة الأوتوماتيك الشديد أثناء الدوران إلى اختلال توازن الملابس أو رخاوة القواعد. ويؤدي هذا الارتجاج إلى تحرك الغسالة من مكانها وصدور أصوات خبط قوية قد تضر بهيكلها.\n\nتساعد أرضيات السيراميك الملساء على انزلاق الغسالة إذا لم تكن أرجلها مستوية وملامسة للأرض بإحكام. كما أن غسل قطعة ثقيلة واحدة مثل البطانيات يتركز في جهة واحدة يصعب توازنها. ويساعدك ضبط القواعد وتوزيع الملابس بالتساوي في حماية رولمان البلي ومحاور الدوران.",
+        "items": [
+          {
+            "h": "ضبط استواء القواعد وصواميل القفل",
+            "p": "تحتوي الغسالة على أربع أرجل قابلة للتعديل تمكنك من ضبط استوائها باستخدام ميزان ماء. واحرص على شد صواميل التثبيت جيدا نحو الأعلى حتى لا يتغير ارتفاع الأرجل مع كثرة الحركة."
+          },
+          {
+            "h": "إزالة مسامير النقل الخلفية",
+            "p": "تضع الشركات مسامير معدنية خلف الغسالة الجديدة لتثبيت الحوض أثناء الشحن والنقل. ويؤدي تشغيل الغسالة قبل فك هذه المسامير إلى اهتزازها بعنف وقفزها من مكانها مع صوت ارتطام شديد."
+          },
+          {
+            "h": "تلف المساعدات الميكانيكية ونوابض التعليق",
+            "p": "تمتص المساعدات السفلية ونوابض التعليق صدمات الدوران وتثبت الحوض داخل هيكل الغسالة. ويؤدي اهتراء هذه المساعدات مع الوقت إلى ارتطام الحوض بجدران الغسالة الداخلية أثناء التنشيف."
+          }
+        ]
+      },
+      {
+        "h": "خطوات صيانة الفلتر وتنظيف مضخة الطرد",
+        "p": "يعد انسداد مصيدة الشوائب السبب الأول لبطء تصريف الماء وظهور الروائح الكريهة. وتوضح هذه الخطوات كيفية تنظيف فلتر الغسالة الأوتوماتيك من الرواسب العالقة بطريقة آمنة وأدوات منزلية بسيطة. ويساعد تنظيف الفلتر كل شهرين في حماية مضخة التصريف وتفادي توقفها المفاجئ.\n\nتتجمع خيوط الأقمشة وبقايا المناديل حول شبكة الفلتر مما يمنع خروج الماء بسلاسة. جهز قفازات ووعاء منخفضا مع منشفة لاستقبال الماء المتبقي داخل خرطوم الطوارئ قبل الفك. وتأكد بعد نزع الفلتر من فحص تجويف المضخة بالنظر للتأكد من خلو ريش المروحة من أي عوالق.",
+        "items": [
+          {
+            "h": "تفريغ السوائل عبر الخرطوم الطارئ",
+            "p": "افتح الباب الصغير أسفل الغسالة واسحب خرطوم التصريف الطارئ وضعه داخل وعاء منخفض. انزع السدادة بهدوء ودع الماء يخرج بالكامل قبل محاولة فتح مقبض الفلتر الرئيسي."
+          },
+          {
+            "h": "إزالة الفلتر وتنظيف حجيرة الطلمبة",
+            "p": "أدر مقبض الفلتر عكس عقارب الساعة واسحبه للخارج، ونظفه من الخيوط والقطع العالقة. اغسل الفلتر بفرشاة تحت الماء وتفقد حجرة المضخة بأصابعك قبل إعادته وشده بإحكام."
+          },
+          {
+            "h": "فحص مصافي خراطيم المياه الخلفية",
+            "p": "أغلق محبس الماء في الجدار وفك خرطوم التغذية المتصل بظهر الغسالة برفق. اسحب المصفاة الشبكية الصغيرة ونظفها من الصدأ والأتربة حتى يعود تدفق الماء بقوته الطبيعية."
+          }
+        ]
+      },
+      {
+        "h": "مكافحة العفن والروائح في الأجواء الرطبة",
+        "p": "ترتفع نسبة الرطوبة في الدمام صيفا مما يشجع على نمو الفطريات داخل الغسالات المغلقة. وتوضح هذه الخطوات أفضل طريقة للتخلص من رائحة الغسالة الكريهة وحماية ملابسك من الروائح غير المحببة. فالرطوبة المحبوسة داخل الحوض المغلق تخلق بيئة لتجمع البكتيريا إذا لم توفر تهوية كافية بعد الغسيل.\n\nيعد الإطار المطاطي حول باب الغسالة الأمامية أكثر الأماكن تجمعا للمياه وبقايا الصابون. وتستقر قطرات الماء داخل ثنايا الكاوتش فتتحول مع الوقت إلى بقع عفن سوداء ورائحة عفونة. ويساعدك مسح الإطار وتجفيفه بعد كل غسلة في بقاء الغسالة نظيفة ومنع تجمع الفطريات.",
+        "items": [
+          {
+            "h": "تنظيف وتجفيف كاوتش الباب المطاطي",
+            "p": "امسح ثنايا إطار الباب المطاطي بقطعة قماش ناعمة فور انتهاء دورة الغسيل. وأزل الشعر العالق ورواسب المسحوق لمنع تشكل البقع وحماية المطاط من التآكل والتشقق."
+          },
+          {
+            "h": "تشغيل دورة تنظيف الحوض بحرارة مرتفعة",
+            "p": "شغل برنامج تنظيف الحوض أو اضبط الغسالة على حرارة 60 درجة مئوية وهي فارغة. يساعد الماء الساخن في إذابة بقايا الصابون والدهون المتراكمة خلف حوض الغسيل."
+          },
+          {
+            "h": "تهوية الحلة ودرج المسحوق بعد الغسيل",
+            "p": "اترك باب الغسالة مواربا بعد إخراج الملابس حتى يتجدد الهواء ويجف الحوض تماما. واسحب درج المنظفات قليلا نحو الخارج ليجف وتختفي أسباب تكون الروائح."
+          }
+        ]
+      },
+      {
+        "h": "ملوحة المياه والمسحوق في الشرقية",
+        "p": "تحتوي مياه بعض أحياء المنطقة الشرقية على نسبة أملاح تترسب تدريجيا داخل الأجهزة المنزلية. ويتجمع الكلس على سخان الغسالة وجدران الحوض مما يقلل من كفاءة تسخين الماء. ويؤدي تراكم هذه الرواسب إلى زيادة استهلاك الكهرباء وتلف السخان مع مرور الوقت.\n\nيتفاعل الماء العسر مع مساحيق الغسيل مما يفرض عليك ضبط كمية المنظف في كل دورة. فالمنظفات غير المناسبة تفرز رغوة كثيفة تعيق حركة الملابس وتضلل حساسات مستوى الماء. ويساعدك اختيار المساحيق المخصصة للغسالات الأوتوماتيكية في تجنب تراكم الرغوة وحماية الجهاز.",
+        "items": [
+          {
+            "h": "ترسبات الكلس على السخان وحلة الغسالة",
+            "p": "تشكل أملاح الكالسيوم طبقة كلسية بيضاء على السخان تعزل الحرارة وتبطئ تسخين الماء. يرفع هذا الترسب الحمل على عنصر التسخين ويتسبب في احتراقه مما يتطلب استبداله."
+          },
+          {
+            "h": "رغوة الصابون الزائدة واضطراب الحساسات",
+            "p": "تؤدي زيادة كمية الصابون إلى تصاعد رغوة كثيفة تعطل مضخة التصريف وتظهر رموز خطأ على الشاشة. التزم بالمعيار الموضح على عبوة المنظف قليل الرغوة لتجنب هذه المشكلة."
+          },
+          {
+            "h": "دورات إزالة التكلسات بحمض الستريك",
+            "p": "تساعد إضافة ملح الليمون في دورة غسيل ساخنة كل شهر على إذابة القشور الكلسية المتراكمة. وتنظف هذه الدورة مجاري الماء الداخلية دون أي تأثير سلبي على الأجزاء المطاطية."
+          }
+        ]
+      },
+      {
+        "h": "السلامة الكهربائية وحدود الفحص الآمن",
+        "p": "تجمع الغسالات الأوتوماتيكية بين الماء والكهرباء مما يتطلب الحذر الشديد عند التعامل معها. ويقتصر الفحص الآمن لك في البيت على الخطوات البسيطة مثل تنظيف الفلتر وفحص استقامة الخراطيم ومستوى الأرجل. وتجنب تماما فك الأغطية المعدنية أو لمس الأسلاك والدوائر الكهربائية تجنبا لخطر الصعق.\n\nتوجد علامات خطر تستوجب إيقاف الغسالة فورا وفصل القابس من الجدار دون تردد. تشمل هذه الحالات شم رائحة احتراق أو رؤية دخان أو صدور شرر كهربائي أسفل الغسالة. ويجب عند حدوث ذلك فصل القاطع الفرعي وترك الجهاز دون تشغيل حتى يفحصه فني مختص.",
+        "items": [
+          {
+            "h": "فصل القابس الكهربائي قبل أي فحص",
+            "p": "افصل قابس الكهرباء وتأكد من جفاف الأرضية تماما قبل لمس خراطيم الصرف أو فتح فلتر المضخة. ويحميك هذا التصرف البسيط من خطر الصعق في حال وجود تسريب ماء حول الغسالة."
+          },
+          {
+            "h": "التعامل مع روائح الاحتراق والشرر",
+            "p": "افصل القاطع الفرعي في لوحة التوزيع مباشرة عند شم رائحة احتراق أو رؤية شرر. وتجنب ملامسة هيكل الغسالة إذا شعرت بلسعة كهربائية خفيفة عند لمس الباب أو المقبض."
+          },
+          {
+            "h": "حدود التدخل في الكارتة والمحركات",
+            "p": "تحتوي لوحة التحكم الإلكترونية ومحرك الغسالة على دوائر دقيقة تحتاج إلى أجهزة قياس متخصصة لفحصها. تجنب فتح العلب الإلكترونية المغلقة حتى لا تتلف المعالجات والحساسات الداخلية."
+          }
+        ]
+      },
+      {
+        "h": "كلفة الإصلاح والتواصل مع الورشة",
+        "p": "يقارن أصحاب المنازل بين تصليح الغسالة الحالية أو شراء غسالة جديدة عند تكرار الأعطال. ويرتبط هذا القرار بعمر الغسالة وحالة أجزائها الأساسية كالمحرك والحوض ومحاور الدوران. ويعد تغيير مضخة التصريف أو مفتاح الباب خيارا مجديا، بينما يفضل التفكير في الاستبدال عند تآكل الحوض وتلف رولمان البلي بالكامل.\n\nتختلف متطلبات الإصلاح بحسب نوع العطل وسهولة الوصول إلى القطعة التالفة وتوفر بدائلها في السوق. وإذا كان جهازك جديدا وما زال مشمولا بتغطية الشركة المصنعة، تواصل أولا مع الوكيل الرسمي للماركة في السعودية لحفظ حقوقك. أما بعد انتهاء تغطية المصنع، فيمكننا فحص الغسالة وتحديد مسار الإصلاح الأنسب لك.\n\nتستقبل ورشتنا في حي الجلوية بالدمام استفسارات الأعطال وتبين لك خيارات الإصلاح بعد الاطلاع على تفاصيل المشكلة. يمكنك تصوير لوحة بيانات الموديل المعدنية وإرسال مقطع فيديو قصير يوضح العطل عبر واتساب على الرقم 056 802 2197. ونرد عليك بتوضيح إمكانية العمل وطريقة الإصلاح من 8 صباحا حتى 11 مساء يوميا."
+      }
+    ],
+    "faq": [
+      {
+        "q": "ما هو حل مشكلة الغسالة الأوتوماتيك التي لا تصرف الماء وتبقى الملابس مبللة؟",
+        "a": "افصل قابس الكهرباء أولا وتأكد من أن خرطوم الصرف غير ملتوٍ أو مسدود. ثم افتح الباب السفلي ونظف فلتر مضخة التصريف من الشوائب والعملات المعدنية العالقة. وإذا استمرت المشكلة وأصدرت المضخة صوت طنين دون خروج الماء، فهذا يعني أن المضخة تحتاج إلى فحص وتغيير بواسطة فني."
+      },
+      {
+        "q": "لماذا تتحرك وتهتز الغسالة بقوة وتصدر صوتا مزعجا عند التنشيف؟",
+        "a": "يعود الاهتزاز غالبا إلى تجمع الملابس في جانب واحد من الحوض أو عدم استواء الأرجل على أرضية ثابتة. وفي الغسالات الجديدة، يحدث ذلك عند نسيان فك مسامير الشحن الخلفية. أما في الغسالات القديمة، فقد يدل الصوت القوي على اهتراء المساعدات السفلية أو تلف رولمان البلي."
+      },
+      {
+        "q": "كيف انظف فلتر طلمبة تصريف الغسالة الأوتوماتيك بنفسي؟",
+        "a": "افصل قابس الكهرباء وضع وعاء مسطحا ومنشفة أسفل الفتحة الأمامية لاستقبال الماء المتبقي. اسحب الخرطوم الصغير المخصص للتصريف لتفريغ الماء، ثم أدر الفلتر عكس عقارب الساعة وأخرجه برفق. واغسل الفلتر بالماء بفرشاة ناعمة وتأكد من خلو مروحة المضخة من الخيوط قبل إعادته وربطه بإحكام."
+      },
+      {
+        "q": "ما سبب صدور رائحة عفن من حلة الغسالة الأوتوماتيك وكيف أعالجها؟",
+        "a": "تنتج الرائحة عن نمو العفن وبقايا الصابون داخل ثنايا إطار الباب المطاطي بسبب رطوبة الجو وإغلاق الباب دائما. ولعلاجها، امسح إطار الباب بقطعة قماش مبللة بماء دافئ، وشغل دورة تنظيف ساخنة للحوض على حرارة 60 درجة مئوية. واحرص دائما على ترك الباب ودرج المسحوق مواربين بعد كل غسلة للتهوية."
+      },
+      {
+        "q": "ما العوامل التي تحدد تكلفة تصليح الغسالة الأوتوماتيك في الدمام؟",
+        "a": "تعتمد متطلبات الإصلاح على نوع القطعة التالفة مثل مضخة التصريف أو مفتاح الباب أو المساعدات أو لوحة التحكم، ومدى توفر قطع الغيار. وتوضح ورشتنا في حي الجلوية بالدمام خيارات الإصلاح المناسبة بعد مراجعة صور أو مقاطع الخلل المرسلة عبر واتساب على الرقم 056 802 2197."
+      }
+    ]
+  },
+  "en": {
+    "slug": "washing-machine-maintenance-repair-services-in-dammam",
+    "date": "2026-11-08",
+    "draft": false,
+    "title": "Washing Machine Repair Dammam | Faults and Maintenance | Lulwa",
+    "description": "Washing machine repair and maintenance in Dammam: not spinning or draining, shaking, error codes, cleaning the filter, smells in humid weather, and when to call a technician.",
+    "h1": "Washing machine repair in Dammam",
+    "lead": "How to read your automatic washer’s faults, what you can safely do yourself, and when to send it to us.",
+    "sections": [
+      {
+        "h": "Automatic Washer Troubleshooting Guide",
+        "p": "This guide offers practical advice for diagnosing washing machine faults and handling them safely. Our automatic washer troubleshooting and repair guide in Dammam explains how to care for your appliance in coastal humidity and mineral-rich water. Understanding how your washer works helps protect its motor and prevents avoidable breakdowns.\n\nWashing machines differ in their internal design and how their drums turn. Each design requires specific care and tends to show different wear patterns over years of use. Knowing these differences helps you choose the right cycle and handle unexpected stops calmly.",
+        "items": [
+          {
+            "h": "Front-Loading Washers",
+            "p": "Front loaders tumble clothes horizontally using gravity, saving both water and electricity while spinning clothes drier. They require routine wiping of the rubber door seal and careful leveling to prevent excess vibration."
+          },
+          {
+            "h": "Top-Loading Washers",
+            "p": "Top loaders use a base pulsator and let you toss in forgotten clothes after the cycle has started. They rarely trap mildew odours and make lint filters easy to reach, though they use more water per load."
+          },
+          {
+            "h": "Direct Drive Inverter Motors",
+            "p": "Direct drive motors attach right to the drum without belts or pulleys, cutting friction and running much quieter. These systems need steady household voltage to protect their sensitive control boards from power spikes."
+          }
+        ]
+      },
+      {
+        "h": "Reading Automatic Washer Error Codes",
+        "p": "Modern washing machines use small digital screens that show letter-and-number codes when an operation stops. Learning these error codes helps you understand why a cycle halted without guessing. The codes indicate whether the problem is water supply, drainage, or an unbalanced load.\n\nError codes differ by manufacturer, but the diagnostic system works the same way. Sensors signal the main board to pause the cycle and protect the pump and motor from strain. Checking your user manual clarifies the exact code so you know if a simple fix solves it.",
+        "items": [
+          {
+            "h": "Water Drainage Error Codes",
+            "p": "Code OE on LG washers, 5C on some Samsung models, and E18 on Bosch indicate that water cannot drain out. On some models, this points to a clogged pump filter or a pinched drain hose behind the unit."
+          },
+          {
+            "h": "Unbalanced Load Error Codes",
+            "p": "Code UE on LG units and UB on Samsung show that heavy laundry has clustered on one side of the drum. The washer halts high-speed spinning automatically to protect its dampers and drum bearings."
+          },
+          {
+            "h": "Water Supply and Door Codes",
+            "p": "Codes IE or 4C signal low water intake from clogged inlet screens, while dE or dC mean the door did not latch. These alerts call for checking your wall supply valves and cleaning the mesh inlet screens."
+          }
+        ]
+      },
+      {
+        "h": "Washer Draining and Spin Failures",
+        "p": "A washer stopping with laundry left soaking in water is one of the most common household headaches. Solving draining and spinning troubles requires checking the entire discharge line from the pump filter to the wall pipe. The control board will not allow high-speed spinning while water remains trapped inside the tub.\n\nSpin cycles will also stop if the door latch switch fails to confirm that the door is closed. On belt-driven models, a stretched or slipped drive belt prevents the drum from spinning up to speed. A quick look helps you tell a simple kinked hose from an internal electrical fault that needs repair.",
+        "items": [
+          {
+            "h": "Kinked or Blocked Drain Hose",
+            "p": "The flexible drain hose behind the washer can pinch if shoved too close to the wall, or clog with lint. Straightening the hose and rinsing out trapped debris quickly restores smooth gravity drainage."
+          },
+          {
+            "h": "Debris Jammed in Drain Pump",
+            "p": "Coins, hairpins, and paper tissues often slide past the tub and jam against the pump blades. This obstruction stalls the small motor and produces a dull hum, requiring you to open and clear the pump filter."
+          },
+          {
+            "h": "Door Safety Switch and Drive Belt",
+            "p": "A faulty door lock switch halts the spin cycle to stop the door from opening during high-speed rotation. In belt-driven models, a slipped rubber belt leaves the motor turning by itself without spinning the drum."
+          }
+        ]
+      },
+      {
+        "h": "Washer Vibration and Drum Balancing",
+        "p": "High-speed spinning creates strong centrifugal forces inside the washer cabinet. Severe washer vibration during the spin cycle usually comes down to unbalanced laundry or uneven footing on the floor. Heavy shaking makes the washer walk across the room and produces loud banging sounds that can harm internal parts.\n\nSmooth ceramic tile floors allow washers to slide easily unless all four feet sit firmly on the ground. Washing a single heavy item like a blanket also bundles weight to one side of the tub. Leveling the feet properly and distributing laundry evenly protects your drum bearings from early wear.",
+        "items": [
+          {
+            "h": "Leveling Feet and Locking Nuts",
+            "p": "Four threaded feet under the machine let you adjust height with a spirit level until the unit sits completely flat. Tightening the lock nuts upward against the frame keeps the legs from shifting loose over time."
+          },
+          {
+            "h": "Removing Rear Transit Shipping Bolts",
+            "p": "Manufacturers bolt the drum to the rear casing with heavy steel pins to protect it during shipping. Running a brand-new washer before unscrewing these transit bolts causes violent bouncing and loud slamming."
+          },
+          {
+            "h": "Worn Shock Dampers and Springs",
+            "p": "Lower shock dampers and upper springs absorb rotational forces to keep the wash tub steady. When dampers wear out after years of use, the drum swings loosely and slams against the outer cabinet walls during spins."
+          }
+        ]
+      },
+      {
+        "h": "Cleaning the Drain Filter and Pump",
+        "p": "A clogged drain filter is the main reason water drains slowly or leaves behind stagnant odours. Cleaning the pump filter of your automatic washer is a simple maintenance task you can do with basic household tools. Doing this quick cleanout every two months keeps the drain pump running smoothly and avoids emergency stops.\n\nLint, pet hair, and crumbled tissues collect around the filter mesh, slowly choking off outgoing water. Put on household gloves and set a shallow tray with a towel underneath to catch trapped water before unscrewing the cap. A quick look inside the housing confirms whether the pump impeller blades turn freely without obstructions.",
+        "items": [
+          {
+            "h": "Draining Water via Emergency Hose",
+            "p": "Open the small service door at the bottom front and pull out the flexible emergency drain tube over a shallow pan. Remove the cap carefully and let all standing water drain completely before unscrewing the filter plug."
+          },
+          {
+            "h": "Cleaning Filter and Pump Chamber",
+            "p": "Turn the filter handle counter-clockwise and slide it out slowly to dump accumulated lint and debris. Rinse the mesh under warm water with a soft brush, and feel inside the pump cavity to remove loose items before screwing it back tightly."
+          },
+          {
+            "h": "Rinsing Rear Water Inlet Mesh Screens",
+            "p": "Turn off the water taps on the wall and gently unscrew the inlet hoses from the back of the washer. Pull out the small mesh screen filters to rinse away sediment and pipe scale, restoring strong water inflow."
+          }
+        ]
+      },
+      {
+        "h": "Preventing Mildew and Odours in Humidity",
+        "p": "Dammam sees intense coastal humidity during summer, which speeds up mould and mildew growth inside closed appliances. These practical steps show you how to eliminate musty washer smells and keep freshly washed clothes smelling clean. Trapped moisture inside an airtight drum creates a breeding ground for bacteria if you leave the door shut between loads.\n\nThe rubber door seal on front-loading washers is where dirty water and soap scum build up most quickly. Water droplets collect in the lower folds, slowly turning into stubborn black mildew spots that regular washes cannot budge. Wiping down this gasket with a towel right after each wash keeps the interior fresh and mildew-free.",
+        "items": [
+          {
+            "h": "Wiping and Drying Door Gasket Folds",
+            "p": "Wipe inside the rubber door gasket folds with a soft cloth after you finish laundry for the day. Clear out collected hair, lint, and detergent residue to protect the flexible rubber seal from cracking."
+          },
+          {
+            "h": "Running Hot Tub Cleaning Cycles",
+            "p": "Run your washer's tub-clean cycle or set an empty cycle to 60 degrees Celsius. Hot water dissolves built-up laundry grease and softens soap scum clinging to the outer walls of the drum."
+          },
+          {
+            "h": "Venting the Tub and Dispenser Drawer",
+            "p": "Leave the washer door slightly ajar after unloading clothes so indoor air can circulate through the drum. Slide the detergent drawer forward an inch or two as well, allowing damp residue to dry out before mildew takes hold."
+          }
+        ]
+      },
+      {
+        "h": "Water Hardness and Detergent Care",
+        "p": "Water in parts of the Eastern Province contains dissolved minerals and calcium that settle inside household appliances. Over time, limescale coats the electric heating element and drum surface, making water heating slower and less efficient. Letting scale build up forces the heater to consume more electricity and shortens its working life.\n\nHard water interacts with laundry detergents, meaning you need to measure detergent doses carefully for each load. Using too much regular detergent creates thick foam that cushions the clothes and confuses electronic water-level sensors. Switching to low-suds detergent protects your washer's drainage pump and keeps soap residues to a minimum.",
+        "items": [
+          {
+            "h": "Limescale Accumulation on Heating Coils",
+            "p": "Calcium salts build a chalky white crust over the immersion heater that slows down water heating. This mineral crust traps heat inside the metal element, eventually burning it out and requiring replacement."
+          },
+          {
+            "h": "Excessive Suds Confusing Level Sensors",
+            "p": "Pouring in too much liquid detergent creates thick suds that clog the drain pump and trigger error codes on the display. Sticking strictly to the cap measurements on low-suds detergent bottles prevents foam overflows."
+          },
+          {
+            "h": "Periodic Descaling with Citric Acid",
+            "p": "Adding citric acid powder to an empty monthly hot wash dissolves stubborn mineral scale inside the machine. This easy flush clears out internal hoses and brightens the drum without damaging rubber gaskets."
+          }
+        ]
+      },
+      {
+        "h": "Electrical Safety and DIY Limits",
+        "p": "Automatic washers combine running water with electrical power, demanding caution whenever you inspect them. Safe checks at home are strictly limited to simple tasks like clearing filters, checking hoses, and leveling the feet. Never unscrew outer cabinet panels or touch internal wiring, as electrical components carry serious shock hazards.\n\nCertain warning signs mean you must stop the washer immediately and pull the power plug from the wall. These include burning smells, smoke, or visible sparks underneath the machine. If you notice any of these, turn off the circuit breaker in your electrical panel and leave the appliance unplugged until a technician inspects it.",
+        "items": [
+          {
+            "h": "Disconnecting Power Before Checks",
+            "p": "Unplug the power cord and make sure the surrounding floor is completely dry before touching drain hoses or the pump filter. This simple habit keeps you safe from electrical shocks whenever water has leaked onto the floor."
+          },
+          {
+            "h": "Responding to Burning Smells and Sparks",
+            "p": "Switch off the circuit breaker at your main panel if you smell hot electrical wiring or see sparks. Never touch the metal cabinet if you feel a tingling sensation or minor shock when touching the door handle."
+          },
+          {
+            "h": "Leaving Control Boards to Technicians",
+            "p": "Electronic control boards and washer motors are complex components that require specialized testing equipment to diagnose properly. Never pry open sealed electronic boxes at home, as static electricity can ruin sensitive circuit chips."
+          }
+        ]
+      },
+      {
+        "h": "Repair Cost Factors and Contacting Us",
+        "p": "Homeowners often weigh repairing an existing washer against buying a replacement when a serious fault occurs. That choice comes down to the age of the machine and the condition of major parts like the motor, drum, and tub bearings. Replacing a failed drain pump or door lock is usually practical, but a cracked outer tub or completely seized bearings often make buying new the smarter move.\n\nRepair requirements vary based on the specific fault, how easily the part can be reached, and part availability in the local market. If your washing machine is new and still covered by the manufacturer, contact the official agent in Saudi Arabia first to preserve your rights. Once that manufacturer coverage has ended, our workshop can inspect the unit to determine the most practical repair path.\n\nOur workshop in Al-Jalawiyah, Dammam receives fault inquiries and outlines practical repair options once we review the issue. You can snap a clear photo of the metal model plate and record a short video showing the fault, then send them on WhatsApp to 056 802 2197. We reply regarding repair feasibility and practical next steps from 8 AM to 11 PM daily."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do you resolve an automatic washer not draining and leaving clothes wet?",
+        "a": "First unplug the washer and inspect the rear drain hose to make sure it is not kinked or clogged. Next, open the lower front access flap and clean out the pump filter to clear trapped coins, lint, or hair. If the pump still hums without draining water, the pump assembly likely needs inspection and replacement by a technician."
+      },
+      {
+        "q": "Why does an automatic washing machine vibrate violently during high-speed spinning?",
+        "a": "Violent vibration usually stems from an unbalanced load of laundry or uneven feet resting on a slick floor. On brand-new machines, transit shipping bolts left bolted at the back cause severe bouncing. If the washer is older and knocks loudly, worn suspension dampers or tired drum bearings probably need attention."
+      },
+      {
+        "q": "How do I clean the drain pump filter of an automatic washer myself?",
+        "a": "Unplug the machine and place a shallow pan and a towel beneath the lower front service flap. Pull out the small emergency drain tube to let standing water empty, then unscrew the filter cap counter-clockwise. Rinse the filter clean under running water, make sure the pump impeller turns freely, and retighten the plug securely to prevent leaks."
+      },
+      {
+        "q": "What causes a musty smell in an automatic washer drum and how is it treated?",
+        "a": "Musty smells come from mildew and soap residue trapped inside the rubber door gasket folds, made worse by summer humidity in Dammam and keeping the door closed. To clear it, wipe the rubber gasket with a damp cloth and run an empty hot-water tub cleaning cycle at 60 degrees. Keep the door and soap dispenser drawer slightly open between washes so air circulates freely."
+      },
+      {
+        "q": "What factors determine the cost of repairing an automatic washer in Dammam?",
+        "a": "Repair requirements depend on the damaged component, such as the drain pump, door switch, dampers, or electronic board, as well as local parts availability. Our workshop in Al-Jalawiyah, Dammam explains practical repair options after reviewing fault photos or a short video along with the model plate sent on WhatsApp to 056 802 2197."
+      }
+    ]
+  }
+}
