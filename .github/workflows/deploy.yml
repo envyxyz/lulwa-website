@@ -5,6 +5,7 @@ name: Build, check and deploy
 on:
   push:
     branches: ['**']
+    paths-ignore: ['planner/**']
   workflow_dispatch:
     inputs:
       rollback:

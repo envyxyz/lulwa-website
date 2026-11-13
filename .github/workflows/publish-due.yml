@@ -1,0 +1,35 @@
+name: Publish scheduled posts
+
+# Compares the posts with the live sitemap, so a missed day catches up; idle days cost seconds.
+on:
+  schedule:
+    - cron: '10 3 * * *' # 06:10 Riyadh
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: src/content/blog
+
+      - name: Deploy when a post is due
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          today=$(TZ=Asia/Riyadh date +%F)
+          live=$(curl -sf https://lulwa.com.sa/sitemap-blog.xml) || exit 1
+          for f in src/content/blog/*.json; do
+            slug=$(basename "$f" .json)
+            if jq -e --arg t "$today" '.ar.draft != true and (.ar.date[0:10] <= $t)' "$f" >/dev/null && ! grep -qF "/blog/$slug<" <<< "$live"; then
+              echo "due: $slug"
+              gh workflow run deploy.yml --ref main --repo ${{ github.repository }}
+              exit 0
+            fi
+          done
+          echo "nothing due"
