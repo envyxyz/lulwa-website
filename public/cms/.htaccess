@@ -1,0 +1,13 @@
+# Blog CMS (Sveltia, config inline in index.html). Its own CSP: the CMS script from unpkg, the GitHub API, image previews from blobs.
+# On lulwa.com.sa/cms the root .htaccess rules apply too (HTTPS, blocked files); only these headers are replaced here.
+# On cms.lulwa.com.sa this file is the docroot's. No rewrite rules here: a child rewrite block would replace the parent's clean-URL rules.
+Options -Indexes
+DirectoryIndex index.html
+<IfModule mod_headers.c>
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline'; font-src 'self' data: https://cdn.jsdelivr.net; img-src 'self' blob: data: https://*.githubusercontent.com https://github.com https://lulwa.com.sa; media-src blob:; frame-src blob:; manifest-src blob:; worker-src blob:; connect-src 'self' blob: data: https://unpkg.com https://api.github.com https://*.githubusercontent.com https://www.githubstatus.com; form-action 'self' https://github.com; base-uri 'self'; frame-ancestors 'none'; object-src 'none'"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+  Header always set X-Robots-Tag "noindex, nofollow"
+  Header always set Cache-Control "no-cache"
+</IfModule>

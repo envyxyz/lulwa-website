@@ -8,6 +8,7 @@ import { parseCsv } from './csv.mjs';
 const englishRoot = JSON.parse(readFileSync('src/english-root.json', 'utf8'));
 
 const HOST = 'lulwa.com.sa';
+const CMS_MOVED = false; // set true once cms.lulwa.com.sa has DNS and SSL: lulwa.com.sa/cms then 301s there
 const rows = parseCsv(readFileSync('docs/url-map.csv', 'utf8')).map(([old_path = '', action = '', target = '']) => ({ old_path, action, target }));
 
 for (const row of rows) {
@@ -95,6 +96,10 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # The blog CMS subdomain (docroot public_html/cms) skips every root rule below.
+  RewriteCond %{HTTP_HOST} ^cms\\.lulwa\\.com\\.sa$ [NC]
+  RewriteRule ^ - [L]
+${CMS_MOVED ? '  RewriteRule ^cms(?:/(.*))?$ https://cms.lulwa.com.sa/$1 [R=301,L,NE]\n' : ''}
   ###########################################
   # 1) Block hidden, system and private files (.well-known stays open)
   ###########################################
@@ -103,10 +108,10 @@ ErrorDocument 404 /404.html
   RewriteRule ^(?:config|includes|database|logs)/ - [F,L,NC]
   RewriteRule \\.(?:test|orig|old)$ - [G,L,NC]
 
-  # Old admin and analytics endpoints are gone. Any .php other than the form handler and the English 404 is gone.
+  # Old admin and analytics endpoints are gone. Any .php other than the form handler, the English 404 and the blog CMS sign-in is gone.
   RewriteRule ^admin(?:/|$) - [G,L,NC]
   RewriteRule ^api(?:/|$) - [G,L,NC]
-  RewriteRule ^(?!contact-submit\\.php$|error-en\\.php$).*\\.php$ - [G,L,NC]
+  RewriteRule ^(?!contact-submit\\.php$|error-en\\.php$|cms/auth\\.php$).*\\.php$ - [G,L,NC]
 
   # Hashed build files and fonts are cached for a year (the Header rules below read this flag).
   RewriteRule ^(?:_astro|fonts)/ - [E=LULWA_IMMUTABLE:1]

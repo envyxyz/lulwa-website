@@ -11,7 +11,7 @@ if (!existsSync(join(from, 'index.html'))) throw new Error(`pages: ${from} has n
 
 rmSync(to, { recursive: true, force: true });
 cpSync(from, to, { recursive: true });
-for (const path of ['.htaccess', 'contact-submit.php', 'error-en.php', 'logs']) rmSync(join(to, path), { recursive: true, force: true });
+for (const path of ['.htaccess', 'contact-submit.php', 'error-en.php', 'logs', 'cms']) rmSync(join(to, path), { recursive: true, force: true });
 
 const prefix = (url) => url.replace(/^\/(?!\/)/, `${base}/`);
 const attributes = (text) =>
