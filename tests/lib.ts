@@ -70,6 +70,7 @@ export const visit = async (page: Page, path: string) => {
 
 /** Physical file for a clean URL: hubs live at folder/index.html, leaf pages at name.html. */
 export const htmlFile = (path: string) => {
+  path = decodeURI(path); // Arabic blog slugs arrive percent-encoded
   const hub = join(DOCROOT, path, 'index.html');
   return path === '/' ? join(DOCROOT, 'index.html') : existsSync(hub) ? hub : join(DOCROOT, `${path}.html`);
 };

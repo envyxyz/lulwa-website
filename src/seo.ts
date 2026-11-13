@@ -1,5 +1,5 @@
 import { site } from './site';
-import { content, localePath, twinPath, type Lang } from './content';
+import { arabicOnlySlug, content, decodePath, localePath, twinPath, type Lang } from './content';
 
 type Faq = { q: string; a: string };
 type Named = { slug?: string; name?: string; h1?: string };
@@ -13,17 +13,17 @@ export const ids = {
   website: (lang: Lang) => (lang === 'ar' ? `${site.url}/#website` : `${site.url}/en#website`),
 };
 
-/** Canonical and reciprocal hreflang for a request path ('/en/x' or '/x'). */
+/** Canonical and reciprocal hreflang for a request path ('/en/x' or '/x'). Paths in, percent-encoded absolute URLs out; `en` is undefined for an Arabic-only post. */
 export const alternates = (pathname: string) => {
-  const clean = pathname.replace(/(\/index)?\.html$/, '').replace(/\/$/, '') || '/';
+  const clean = decodePath(pathname).replace(/(\/index)?\.html$/, '').replace(/\/$/, '') || '/';
   const ar = clean === '/en' ? '/' : clean.replace(/^\/en(?=\/)/, '');
-  const url = (p: string) => (p === '/' ? `${site.url}/` : `${site.url}${p}`);
-  return { path: clean, ar: url(ar), en: url(twinPath(ar)) };
+  const url = (p: string) => (p === '/' ? `${site.url}/` : `${site.url}${encodeURI(p)}`);
+  return { path: clean, arPath: ar, ar: url(ar), en: arabicOnlySlug(ar) ? undefined : url(twinPath(ar)) };
 };
 
 /** Pages that carry the full HVACBusiness node: home, contact, about and the Dammam area page. Every other page points at it by @id. */
 export const carriesBusiness = (pathname: string) => {
-  const ar = alternates(pathname).ar.slice(site.url.length) || '/';
+  const ar = alternates(pathname).arPath;
   return ['/', '/contact', '/about', '/areas/appliance-repair-in-dammam'].includes(ar);
 };
 
@@ -60,7 +60,8 @@ export const business = (lang: Lang) => {
 
 /** WebSite and WebPage: on every page. */
 export const pageNodes = (lang: Lang, pathname: string, title: string, description: string) => {
-  const url = lang === 'ar' ? alternates(pathname).ar : alternates(pathname).en;
+  const alt = alternates(pathname);
+  const url = lang === 'ar' ? alt.ar : alt.en ?? alt.ar;
   return [
     {
       '@type': 'WebSite',
@@ -119,7 +120,7 @@ export const article = (headline: string, description: string, updated: string, 
     inLanguage: locale(lang),
     // The posts were rewritten for this site, so this text was first published on the date it was last changed.
     ...(date ? { datePublished: date, dateModified: date } : {}),
-    image: abs(image),
+    image: abs(encodeURI(image)),
     author: { '@type': 'Organization', '@id': ids.business, name: businessName(lang) },
     publisher: { '@type': 'Organization', name: businessName(lang), logo: { '@type': 'ImageObject', url: abs(site.images.logo) } },
   };
@@ -136,7 +137,7 @@ const crumbName = (lang: Lang, section: string, slug: string, fallback: string) 
 
 /** Home, then the section hub when there is one, then the page itself. */
 export const breadcrumbs = (lang: Lang, pathname: string, title: string) => {
-  const arPath = alternates(pathname).ar.slice(site.url.length) || '/';
+  const arPath = alternates(pathname).arPath;
   const parts = arPath.split('/').filter(Boolean);
   const c = content[lang] as unknown as Record<string, { h1?: string } | undefined>;
   const trail: { name: string; path: string }[] = [{ name: businessName(lang), path: localePath(lang, '/') }];
@@ -148,6 +149,6 @@ export const breadcrumbs = (lang: Lang, pathname: string, title: string) => {
   trail.push({ name: parts.length > 1 ? crumbName(lang, parts[0]!, parts[1]!, title) : title, path: localePath(lang, arPath) });
   return {
     '@type': 'BreadcrumbList',
-    itemListElement: trail.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t.name, item: t.path === '/' ? `${site.url}/` : abs(t.path) })),
+    itemListElement: trail.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t.name, item: t.path === '/' ? `${site.url}/` : abs(encodeURI(t.path)) })),
   };
 };

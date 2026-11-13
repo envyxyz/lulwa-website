@@ -26,6 +26,9 @@ test('T1 sitemap has no dev or noindex pages', () => {
 test('T1 sitemap lists exactly the live URLs, their English twins and new CMS posts', () => {
   const live = [...new Set([...REQUIRED, ...REQUIRED.map(enTwin)])];
   expect(live.length, '75 live URLs + 73 /en twins').toBe(148);
-  const posts = published().map((p) => `/blog/${p.slug}`).filter((p) => !REQUIRED.includes(p));
-  expect(builtRoutes().sort()).toEqual([...new Set([...live, ...posts, ...posts.map(enTwin)])].sort());
+  const fresh = published().filter((p) => !REQUIRED.includes(`/blog/${p.slug}`));
+  // The sitemap holds percent-encoded paths (Arabic slugs); an Arabic-only post (no en.title) has no English twin.
+  const posts = fresh.map((p) => encodeURI(`/blog/${p.slug}`));
+  const twins = fresh.filter((p) => p.en?.title).map((p) => encodeURI(enTwin(`/blog/${p.slug}`)));
+  expect(builtRoutes().sort()).toEqual([...new Set([...live, ...posts, ...twins])].sort());
 });

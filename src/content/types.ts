@@ -5,7 +5,7 @@ export type Faq = { q: string; a: string };
 export type Section = { h: string; body: string };
 export type Intro = { seo: Seo; h1: string; lead: string };
 /** Long-form body of a ranking page, from src/content/guides/*.json: h2 sections with paragraphs and optional h3 items, then FAQs. */
-export type Guide = { sections: { h: string; p: string[]; items?: { h: string; p: string }[] }[]; faq: Faq[] };
+export type Guide = { sections: { h: string; p: string[]; items?: { h: string; p: string }[]; /** Shown after the section's paragraphs. */ image?: { src: string; width: number; height: number; alt: string } }[]; faq: Faq[] };
 
 export type Service = Intro & {
   slug: string;

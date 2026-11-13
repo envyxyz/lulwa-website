@@ -2,6 +2,7 @@
   "version": "0.0.1",
   "configurations": [
     { "name": "apache", "runtimeExecutable": "pnpm", "runtimeArgs": ["serve"], "port": 4330 },
+    { "name": "cms", "runtimeExecutable": "python", "runtimeArgs": ["-m", "http.server", "4340", "--directory", "public/cms"], "port": 4340 },
     { "name": "dev", "runtimeExecutable": "npx", "runtimeArgs": ["pnpm@11.9.0", "dev", "--port", "4321"], "port": 4321 }
   ]
 }

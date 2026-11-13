@@ -3,7 +3,8 @@ import type { Lang } from './index';
 import type { Guide, Post } from './types';
 
 // Blog posts, one file per post in src/content/blog/<slug>.json, written by the client's team in the CMS at /cms
-// (public/cms/config.js). Each file holds { ar: {...}, en: {...} }; slug, date, draft and image are the same in both.
+// (public/cms/config.js). Each file holds { ar: {...}, en?: {...} }; slug, date, draft and image are the same in both. A post without `en` (or with no en.title) is Arabic-only:
+// it has no /en page, no English list, feed or llms row, and no en-SA hreflang. The slug is Latin or Arabic. A section image has the same src in both languages.
 // The file name is the URL slug, so editing the slug field later never moves a published page.
 // ponytail: read with fs from the project root, not import.meta.glob, so the Playwright specs can import ar.ts too.
 const dir = 'src/content/blog';
@@ -18,10 +19,12 @@ type Fields = {
   h1: string;
   lead: string;
   /** Paragraphs are one text box in the CMS, split on blank lines. */
-  sections: { h: string; p: string; items?: { h: string; p: string }[] }[];
+  sections: { h: string; p: string; items?: { h: string; p: string }[]; image?: { src: string; alt: string } }[];
   faq?: { q: string; a: string }[];
 };
-type File = Record<Lang, Fields>;
+type File = { ar: Fields; en?: Fields };
+const hasEn = (p: File) => Boolean(p.en?.title);
+const fieldsOf = (p: File, lang: Lang) => (lang === 'ar' ? p.ar : p.en!);
 
 /** Width and height of a WebP (the CMS converts every upload to WebP). */
 export const webpSize = (b: Buffer): { width: number; height: number } => {
@@ -56,32 +59,43 @@ export const published = (from = dir, on = today()) =>
 
 const posts = published();
 
-const imageOf = (p: (typeof posts)[number], lang: Lang): Post['image'] => {
-  const src = p.ar.image;
+type Published = ReturnType<typeof published>;
+/** Slugs of posts with no English version. */
+export const arabicOnlyOf = (list: Published) => new Set(list.filter((p) => !hasEn(p)).map((p) => p.slug));
+export const arabicOnly = arabicOnlyOf(posts);
+
+const readImage = (src: string | undefined, alt: string): Post['image'] => {
   if (!src) return undefined;
   // The editor turns photos into WebP. Anything else (SVG, GIF, a missing file) shows no image instead of failing the build.
   try {
     const { width, height } = webpSize(readFileSync(`public${src}`));
-    return { src, width, height, alt: p[lang].image_alt || p.ar.image_alt || p[lang].h1 };
+    return { src, width, height, alt };
   } catch {
     return undefined;
   }
 };
+const imageOf = (p: Published[number], lang: Lang) => readImage(p.ar.image, fieldsOf(p, lang).image_alt || p.ar.image_alt || fieldsOf(p, lang).h1);
 
 /** The blog list in ar.ts and en.ts. */
-export const postItems = (lang: Lang): Post[] =>
-  posts.map((p) => {
-    const f = p[lang];
+export const postItems = (lang: Lang, list: Published = posts): Post[] =>
+  list.filter((p) => lang === 'ar' || hasEn(p)).map((p) => {
+    const f = fieldsOf(p, lang);
     return { slug: p.slug, seo: { title: f.title, description: f.description }, h1: f.h1, lead: f.lead, updated: display(p.ar.date.slice(0, 10), lang), sections: [], image: imageOf(p, lang) };
   });
 
 /** The long-form body, in the shape guides.ts serves for every other page. */
-export const postGuides = Object.fromEntries(
-  posts.map((p) => [
+export const guidesOf = (list: Published) => Object.fromEntries(
+  list.map((p) => [
     p.slug,
-    Object.fromEntries((['ar', 'en'] as const).map((lang) => [lang, {
-      sections: (p[lang].sections ?? []).map((s) => ({ h: s.h, p: s.p.split(/\n\s*\n/).map((t) => t.trim()).filter(Boolean), ...(s.items?.length ? { items: s.items } : {}) })),
-      faq: p[lang].faq ?? [],
+    Object.fromEntries((['ar', 'en'] as const).filter((lang) => lang === 'ar' || hasEn(p)).map((lang) => [lang, {
+      sections: (fieldsOf(p, lang).sections ?? []).map((s, i) => {
+        // The image is added per language in the editor: English falls back to the Arabic section's picture and alt.
+        const ar = p.ar.sections?.[i]?.image;
+        const image = readImage(s.image?.src ?? ar?.src, s.image?.alt || ar?.alt || '');
+        return { h: s.h, p: s.p.split(/\n\s*\n/).map((t) => t.trim()).filter(Boolean), ...(s.items?.length ? { items: s.items } : {}), ...(image ? { image } : {}) };
+      }),
+      faq: fieldsOf(p, lang).faq ?? [],
     } satisfies Guide])),
   ]),
 ) as Record<string, Record<Lang, Guide>>;
+export const postGuides = guidesOf(posts);

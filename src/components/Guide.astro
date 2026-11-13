@@ -23,6 +23,7 @@ const bdi = (t: string) => t.replaceAll(site.phone.display, `<bdi dir="ltr">${si
         <section class="flex flex-col gap-3">
           <Heading level={2} size="lead">{s.h}</Heading>
           {s.p.map((t) => <Text><Fragment set:html={bdi(t)} /></Text>)}
+          {s.image && <img src={s.image.src} width={s.image.width} height={s.image.height} alt={s.image.alt} loading="lazy" decoding="async" class="h-auto max-w-full rounded-card" />}
           {s.items && s.items.length > 0 && (
             <div class="mt-2 flex flex-col gap-4">
               {s.items.map((i) => (

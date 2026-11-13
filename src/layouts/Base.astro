@@ -12,18 +12,19 @@ const { title, description, noindex = false, ld = [], image } = Astro.props;
 const lang = langFromUrl(Astro.url);
 const dir = lang === 'ar' ? 'rtl' : 'ltr';
 const alt = alternates(Astro.url.pathname);
-const canonical = lang === 'ar' ? alt.ar : alt.en;
+const canonical = lang === 'ar' ? alt.ar : alt.en ?? alt.ar;
 const englishOnly = isEnglishRoot(alt.path);
+// An Arabic-only post has no English twin: no en-SA hreflang, no alternate locale.
+const arabicOnly = !alt.en;
 const home = alt.path === '/' || alt.path === '/en';
 const shortTitle = title.split(' | ')[0]!;
 const graph = [...(carriesBusiness(Astro.url.pathname) ? [business(lang)] : []), ...pageNodes(lang, Astro.url.pathname, title, description), ...(home ? [] : [breadcrumbs(lang, Astro.url.pathname, shortTitle)]), ...ld];
 // Posts carry their date: article:modified_time and the article type.
-const arPath = alt.ar.slice(site.url.length);
-const postSlug = arPath.startsWith('/blog/') ? arPath.slice(6) : undefined;
+const postSlug = alt.arPath.startsWith('/blog/') ? alt.arPath.slice(6) : undefined;
 const post = postSlug ? content[lang].blog.items.find((p) => p.slug === postSlug) : undefined;
 const modified = post && isoDate(post.updated);
 // A post's featured image is its share image; every other page shares the logo card.
-const ogImage = `${site.url}${image?.src ?? site.images.og}`;
+const ogImage = `${site.url}${encodeURI(image?.src ?? site.images.og)}`;
 const ogAlt = image?.alt ?? (lang === 'ar' ? `شعار ${site.brand.arabic}` : `${site.brand.english} logo`);
 const businessName = lang === 'ar' ? site.brand.arabic : site.brand.english;
 const rss = lang === 'ar' ? '/blog/rss.xml' : '/en/blog/rss.xml';
@@ -46,8 +47,8 @@ const preloadFonts = lang === 'ar' ? ['beiruti-800-900', 'plex-arabic-400', 'ple
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
     {!englishOnly && <link rel="alternate" hreflang="ar-SA" href={alt.ar} />}
-    <link rel="alternate" hreflang="en-SA" href={alt.en} />
-    <link rel="alternate" hreflang="x-default" href={englishOnly ? alt.en : alt.ar} />
+    {alt.en && <link rel="alternate" hreflang="en-SA" href={alt.en} />}
+    <link rel="alternate" hreflang="x-default" href={englishOnly ? canonical : alt.ar} />
     <link rel="alternate" type="application/rss+xml" title={businessName} href={rss} />
     <link rel="alternate" type="text/plain" href="/llms.txt" />
     <meta name="geo.region" content={site.address.regionCode} />
@@ -60,7 +61,7 @@ const preloadFonts = lang === 'ar' ? ['beiruti-800-900', 'plex-arabic-400', 'ple
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={lang === 'ar' ? 'ar_SA' : 'en_US'} />
-    {!englishOnly && <meta property="og:locale:alternate" content={lang === 'ar' ? 'en_US' : 'ar_SA'} />}
+    {!englishOnly && !arabicOnly && <meta property="og:locale:alternate" content={lang === 'ar' ? 'en_US' : 'ar_SA'} />}
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:secure_url" content={ogImage} />
     <meta property="og:image:type" content={image ? 'image/webp' : 'image/png'} />

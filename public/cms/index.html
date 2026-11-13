@@ -11,28 +11,116 @@
       @font-face { font-family: 'IBM Plex Sans Arabic'; src: url('/fonts/plex-arabic-400.woff2') format('woff2'); font-weight: 400; font-display: swap; }
       @font-face { font-family: 'IBM Plex Sans Arabic'; src: url('/fonts/plex-arabic-500.woff2') format('woff2'); font-weight: 500 700; font-display: swap; }
       html:root { --sui-base-hue: 187; --sui-font-family-default: 'IBM Plex Sans Arabic', 'Source Sans 3', system-ui, sans-serif; }
+      /* The interface language switch, bottom corner, above the editor. */
+      .lulwa-lang { position: fixed; inset-block-end: 12px; inset-inline-start: 12px; z-index: 2147483000; min-block-size: 36px; padding-inline: 14px; border: 0; border-radius: 18px; background: hsl(187 78% 27%); color: #fff; font: 500 14px/1 'IBM Plex Sans Arabic', system-ui, sans-serif; cursor: pointer; }
+      .lulwa-lang:focus-visible { outline: 2px solid hsl(187 78% 45%); outline-offset: 2px; }
     </style>
   </head>
   <body>
     <!-- Sveltia CMS, pinned version. Served at https://cms.lulwa.com.sa/ (docroot public_html/cms); lulwa.com.sa/cms 301s there, so / here means this folder. Config is inline below; headers in .htaccess beside this file. -->
-    <script>window.CMS_MANUAL_INIT = true;</script>
+    <script>
+      window.CMS_MANUAL_INIT = true;
+      // Interface language, Arabic unless switched to English with the corner button. Sveltia picks its own UI language from the browser,
+      // so it is told this one before it loads (a language chosen in Sveltia's Settings still wins there).
+      window.LULWA_LANG = (() => { try { return localStorage.getItem('lulwa-cms-lang') === 'en' ? 'en' : 'ar'; } catch { return 'ar'; } })();
+      for (const key of ['language', 'languages']) {
+        Object.defineProperty(navigator, key, { configurable: true, get: () => (key === 'language' ? window.LULWA_LANG : [window.LULWA_LANG]) });
+      }
+    </script>
     <script src="https://unpkg.com/@sveltia/cms@0.256.1/dist/sveltia-cms.js" integrity="sha384-LPT86oZkLhmoF84O1jKZBSaFJOVvKv8sjXDKap1SOaSwzbC8F6HH7rTJWekmAzG9" crossorigin="anonymous"></script>
     <script>
       // Sveltia CMS for the blog (client request, 13 Nov 2026). Docs: https://sveltiacms.app/en/docs
       // Writes one file per post to src/content/blog/<slug>.json on main; the push runs deploy.yml, which checks and deploys.
       // Sign-in: GitHub OAuth through https://cms.lulwa.com.sa/auth.php (only the GitHub users listed on the server can sign in) or a GitHub token.
 
+      const lang = window.LULWA_LANG;
+      /** Interface text in the chosen language. */
+      const T = (ar, en) => (lang === 'en' ? en : ar);
+
+      const switcher = document.createElement('button');
+      switcher.type = 'button';
+      switcher.className = 'lulwa-lang';
+      switcher.lang = lang === 'en' ? 'ar' : 'en';
+      switcher.textContent = lang === 'en' ? 'العربية' : 'English';
+      switcher.title = T('Switch the editor to English', 'حوّل المحرر إلى العربية');
+      switcher.addEventListener('click', () => {
+        try { localStorage.setItem('lulwa-cms-lang', lang === 'en' ? 'ar' : 'en'); } catch {}
+        location.reload();
+      });
+      document.body.append(switcher);
+
       // Same list as BANNED in scripts/check-guides.mjs, which fails the deploy on these; the editor stops them first. Change both together.
       const banned = /24\s?ساعة|على مدار الساعة|24\/7|نفس اليوم|same[- ]day|معتمد|certified|أصلية|original parts|genuine|ضمان|warrant|ريال|\bSAR\b|خلال ساعة|زيارة منزلية|home visit|we come to you|الأفضل|أفضل ورشة|أفضل فني|\bthe best\b|فوري|5,?000|10\+|98\s?%|4\.9|!|\*\*|<[a-z]|لولوه (?:تصلح|تقدم|توفر|تخدم|ترد)|نخدم (?!عملاء)|نغطي|we serve\b|we cover\b|service report|تقرير خدمة|غير المؤكد|المؤكدة|unconfirmed|confirmed|بعض المواقع|مواقع أخرى|شركات أخرى|other shops|some websites|للمنازل والمنشآت|نأتي إليك|في موقعك|[\uD83C-\uD83E][\uDC00-\uDFFF]|(?<!\d)(?!056 802 2197(?!\d))0?5\d(?:\s?\d){7,8}(?!\d)/i;
       const clean = {
         pattern: [
           new RegExp(`^(?![\\s\\S]*(?:${banned.source}))[\\s\\S]*$`, 'i'),
-          'كلمة ممنوعة: لا ادعاءات (24 ساعة، نفس اليوم، ضمان، معتمد، قطع أصلية، الأفضل، أسعار) ولا علامة تعجب · Not allowed: claims such as 24 hours, same day, warranty, certified, original parts, the best, prices, or "!" · رقم الجوال يكتب هكذا فقط: 056 802 2197 · The phone number is written only as 056 802 2197',
+          T(
+            'كلمة ممنوعة: لا ادعاءات (24 ساعة، نفس اليوم، ضمان، معتمد، قطع أصلية، الأفضل، أسعار) ولا علامة تعجب. رقم الجوال يكتب هكذا فقط: 056 802 2197',
+            'Not allowed: claims such as 24 hours, same day, warranty, certified, original parts, the best, prices, or "!". The phone number is written only as 056 802 2197',
+          ),
         ],
       };
       // Same value in both languages, edited on the Arabic side.
       const shared = { i18n: 'duplicate' };
       const text = (name, label, extra = {}) => ({ name, label, widget: 'string', i18n: true, ...clean, ...extra });
+
+      // The 3 legacy posts keep their ranked meta, which is longer than the limits below, so they stay out of the editor and their slugs cannot be reused.
+      const legacy = '(?!(?:ac-repair-in-dammam|ac-repair-installation-maintenance-in-dammam-the-complete-guide|washing-machine-maintenance-repair-services-in-dammam)$)';
+      // A slug is all English (lowercase letters, digits, hyphens) or all Arabic (Arabic letters, digits, hyphens). Same rule in scripts/check-guides.mjs.
+      const slugPattern = `^${legacy}(?:[a-z0-9]+(?:-[a-z0-9]+)*|[ء-غف-ي0-9]+(?:-[ء-غف-ي0-9]+)*)$`;
+
+      // Preview of a post: the address it will have, how Google shows it, then the article itself.
+      const h = window.h;
+      const site = 'https://lulwa.com.sa';
+      const count = (value, min, max) => {
+        const n = [...(value || '')].length;
+        const ok = n >= min && n <= max;
+        return h('span', { style: { color: ok ? 'hsl(140 60% 30%)' : 'hsl(5 70% 45%)', fontSize: '13px' } }, `${n} / ${min}–${max} ${ok ? '✓' : T('خارج الحد', 'out of range')}`);
+      };
+      const PostPreview = ({ entry, locale, getAsset }) => {
+        const get = (...path) => entry.getIn(['data', ...path]);
+        const english = (locale || (entry.getIn(['i18n', 'ar']) ? 'en' : 'ar')) === 'en';
+        const slug = get('slug') || '';
+        const path = `${english ? '/en' : ''}/blog/${slug || T('عنوان-الصفحة', 'page-address')}`;
+        const asset = (src) => {
+          if (!src) return '';
+          try { const a = getAsset?.(src); const s = a && typeof a.then !== 'function' ? String(a) : ''; return s && !s.startsWith('[object') ? s : site + src; } catch { return site + src; }
+        };
+        const box = { border: '1px solid hsl(187 20% 80%)', borderRadius: '12px', padding: '16px', margin: '0 0 20px', background: 'hsl(187 30% 97%)', color: 'hsl(200 40% 12%)' };
+        const label = (t) => h('div', { style: { fontSize: '13px', fontWeight: 600, margin: '0 0 8px', color: 'hsl(187 78% 25%)' } }, t);
+        const img = (src, alt) => src && h('img', { src: asset(src), alt: alt || '', style: { maxWidth: '100%', height: 'auto', borderRadius: '8px', display: 'block', margin: '12px 0' } });
+        const sections = get('sections')?.toJS?.() ?? [];
+        const faq = get('faq')?.toJS?.() ?? [];
+        return h('div', { dir: english ? 'ltr' : 'rtl', lang: english ? 'en' : 'ar', style: { fontFamily: "'IBM Plex Sans Arabic', system-ui, sans-serif", padding: '20px', lineHeight: 1.7, color: 'hsl(200 40% 12%)', background: '#fff' } },
+          h('div', { style: box },
+            label(T('رابط المقال بعد النشر', 'Address after publishing')),
+            h('div', { dir: 'ltr', style: { fontSize: '15px', overflowWrap: 'anywhere', textAlign: 'start' } }, site + path),
+            !slug && h('div', { style: { fontSize: '13px', marginTop: '6px' } }, T('اكتب عنوان الصفحة (slug) في الأعلى ليظهر الرابط الحقيقي.', 'Fill in the slug above to see the real address.')),
+          ),
+          h('div', { style: box },
+            label(T('كيف يظهر في جوجل', 'How Google shows it')),
+            h('div', { style: { fontSize: '13px', color: 'hsl(0 0% 30%)' } }, `lulwa.com.sa › ${english ? 'en › ' : ''}blog › ${slug}`),
+            h('div', { style: { fontSize: '19px', color: 'hsl(222 80% 40%)', margin: '2px 0' } }, get('title') || T('عنوان جوجل', 'SEO title')),
+            h('div', { style: { fontSize: '14px', color: 'hsl(0 0% 25%)' } }, get('description') || T('وصف جوجل', 'Meta description')),
+            h('div', { style: { display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '8px' } },
+              h('span', { style: { fontSize: '13px' } }, T('العنوان: ', 'Title: '), count(get('title'), 30, 60)),
+              h('span', { style: { fontSize: '13px' } }, T('الوصف: ', 'Description: '), count(get('description'), 120, 160)),
+            ),
+          ),
+          h('h1', { style: { fontSize: '28px', margin: '0 0 8px' } }, get('h1')),
+          h('p', { style: { fontSize: '17px' } }, get('lead')),
+          img(get('image'), get('image_alt')),
+          ...sections.map((s) => h('section', {},
+            h('h2', { style: { fontSize: '22px', margin: '24px 0 8px' } }, s.h),
+            ...String(s.p || '').split(/\n\s*\n/).filter(Boolean).map((t) => h('p', {}, t)),
+            ...(s.items || []).map((i) => h('div', {}, h('h3', { style: { fontSize: '18px', margin: '12px 0 4px' } }, i.h), h('p', {}, i.p))),
+            img(s.image?.src, s.image?.alt),
+          )),
+          faq.length > 0 && h('h2', { style: { fontSize: '22px', margin: '24px 0 8px' } }, T('أسئلة شائعة', 'FAQ')),
+          ...faq.map((f) => h('div', {}, h('h3', { style: { fontSize: '17px', margin: '12px 0 4px' } }, f.q), h('p', {}, f.a))),
+        );
+      };
+      CMS.registerPreviewTemplate('blog', PostPreview);
 
       CMS.init({
         config: {
@@ -52,19 +140,23 @@
             },
           },
           site_url: 'https://lulwa.com.sa',
-          app_title: 'لولوه · إدارة المدونة',
+          app_title: T('لولوه · إدارة المدونة', 'Lulwa · Blog editor'),
           logo: { src: '/lulwa-mark.svg', show_in_header: true },
           media_folder: 'public/images/blog',
           public_folder: '/images/blog',
           // Every upload becomes a WebP no larger than 1200 px, so a phone photo does not slow the page.
           media_libraries: { default: { config: { max_file_size: 15000000, transformations: { raster_image: { format: 'webp', quality: 75, width: 1200, height: 1200 } } } } },
-          i18n: { structure: 'single_file', locales: ['ar', 'en'], default_locale: 'ar' },
+          // Arabic is always on. English can be switched off per post (the ⋮ menu in the editor), which makes an Arabic-only post with no /en/ page.
+          i18n: { structure: 'single_file', locales: ['ar', 'en'], default_locale: 'ar', initial_locales: 'all' },
           collections: [
             {
               name: 'blog',
-              label: 'المدونة · Blog',
-              label_singular: 'مقال · Post',
-              description: 'كل مقال بالعربي والإنجليزي. يظهر في الموقع بعد الحفظ بحوالي 10 دقائق، إلا إذا كان مسودة أو تاريخه في المستقبل. · Each post in Arabic and English. It goes live about 10 minutes after saving, unless it is a draft or dated in the future.',
+              label: T('المدونة', 'Blog'),
+              label_singular: T('مقال', 'Post'),
+              description: T(
+                'كل مقال بالعربي، ومعه الإنجليزي إن أردت. لمقال عربي فقط: من قائمة ⋮ أعلى المحرر ألغِ English قبل النشر، لا بعده. يظهر في الموقع بعد الحفظ بحوالي 10 دقائق، إلا إذا كان مسودة أو تاريخه في المستقبل.',
+                'Every post in Arabic, with English if you want it. For an Arabic-only post, untick English in the ⋮ menu at the top of the editor, before publishing, not after. It goes live about 10 minutes after saving, unless it is a draft or dated in the future.',
+              ),
               folder: 'src/content/blog',
               extension: 'json',
               format: 'json',
@@ -72,72 +164,91 @@
               // A deleted post leaves a dead link in Google. Unpublish with Draft, or ask Ameer.
               delete: false,
               i18n: true,
-              // The 3 legacy posts keep their ranked meta, which is longer than the limits below, so they stay out of the editor.
-              filter: { field: 'slug', pattern: '^(?!(?:ac-repair-in-dammam|ac-repair-installation-maintenance-in-dammam-the-complete-guide|washing-machine-maintenance-repair-services-in-dammam)$)' },
+              filter: { field: 'slug', pattern: `^${legacy}` },
               identifier_field: 'h1',
-              // The file name is the address: /blog/<slug> and /en/blog/<slug>. Set from the slug field on the first save, then fixed (posts.ts reads the file name).
+              // The file name is the address: /blog/<slug> (and /en/blog/<slug> with English). Set from the slug field on the first save, then fixed (posts.ts reads the file name).
               slug: { template: '{{fields.slug}}', editable: false },
-              summary: "{{h1}} · {{date}}{{draft | ternary(' · مسودة Draft', '')}}",
+              summary: `{{h1}} · {{date}}{{draft | ternary(' · ${T('مسودة', 'Draft')}', '')}}`,
               sortable_fields: { fields: ['date', 'h1'], default: { field: 'date', direction: 'descending' } },
               view_filters: [
-                { label: 'مسودات · Drafts', field: 'draft', pattern: true },
-                { label: 'منشورة · Published', field: 'draft', pattern: false },
+                { label: T('مسودات', 'Drafts'), field: 'draft', pattern: true },
+                { label: T('منشورة', 'Published'), field: 'draft', pattern: false },
               ],
               preview_path: '/blog/{{slug}}',
               fields: [
-                { name: 'slug', label: 'عنوان الصفحة (slug)', widget: 'string', ...shared, required: true, minlength: 10, maxlength: 60, pattern: ['^(?!(?:ac-repair-in-dammam|ac-repair-installation-maintenance-in-dammam-the-complete-guide|washing-machine-maintenance-repair-services-in-dammam)$)[a-z0-9]+(?:-[a-z0-9]+)*$', 'حروف إنجليزية صغيرة وأرقام وشرطات فقط · Lowercase English letters, digits and hyphens only'], hint: 'عنوان الصفحة بالإنجليزي: حروف صغيرة وشرطات، مثل ac-not-cooling-in-summer، من 10 إلى 60 حرف. يثبت بعد أول حفظ ولا يتغير. · The page address in English: lowercase letters and hyphens, e.g. ac-not-cooling-in-summer, 10 to 60 characters. Fixed after the first save.' },
-                { name: 'draft', label: 'مسودة (مخفي من الموقع) · Draft (hidden)', widget: 'boolean', ...shared, default: true, hint: 'اتركها مفعلة حتى يجهز المقال باللغتين. · Keep on until both languages are ready. لإخفاء مقال منشور فعلها مرة أخرى. · Switch it back on to take a published post off the site.' },
-                { name: 'date', label: 'تاريخ النشر · Publish date', widget: 'datetime', ...shared, time_format: false, format: 'YYYY-MM-DD', default: '{{now}}', hint: 'تاريخ في المستقبل = نشر مجدول، يظهر صباح ذلك اليوم. · A future date schedules the post; it goes live that morning.' },
-                { name: 'image', label: 'الصورة الرئيسية · Featured image', widget: 'image', ...shared, required: false, hint: 'صورة حقيقية من عمل لولوه، بالعرض. لا صور ذكاء اصطناعي للورشة أو الفنيين. · A real Lulwa job photo, landscape. No AI images of the shop or technicians.' },
-                text('image_alt', 'وصف الصورة · Image description (alt)', { required: false, maxlength: 125, hint: 'جملة تصف ما في الصورة لمن لا يراها، حتى 125 حرف. · One sentence describing what the photo shows, up to 125 characters.' }),
+                {
+                  name: 'slug', label: T('عنوان الصفحة (slug)', 'Page address (slug)'), widget: 'string', ...shared, required: true, minlength: 5, maxlength: 60,
+                  pattern: [slugPattern, T('كله عربي أو كله إنجليزي: حروف وأرقام وشرطات بين الكلمات، بلا مسافات', 'All Arabic or all English: letters, digits and hyphens between words, no spaces')],
+                  hint: T(
+                    'يصبح رابط المقال، ويثبت بعد أول حفظ. عربي مثل مكيف-لا-يبرد، أو إنجليزي بحروف صغيرة مثل ac-not-cooling. العربي أنسب للمقال العربي فقط، والإنجليزي أنسب إذا كان للمقال نسخة إنجليزية. الرابط الكامل يظهر في المعاينة.',
+                    'Becomes the post\'s address and is fixed after the first save. Arabic, like مكيف-لا-يبرد, or lowercase English, like ac-not-cooling. Arabic suits an Arabic-only post; English suits a post that also has English. The full link shows in the preview.',
+                  ),
+                },
+                { name: 'draft', label: T('مسودة (مخفي من الموقع)', 'Draft (hidden from the site)'), widget: 'boolean', ...shared, default: true, hint: T('اتركها مفعلة حتى يجهز المقال. لإخفاء مقال منشور فعلها مرة أخرى.', 'Keep on until the post is ready. Switch it back on to take a published post off the site.') },
+                { name: 'date', label: T('تاريخ النشر', 'Publish date'), widget: 'datetime', ...shared, time_format: false, format: 'YYYY-MM-DD', default: '{{now}}', hint: T('تاريخ في المستقبل = نشر مجدول، يظهر صباح ذلك اليوم.', 'A future date schedules the post; it goes live that morning.') },
+                { name: 'image', label: T('الصورة الرئيسية', 'Featured image'), widget: 'image', ...shared, required: true, hint: T('مطلوبة: تظهر أعلى المقال وعند مشاركة الرابط. صورة حقيقية من عمل لولوه، بالعرض. لا صور ذكاء اصطناعي للورشة أو الفنيين.', 'Required: shown at the top and when the link is shared. A real Lulwa job photo, landscape. No AI images of the shop or technicians.') },
+                text('image_alt', T('وصف الصورة الرئيسية (alt)', 'Featured image description (alt)'), { required: true, minlength: 10, maxlength: 125, hint: T('جملة تصف ما في الصورة لمن لا يراها، من 10 إلى 125 حرف. جوجل يقرؤها.', 'One sentence describing what the photo shows, 10 to 125 characters. Google reads it.') }),
                 // Heading limits come from tests/headlines.spec.ts (T11): two lines at 320 px, measured 13 Nov 2026 (English H1 37, H2 47, H3 41 characters).
-                text('title','عنوان جوجل (SEO title)', { minlength: 30, maxlength: 60, hint: 'يظهر في نتائج البحث، من 30 إلى 60 حرف، والكلمة المهمة أولا. · Shown in Google results, 30 to 60 characters, main keyword first.' }),
-                { name: 'description', label: 'وصف جوجل (meta description)', widget: 'text', i18n: true, ...clean, minlength: 120, maxlength: 160, hint: 'يجيب عن سؤال الباحث في سطرين، من 120 إلى 160 حرف. · Answers the searcher\'s question in a line or two, 120 to 160 characters.' },
-                text('h1', 'العنوان في الصفحة (H1) · Headline', { minlength: 15, maxlength: 36, hint: 'صياغته تختلف قليلا عن عنوان جوجل، من 15 إلى 36 حرف. · Worded a little differently from the Google title, 15 to 36 characters.' }),
-                { name: 'lead', label: 'المقدمة · Intro line', widget: 'text', i18n: true, ...clean, minlength: 50, maxlength: 200 },
+                text('title', T('عنوان جوجل (SEO title)', 'Google title (SEO title)'), { minlength: 30, maxlength: 60, hint: T('يظهر في نتائج البحث، من 30 إلى 60 حرف، والكلمة المهمة أولا.', 'Shown in Google results, 30 to 60 characters, main keyword first.') }),
+                { name: 'description', label: T('وصف جوجل (meta description)', 'Google description (meta description)'), widget: 'text', i18n: true, ...clean, minlength: 120, maxlength: 160, hint: T('يجيب عن سؤال الباحث في سطرين، من 120 إلى 160 حرف.', 'Answers the searcher\'s question in a line or two, 120 to 160 characters.') },
+                text('h1', T('العنوان في الصفحة (H1)', 'Headline (H1)'), { minlength: 15, maxlength: 36, hint: T('صياغته تختلف قليلا عن عنوان جوجل، من 15 إلى 36 حرف.', 'Worded a little differently from the Google title, 15 to 36 characters.') }),
+                { name: 'lead', label: T('المقدمة', 'Intro line'), widget: 'text', i18n: true, ...clean, minlength: 50, maxlength: 200 },
                 {
                   name: 'sections',
-                  label: 'الأقسام · Sections',
-                  label_singular: 'قسم · Section',
+                  label: T('الأقسام', 'Sections'),
+                  label_singular: T('قسم', 'Section'),
                   widget: 'list',
                   i18n: 'duplicate',
                   min: 3,
                   summary: '{{h}}',
-                  hint: 'أضف الأقسام في العربي، وتظهر نفسها في الإنجليزي لتكتب ترجمتها. · Add sections on the Arabic side; they appear on the English side for the translation.',
+                  hint: T('أضف الأقسام في العربي، وتظهر نفسها في الإنجليزي لتكتب ترجمتها.', 'Add sections on the Arabic side; they appear on the English side for the translation.'),
                   fields: [
-                    text('h', 'عنوان القسم (H2) · Section heading', { maxlength: 45, hint: 'حتى 45 حرف. · Up to 45 characters.' }),
-                    { name: 'p', label: 'النص · Text', widget: 'text', i18n: true, ...clean, hint: 'افصل بين الفقرات بسطر فارغ. · Leave an empty line between paragraphs.' },
+                    text('h', T('عنوان القسم (H2)', 'Section heading (H2)'), { maxlength: 45, hint: T('حتى 45 حرف.', 'Up to 45 characters.') }),
+                    { name: 'p', label: T('النص', 'Text'), widget: 'text', i18n: true, ...clean, hint: T('افصل بين الفقرات بسطر فارغ.', 'Leave an empty line between paragraphs.') },
                     {
                       name: 'items',
-                      label: 'نقاط بعناوين (اختياري) · Sub-points (optional)',
-                      label_singular: 'نقطة · Point',
+                      label: T('نقاط بعناوين (اختياري)', 'Sub-points (optional)'),
+                      label_singular: T('نقطة', 'Point'),
                       widget: 'list',
                       i18n: 'duplicate',
                       required: false,
                       summary: '{{h}}',
-                      fields: [text('h', 'عنوان النقطة (H3) · Point heading', { maxlength: 40, hint: 'حتى 40 حرف. · Up to 40 characters.' }), { name: 'p', label: 'النص · Text', widget: 'text', i18n: true, ...clean }],
+                      fields: [text('h', T('عنوان النقطة (H3)', 'Point heading (H3)'), { maxlength: 40, hint: T('حتى 40 حرف.', 'Up to 40 characters.') }), { name: 'p', label: T('النص', 'Text'), widget: 'text', i18n: true, ...clean }],
+                    },
+                    {
+                      name: 'image',
+                      label: T('صورة القسم (اختياري)', 'Section image (optional)'),
+                      widget: 'object',
+                      i18n: true,
+                      required: false,
+                      collapsed: true,
+                      hint: T('تظهر بعد نص القسم. الوصف مطلوب إذا أضفت صورة.', 'Shown after the section text. The description is required when you add an image.'),
+                      fields: [
+                        { name: 'src', label: T('الصورة', 'Image'), widget: 'image', i18n: 'duplicate' },
+                        text('alt', T('وصف الصورة (alt)', 'Image description (alt)'), { minlength: 10, maxlength: 125, hint: T('جملة تصف ما في الصورة، من 10 إلى 125 حرف.', 'One sentence describing the photo, 10 to 125 characters.') }),
+                      ],
                     },
                   ],
                 },
                 {
                   name: 'faq',
-                  label: 'أسئلة شائعة · FAQ',
-                  label_singular: 'سؤال · Question',
+                  label: T('أسئلة شائعة', 'FAQ'),
+                  label_singular: T('سؤال', 'Question'),
                   widget: 'list',
                   i18n: 'duplicate',
                   required: true,
                   min: 3,
                   max: 8,
                   summary: '{{q}}',
-                  hint: 'من 3 إلى 8 أسئلة يسألها العملاء فعلا، بإجابات قصيرة. تظهر في جوجل. · 3 to 8 questions customers really ask, short answers. Google can show them.',
-                  fields: [text('q', 'السؤال · Question', { minlength: 15, maxlength: 110 }), { name: 'a', label: 'الجواب · Answer', widget: 'text', i18n: true, ...clean, minlength: 40, maxlength: 400 }],
+                  hint: T('من 3 إلى 8 أسئلة يسألها العملاء فعلا، بإجابات قصيرة. تظهر في جوجل.', '3 to 8 questions customers really ask, short answers. Google can show them.'),
+                  fields: [text('q', T('السؤال', 'Question'), { minlength: 15, maxlength: 110 }), { name: 'a', label: T('الجواب', 'Answer'), widget: 'text', i18n: true, ...clean, minlength: 40, maxlength: 400 }],
                 },
               ],
             },
             {
               name: 'plan',
-              label: 'خطة المحتوى · Content plan',
-              label_singular: 'فكرة · Idea',
+              label: T('خطة المحتوى', 'Content plan'),
+              label_singular: T('فكرة', 'Idea'),
               folder: 'planner/ideas',
               extension: 'json',
               format: 'json',
@@ -147,43 +258,43 @@
               identifier_field: 'title',
               slug: '{{fields.slug}}',
               summary: '{{planned}} · {{status}} · {{title}} ({{keyword}})',
-              view_groups: [{ label: 'الحالة · Status', field: 'status' }],
+              view_groups: [{ label: T('الحالة', 'Status'), field: 'status' }],
               sortable_fields: { fields: ['planned', 'status'], default: { field: 'planned', direction: 'ascending' } },
               fields: [
-                { name: 'title', label: 'الفكرة · Idea', widget: 'string' },
-                { name: 'slug', label: 'العنوان المقترح · Suggested slug', widget: 'string', required: false },
-                { name: 'keyword', label: 'عبارة البحث · Search phrase', widget: 'string' },
-                { name: 'language', label: 'اللغة · Language', widget: 'select', default: 'both', options: [{ label: 'عربي · Arabic', value: 'ar' }, { label: 'إنجليزي · English', value: 'en' }, { label: 'الاثنان · Both', value: 'both' }] },
-                { name: 'planned', label: 'موعد النشر · Planned release', widget: 'datetime', time_format: false, format: 'YYYY-MM-DD' },
-                { name: 'status', label: 'الحالة · Status', widget: 'select', default: 'idea', options: [{ label: 'فكرة · Idea', value: 'idea' }, { label: 'قيد الكتابة · Writing', value: 'writing' }, { label: 'جاهز · Ready', value: 'ready' }, { label: 'منشور · Published', value: 'published' }] },
-                { name: 'notes', label: 'ملاحظات · Notes', widget: 'text', required: false },
+                { name: 'title', label: T('الفكرة', 'Idea'), widget: 'string' },
+                { name: 'slug', label: T('العنوان المقترح', 'Suggested slug'), widget: 'string', required: false },
+                { name: 'keyword', label: T('عبارة البحث', 'Search phrase'), widget: 'string' },
+                { name: 'language', label: T('اللغة', 'Language'), widget: 'select', default: 'both', options: [{ label: T('عربي', 'Arabic'), value: 'ar' }, { label: T('إنجليزي', 'English'), value: 'en' }, { label: T('الاثنان', 'Both'), value: 'both' }] },
+                { name: 'planned', label: T('موعد النشر', 'Planned release'), widget: 'datetime', time_format: false, format: 'YYYY-MM-DD' },
+                { name: 'status', label: T('الحالة', 'Status'), widget: 'select', default: 'idea', options: [{ label: T('فكرة', 'Idea'), value: 'idea' }, { label: T('قيد الكتابة', 'Writing'), value: 'writing' }, { label: T('جاهز', 'Ready'), value: 'ready' }, { label: T('منشور', 'Published'), value: 'published' }] },
+                { name: 'notes', label: T('ملاحظات', 'Notes'), widget: 'text', required: false },
               ],
             },
           ],
           singletons: [
             {
               name: 'checklist',
-              label: 'قائمة المهام · Checklist',
+              label: T('قائمة المهام', 'Checklist'),
               file: 'planner/checklist.json',
               format: 'json',
               fields: [
                 {
                   name: 'items',
-                  label: 'المهام · Tasks',
-                  label_singular: 'مهمة · Task',
+                  label: T('المهام', 'Tasks'),
+                  label_singular: T('مهمة', 'Task'),
                   widget: 'list',
                   summary: "{{done | ternary('✓', '○')}} {{task}}",
-                  hint: 'علم على ما انتهى، وأضف أو احذف أو رتب المهام كما تريد. لا يظهر شيء منها في الموقع. · Tick what is done; add, remove or reorder tasks as you like. None of it appears on the website.',
+                  hint: T('علم على ما انتهى، وأضف أو احذف أو رتب المهام كما تريد. لا يظهر شيء منها في الموقع.', 'Tick what is done; add, remove or reorder tasks as you like. None of it appears on the website.'),
                   fields: [
-                    { name: 'done', label: 'تم · Done', widget: 'boolean', default: false },
-                    { name: 'task', label: 'المهمة · Task', widget: 'string' },
+                    { name: 'done', label: T('تم', 'Done'), widget: 'boolean', default: false },
+                    { name: 'task', label: T('المهمة', 'Task'), widget: 'string' },
                   ],
                 },
               ],
             },
             {
               name: 'tips',
-              label: 'نصائح الكتابة · Writing tips',
+              label: T('نصائح الكتابة', 'Writing tips'),
               file: 'planner/seo-tips.json',
               format: 'json',
               fields: [

@@ -13,7 +13,7 @@ export const GET = () => {
   const list = (items: string[]) => items.map((i) => `- ${i}`);
   for (const lang of ['en', 'ar'] as const) {
     const c = content[lang];
-    const url = (path: string) => `${site.url}${localePath(lang, path)}`;
+    const url = (path: string) => `${site.url}${encodeURI(localePath(lang, path))}`;
     out.push(lang === 'en' ? '# English' : '# العربية', '', ask[lang], '');
     out.push(`## ${c.home.shop.heading}`, '', `${c.home.shop.addressLabel}: ${c.home.shop.address}`, `${c.home.shop.hoursLabel}: ${c.home.shop.hours}`, `${site.phone.display} (tel, WhatsApp ${site.phone.whatsapp})`, `${c.home.shop.legalLabel}: ${site.legal.name}, ${c.home.shop.crLabel} ${site.legal.cr}`, '');
     for (const s of c.services.items) {

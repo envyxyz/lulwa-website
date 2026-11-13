@@ -206,6 +206,17 @@ ${rootSlug.map((l) => `  ${l}`).join('\n')}
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
   RewriteRule ^((?!404$|en/404$)[a-z0-9][a-z0-9/_-]*)$ $1.html [L]
 
+  # Blog posts with an Arabic slug: the file is blog/<UTF-8 name>.html. The server hands this rule the percent-decoded UTF-8 bytes of the URL,
+  # and [^/.]+ matches them byte by byte (a Unicode letter class would not, without PCRE UTF-8 mode). Latin slugs are served by the rule above.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^((?:en/)?blog/[^/.]+)$ $1.html [L]
+
+  # A post whose English was switched off after publishing: its old /en/ address 301s to the Arabic page instead of a 404.
+  RewriteCond %{DOCUMENT_ROOT}/blog/$1.html -f
+  RewriteRule ^en/blog/([^/.]+)$ /blog/$1 [R=301,L]
+
   # Anything left under /en/ that is not a file gets the English 404 (status 404, English page).
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

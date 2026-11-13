@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import { site } from './src/site.ts';
+import englishRoot from './src/english-root.json' with { type: 'json' };
 
 // The kitchen sink exists only under `astro dev`, so it can never reach dist or the sitemap.
 const kitchenSink = {
@@ -26,15 +27,17 @@ const sitemaps = {
     'astro:build:done': ({ dir, pages }) => {
       const out = fileURLToPath(dir);
       const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+      // Arabic slugs: paths are kept decoded to match file names and written percent-encoded in every URL.
+      const decode = (s) => { try { return decodeURI(s); } catch { return s; } };
       const paths = new Set(
         pages
-          .map((p) => `/${p.pathname}`.replace(/\.html$/, '').replace(/\/+$/, '') || '/')
+          .map((p) => decode(`/${p.pathname}`).replace(/\.html$/, '').replace(/\/+$/, '') || '/')
           .filter((p) => !/^\/(en\/)?(thanks|404|logs|dev(\/|$))/.test(p) && p !== '/en/404')
           .map((p) => (p === '/en/' ? '/en' : p)),
       );
       const arOf = (p) => (p === '/en' ? '/' : p.replace(/^\/en(?=\/)/, ''));
       const enOf = (p) => (p === '/' ? '/en' : `/en${p}`);
-      const full = (p) => (p === '/' ? `${site.url}/` : `${site.url}${p}`);
+      const full = (p) => (p === '/' ? `${site.url}/` : `${site.url}${encodeURI(p)}`);
       // A post carries its own date in a meta tag; everything else changed when the copy did.
       const lastmod = (p) => {
         const file = `${out}${p === '/' ? 'index' : p.slice(1)}.html`;
@@ -50,7 +53,9 @@ const sitemaps = {
       const urlset = (list) => {
         const alt = (p) => {
           const ar = arOf(p), en = enOf(ar);
-          const pair = paths.has(ar) && paths.has(en) ? [['ar-SA', ar], ['en-SA', en], ['x-default', ar]] : [];
+          // An Arabic-only blog post (no /en twin, and not one of the two English posts at the root) lists only itself and x-default.
+          const arabicOnly = paths.has(ar) && !paths.has(en) && /^\/blog\/[^/]+$/.test(ar) && !englishRoot.includes(ar);
+          const pair = paths.has(ar) && paths.has(en) ? [['ar-SA', ar], ['en-SA', en], ['x-default', ar]] : arabicOnly ? [['ar-SA', ar], ['x-default', ar]] : [];
           return pair.map(([l, h]) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${esc(full(h))}"/>`).join('\n');
         };
         const rows = list.map((p) => `  <url>\n    <loc>${esc(full(p))}</loc>\n    <lastmod>${lastmod(p)}</lastmod>\n${alt(p)}\n  </url>`.replace('\n\n', '\n'));

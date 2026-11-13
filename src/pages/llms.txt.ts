@@ -8,7 +8,7 @@ const ask = {
 
 // llms.txt built from the content files, so it can never state anything the site does not.
 export const GET = () => {
-  const link = (lang: Lang, path: string, label: string, note: string) => `- [${label}](${site.url}${localePath(lang, path)}): ${note}`;
+  const link = (lang: Lang, path: string, label: string, note: string) => `- [${label}](${site.url}${encodeURI(localePath(lang, path))}): ${note}`;
   const lines = [`# ${site.brand.english} (${site.brand.arabic})`, '', `> ${content.en.meta.description}`, '', '## Confirmed facts', '', ...factLines('en').map((l) => `- ${l}`), '', '## الحقائق المؤكدة', '', ...factLines('ar').map((l) => `- ${l}`), '', `Full text of every page: ${site.url}/llms-full.txt`, ''];
   for (const lang of ['en', 'ar'] as const) {
     const c = content[lang];

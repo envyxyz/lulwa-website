@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { expect, test } from '@playwright/test';
 import sharp from 'sharp';
-import { published, readPosts, webpSize } from '../src/content/posts';
+import { arabicOnlyOf, guidesOf, postItems, published, readPosts, webpSize } from '../src/content/posts';
 
 test('posts: drafts and future posts are not published, newest first', () => {
   const dir = mkdtempSync(join(tmpdir(), 'posts-'));
@@ -17,11 +17,26 @@ test('posts: drafts and future posts are not published, newest first', () => {
   expect(published(dir, '2026-11-14').map((p) => p.slug)).toEqual(['later', 'today', 'old']);
 });
 
-test('posts: every post file has both languages and a slug-safe name', () => {
+test('posts: every post file has Arabic and a slug-safe name (Latin or Arabic letters)', () => {
   for (const p of readPosts()) {
-    expect(p.slug, 'file name is the URL slug').toMatch(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
-    for (const lang of ['ar', 'en'] as const) expect(p[lang]?.title, `${p.slug}.${lang}`).toBeTruthy();
+    expect(p.slug, 'file name is the URL slug').toMatch(/^(?:[a-z0-9]+(?:-[a-z0-9]+)*|[\u0621-\u063A\u0641-\u064A0-9]+(?:-[\u0621-\u063A\u0641-\u064A0-9]+)*)$/);
+    expect(p.ar?.title, `${p.slug}.ar`).toBeTruthy();
   }
+});
+
+test('posts: an Arabic-only post with an Arabic slug stays out of the English lists; a section image is sized', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'posts-'));
+  const f = { date: '2026-11-01', title: 't', description: 'd', h1: 'h', lead: 'l', sections: [{ h: 'a', p: 'x\n\ny', image: { src: '/images/compressor-closeup-2-287.webp', alt: 'alt' } }] };
+  writeFileSync(join(dir, 'both-post.json'), JSON.stringify({ ar: f, en: f }));
+  writeFileSync(join(dir, 'مقال-تجر\u064Aب\u064A-1.json'), JSON.stringify({ ar: f }));
+  const list = published(dir, '2026-11-13');
+  expect([...arabicOnlyOf(list)]).toEqual(['مقال-تجر\u064Aب\u064A-1']);
+  expect(postItems('ar', list).map((i) => i.slug).sort()).toEqual(['both-post', 'مقال-تجر\u064Aب\u064A-1']);
+  expect(postItems('en', list).map((i) => i.slug)).toEqual(['both-post']);
+  const guides = guidesOf(list);
+  expect(Object.keys(guides['مقال-تجر\u064Aب\u064A-1']!)).toEqual(['ar']);
+  expect(Object.keys(guides['both-post']!).sort()).toEqual(['ar', 'en']);
+  expect(guides['both-post']!.en.sections[0]!.image).toMatchObject({ src: '/images/compressor-closeup-2-287.webp', width: 287, alt: 'alt' });
 });
 
 test('posts: WebP width and height from lossy, lossless and extended files', async () => {

@@ -9,7 +9,7 @@ export const feed = (lang: Lang) => {
   const c = content[lang];
   const name = lang === 'ar' ? site.brand.arabic : site.brand.english;
   const self = `${site.url}${localePath(lang, '/blog')}`;
-  const link = (slug: string) => `${site.url}${localePath(lang, `/blog/${slug}`)}`;
+  const link = (slug: string) => `${site.url}${encodeURI(localePath(lang, `/blog/${slug}`))}`;
   const items = c.blog.items.map((p) => {
     const date = isoDate(p.updated);
     return `    <item>\n      <title>${esc(p.h1)}</title>\n      <link>${link(p.slug)}</link>\n      <guid isPermaLink="true">${link(p.slug)}</guid>\n      <description>${esc(p.seo.description)}</description>\n${date ? `      <pubDate>${new Date(`${date}T08:00:00+03:00`).toUTCString()}</pubDate>\n` : ''}    </item>`;

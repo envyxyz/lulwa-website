@@ -23,7 +23,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           today=$(TZ=Asia/Riyadh date +%F)
-          live=$(curl -sf https://lulwa.com.sa/sitemap-blog.xml) || exit 1
+          raw=$(curl -sf https://lulwa.com.sa/sitemap-blog.xml) || exit 1
+          # The sitemap holds percent-encoded URLs; Arabic slugs are file names, so compare decoded.
+          live=$(python3 -c 'import sys, urllib.parse as u; print(u.unquote(sys.stdin.read()))' <<< "$raw")
           for f in src/content/blog/*.json; do
             slug=$(basename "$f" .json)
             if jq -e --arg t "$today" '.ar.draft != true and (.ar.date | type == "string" and test("^[0-9]{4}-[0-9]{2}-[0-9]{2}")) and (.ar.date[0:10] <= $t)' "$f" >/dev/null && ! grep -qF "/blog/$slug<" <<< "$live"; then
