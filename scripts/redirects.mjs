@@ -8,7 +8,7 @@ import { parseCsv } from './csv.mjs';
 const englishRoot = JSON.parse(readFileSync('src/english-root.json', 'utf8'));
 
 const HOST = 'lulwa.com.sa';
-const CMS_MOVED = false; // set true once cms.lulwa.com.sa has DNS and SSL: lulwa.com.sa/cms then 301s there
+const CMS_MOVED = true; // set true once cms.lulwa.com.sa has DNS and SSL: lulwa.com.sa/cms then 301s there
 const rows = parseCsv(readFileSync('docs/url-map.csv', 'utf8')).map(([old_path = '', action = '', target = '']) => ({ old_path, action, target }));
 
 for (const row of rows) {

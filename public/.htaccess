@@ -18,6 +18,7 @@ ErrorDocument 404 /404.html
   # The blog CMS subdomain (docroot public_html/cms) skips every root rule below.
   RewriteCond %{HTTP_HOST} ^cms\.lulwa\.com\.sa$ [NC]
   RewriteRule ^ - [L]
+  RewriteRule ^cms(?:/(.*))?$ https://cms.lulwa.com.sa/$1 [R=301,L,NE]
 
   ###########################################
   # 1) Block hidden, system and private files (.well-known stays open)

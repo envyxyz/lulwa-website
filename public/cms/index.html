@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <title>لولوه · إدارة المدونة</title>
-    <link rel="icon" href="https://lulwa.com.sa/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/lulwa-mark.svg" type="image/svg+xml" />
+    <style>
+      /* Lulwa look: the site's Arabic body font, and Sveltia's one base hue set to Lulwa teal (#0f6e7a = hue 187), which tints every accent in light and dark. html:root beats the :root rule Sveltia injects. */
+      @font-face { font-family: 'IBM Plex Sans Arabic'; src: url('/fonts/plex-arabic-400.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+      @font-face { font-family: 'IBM Plex Sans Arabic'; src: url('/fonts/plex-arabic-500.woff2') format('woff2'); font-weight: 500 700; font-display: swap; }
+      html:root { --sui-base-hue: 187; --sui-font-family-default: 'IBM Plex Sans Arabic', 'Source Sans 3', system-ui, sans-serif; }
+    </style>
   </head>
   <body>
-    <!-- Sveltia CMS, pinned version. Served at https://lulwa.com.sa/cms and https://cms.lulwa.com.sa/, so no relative or /cms/ paths. Config is inline below; headers in .htaccess beside this file. -->
+    <!-- Sveltia CMS, pinned version. Served at https://cms.lulwa.com.sa/ (docroot public_html/cms); lulwa.com.sa/cms 301s there, so / here means this folder. Config is inline below; headers in .htaccess beside this file. -->
     <script>window.CMS_MANUAL_INIT = true;</script>
     <script src="https://unpkg.com/@sveltia/cms@0.256.1/dist/sveltia-cms.js" integrity="sha384-LPT86oZkLhmoF84O1jKZBSaFJOVvKv8sjXDKap1SOaSwzbC8F6HH7rTJWekmAzG9" crossorigin="anonymous"></script>
     <script>
@@ -46,6 +52,8 @@
             },
           },
           site_url: 'https://lulwa.com.sa',
+          app_title: 'لولوه · إدارة المدونة',
+          logo: { src: '/lulwa-mark.svg', show_in_header: true },
           media_folder: 'public/images/blog',
           public_folder: '/images/blog',
           // Every upload becomes a WebP no larger than 1200 px, so a phone photo does not slow the page.
