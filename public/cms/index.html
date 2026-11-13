@@ -69,57 +69,123 @@
       // A slug is all English (lowercase letters, digits, hyphens) or all Arabic (Arabic letters, digits, hyphens). Same rule in scripts/check-guides.mjs.
       const slugPattern = `^${legacy}(?:[a-z0-9]+(?:-[a-z0-9]+)*|[ء-غف-ي0-9]+(?:-[ء-غف-ي0-9]+)*)$`;
 
-      // Preview of a post: the address it will have, how Google shows it, then the article itself.
+      // Click a text in the preview to jump to its box in the editor. Sveltia marks each edit pane with data-locale and each field with data-key-path.
+      const paneOf = (locale) => document.querySelector(`.content-editor .pane[data-mode="edit"][data-locale="${locale}"]`);
+      window.lulwaFocus = async (locale, keyPath) => {
+        const frame = () => new Promise((r) => requestAnimationFrame(r));
+        if (!paneOf(locale)) {
+          // The editor shows one language at a time: press its language tab first.
+          const names = [new Intl.DisplayNames(['ar'], { type: 'language' }).of(locale), new Intl.DisplayNames(['en'], { type: 'language' }).of(locale)];
+          const tab = [...document.querySelectorAll('.content-editor .pane[data-mode="edit"] button')].find((b) => names.includes(b.textContent.trim()));
+          tab?.click();
+          await frame(); await frame();
+        }
+        const pane = paneOf(locale) ?? document.querySelector('.content-editor .pane[data-mode="edit"]');
+        if (!pane) return;
+        // A collapsed list item has no inner boxes yet: fall back to the nearest part of the path that is on screen.
+        const parts = keyPath.split('.');
+        let box;
+        while (parts.length && !(box = pane.querySelector(`[data-key-path="${CSS.escape(parts.join('.'))}"]`))) parts.pop();
+        if (!box) return;
+        box.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        box.querySelector('input:not([type="hidden"]), textarea, [contenteditable="true"]')?.focus({ preventScroll: true });
+        box.animate([{ outline: '3px solid hsl(187 78% 40%)', outlineOffset: '2px' }, { outline: '3px solid transparent', outlineOffset: '2px' }], { duration: 1400 });
+      };
+
+      // Preview of a post in three tabs: the page as it will look on the site, how Google shows it, and its address in both languages.
       const h = window.h;
       const site = 'https://lulwa.com.sa';
       const count = (value, min, max) => {
         const n = [...(value || '')].length;
         const ok = n >= min && n <= max;
-        return h('span', { style: { color: ok ? 'hsl(140 60% 30%)' : 'hsl(5 70% 45%)', fontSize: '13px' } }, `${n} / ${min}–${max} ${ok ? '✓' : T('خارج الحد', 'out of range')}`);
+        return h('span', { style: { color: ok ? 'hsl(140 60% 30%)' : 'hsl(5 70% 45%)' } }, `${n} / ${min}–${max} ${ok ? '✓' : T('خارج الحد', 'out of range')}`);
       };
-      const PostPreview = ({ entry, locale, getAsset }) => {
-        const get = (...path) => entry.getIn(['data', ...path]);
-        const english = (locale || (entry.getIn(['i18n', 'ar']) ? 'en' : 'ar')) === 'en';
-        const slug = get('slug') || '';
-        const path = `${english ? '/en' : ''}/blog/${slug || T('عنوان-الصفحة', 'page-address')}`;
-        const asset = (src) => {
+      const ui = {
+        wrap: { fontFamily: "'IBM Plex Sans Arabic', system-ui, sans-serif", color: 'hsl(200 40% 12%)', background: '#fff', minHeight: '100%' },
+        tabs: { display: 'flex', gap: '4px', padding: '10px 12px 0', borderBottom: '1px solid hsl(187 20% 85%)', background: 'hsl(187 30% 97%)', position: 'sticky', top: 0, zIndex: 1 },
+        tab: (on) => ({ border: 0, borderBottom: `3px solid ${on ? 'hsl(187 78% 30%)' : 'transparent'}`, background: 'none', padding: '8px 14px', font: "500 14px 'IBM Plex Sans Arabic', system-ui, sans-serif", color: on ? 'hsl(187 78% 22%)' : 'hsl(200 15% 35%)', cursor: 'pointer' }),
+        body: { padding: '20px' },
+        box: { border: '1px solid hsl(187 20% 80%)', borderRadius: '12px', padding: '16px', margin: '0 0 16px', background: 'hsl(187 30% 97%)' },
+        label: { fontSize: '13px', fontWeight: 600, margin: '0 0 8px', color: 'hsl(187 78% 25%)' },
+        click: { cursor: 'pointer' },
+        note: { fontSize: '13px', color: 'hsl(200 15% 35%)', margin: '8px 0 0' },
+      };
+      const PostPreview = window.createClass({
+        getInitialState: () => ({ tab: 'page' }),
+        componentDidMount() { this.push(); },
+        componentDidUpdate() { this.push(); },
+        // Sveltia passes no locale prop; entry.i18n holds only the other languages, so English is being previewed when it holds Arabic.
+        locale() { return this.props.entry.getIn(['i18n', 'ar']) ? 'en' : 'ar'; },
+        asset(src) {
           if (!src) return '';
-          try { const a = getAsset?.(src); const s = a && typeof a.then !== 'function' ? String(a) : ''; return s && !s.startsWith('[object') ? s : site + src; } catch { return site + src; }
-        };
-        const box = { border: '1px solid hsl(187 20% 80%)', borderRadius: '12px', padding: '16px', margin: '0 0 20px', background: 'hsl(187 30% 97%)', color: 'hsl(200 40% 12%)' };
-        const label = (t) => h('div', { style: { fontSize: '13px', fontWeight: 600, margin: '0 0 8px', color: 'hsl(187 78% 25%)' } }, t);
-        const img = (src, alt) => src && h('img', { src: asset(src), alt: alt || '', style: { maxWidth: '100%', height: 'auto', borderRadius: '8px', display: 'block', margin: '12px 0' } });
-        const sections = get('sections')?.toJS?.() ?? [];
-        const faq = get('faq')?.toJS?.() ?? [];
-        return h('div', { dir: english ? 'ltr' : 'rtl', lang: english ? 'en' : 'ar', style: { fontFamily: "'IBM Plex Sans Arabic', system-ui, sans-serif", padding: '20px', lineHeight: 1.7, color: 'hsl(200 40% 12%)', background: '#fff' } },
-          h('div', { style: box },
-            label(T('رابط المقال بعد النشر', 'Address after publishing')),
-            h('div', { dir: 'ltr', style: { fontSize: '15px', overflowWrap: 'anywhere', textAlign: 'start' } }, site + path),
-            !slug && h('div', { style: { fontSize: '13px', marginTop: '6px' } }, T('اكتب عنوان الصفحة (slug) في الأعلى ليظهر الرابط الحقيقي.', 'Fill in the slug above to see the real address.')),
-          ),
-          h('div', { style: box },
-            label(T('كيف يظهر في جوجل', 'How Google shows it')),
-            h('div', { style: { fontSize: '13px', color: 'hsl(0 0% 30%)' } }, `lulwa.com.sa › ${english ? 'en › ' : ''}blog › ${slug}`),
-            h('div', { style: { fontSize: '19px', color: 'hsl(222 80% 40%)', margin: '2px 0' } }, get('title') || T('عنوان جوجل', 'SEO title')),
-            h('div', { style: { fontSize: '14px', color: 'hsl(0 0% 25%)' } }, get('description') || T('وصف جوجل', 'Meta description')),
-            h('div', { style: { display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '8px' } },
-              h('span', { style: { fontSize: '13px' } }, T('العنوان: ', 'Title: '), count(get('title'), 30, 60)),
-              h('span', { style: { fontSize: '13px' } }, T('الوصف: ', 'Description: '), count(get('description'), 120, 160)),
-            ),
-          ),
-          h('h1', { style: { fontSize: '28px', margin: '0 0 8px' } }, get('h1')),
-          h('p', { style: { fontSize: '17px' } }, get('lead')),
-          img(get('image'), get('image_alt')),
-          ...sections.map((s) => h('section', {},
-            h('h2', { style: { fontSize: '22px', margin: '24px 0 8px' } }, s.h),
-            ...String(s.p || '').split(/\n\s*\n/).filter(Boolean).map((t) => h('p', {}, t)),
-            ...(s.items || []).map((i) => h('div', {}, h('h3', { style: { fontSize: '18px', margin: '12px 0 4px' } }, i.h), h('p', {}, i.p))),
-            img(s.image?.src, s.image?.alt),
-          )),
-          faq.length > 0 && h('h2', { style: { fontSize: '22px', margin: '24px 0 8px' } }, T('أسئلة شائعة', 'FAQ')),
-          ...faq.map((f) => h('div', {}, h('h3', { style: { fontSize: '17px', margin: '12px 0 4px' } }, f.q), h('p', {}, f.a))),
-        );
-      };
+          if (/^(https?:|blob:|data:)/.test(src)) return src;
+          try { const a = this.props.getAsset?.(src); const s = a && typeof a.then !== 'function' ? String(a) : ''; return s && !s.startsWith('[object') ? s : site + src; } catch { return site + src; }
+        },
+        // The site-look page (preview-ar.html / preview-en.html, made by scripts/cms-preview.mjs) fills itself from this data.
+        push() {
+          const win = this.frame?.contentWindow;
+          if (!win?.lulwaRender) return;
+          const d = this.props.entry.getIn(['data'])?.toJS?.() ?? {};
+          const img = (src, alt) => (src ? { src: this.asset(src), alt: alt || '' } : null);
+          try {
+            win.lulwaRender({
+              h1: d.h1 || '', lead: d.lead || '', date: d.date || '', image: img(d.image, d.image_alt),
+              sections: (d.sections || []).map((s) => ({ h: s.h || '', p: s.p || '', items: (s.items || []).map((i) => ({ h: i.h || '', p: i.p || '' })), image: img(s.image?.src, s.image?.alt) })),
+              faq: (d.faq || []).map((f) => ({ q: f.q || '', a: f.a || '' })),
+            });
+          } catch (e) { console.warn('lulwa preview', e); }
+        },
+        render() {
+          const { entry } = this.props;
+          const locale = this.locale();
+          const english = locale === 'en';
+          const get = (...path) => entry.getIn(['data', ...path]);
+          const focus = (key) => () => window.lulwaFocus(locale, key);
+          const tabs = [['page', T('شكل الصفحة', 'Page')], ['google', T('جوجل', 'Google')], ['link', T('الرابط', 'Link')]];
+          const slugOf = (loc) => (loc === locale ? get('slug') : entry.getIn(['i18n', loc, 'data', 'slug'])) || '';
+          const address = (loc) => `${site}${loc === 'en' ? '/en' : ''}/blog/${slugOf(loc) || T('عنوان-الصفحة', 'page-address')}`;
+          const hasEnglish = english || !!entry.getIn(['i18n', 'en']);
+          let body;
+          if (this.state.tab === 'page') {
+            body = h('iframe', {
+              key: locale,
+              ref: (el) => { this.frame = el; },
+              src: `${location.origin}/preview-${locale}.html`,
+              title: T('معاينة الصفحة', 'Page preview'),
+              onLoad: () => this.push(),
+              style: { display: 'block', width: '100%', height: 'calc(100vh - 160px)', border: 0 },
+            });
+          } else if (this.state.tab === 'google') {
+            const title = get('title') || '', description = get('description') || '';
+            body = h('div', { style: ui.body, dir: english ? 'ltr' : 'rtl', lang: locale },
+              h('div', { style: ui.box },
+                h('div', { style: ui.label }, T('كيف يظهر في جوجل', 'How Google shows it')),
+                h('div', { style: { ...ui.click, fontSize: '13px', color: 'hsl(0 0% 30%)' }, onClick: focus('slug') }, `lulwa.com.sa › ${english ? 'en › ' : ''}blog › ${slugOf(locale)}`),
+                h('div', { style: { ...ui.click, fontSize: '19px', color: 'hsl(222 80% 40%)', margin: '2px 0' }, onClick: focus('title') }, title || T('عنوان جوجل', 'Google title')),
+                h('div', { style: { ...ui.click, fontSize: '14px', color: 'hsl(0 0% 25%)' }, onClick: focus('description') }, description || T('وصف جوجل', 'Google description')),
+              ),
+              h('div', { style: { ...ui.click, fontSize: '14px', margin: '0 0 6px' }, onClick: focus('title') }, T('عنوان جوجل: ', 'Google title: '), count(title, 30, 60)),
+              h('div', { style: { ...ui.click, fontSize: '14px' }, onClick: focus('description') }, T('وصف جوجل: ', 'Google description: '), count(description, 120, 160)),
+              h('p', { style: ui.note }, T('اضغط على أي نص لتعديله.', 'Click any text to edit it.')),
+            );
+          } else {
+            const row = (loc, name) => h('div', { style: { ...ui.box, ...ui.click }, onClick: () => window.lulwaFocus(loc, 'slug') },
+              h('div', { style: ui.label }, name),
+              h('div', { dir: 'ltr', style: { fontSize: '15px', overflowWrap: 'anywhere', textAlign: 'start' } }, address(loc)),
+              !slugOf(loc) && h('p', { style: ui.note }, T('اكتب عنوان الصفحة (slug) لتظهر الرابط الحقيقي.', 'Fill in the slug to see the real address.')),
+            );
+            body = h('div', { style: ui.body, dir: english ? 'ltr' : 'rtl' },
+              row('ar', T('رابط الصفحة العربية', 'Arabic page address')),
+              hasEnglish ? row('en', T('رابط الصفحة الإنجليزية', 'English page address')) : h('p', { style: ui.note }, T('هذا المقال عربي فقط: لا صفحة إنجليزية.', 'This post is Arabic only: no English page.')),
+              h('p', { style: ui.note }, T('الرابط يثبت بعد النشر: لا تغيّره بعدها، لأن جوجل يكون قد حفظه.', 'The address is fixed once published: do not change it after that, Google will have saved it.')),
+            );
+          }
+          return h('div', { style: ui.wrap },
+            h('div', { style: ui.tabs, role: 'tablist' }, ...tabs.map(([id, name]) => h('button', { key: id, type: 'button', role: 'tab', 'aria-selected': this.state.tab === id, style: ui.tab(this.state.tab === id), onClick: () => this.setState({ tab: id }) }, name))),
+            body,
+          );
+        },
+      });
       CMS.registerPreviewTemplate('blog', PostPreview);
 
       CMS.init({
@@ -177,11 +243,12 @@
               preview_path: '/blog/{{slug}}',
               fields: [
                 {
-                  name: 'slug', label: T('عنوان الصفحة (slug)', 'Page address (slug)'), widget: 'string', ...shared, required: true, minlength: 5, maxlength: 60,
+                  // Each language has its own slug: ar.slug is the file name and the Arabic address, en.slug the English address (src/content/posts.ts).
+                  name: 'slug', label: T('عنوان الصفحة (slug)', 'Page address (slug)'), widget: 'string', i18n: true, required: true, minlength: 5, maxlength: 60,
                   pattern: [slugPattern, T('كله عربي أو كله إنجليزي: حروف وأرقام وشرطات بين الكلمات، بلا مسافات', 'All Arabic or all English: letters, digits and hyphens between words, no spaces')],
                   hint: T(
-                    'يصبح رابط المقال، ويثبت بعد أول حفظ. عربي مثل مكيف-لا-يبرد، أو إنجليزي بحروف صغيرة مثل ac-not-cooling. العربي أنسب للمقال العربي فقط، والإنجليزي أنسب إذا كان للمقال نسخة إنجليزية. الرابط الكامل يظهر في المعاينة.',
-                    'Becomes the post\'s address and is fixed after the first save. Arabic, like مكيف-لا-يبرد, or lowercase English, like ac-not-cooling. Arabic suits an Arabic-only post; English suits a post that also has English. The full link shows in the preview.',
+                    'رابط هذه اللغة. في العربي يفضل عربي مثل مكيف-لا-يبرد، وفي الإنجليزي حروف إنجليزية صغيرة مثل ac-not-cooling. لا تغيّره بعد النشر. الرابط الكامل في تبويب "الرابط" بالمعاينة.',
+                    'The address in this language. On the Arabic tab Arabic is best, like مكيف-لا-يبرد; on the English tab lowercase English, like ac-not-cooling. Do not change it after publishing. The full link is in the preview\'s Link tab.',
                   ),
                 },
                 { name: 'draft', label: T('مسودة (مخفي من الموقع)', 'Draft (hidden from the site)'), widget: 'boolean', ...shared, default: true, hint: T('اتركها مفعلة حتى يجهز المقال. لإخفاء مقال منشور فعلها مرة أخرى.', 'Keep on until the post is ready. Switch it back on to take a published post off the site.') },

@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 @import './tokens.css';
+/* The blog editor's own page is not part of the site: its inline styles must not add utilities to the site CSS. */
+@source not '../../public/cms';
 
 /* size-adjust values printed by scripts/subset-fonts.py, so the swap does not shift the layout. */
 @font-face {

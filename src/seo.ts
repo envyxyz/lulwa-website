@@ -1,5 +1,5 @@
 import { site } from './site';
-import { arabicOnlySlug, content, decodePath, localePath, twinPath, type Lang } from './content';
+import { arabicOnlySlug, arabicPath, content, decodePath, localePath, twinPath, type Lang } from './content';
 
 type Faq = { q: string; a: string };
 type Named = { slug?: string; name?: string; h1?: string };
@@ -16,7 +16,7 @@ export const ids = {
 /** Canonical and reciprocal hreflang for a request path ('/en/x' or '/x'). Paths in, percent-encoded absolute URLs out; `en` is undefined for an Arabic-only post. */
 export const alternates = (pathname: string) => {
   const clean = decodePath(pathname).replace(/(\/index)?\.html$/, '').replace(/\/$/, '') || '/';
-  const ar = clean === '/en' ? '/' : clean.replace(/^\/en(?=\/)/, '');
+  const ar = arabicPath(clean);
   const url = (p: string) => (p === '/' ? `${site.url}/` : `${site.url}${encodeURI(p)}`);
   return { path: clean, arPath: ar, ar: url(ar), en: arabicOnlySlug(ar) ? undefined : url(twinPath(ar)) };
 };
@@ -146,7 +146,9 @@ export const breadcrumbs = (lang: Lang, pathname: string, title: string) => {
     const hub = c[section]?.h1;
     if (hub) trail.push({ name: hub, path: localePath(lang, `/${section}`) });
   }
-  trail.push({ name: parts.length > 1 ? crumbName(lang, parts[0]!, parts[1]!, title) : title, path: localePath(lang, arPath) });
+  // A post's English page may have its own slug, so the English trail uses the twin path.
+  const own = lang === 'ar' ? arPath : twinPath(arPath);
+  trail.push({ name: parts.length > 1 ? crumbName(lang, parts[0]!, own.split('/').pop()!, title) : title, path: own });
   return {
     '@type': 'BreadcrumbList',
     itemListElement: trail.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t.name, item: t.path === '/' ? `${site.url}/` : abs(encodeURI(t.path)) })),

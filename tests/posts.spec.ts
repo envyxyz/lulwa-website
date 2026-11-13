@@ -29,10 +29,13 @@ test('posts: an Arabic-only post with an Arabic slug stays out of the English li
   const f = { date: '2026-11-01', title: 't', description: 'd', h1: 'h', lead: 'l', sections: [{ h: 'a', p: 'x\n\ny', image: { src: '/images/compressor-closeup-2-287.webp', alt: 'alt' } }] };
   writeFileSync(join(dir, 'both-post.json'), JSON.stringify({ ar: f, en: f }));
   writeFileSync(join(dir, 'مقال-تجر\u064Aب\u064A-1.json'), JSON.stringify({ ar: f }));
+  writeFileSync(join(dir, 'مقال-ثنائي.json'), JSON.stringify({ ar: f, en: { ...f, slug: 'two-slugs-post' } }));
   const list = published(dir, '2026-11-13');
   expect([...arabicOnlyOf(list)]).toEqual(['مقال-تجر\u064Aب\u064A-1']);
-  expect(postItems('ar', list).map((i) => i.slug).sort()).toEqual(['both-post', 'مقال-تجر\u064Aب\u064A-1']);
-  expect(postItems('en', list).map((i) => i.slug)).toEqual(['both-post']);
+  expect(postItems('ar', list).map((i) => i.slug).sort()).toEqual(['both-post', 'مقال-ثنائي', 'مقال-تجر\u064Aب\u064A-1'].sort());
+  // en.slug: the English list links to it and the English guide is found by it; Arabic keeps the file name.
+  expect(postItems('en', list).map((i) => i.slug).sort()).toEqual(['both-post', 'two-slugs-post']);
+  expect(guidesOf(list)['two-slugs-post']!.en.sections).toHaveLength(1);
   const guides = guidesOf(list);
   expect(Object.keys(guides['مقال-تجر\u064Aب\u064A-1']!)).toEqual(['ar']);
   expect(Object.keys(guides['both-post']!).sort()).toEqual(['ar', 'en']);

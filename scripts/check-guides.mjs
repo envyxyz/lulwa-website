@@ -11,7 +11,7 @@ const blogDir = (dir) => Object.fromEntries(readdirSync(dir).filter((f) => f.end
   const post = JSON.parse(readFileSync(`${dir}/${f}`, 'utf8'));
   if (post.ar?.draft) return [];
   const g = (l) => post[l] && { ...post[l], meta: [post[l].title, post[l].description, post[l].h1, post[l].lead, post[l].image_alt ?? ''].join(' '), sections: (post[l].sections ?? []).map((s) => ({ ...s, p: String(s.p ?? '').split(/\n\s*\n/).filter((t) => t.trim()) })), faq: post[l].faq ?? [] };
-  return [[f.slice(0, -5), { ar: g('ar'), en: post.en?.title ? g('en') : undefined, blog: true }]];
+  return [[f.slice(0, -5), { ar: g('ar'), en: post.en?.title ? g('en') : undefined, enSlug: post.en?.title ? post.en.slug || undefined : undefined, blog: true }]];
 }));
 // Same list as tests/claims.spec.ts plus the launch-plan bans (docs/LAUNCH-PLAN.md).
 const BANNED = [/5,000/, /5000/, /10\+/, /98\s?%/, /4\.9/, /معتمد/, /certified/i, /24\s?ساعة/, /على مدار الساعة/, /24\/7/, /نفس اليوم/, /same[- ]day/i, /أصلية/, /خلال ساعة/, /ريال/, /\bSAR\b/,
@@ -27,6 +27,8 @@ const shingles = (t) => { const w = t.split(/\s+/).filter(Boolean); const s = ne
 const jac = (a, b) => { let i = 0; for (const x of a) if (b.has(x)) i++; return i / (a.size + b.size - i || 1); };
 const counts = (g, blog) => JSON.stringify([g.sections.map((s) => [blog ? 0 : s.p.length, (s.items ?? []).length]), g.faq.length]);
 
+// Everything that already lives under /en/blog besides posts (the list's RSS feed), plus the legacy English-root slugs.
+const enRoutes = new Set([...readdirSync('src/pages/en/blog').map((n) => n.replace(/\..*$/, '')).filter((n) => !n.startsWith('[')), ...JSON.parse(readFileSync('src/english-root.json', 'utf8')).map((p) => p.replace(/^\/blog\//, ''))]);
 let fail = 0;
 const out = (level, msg) => { if (level === 'FAIL') fail++; console.log(`${level} ${msg}`); };
 for (const file of files) {
@@ -43,6 +45,12 @@ for (const file of files) {
       for (const re of BANNED) { const m = text(g).match(re); if (m) out('FAIL', `${file} ${key}.${lang}: banned ${re} near "${text(g).slice(Math.max(0, m.index - 30), m.index + 30)}"`); }
       for (const s of g.sections) if (s.image && !String(s.image.alt ?? '').trim()) out('FAIL', `${file} ${key}.${lang}: section "${s.h}" has an image without alt text`);
       for (const s of g.sections) if (s.h.length > 80) out('WARN', `${file} ${key}.${lang}: long heading "${s.h}"`);
+    }
+    // en.slug: the English page address when it differs from the file slug. Same two patterns, and no clash with another post, an English route or a legacy slug.
+    if (e?.blog && e.enSlug !== undefined && e.enSlug !== key) {
+      const taken = entries.some(([k, o]) => k !== key && (k === e.enSlug || o?.enSlug === e.enSlug)) || enRoutes.has(e.enSlug);
+      if (typeof e.enSlug !== 'string' || !SLUG.some((re) => re.test(e.enSlug))) out('FAIL', `${file} ${key}: en.slug "${e.enSlug}" is neither lowercase Latin nor Arabic letters, digits and hyphens`);
+      else if (taken) out('FAIL', `${file} ${key}: en.slug "${e.enSlug}" is already another post's slug, a legacy slug or an existing /en/blog route`);
     }
     if (!e?.ar) continue;
     if (e.en && counts(e.ar, e.blog) !== counts(e.en, e.blog)) out('FAIL', `${file} ${key}: ar/en counts differ ${counts(e.ar, e.blog)} vs ${counts(e.en, e.blog)}`);

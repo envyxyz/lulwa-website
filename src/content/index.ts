@@ -1,7 +1,7 @@
 import { ar } from './ar';
 import { en } from './en';
 import englishRoot from '../english-root.json' with { type: 'json' };
-import { arabicOnly } from './posts';
+import { arabicOnly, enSlugs, fileSlugs } from './posts';
 
 export type Lang = 'ar' | 'en';
 export const content = { ar, en };
@@ -13,12 +13,21 @@ export const isEnglishRoot = (pathname: string) => englishRoot.includes(pathname
 export const decodePath = (pathname: string) => { try { return decodeURI(pathname); } catch { return pathname; } };
 /** The slug of an Arabic-only post at this Arabic path, else undefined. */
 export const arabicOnlySlug = (arPath: string) => { const slug = arPath.match(/^\/blog\/([^/]+)$/)?.[1]; return slug && arabicOnly.has(slug) ? slug : undefined; };
+/** The Arabic page of a clean path: /en/x is /x, and an English post with its own slug is the Arabic post's file slug. */
+export const arabicPath = (clean: string) => {
+  const en = clean.match(/^\/en\/blog\/([^/]+)$/)?.[1];
+  if (en && fileSlugs.has(en)) return `/blog/${fileSlugs.get(en)}`;
+  return clean === '/en' ? '/' : clean.replace(/^\/en(?=\/)/, '');
+};
 /** The exact same page in the other language. An Arabic-only post has none: its language switch goes to the English blog list. */
 export const twinPath = (pathname: string) => {
   const path = decodePath(pathname).replace(/(\/index)?\.html$/, '').replace(/\/$/, '') || '/';
   if (path === '/en') return '/';
   if (isEnglishRoot(path)) return path;
   if (arabicOnlySlug(path)) return '/en/blog';
+  const file = path.match(/^\/blog\/([^/]+)$/)?.[1];
+  if (file && enSlugs.has(file)) return `/en/blog/${enSlugs.get(file)}`;
+  if (path !== arabicPath(path)) return arabicPath(path);
   return path.startsWith('/en/') ? path.slice(3) : localePath('en', path);
 };
 // build.format 'file' makes the English home '/en.html' at build time.

@@ -20,7 +20,9 @@ const home = alt.path === '/' || alt.path === '/en';
 const shortTitle = title.split(' | ')[0]!;
 const graph = [...(carriesBusiness(Astro.url.pathname) ? [business(lang)] : []), ...pageNodes(lang, Astro.url.pathname, title, description), ...(home ? [] : [breadcrumbs(lang, Astro.url.pathname, shortTitle)]), ...ld];
 // Posts carry their date: article:modified_time and the article type.
-const postSlug = alt.arPath.startsWith('/blog/') ? alt.arPath.slice(6) : undefined;
+// The page's own slug: an English post may have a slug of its own.
+const ownPath = alt.path.replace(/^\/en(?=\/)/, '');
+const postSlug = ownPath.startsWith('/blog/') ? ownPath.slice(6) : undefined;
 const post = postSlug ? content[lang].blog.items.find((p) => p.slug === postSlug) : undefined;
 const modified = post && isoDate(post.updated);
 // A post's featured image is its share image; every other page shares the logo card.

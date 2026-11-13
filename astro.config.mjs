@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import { site } from './src/site.ts';
+import { enSlugs, fileSlugs } from './src/content/posts.ts';
 import englishRoot from './src/english-root.json' with { type: 'json' };
 
 // The kitchen sink exists only under `astro dev`, so it can never reach dist or the sitemap.
@@ -35,8 +36,9 @@ const sitemaps = {
           .filter((p) => !/^\/(en\/)?(thanks|404|logs|dev(\/|$))/.test(p) && p !== '/en/404')
           .map((p) => (p === '/en/' ? '/en' : p)),
       );
-      const arOf = (p) => (p === '/en' ? '/' : p.replace(/^\/en(?=\/)/, ''));
-      const enOf = (p) => (p === '/' ? '/en' : `/en${p}`);
+      // A post's English page may have its own slug (en.slug): the maps come from the post files.
+      const arOf = (p) => (p === '/en' ? '/' : /^\/en\/blog\/[^/]+$/.test(p) && fileSlugs.has(p.slice(9)) ? `/blog/${fileSlugs.get(p.slice(9))}` : p.replace(/^\/en(?=\/)/, ''));
+      const enOf = (p) => (p === '/' ? '/en' : /^\/blog\/[^/]+$/.test(p) && enSlugs.has(p.slice(6)) ? `/en/blog/${enSlugs.get(p.slice(6))}` : `/en${p}`);
       const full = (p) => (p === '/' ? `${site.url}/` : `${site.url}${encodeURI(p)}`);
       // A post carries its own date in a meta tag; everything else changed when the copy did.
       const lastmod = (p) => {

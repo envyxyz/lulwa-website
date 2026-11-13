@@ -29,7 +29,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/redirects.mjs && astro build && node scripts/postbuild.mjs",
+    "build": "node scripts/redirects.mjs && astro build && node scripts/postbuild.mjs && node scripts/cms-preview.mjs",
     "preview": "astro preview",
     "typecheck": "astro check",
     "lint": "eslint . && stylelint \"src/**/*.{css,astro}\"",

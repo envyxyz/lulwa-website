@@ -22,7 +22,7 @@ type Fields = {
   sections: { h: string; p: string; items?: { h: string; p: string }[]; image?: { src: string; alt: string } }[];
   faq?: { q: string; a: string }[];
 };
-type File = { ar: Fields; en?: Fields };
+type File = { ar: Fields; en?: Fields & { slug?: string } };
 const hasEn = (p: File) => Boolean(p.en?.title);
 const fieldsOf = (p: File, lang: Lang) => (lang === 'ar' ? p.ar : p.en!);
 
@@ -58,8 +58,13 @@ export const published = (from = dir, on = today()) =>
     .sort((a, b) => b.ar.date.localeCompare(a.ar.date) || a.slug.localeCompare(b.slug));
 
 const posts = published();
-
 type Published = ReturnType<typeof published>;
+
+/** English page slug per file slug, only where en.slug is set and differs (the English page is /en/blog/<en.slug>); and the reverse. */
+export const enSlugsOf = (list: Published) => new Map(list.filter((p) => hasEn(p) && p.en!.slug && p.en!.slug !== p.slug).map((p) => [p.slug, p.en!.slug!] as const));
+export const enSlugs = enSlugsOf(posts);
+export const fileSlugs = new Map([...enSlugs].map(([file, en]) => [en, file] as const));
+
 /** Slugs of posts with no English version. */
 export const arabicOnlyOf = (list: Published) => new Set(list.filter((p) => !hasEn(p)).map((p) => p.slug));
 export const arabicOnly = arabicOnlyOf(posts);
@@ -77,14 +82,17 @@ const readImage = (src: string | undefined, alt: string): Post['image'] => {
 const imageOf = (p: Published[number], lang: Lang) => readImage(p.ar.image, fieldsOf(p, lang).image_alt || p.ar.image_alt || fieldsOf(p, lang).h1);
 
 /** The blog list in ar.ts and en.ts. */
-export const postItems = (lang: Lang, list: Published = posts): Post[] =>
-  list.filter((p) => lang === 'ar' || hasEn(p)).map((p) => {
+export const postItems = (lang: Lang, list: Published = posts): Post[] => {
+  const en = enSlugsOf(list);
+  return list.filter((p) => lang === 'ar' || hasEn(p)).map((p) => {
     const f = fieldsOf(p, lang);
-    return { slug: p.slug, seo: { title: f.title, description: f.description }, h1: f.h1, lead: f.lead, updated: display(p.ar.date.slice(0, 10), lang), sections: [], image: imageOf(p, lang) };
+    return { slug: lang === 'en' ? en.get(p.slug) ?? p.slug : p.slug, seo: { title: f.title, description: f.description }, h1: f.h1, lead: f.lead, updated: display(p.ar.date.slice(0, 10), lang), sections: [], image: imageOf(p, lang) };
   });
+};
 
 /** The long-form body, in the shape guides.ts serves for every other page. */
-export const guidesOf = (list: Published) => Object.fromEntries(
+export const guidesOf = (list: Published) => {
+  const byFile = Object.fromEntries(
   list.map((p) => [
     p.slug,
     Object.fromEntries((['ar', 'en'] as const).filter((lang) => lang === 'ar' || hasEn(p)).map((lang) => [lang, {
@@ -97,5 +105,8 @@ export const guidesOf = (list: Published) => Object.fromEntries(
       faq: fieldsOf(p, lang).faq ?? [],
     } satisfies Guide])),
   ]),
-) as Record<string, Record<Lang, Guide>>;
+  ) as Record<string, Record<Lang, Guide>>;
+  // The English page looks its guide up by its own slug.
+  return { ...byFile, ...Object.fromEntries([...enSlugsOf(list)].map(([file, slug]) => [slug, byFile[file]!])) };
+};
 export const postGuides = guidesOf(posts);
