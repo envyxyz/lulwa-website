@@ -21,11 +21,11 @@ test('T1 sitemap has no dev or noindex pages', () => {
   expect(builtRoutes().filter((p) => /\/dev\/|\/thanks/.test(p))).toEqual([]);
 });
 
-// Same pages as the live site, no more (Ameer, 8 Nov 2026): the sitemap is exactly the 75 old URLs and 73 English twins (the two English posts have none).
+// Same pages as the live site, no more (Ameer, 8 Nov 2026): the sitemap is exactly the 75 old URLs and 75 English twins (the two English posts moved under /en on 10 Nov 2026).
 // The one exception is new blog posts the client publishes from the CMS (client request, 13 Nov 2026), each with its /en twin.
 test('T1 sitemap lists exactly the live URLs, their English twins and new CMS posts', () => {
   const live = [...new Set([...REQUIRED, ...REQUIRED.map(enTwin)])];
-  expect(live.length, '75 live URLs + 73 /en twins').toBe(148);
+  expect(live.length, '75 live URLs + 75 /en twins').toBe(150);
   const fresh = published().filter((p) => !REQUIRED.includes(`/blog/${p.slug}`));
   // The sitemap holds percent-encoded paths (Arabic slugs); an Arabic-only post (no en.title) has no English twin.
   const posts = fresh.map((p) => encodeURI(`/blog/${p.slug}`));
