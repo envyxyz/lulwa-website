@@ -23,6 +23,12 @@ type Fields = {
   faq?: { q: string; a: string }[];
 };
 type File = { ar: Fields; en?: Fields & { slug?: string } };
+// The editor's toolbar writes **bold**, _italic_ and [text](url). Escape everything, then turn those into tags; links must be http(s), tel:, mailto: or start with /.
+const md = (t: string) =>
+  t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/\[([^\]]+)\]\(((?:https?:\/\/|tel:|mailto:|\/)[^\s)"]*)\)/g, (_m, a, u) => `<a href="${u}" class="underline">${a}</a>`)
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/(^|[\s(])[_*]([^_*]+)[_*](?=$|[\s).,،؛:!?])/g, '$1<em>$2</em>');
 const hasEn = (p: File) => Boolean(p.en?.title);
 const fieldsOf = (p: File, lang: Lang) => (lang === 'ar' ? p.ar : p.en!);
 
@@ -100,7 +106,7 @@ export const guidesOf = (list: Published) => {
         // The image is added per language in the editor: English falls back to the Arabic section's picture and alt.
         const ar = p.ar.sections?.[i]?.image;
         const image = readImage(s.image?.src ?? ar?.src, s.image?.alt || ar?.alt || '');
-        return { h: s.h, p: s.p.split(/\n\s*\n/).map((t) => t.trim()).filter(Boolean), ...(s.items?.length ? { items: s.items } : {}), ...(image ? { image } : {}) };
+        return { h: s.h, p: s.p.split(/\n\s*\n/).map((t) => md(t.trim())).filter(Boolean), ...(s.items?.length ? { items: s.items.map((i) => ({ ...i, p: md(i.p) })) } : {}), ...(image ? { image } : {}) };
       }),
       faq: fieldsOf(p, lang).faq ?? [],
     } satisfies Guide])),

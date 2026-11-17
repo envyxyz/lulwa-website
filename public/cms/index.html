@@ -62,6 +62,8 @@
       };
       // Same value in both languages, edited on the Arabic side.
       const shared = { i18n: 'duplicate' };
+      // Rich-text toolbar for body text: only what the site renders (bold, italic, link). The editor's raw-markdown tab stays.
+      const md = ['bold', 'italic', 'link'];
       const text = (name, label, extra = {}) => ({ name, label, widget: 'string', i18n: true, ...clean, ...extra });
 
       // The 3 legacy posts keep their ranked meta, which is longer than the limits below, so they stay out of the editor and their slugs cannot be reused.
@@ -271,7 +273,7 @@
                   hint: T('أضف الأقسام في العربي، وتظهر نفسها في الإنجليزي لتكتب ترجمتها.', 'Add sections on the Arabic side; they appear on the English side for the translation.'),
                   fields: [
                     text('h', T('عنوان القسم (H2)', 'Section heading (H2)'), { maxlength: 45, hint: T('حتى 45 حرف.', 'Up to 45 characters.') }),
-                    { name: 'p', label: T('النص', 'Text'), widget: 'text', i18n: true, ...clean, hint: T('افصل بين الفقرات بسطر فارغ.', 'Leave an empty line between paragraphs.') },
+                    { name: 'p', label: T('النص', 'Text'), widget: 'markdown', buttons: md, editor_components: [], i18n: true, ...clean, hint: T('اختر النص ثم استخدم الشريط: غامق، مائل، رابط. افصل بين الفقرات بسطر فارغ.', 'Select text, then use the toolbar: bold, italic, link. Leave an empty line between paragraphs.') },
                     {
                       name: 'items',
                       label: T('نقاط بعناوين (اختياري)', 'Sub-points (optional)'),
@@ -280,7 +282,7 @@
                       i18n: 'duplicate',
                       required: false,
                       summary: '{{h}}',
-                      fields: [text('h', T('عنوان النقطة (H3)', 'Point heading (H3)'), { maxlength: 40, hint: T('حتى 40 حرف.', 'Up to 40 characters.') }), { name: 'p', label: T('النص', 'Text'), widget: 'text', i18n: true, ...clean }],
+                      fields: [text('h', T('عنوان النقطة (H3)', 'Point heading (H3)'), { maxlength: 40, hint: T('حتى 40 حرف.', 'Up to 40 characters.') }), { name: 'p', label: T('النص', 'Text'), widget: 'markdown', buttons: md, editor_components: [], i18n: true, ...clean }],
                     },
                     {
                       name: 'image',
